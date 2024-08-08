@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience Croatia</title>
+</head>
+<body>
+    {% for request in request %}
+        {{ request.travel_dates }}<br>
+        {{ request.flexible_dates }}<br>
+        {{ request.include_flights }}<br>
+        {{ request.flying_from }}<br>
+        {{ request.include_concerts }}<br>
+        {{ request.include_guide }}<br>
+        {{ request.include_excursions }}<br>
+        {{ request.number_adult_guests }}<br>
+        {{ request.number_kids_guests }}<br>
+        {{ request.preferred_contact }}<br>
+        {{ request.other_info }}<br>
+    {% endfor %}
+</body>
+</html>
