@@ -66,7 +66,7 @@ button {
   nav ul:not(.dropdown-content)>li>a {
     font-size: 1.5rem;
     font-weight: bolder;
-    color: #50bacf;
+    color: #0e6107;
     display: block;
     padding: 0 15px;
     cursor: pointer;
@@ -77,18 +77,18 @@ button {
   }
   .nav-link:hover{
     background-color: #Fff3e0;
-    color:#50bacf;
+    color:#b8cf50;
   }
   .hovered {
     background-color: rgba(250,236,217, 0.4);
-    color:#50bacf;
+    color:#b8cf50;
   }
   .mobile-menu nav ul:not(.dropdown-content)>li>a {
-    color:#Fff3e0;
+    color:#0e6107;
   }
   
   .mobile-menu nav ul:not(.dropdown-content)>li>a:hover{
-    color:#50bacf;
+    color:#b8cf50;
   }
   
   .mobile-nav {
@@ -107,7 +107,7 @@ button {
     width: 50%;
     height: 100vh;
     z-index: 3;
-    background-color: #50bacf;
+    background-color: #0e6107;
     transition: left .3s;
     display: none;
     padding-top: 70px;
@@ -123,17 +123,17 @@ button {
   
   
   nav ul:not(.dropdown-content)>li>a:hover:not(.active) {
-    background-color: rgba(88, 126, 123, 0.4)
+    background-color: 0e6107(88, 126, 123, 0.4)
   }
   
   .nav-link:hover{
     background-color: #Fff3e0;
-    color:#17353B;
+    color:#b8cf50;
   }
   
   .hovered {
     background-color: rgba(250,236,217, 0.4);
-    color:#17353B;
+    color:#b8cf50;
   }
   
   /* inspired from The Great Wall of Gratitude https://github.com/VCGithubCode/Gratidudes */
@@ -170,4 +170,10 @@ button {
   input:checked~.hamburger span:nth-child(3) {
     transform: translateY(-12px) rotate(45deg);
   }
-  /** index test**/
+  /** Register Form**/
+.card-panel {
+    border-radius: 1%;
+}
+small{
+    margin-left: 3%;
+}
