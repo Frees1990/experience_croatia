@@ -24,6 +24,14 @@ def get_request():
     return render_template("request.html", request=request)
 
 
+@app.route("/index.html")
+def index():
+    """
+    Function to render to homepage if not logged in
+    """
+    return render_template("index.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
