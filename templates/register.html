@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="row">
+        <div class="col s12">
+            <h3 class="center">Experience Croatia</h4>
+                <h5 class="center">Experience the wonderful culture, night life and the sunny life in Croatia <br> Register
+                    to receive exclusive offers </h5>
+        </div>
+    </div>
+    <div class="row">
+        <form class="card-panel custom-card lighten-5 col s12 m8 offset-m2 p-5" method="POST"
+            action="{{ url_for('register') }}">
+            <!-- signee name -->
+            <div class="row">
+                <div class="input-field col s12 m-3">
+                    <i class="fas fa-user prefix green-text text-darken-4"></i>
+                    <input id="name" name="name" type="text" pattern="[A-Za-z ]{5,32}" class="validate" required
+                        aria-required="true">
+                    <label for="name">Full Name</label>
+                </div>
+            </div>
+            <!-- Email-->
+            <div class="row">
+                <div class="input-field col s12 m-3">
+                    <i class="fas fa-envelope prefix green-text text-darken-4"></i>
+                    <input id="email" name="email" type="email" minlength="5" maxlength="100" class="validate" required
+                        aria-required="true">
+                    <label for="email">E-mail</label>
+                </div>
+            </div>
+            <!-- Phone number-->
+            <div class="row">
+                <div class="input-field col s12 m-3">
+                    <i class="fas fa-mobile prefix green-text text-darken-4"></i>
+                    <input id="number" name="number" type="number" minlength="5" maxlength="15" class="validate" required
+                        aria-required="true">
+                    <label for="number">Mobile Number</label>
+                </div>
+            </div>
+
+            <!-- username -->
+            <div class="row">
+                <div class="input-field col s12 m-3">
+                    <i class="fas fa-user-plus prefix green-text text-darken-4"></i>
+                    <input id="username" name="username" type="text" minlength="5" maxlength="15"
+                        pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required aria-required="true">
+                    <label for="username">Username</label>
+                    <small>(Username must be less than 15 characters)</small>
+                </div>
+            </div>
+            <!-- password -->
+            <div class="row">
+                <div class="input-field col s12 m-3">
+                    <i class="fas fa-user-lock prefix green-text text-darken-4"></i>
+                    <input id="password" name="password" type="password" minlength="8"
+                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="validate" required aria-required="true">
+                    <label for="password">Password</label>
+                    <small>(Must contain at least one number and one uppercase and lowercase letter, and at least 8 or
+                        more characters)</small>
+                </div>
+            </div>
+            <!-- Confirm password -->
+            <div class="row">
+                <div class="input-field col s12 m-3">
+                    <i class="fas fa-user-lock prefix green-text text-darken-4"></i>
+                    <input id="confirm_password" name="confirm_password" type="password" minlength="8"
+                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="validate" required aria-required="true">
+                    <label for="confirm_password">Confirm Password</label>
+                    <small>(Passwords must be the same)</small>
+
+                </div>
+            </div>
+            <!-- register -->
+            <div class="row">
+                <button type="submit" class="col s12 btn-large green darken-3">
+                    <b>Register</b> <i class="fas fa-sign-in-alt"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
