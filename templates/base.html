@@ -24,9 +24,10 @@
                 <li><a class="dropdown-trigger" href="#" data-target="manage_account">Manage Account</i>
                             <i class="fas fa-caret-down"></i></a></li>
                 <li><a href="{{url_for('index')}}">Home</a></li>
+                <li><a href="{{url_for('userdoesnotexist')}}"></a></li>
                 <li><a href="">Contact us</a></li>
                 <li><a href="{{url_for('register')}}">Register</a></li>
-                <li><a href="">Log In</a></li>
+                <li><a href="{{ url_for('login') }}">Log In</a></li>
             </ul>
             <!-- Manage account dropdown content -->
             <ul id="manage_account" class="dropdown-content custom-card">
@@ -65,8 +66,8 @@
                             <!-- Navigation bar shown when user is not signed in -->
                             <li><a href="{{url_for('index')}}">Home</a></li>
                             <li class="nav-link"><a href="">Contact us!</a></li>
-                            <li class="nav-link"><a href="">Register</a></li>
-                            <li class="nav-link"><a href="">Log In</a></li>
+                            <li class="{{ url_for('register') }}"><a href="">Register</a></li>
+                            <li class="{{ url_for('login') }}"><a href="">Log In</a></li>
                         </ul>
                     </nav>
                 </div>
