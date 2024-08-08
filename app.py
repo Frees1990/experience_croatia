@@ -4,6 +4,7 @@ from flask import (
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
 
@@ -34,6 +35,12 @@ def index():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    """
+    Renders template for 'registration'
+
+    Adds new user to MongoDB collect 'Users' then redirects to profile
+
+    """
     if request.method == "POST":
         # check if username already exists in db
         existing_user = mongo.db.users.find_one(
@@ -43,10 +50,34 @@ def register():
             flash("Username already exists")
             return redirect(url_for("register"))
 
+        # Grab variables from form:
+
+        name = request.form.get("name")
+        email = request.form.get("email")
+        number = request.form.get("number")
+        username = request.form.get("username")
+        password = request.form.get("password")
+        confirm_password = request.form.get("confirm_password")
+
+        #  Registration form validation
+        if [name, email, number, username, password, confirm_password] is None:
+            flash("Registration failed: Please complete the required fields")
+            return redirect(url_for("register"))
+        if len(username) < 5 or len(username) > 30:
+            flash("Registration failed: Please complete the required fields")
+            return redirect(url_for("register"))
+        # https://www.w3schools.com/python/ref_string_isalnum.asp
+        if not password.isalnum() and len(password) < 8:
+            flash("Registration failed: Please complete the required fields")
+            return redirect(url_for("register"))
+        if password != confirm_password:
+            flash("Registration failed: Please complete the required fields")
+            return redirect(url_for("register"))
         register = {
+            "name": request.form.get("name").lower(),
+            "email": request.form.get("email").lower(),
+            "number": request.form.get("number"),
             "username": request.form.get("username").lower(),
-            "email":request.form.get("email").lower(),
-            "number":request.form.get("number").lower(),
             "password": generate_password_hash(request.form.get("password"))
         }
         mongo.db.users.insert_one(register)
