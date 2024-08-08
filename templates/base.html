@@ -18,8 +18,8 @@
             <a href="" aria-label=></a>
 
             <ul class="right hide-on-med-and-down">
-                <li><a href="">Profile</a></li>
-                <li><a href="">Request Brochure</a></li>
+                <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                <li><a href=""></a></li>
                 <li><a href="">Contact Us</a></li>
                 <li><a class="dropdown-trigger" href="#" data-target="manage_account">Manage Account</i>
                             <i class="fas fa-caret-down"></i></a></li>
@@ -49,8 +49,8 @@
                 <div class="col s12">
                     <nav class="mobile-nav">
                         <ul class="mobile-list">
-                            <li class="nav-link"><a href="">Profile</a></li>
-                            <li class="nav-link"><a href="">Request Brochure</a></li>
+                            <li class="{{ url_for('profile', username=session['user']) }}"><a href="">Profile</a></li>
+                            <li class="nav-link"><a href=""></a></li>
                             <li class="nav-link"><a href="">Contact us</a></li>
                             <li class="nav-link"><a href="#" id="manage-account">Manage Account</a></li>
                             <li>
