@@ -31,6 +31,14 @@ def index():
     Function to render to homepage if not logged in
     """
     return render_template("index.html")
+  
+
+@app.route("/userdoesnotexist.html")
+def userdoesnotexist():
+    """
+    Function to render to homepage if not logged in
+    """
+    return render_template("userdoesnotexist.html")
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -86,6 +94,53 @@ def register():
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!")
     return render_template("register.html")
+
+
+# LOGIN
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    """
+
+    Renders template for 'login'.
+
+    looks up user details in MongoDB collection users
+
+    """
+    if request.method == "POST":
+        # Validate that username and password is not an empty string:
+        username = request.form.get("username")
+        password = request.form.get("password")
+        if username is None:
+            flash("Incorrect Username and/or Password")
+            return redirect(url_for("login"))
+        if password is None:
+            flash("Incorrect Username and/or Password")
+            return redirect(url_for("login"))
+
+        # check if username exists in db
+        existing_user = mongo.db.users.find_one(
+            {"username": username}
+        )
+
+        if existing_user:
+            # ensure hashed password matches user input
+            if check_password_hash(existing_user["password"], password):
+                session["user"] = username
+                flash("Welcome, {}".format(username))
+                return redirect(url_for(
+                    "profile", username=session["user"]
+                ))
+                # invalid password match
+            flash("Incorrect Username and/or Password")
+            return redirect(url_for("login"))
+
+        else:
+            # username doesn't exist
+            flash("Username does not exist")
+            return redirect(url_for("userdoesnotexist"))
+
+    return render_template("login.html")
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
