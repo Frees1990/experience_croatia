@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
-        integrity="sha512-xA6Hp6oezhjd6LiLZynuukm80f8BoZ3OpcEYaqKoCV3HKQDrYjDE1Gu8ocxgxoXmwmSzM4iqPvCsOkQNiu41GA==" crossorigin="anonymous" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
+        integrity="sha512-xA6Hp6oezhjd6LiLZynuukm80f8BoZ3OpcEYaqKoCV3HKQDrYjDE1Gu8ocxgxoXmwmSzM4iqPvCsOkQNiu41GA=="
+        crossorigin="anonymous" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+        type="text/css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
-    {% block styles %}
-    {% endblock %}
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "-don_h0ZLVNiJC-O2",
+            });
+        })();
+    </script>
     <title>Experience Croatia</title>
 </head>
+
 <body>
     <header>
         <!-- Navigation bar for large screens -->
@@ -20,15 +31,14 @@
             <ul class="right hide-on-med-and-down">
                 {% if session.user %}
                 <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                <li><a href=""></a></li>
-                <li><a href="">Contact Us</a></li>
+                <li><a href="{{url_for('contact')}}">Contact Us</a></li>
                 <li><a class="dropdown-trigger" href="#" data-target="manage_account">Manage Account</i>
-                            <i class="fas fa-caret-down"></i></a></li>
-                
+                        <i class="fas fa-caret-down"></i></a></li>
+
                 {% else %}
                 <li><a href="{{url_for('index')}}">Home</a></li>
                 <li><a href="{{url_for('userdoesnotexist')}}"></a></li>
-                <li><a href="">Contact us</a></li>
+                <li><a href="{{url_for('contact')}}">Contact us</a></li>
                 <li><a href="{{url_for('register')}}">Register</a></li>
                 <li><a href="{{ url_for('login') }}">Log In</a></li>
                 {% endif %}
@@ -36,7 +46,7 @@
             <!-- Manage account dropdown content -->
             <ul id="manage_account" class="dropdown-content custom-card">
                 {% if session.user == "systemadmin" %}
-                <li><a href=""class="teal-text text-darken-4">Account Manager</a></li>
+                <li><a href="" class="teal-text text-darken-4">Account Manager</a></li>
                 {% endif %}
                 <li><a href="" class="teal-text text-darken-4">Change Password</a></li>
                 <li><a href="{{ url_for('logout') }}">Log Out</a></li>
@@ -58,8 +68,7 @@
                             <!-- Navigation bar shown when user is signed in -->
                             {% if session.user %}
                             <li class="{{ url_for('profile', username=session['user']) }}"><a href="">Profile</a></li>
-                            <li class="nav-link"><a href=""></a></li>
-                            <li class="nav-link"><a href="">Contact us</a></li>
+                            <li class="nav-link"><a href="{{url_for('contact')}}">Contact us</a></li>
                             <li class="nav-link"><a href="#" id="manage-account">Manage Account</a></li>
                             <li>
                                 <ul class="mobile-list">
@@ -69,14 +78,15 @@
                                     {% endif %}
                                     <!-- Navigation bar shown if normal user is signed in  -->
                                     <li class="nav-link manage-account-link"><a href="">Change Password</a></li>
-                                    <li class="nav-link manage-account-link"><a href="{{ url_for('logout') }}">Log Out</a>
+                                    <li class="nav-link manage-account-link"><a href="{{ url_for('logout') }}">Log
+                                            Out</a>
                                     </li>
                                 </ul>
                             </li>
                             {% else %}
                             <!-- Navigation bar shown when user is not signed in -->
                             <li><a href="{{url_for('index')}}">Home</a></li>
-                            <li class="nav-link"><a href="">Contact us!</a></li>
+                            <li class="nav-link"><a href="{{url_for('contact')}}">Contact us!</a></li>
                             <li class="{{ url_for('register') }}"><a href="">Register</a></li>
                             <li class="{{ url_for('login') }}"><a href="">Log In</a></li>
                             {% endif %}
@@ -113,4 +123,5 @@
     {% block scripts %}
     {% endblock %}
 </body>
+
 </html>

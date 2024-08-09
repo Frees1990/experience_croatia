@@ -176,3 +176,16 @@ button {
     margin-top: 4rem;
   }
   
+  /*  --------------------------------------- CONTACT PAGE */
+
+#thank-you-feedback {
+  display: none;
+}
+
+#no-card-display {
+  display: none;
+}
+
+#no-house-display{
+  display: none;
+}

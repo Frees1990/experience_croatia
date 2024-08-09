@@ -167,6 +167,14 @@ def logout():
     return redirect(url_for("login"))
 
 
+@app.route("/contact", methods=["GET"])
+def contact():
+    """
+    Render's contact page template
+    """
+    email_api = os.environ.get("EMAIL_API")
+    return render_template("contact.html", email_api=email_api)
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
