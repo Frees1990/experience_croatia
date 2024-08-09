@@ -171,16 +171,8 @@ button {
     transform: translateY(-12px) rotate(45deg);
   }
   /** Register Form**/
-.card-panel {
-    border-radius: 1%;
-}
-small{
-    margin-left: 3%;
-}
 
-
-
-
-.profilecard {
+  .page-container {
+    margin-top: 4rem;
+  }
   
-}
