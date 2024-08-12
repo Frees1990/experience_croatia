@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+{% block content %}
+    <section class="container page-container">
+        <!-- Call out heading -->
+        <div class="row my-4">
+            <div class="col s12 black-text">
+                <h4 class="m-0">Let's plan your dream get away</h4>
+                <p>Travelers Information</p>
+            </div>
+        </div>
+        <!--  Back to profile button -->
+        <div class="row my-4">
+            <div class="col s12">
+                <a href="{{ url_for('profile', username=session['user']) }}"
+                class="btn icon-left waves-effect waves-light green darken-3 white-text text-lighten-4"><i class="fas fa-hand-point-left white-text"></i>&nbsp;Back to Profile</a>
+            </div>
+        </div>
+        <div class="card-panel custom-card row">
+            <div class="col s12 p-4">
+                <!-- Form for adding a travel info entry -->
+                <form action="{{ url_for('travel_info') }}" method="POST" enctype="multipart/form-data"
+                    class="white-text text-darken-4" name="add_travel" onsubmit="return validateForm()">
+                    <!-- input field for Preferred travel dates -->
+                    <div class="row">
+                        <div class="input-field col s12 m6 m-3">
+                            <i class="fas fa-calendar-alt fa-lg prefix" style="color: #0b5606;"></i>
+                            <input type="text" class="datepicker" id="travel_dates" name="travel_dates" required
+                                aria-required="true">
+                            <label for="travel_dates">Preferred Travel date:</label>
+                        </div>
+                        <!-- input field to answer if travel dates are flexible -->
+                        <div class="input-field col s12 m6 m-3">
+                            <i class="fas fa-calendar-alt fa-lg prefix" style="color: #0b5606;"></i>
+                            <input id="flexible_dates" name="flexible_dates" type="text" class="validate" required aria-required="true">
+                            <label for="flexible_dates">Travel Dates Flexible? Yes/No/Maybe:</label>
+                        </div>
+                    </div>
+                    <!-- input field for include flights? -->
+                    <div class="row">
+                        <div class="input-field col s12 m6 m-3">
+                            <i class="fas fa-plane-departure"></i>
+                            <input id="include_flight" name="include_flight" type="text" class="validate" required aria-required="true">
+                            <label for="include_flight">Include Flights?:</label>
+                        </div>
+                        <!-- input field for preferred departure airport -->
+                        <div class="input-field col s12 m6 m-3">
+                            <i class="fas fa-plane-departure"></i>
+                            <input id="flying_from" name="flying_from" type="text" class="validate" required aria-required="true">
+                            <label for="flying_from">Preferred Departure Port:</label>
+                        </div>
+                    </div>
+                    <!-- input field for number of adult guests -->
+                    <div class="row">
+                        <div class="input-field outlined col s12 m6 m-3">
+                            <i class="fas fa-male"></i>
+                            <i class="fas fa-female"></i>
+                            <input id="number_adult_guests" name="number_adult_guests" type="number" min="1" max="15" class="validate"
+                                required aria-required="true">
+                            <label for="number_adult_guests">Adult Guests:</label>
+                        </div>
+                        <!-- input field for number of children guests -->
+                        <div class="input-field outlined col s12 m6 m-3">
+                            <i class="fas fa-child"></i>
+                            <input id="number_kids_guests" name="number_kids_guests" type="number" min="1" max="7" step=".5"
+                                class="validate" required aria-required="true">
+                            <label for="number_kids_guests">Chilsden Guests:</label>
+                        </div>
+                    </div>
+                    <div class="row my-4">
+                        <div class="col s12 m6 m-3 black-text">
+                            <h6 class="m-0">Extras</h6>
+                        </div>
+                    </div>
+                    <!-- input field for concerts -->
+                    <div class="row">
+                        <div class="input-field col s12 m6 m-3">
+                            <i class="fas fa-guitar"></i>
+                            <input id="include_concerts" name="include_concerts" type="text" class="validate" required aria-required="true">
+                            <label for="include_concerts">Include concerts in your trip?:</label>
+                        </div>
+                        <!-- input field for excursions-->
+                        <div class="input-field col s12 m6 m-3">
+                            <i class="fas fa-guitar"></i>
+                            <input id="include_excursions" name="include_excursions" type="text" class="validate" required aria-required="true">
+                            <label for="include_excursions">Include excursions in your trip?:</label>
+                        </div>
+                        <!-- input field for guide-->
+                        <div class="input-field col s12 m6 m-3">
+                            <i class="fas fa-id-badge"></i>
+                            <input id="include_guide" name="include_guide" type="text" class="validate" required aria-required="true">
+                            <label for="include_guide">Include a guide in your trip?:</label>
+                        </div>
+                    </div>
+
+                    <!-- input field for other requests -->
+                    <div class="row">
+                        <div class="input-field col s12 m6 m-3">
+                            <input id="other_info" name="other_info" type="text" class="validate" required aria-required="true">
+                            <label for="other_info">Anything else we need to know about?:</label>
+                        </div>
+                    </div>
+                    <!-- Preferred Contact -->
+                    <div class="row">
+                        <div class="input-field col s12 m6 m-3">
+                            <input id="preferred_contact" name="preferred_contact" type="text" class="validate" required aria-required="true">
+                            <label for="preferred_contact">How do you want us to contact you?:</label>
+                        </div>
+                    </div>
+                    <!-- submit button -->
+                    <div class="row center">
+                        <div class="col s12 m-3">
+                            <button
+                                class="btn rounded icon-left waves-effect waves-light green darken-3 orange-text text-lighten-4 m-2"
+                                type="submit">
+                                <i class="fas fa-plus-circle"></i>&nbsp;Save Property
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+  
+{% endblock %}
