@@ -187,7 +187,7 @@ def travel_info():
         flash("Travel Information Added!")
         return redirect(url_for("profile", username=session["user"]))
     else:
-        return render_template("trave;_info.html")
+        return render_template("travel_info.html")
 
 
 # LOGOUT
