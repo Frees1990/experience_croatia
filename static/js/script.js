@@ -2,8 +2,9 @@
 // Main Function 
 $(document).ready(function () {
     sideNav();
+    selectForm();
     initialiseDropdown();
-
+    datepicker();
 });
   
 /** Initialisation of sidenav*/
@@ -20,4 +21,61 @@ function initialiseDropdown() {
         coverTrigger: false,
     });
 }
+
+function selectForm() {
+    const elems = document.querySelectorAll('select');
+    M.FormSelect.init(elems);
   
+    // Credits to Tim Nelson for helping fix Materialize select bug
+    // Wait for the Materialize initialization to complete
+    setTimeout(() => {
+      // Select each .select-wrapper.input-field and swap the label and ul if needed
+      $('.select-wrapper.input-field').each(function () {
+        const $parentDiv = $(this);
+  
+        // get the label and ul within the parent div
+        const $label = $parentDiv.children('label');
+        const $ul = $parentDiv.children('ul.select-dropdown');
+        const $caret = $parentDiv.find('svg.caret');
+        const $input = $parentDiv.find('input.select-dropdown');
+  
+        // move the label before the ul if it's not already
+        if ($label.length && $ul.length && $label.next()[0] !== $ul[0]) {
+          $label.insertBefore($ul);
+        }
+  
+        // Ensure the caret triggers the dropdown
+        if ($caret.length && $input.length) {
+          $caret.on('click', function () {
+            $input.trigger('click');
+          });
+        }
+  
+        // Close the dropdown when an option is clicked
+        $ul.children('li').on('click', function () {
+          $input.trigger('click');
+        });
+      });
+    }, 0);
+  }
+  
+/** Initialisation of Materialize datepicker elements*/
+function datepicker() {
+    const elems = document.querySelectorAll('.datepicker');
+    const today = new Date();
+    // Calculate the date 3 months from `today`
+    // Credits to Tim Nelson for helping calculate the three months
+    const threeMonthsFromToday = new Date(today);
+    threeMonthsFromToday.setMonth(today.getMonth() + 3);
+    const instances = M.Datepicker.init(elems, {
+      format: "dd mmmm, yyyy",
+      minDate: today,
+      maxDate: threeMonthsFromToday,
+      yearRange: 1,
+      showClearBtn: true,
+      i18n: {
+        done: "Select"
+      }
+    });
+  }
+  ;

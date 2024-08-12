@@ -1,4 +1,5 @@
 import os
+from functools import wraps
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -18,20 +19,14 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-@app.route("/")
-@app.route("/get_request")
-def get_request():
-    request = mongo.db.request.find()
-    return render_template("request.html", request=request)
-
-
+@app.route("/", methods=["GET"])
 @app.route("/index.html")
 def index():
     """
     Function to render to homepage if not logged in
     """
     return render_template("index.html")
-  
+
 
 @app.route("/userdoesnotexist.html")
 def userdoesnotexist():
@@ -150,6 +145,44 @@ def profile(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["name"]
     return render_template("profile.html", name=username)
+
+
+@app.route("/travel_info", methods=["GET", "POST"])
+def travel_info():
+
+    if request.method == "POST":
+        travel_dates = request.form.get("travel_dates")
+        flexible_dates = request.form.get("flexible_dates")
+        include_flights = request.form.get("include_flights")
+        flying_from = request.form.get("flying_from")
+        number_adult_guests = request.form.get("number_adult_guests")
+        number_kids_guests = request.form.get("number_kids_guests")
+        include_concerts = request.form.get("include_concerts")
+        include_excursions = request.form.get("include_excursions")
+        include_guide = request.form.get("include_guide")
+        preferred_contact = request.form.get("preferred_contact")
+        other_info = request.form.get("other_info")
+
+        info_entry =  {
+            "username": session["user"],
+            "travel_dates": (travel_dates),
+            "flexible_dates": flexible_dates,
+            "include_flights": include_flights,
+            "flying_from": flying_from,
+            "number_adult_guests": number_adult_guests,
+            "number_kids_guests": number_kids_guests,
+            "include_concerts": include_concerts,
+            "include_excursions": include_excursions,
+            "include_guide": include_guide,
+            "preferred_contact": preferred_contact,
+            "other_info": other_info,
+        }
+
+        mongo.db.travel_info.insert_one(info_entry)
+        flash("Travel Information Added!")
+        return redirect(url_for("profile", username=session["user"]))
+    else:
+        return render_template("travel_info.html", travel_info=travel_info)
 
 
 # LOGOUT

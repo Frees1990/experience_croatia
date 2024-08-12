@@ -11,6 +11,127 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col s12 my-4 center">
+                <a class="btn icon-right rounded waves-effect waves-light teal darken-4 orange-text text-lighten-5"
+                    href="{{ url_for('travel_info') }}">
+                    <i class="material-icons">add</i><span>Add Travelers Information</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="row">
+            {% for travel_info in travel_info %}
+            <div class="col s12 card-panel custom-card house-card">
+                <div class="row">
+                    <div class="col s12 m6 m-3">
+                        <!-- Travel Dates -->
+                        <div class="row mb-0">
+                            <div class="col s12">
+                                <h4>{{ travel_info.travel_dates }}</h4>
+                            </div>
+                        </div>
+                        <!-- Travel flexibility -->
+                        <div class="row">
+                            <div class="col s12">
+                                <h6><span>£</span> {{ travel_info.flexible_dates }}</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m6 m-3">
+                        <!-- include flights -->
+                        <div class="row mb-0">
+                            <div class="col s12">
+                                <h4>{{ travel_info.include_flights }}</h4>
+                            </div>
+                        </div>
+                        <!-- departing port -->
+                        <div class="row mb-0">
+                            <div class="col s12">
+                                <h4>{{ travel_info.flying_from }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m6 m-3">
+                        <!-- Number of adult guests -->
+                        <div class="row mb-0">
+                            <div class="col s12">
+                                <h4>{{ travel_info.number_adult_guests }}</h4>
+                            </div>
+                        </div>
+                        <!-- Number of child guests -->
+                        <div class="row mb-0">
+                            <div class="col s12">
+                                <h4>{{ travel_info.number_kids_guests }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m6 m-3">
+                        <!-- concerts-->
+                        <div class="row mb-0">
+                            <div class="col s12">
+                                <h4>{{ travel_info.include_concerts }}</h4>
+                            </div>
+                        </div>
+                        <!-- excursions -->
+                        <div class="row mb-0">
+                            <div class="col s12">
+                                <h4>{{ travel_info.include_excursions }}</h4>
+                            </div>
+                        </div>
+                        <!-- guide -->
+                        <div class="row mb-0">
+                            <div class="col s12">
+                                <h4>{{ travel_info.include_guide }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Delete button -->
+                <div class="col s12 m1 right-align">
+    
+                    <a class="waves-effect waves-light btn modal-trigger red darken-4 rounded"
+                        href="#deleteModal{{house._id}}"><span class="material-symbols-outlined">
+                            cancel
+                        </span></a>
+                </div>
+            </div>
+                    
+            <!-- Delete modal -->
+            <div id="deleteModal{{ house._id }}" class="modal card-panel rounded white-text center p-5">
+                <!-- Modal content -->
+                <div class="modal-content rounded">
+                    <div class="row">
+                        <div class="col s12 red-text text-darken-4">
+                            <i class="fa-solid fa-triangle-exclamation fa-lg"></i>
+                            <h4>Caution</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 black-text">
+                            <p> Deleting this house will erase all associated data. Are you sure you want to proceed? Click
+                                below to confirm or cancel to preserve data.</p>
+                        </div>
+    
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col s12 center">
+                            <!-- Delete button to post -->
+                            <form action="{{ url_for('delete_house', username=username, house_id=house._id) }}"
+                                method="POST">
+                                <button class="modal-close btn waves-effect rounded red darken-4 m-2">Delete</button>
+                                <!-- Cancel -->
+                                <a href="#" class="modal-close btn waves-effect rounded orange m-2">Cancel</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
     </div>
+
 
 {% endblock %}
