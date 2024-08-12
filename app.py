@@ -144,7 +144,12 @@ def profile(username):
     # grab the session user's username from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["name"]
-    return render_template("profile.html", name=username)
+
+    if username == "systemadmin":
+        travel_info = mongo.db.travel_info.find()
+    else:
+        travel_info = mongo.db.travel_info.find({"username": username })
+    return render_template("profile.html", name =username, travel_info=travel_info)
 
 
 @app.route("/travel_info", methods=["GET", "POST"])
@@ -163,7 +168,7 @@ def travel_info():
         preferred_contact = request.form.get("preferred_contact")
         other_info = request.form.get("other_info")
 
-        info_entry =  {
+        travel_entry =  {
             "username": session["user"],
             "travel_dates": (travel_dates),
             "flexible_dates": flexible_dates,
@@ -178,11 +183,11 @@ def travel_info():
             "other_info": other_info,
         }
 
-        mongo.db.travel_info.insert_one(info_entry)
+        mongo.db.travel_info.insert_one(travel_entry)
         flash("Travel Information Added!")
         return redirect(url_for("profile", username=session["user"]))
     else:
-        return render_template("travel_info.html", travel_info=travel_info)
+        return render_template("trave;_info.html")
 
 
 # LOGOUT
