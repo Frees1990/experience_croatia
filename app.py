@@ -19,6 +19,22 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+def login_required(f):
+    """
+    Function to ensure that user is logged in
+
+    """
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        """
+        https://flask.palletsprojects.com/en/2.3.x/patterns/viewdecorators/
+        """
+        if session.get("user") is None:
+            return redirect(url_for("login"))
+        return f(*args, **kwargs)
+    return decorated_function
+
+
 @app.route("/", methods=["GET"])
 @app.route("/index.html")
 def index():
@@ -139,17 +155,65 @@ def login():
     return render_template("login.html")
 
 
+@app.route("/changepass", methods=["GET", "POST"])
+@login_required
+def changepass():
+    """
+    Renders 'changepass.html' when request method is get.
+    """
+    if request.method == "POST":
+        # Find username
+        username = mongo.db.users.find_one(
+            {"username": session["user"]})
+
+        # Acquire form fields
+        current_password = request.form.get("current_password")
+        new_password = request.form.get("new_password")
+        confirm_password = request.form.get("confirm_new_password")
+
+        # Validate that input is not empty
+        if current_password and new_password and confirm_password is None:
+            flash("Please complete the required fields")
+            return redirect(url_for('changepass'))
+
+        # Check to see if new_password and confirm_password is same
+        if new_password == confirm_password:
+
+            # Use check_password_hash to ensure that
+            # the current password is the same as database
+            if check_password_hash(username["password"], current_password):
+
+                # Generate a new password hash:
+                new_hash_password = generate_password_hash(new_password)
+
+                # New entry to the database
+                new_password_entry = {"password": new_hash_password}
+
+                # Update database and return
+                mongo.db.users.update_one(
+                    {"username": session["user"]}, {"$set": new_password_entry}
+                    )
+                flash("Password succesfully changed!")
+                return redirect(url_for('changepass'))
+
+        flash("Changing password failed!")
+        return render_template("changepass.html")
+
+    return render_template("changepass.html")
+
+
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # grab the session user's username from db
     username = mongo.db.users.find_one(
-        {"username": session["user"]})["name"]
+        {"username": session["user"]})["username"]
 
     if username == "systemadmin":
-        travel_info = mongo.db.travel_info.find({"username":username})
-    else:
         travel_info = mongo.db.travel_info.find()
-    return render_template("profile.html", name=username,travel_info=travel_info)
+    else:
+        travel_info = mongo.db.travel_info.find({"username":username})
+
+    return render_template("profile.html", name=username , travel_info=travel_info)
 
 
 @app.route("/travel_info", methods=["GET", "POST"])
@@ -169,7 +233,7 @@ def travel_info():
         other_info = request.form.get("other_info")
 
         travel_entry =  {
-            "username": session["username"],
+            "username": session["user"],
             "travel_dates": travel_dates,
             "flexible_dates": flexible_dates,
             "include_flights": include_flights,

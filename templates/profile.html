@@ -21,8 +21,9 @@
         </div>
 
         <div class="row">
-            {% for travel_info in travel_info %}
+            
             <div class="col s12 card-panel custom-card travel-card">
+                {% for travel_info in travel_info %}
                 {% if username == "systemadmin" %}
                 <div class="row">
                     <div class="col s12">
@@ -42,7 +43,7 @@
                         <div class="row">
                             <div class="col s12">
                                 <h6>
-                                    <span>Dates Flexible?:</span>{{ travel_info.flexible_dates }}
+                                    <span>Dates Flexible?:</span>{{travel_info.flexible_dates }}
                                 </h6>
                             </div>
                         </div>
@@ -113,9 +114,9 @@
                                 Delete
                             </span></a>
                     </div>
+                    {% endfor %}
                 </div>
             </div>
-            {% endfor %}
         </div>
     </div>
 

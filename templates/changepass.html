@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container page-container">
+        <!-- Heading -->
+        <div class="row">
+            <div class="col s12">
+                <h5 class="center-align">Secure your password</h5>
+
+            </div>
+        </div>
+        <!-- Change Password form validated using app.py -->
+        <div class="row">
+            <form id="changepass" name="changepass" class="card-panel custom-card col s12 m8 offset-m2 p-5"
+                method="POST" action="{{ url_for('changepass') }}" onsubmit="return validateForm()">
+                <p class="green-text text-darken-4"><i class="fa fa-info-circle" aria-hidden="true"></i> All passwords must
+                    contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters
+                </p>
+                <p id="error-message" class="red-text text-darken-4"></p>
+                <!-- current password -->
+                <div class="row">
+                    <div class="input-field col s12 m-3">
+                        <i class="fas fa-user-lock prefix green-text text-darken-4"></i>
+                        <i id="currentPasswordIcon" class="material-icons suffix"
+                            onclick="togglePasswordVisibility('current_password','currentPasswordIcon')">visibility_off</i>
+                        <input id="current_password" name="current_password" type="password" minlength="8"
+                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="validate" required aria-required="true">
+                        <label for="current_password">Current Password</label>
+                    </div>
+                </div>
+                <!-- new password -->
+                <div class="row">
+                    <div class="input-field col s12 m-3">
+                        <i class="fas fa-user-lock prefix green-text text-darken-4"></i>
+                        <i id="newIcon" class="material-icons suffix"
+                            onclick="togglePasswordVisibility('new_password','newIcon')">visibility_off</i>
+                        <input id="new_password" name="new_password" type="password" minlength="8"
+                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="validate" required aria-required="true">
+                        <label for="new_password">New Password</label>
+                    </div>
+                </div>
+                <!-- confirm new password -->
+                <div class="row">
+                    <div class="input-field col s12 m-3">
+                        <i class="fas fa-user-lock prefix green-text text-darken-4"></i>
+                        <i id="confirmNewIcon" class="material-icons suffix"
+                            onclick="togglePasswordVisibility('confirm_new_password','confirmNewIcon')">visibility_off</i>
+                        <input id="confirm_new_password" name="confirm_new_password" type="password" minlength="8"
+                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="validate" required aria-required="true">
+                        <label for="confirm_new_password">Confirm New Password</label>
+                    </div>
+                </div>
+                <!-- login -->
+                <div class="row">
+                    <div class="col s12 center m-5">
+                        <button type="submit" class="icon-right rounded waves-effect waves-light callout-btn text-shadow">
+                            Change Password <i class="fas fa-sign-in-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
+{% block javascript %}
+    <script>
+        // allow users to toggle password visibility
+        // https://www.w3schools.com/howto/howto_js_toggle_password.asp
+        function togglePasswordVisibility(inputId, toggleIcon) {
+            const inputField = document.getElementById(inputId);
+            const icon = document.getElementById(toggleIcon);
+
+            if (inputField.type === "password") {
+                inputField.type = "text";
+                icon.classList.add("green-text", "text-darken-4");
+            } else {
+                inputField.type = "password";
+                icon.classList.remove("green-text", "text-darken-4");
+            }
+        }
+
+        // Function to validate form
+        function validateForm() {
+            const currentPassword = document.forms.change_password.current_password.value;
+            const newPassword = document.forms.change_password.new_password.value;
+            const confirmPassword = document.forms.change_password.confirm_new_password.value;
+            const errorMessage = document.getElementById("error-message");
+
+
+            if (currentPassword == "" || newPassword == "" || confirmPassword == "") {
+                console.log("validation failed");
+                errorMessage.innerText = "Please fill out all the required fields";
+                return false;
+            }
+            return true;
+        }
+    </script>
+{% endblock %}

@@ -48,7 +48,7 @@
                 {% if session.user == "systemadmin" %}
                 <li><a href="" class="teal-text text-darken-4">Account Manager</a></li>
                 {% endif %}
-                <li><a href="" class="teal-text text-darken-4">Change Password</a></li>
+                <li><a href="{{ url_for('changepass') }}" class="teal-text text-darken-4">Change Password</a></li>
                 <li><a href="{{ url_for('logout') }}">Log Out</a></li>
             </ul>
             <!-- hamburger toggle -->
@@ -77,7 +77,7 @@
                                     <li class="nav-link manage-account-link"><a href="">Account Manager</a></li>
                                     {% endif %}
                                     <!-- Navigation bar shown if normal user is signed in  -->
-                                    <li class="nav-link manage-account-link"><a href="">Change Password</a></li>
+                                    <li class="nav-link manage-account-link"><a href="{{ url_for('changepass') }}">Change Password</a></li>
                                     <li class="nav-link manage-account-link"><a href="{{ url_for('logout') }}">Log
                                             Out</a>
                                     </li>
