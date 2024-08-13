@@ -15,8 +15,7 @@
         <div class="row">
             <div class="col s12 my-4 center">
                 <a class="btn icon-right rounded waves-effect waves-light teal darken-4 orange-text text-lighten-5"
-                    href="{{ url_for('travel_info') }}">
-                    <i class="material-icons">add</i><span>Add Travelers Information</span>
+                    href="{{ url_for('travel_info') }}"><span>Add Travelers Information</span>
                 </a>
             </div>
         </div>
@@ -27,7 +26,7 @@
                 {% if username == "systemadmin" %}
                 <div class="row">
                     <div class="col s12">
-                        <h6> Created by: {{travel_info.username}}</h6>
+                        <h6><span> Created by: </span>{{travel_info.username}}</h6>
                     </div>
                 </div>
                 {% endif %}
@@ -36,15 +35,15 @@
                         <!-- Travel Dates -->
                         <div class="row">
                             <div class="col s12">
-                                <h4>{{ travel_info.travel_dates }}</h4>
+                                <h6><span>Travel Dates: </span>{{ travel_info.travel_dates }}</h6>
                             </div>
                         </div>
                         <!-- Travel flexibility -->
                         <div class="row">
                             <div class="col s12">
-                                <h4>
-                                    {{ travel_info.flexible_dates }}
-                                </h4>
+                                <h6>
+                                    <span>Dates Flexible?:</span>{{ travel_info.flexible_dates }}
+                                </h6>
                             </div>
                         </div>
                     </div>
@@ -52,13 +51,13 @@
                         <!-- include flights -->
                         <div class="row">
                             <div class="col s12">
-                                <h4>{{ travel_info.include_flights }}</h4>
+                                <h6><span>Include Flight?:</span>{{ travel_info.include_flights }}</h6>
                             </div>
                         </div>
                         <!-- departing port -->
                         <div class="row">
                             <div class="col s12">
-                                <h4>{{ travel_info.flying_from }}</h4>
+                                <h6><span>Preferred Departure Airport:</span>{{ travel_info.flying_from }}</h6>
                             </div>
                         </div>
                     </div>
@@ -66,13 +65,13 @@
                         <!-- Number of adult guests -->
                         <div class="row">
                             <div class="col s12">
-                                <h4>{{ travel_info.number_adult_guests }}</h4>
+                                <h6><span>Number of Adult Guests:</span>{{ travel_info.number_adult_guests }}</h6>
                             </div>
                         </div>
                         <!-- Number of child guests -->
                         <div class="row">
                             <div class="col s12">
-                                <h4>{{ travel_info.number_kids_guests }}</h4>
+                                <h6><span>Number of Children Traveling:</span>{{ travel_info.number_kids_guests }}</h6>
                             </div>
                         </div>
                     </div>
@@ -80,30 +79,40 @@
                         <!-- concerts-->
                         <div class="row">
                             <div class="col s12">
-                                <h4>{{ travel_info.include_concerts }}</h4>
+                                <h6><span>Include Concert Tickets? :</span>{{ travel_info.include_concerts }}</h6>
                             </div>
                         </div>
                         <!-- excursions -->
                         <div class="row">
                             <div class="col s12">
-                                <h4>{{ travel_info.include_excursions }}</h4>
+                                <h6><span>Include Excursions?:</span>{{ travel_info.include_excursions }}</h6>
                             </div>
                         </div>
                         <!-- guide -->
                         <div class="row">
                             <div class="col s12">
-                                <h4>{{ travel_info.include_guide }}</h4>
+                                <h6><span>Include Personal Tour Guide?:</span>{{ travel_info.include_guide }}</h6>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- Delete button -->
-                <div class="col s12 m1 right-align">
-    
-                    <a class="waves-effect waves-light btn modal-trigger red darken-4 rounded"
-                        href="#deleteModal{{house._id}}"><span class="material-symbols-outlined">
-                            cancel
-                        </span></a>
+                    <!--Buttons-->
+                    <!-- Edit button -->
+                    <div class="col s5">
+                        <a href=""
+                            class="btn teal darken-2 white-text icon-right rounded waves-effect waves-light profile-button">
+
+                            Update
+                        </a>
+
+                    </div>
+                    <!-- Delete button -->
+                    <div class="col s12 m1 right-align">
+
+                        <a class="waves-effect waves-light btn modal-trigger red darken-4 rounded"
+                            href="#deleteModal{{travel_info._id}}"><span class="material-symbols-outlined">
+                                Delete
+                            </span></a>
+                    </div>
                 </div>
             </div>
             {% endfor %}

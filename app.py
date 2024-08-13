@@ -146,10 +146,10 @@ def profile(username):
         {"username": session["user"]})["name"]
 
     if username == "systemadmin":
-        travel_info = mongo.db.travel_info.find()
+        travel_info = mongo.db.travel_info.find({"username":username})
     else:
-        travel_info = mongo.db.travel_info.find({"username": username })
-    return render_template("profile.html", name =username, travel_info=travel_info)
+        travel_info = mongo.db.travel_info.find()
+    return render_template("profile.html", name=username,travel_info=travel_info)
 
 
 @app.route("/travel_info", methods=["GET", "POST"])
@@ -169,8 +169,8 @@ def travel_info():
         other_info = request.form.get("other_info")
 
         travel_entry =  {
-            "username": session["user"],
-            "travel_dates": (travel_dates),
+            "username": session["username"],
+            "travel_dates": travel_dates,
             "flexible_dates": flexible_dates,
             "include_flights": include_flights,
             "flying_from": flying_from,
