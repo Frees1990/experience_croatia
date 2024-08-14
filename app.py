@@ -211,9 +211,10 @@ def profile(username):
     if username == "systemadmin":
         travel_info = mongo.db.travel_info.find()
     else:
-        travel_info = mongo.db.travel_info.find({"username":username})
+        travel_info = mongo.db.travel_info.find({"username": username})
 
-    return render_template("profile.html", name=username , travel_info=travel_info)
+    return render_template("profile.html", name=username,
+                           travel_info=travel_info)
 
 
 @app.route("/travel_info", methods=["GET", "POST"])
@@ -232,7 +233,7 @@ def travel_info():
         preferred_contact = request.form.get("preferred_contact")
         other_info = request.form.get("other_info")
 
-        travel_entry =  {
+        travel_entry = {
             "username": session["user"],
             "travel_dates": travel_dates,
             "flexible_dates": flexible_dates,
