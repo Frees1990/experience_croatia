@@ -46,7 +46,7 @@
             <!-- Manage account dropdown content -->
             <ul id="manage_account" class="dropdown-content custom-card">
                 {% if session.user == "systemadmin" %}
-                <li><a href="" class="teal-text text-darken-4">Account Manager</a></li>
+                <li><a href="{{ url_for('manageusers', username=session['user']) }}" class="teal-text text-darken-4">Manage Users</a></li>
                 {% endif %}
                 <li><a href="{{ url_for('changepass') }}" class="teal-text text-darken-4">Change Password</a></li>
                 <li><a href="{{ url_for('logout') }}">Log Out</a></li>
@@ -67,14 +67,14 @@
                         <ul class="mobile-list">
                             <!-- Navigation bar shown when user is signed in -->
                             {% if session.user %}
-                            <li class="{{ url_for('profile', username=session['user']) }}"><a href="">Profile</a></li>
+                            <li class="nav-link"><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                             <li class="nav-link"><a href="{{url_for('contact')}}">Contact us</a></li>
                             <li class="nav-link"><a href="#" id="manage-account">Manage Account</a></li>
                             <li>
                                 <ul class="mobile-list">
                                     <!-- Navigation bar shown when system admin is signed in -->
                                     {% if session.user == "systemadmin" %}
-                                    <li class="nav-link manage-account-link"><a href="">Account Manager</a></li>
+                                    <li class="nav-link manage-account-link"><a href="{{ url_for('manageusers', username=session['user']) }}">Manage Users</a></li>
                                     {% endif %}
                                     <!-- Navigation bar shown if normal user is signed in  -->
                                     <li class="nav-link manage-account-link"><a href="{{ url_for('changepass') }}">Change Password</a></li>
