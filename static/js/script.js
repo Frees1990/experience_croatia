@@ -3,8 +3,10 @@
 $(document).ready(function () {
     sideNav();
     selectForm();
-    initialiseDropdown();
     datepicker();
+    initialiseModal();
+    initialiseToolTipped();
+    initialiseDropdown();
 });
   
 /** Initialisation of sidenav*/
@@ -78,4 +80,16 @@ function datepicker() {
       }
     });
   }
-  ;
+  
+  /** Initialisation of Materialize Modal elements*/
+function initialiseModal() {
+  const elems = document.querySelectorAll('.modal');
+  const instances = M.Modal.init(elems);
+}
+
+
+/** Initialisation of Materialize tooltipped elements*/
+function initialiseToolTipped() {
+  const elems = document.querySelectorAll('.tooltipped');
+  const instances = M.Tooltip.init(elems);
+}
