@@ -279,6 +279,40 @@ def contact():
     return render_template("contact.html", email_api=email_api)
 
 
+    #  ----------------ADMIN FUNCTIONALILITIES
+
+# MANAGE USERS TEMPLATE
+@app.route("/manageusers/<username>", methods=["GET"])
+@login_required
+def manageusers(username):
+
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    if username == "systemadmin":
+        users = mongo.db.users.find()
+        return render_template("manageusers.html", users=users)
+
+
+# DELETE USER (keeps showing 404, found solution from https://www.youtube.com/watch?v=Ya3zjAgQWQo)
+@app.route(
+    "/manageusers/<username>#deleteModal<user_name>", methods=["GET", "POST"]
+)
+@login_required
+def delete_user(username, user_name):
+            
+    if request.method == "POST":
+        username = mongo.db.users.find_one(
+            {"username": session['user']})["username"]
+        
+        if username and user_name != "systemadmin":
+            mongo.db.users.delete_one({"username": user_name})
+
+            flash("The user has been Deleted")
+            return redirect(url_for("manageusers", username=session["user"]))
+
+    return render_template("manageusers.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
