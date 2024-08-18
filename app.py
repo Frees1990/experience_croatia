@@ -151,6 +151,12 @@ def login():
             # username doesn't exist
             flash("Username does not exist")
             return redirect(url_for("userdoesnotexist"))
+        
+        if username == "systemadmin":
+            users = mongo.db.users.find()
+        return render_template("manage_users.html", users=users)
+
+        
 
     return render_template("login.html")
 

@@ -7,6 +7,7 @@ $(document).ready(function () {
     initialiseModal();
     initialiseToolTipped();
     initialiseDropdown();
+    $('select').formSelect();
 });
   
 /** Initialisation of sidenav*/
@@ -93,3 +94,5 @@ function initialiseToolTipped() {
   const elems = document.querySelectorAll('.tooltipped');
   const instances = M.Tooltip.init(elems);
 }
+
+

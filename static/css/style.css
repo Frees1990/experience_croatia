@@ -186,6 +186,9 @@ button {
   display: none;
 }
 
-#no-house-display{
-  display: none;
+
+
+.custom-card {
+  background-color: #eee6dc;
+  margin-bottom: 5rem;
 }
