@@ -7,16 +7,8 @@ $(document).ready(function () {
     initialiseModal();
     initialiseToolTipped();
     initialiseDropdown();
-    $('select').formSelect();
 });
   
-/** Initialisation of sidenav*/
-function sideNav() {
-    $('.hamburger').on("click", function () {
-        $(".mobile-menu").toggleClass("open");
-    });
-}
-
 /** Initialisation of Materialize dropdown elements*/
 function initialiseDropdown() {
     const elems = document.querySelectorAll('.dropdown-trigger');
@@ -24,6 +16,7 @@ function initialiseDropdown() {
         coverTrigger: false,
     });
 }
+
 
 function selectForm() {
     const elems = document.querySelectorAll('select');
@@ -95,4 +88,30 @@ function initialiseToolTipped() {
   const instances = M.Tooltip.init(elems);
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+  // initialize carousel
+  const carousel = document.querySelectorAll('.carousel');
+  M.Carousel.init(carousel, {
+    fullWidth: true,
+    indicators: true, // this option is require for autoplay functionnality
+  });
+  
+  // custom function for autoplaying 
+  let indicatorItems = document.querySelectorAll('.carousel .indicator-item'),
+      slideTime = 3000,
+      activeClass = "active";
+      onCycleTo = 5
 
+  setInterval(() => {
+    indicatorItems.forEach(el => {
+      if (el.classList.contains(activeClass)) {
+        sib = el.nextElementSibling;
+        if (sib == null) {
+          indicatorItems[8].click();
+        } else {
+          sib.click()
+        }
+      }
+    });
+  }, slideTime);
+});
