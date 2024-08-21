@@ -1,5 +1,43 @@
 {% extends "base.html" %}
 {% block content %}
-
-    <h1>This will be the Home page</h1>
+    <!-- Hero Image-->
+    <aside id="hero-image" class="center">
+        <div class="carousel carousel-slider pressed colorDissolve">
+            <div class="carousel-fixed-item">
+                <div class="row">
+                    <div class="col s12 m8 offset-m2 card-panel hero-callout mt-5">
+                        <div class="row">
+                            <div class="col s12">
+                                <h5> Explore the historic city of Pula, Croatia</h5>
+                                <p>Experience the warmth and crystal blue seas of Pula, Croatia. Concerts in a Roman theater, see the wonders through ariel view and set sail to dive</p>
+                            </div>
+                        </div>
+                        <!-- Call out -->
+            
+                        <div class="row mt-4 mb-4">
+                            <div class="col s12">
+                                {% if session.user %}
+                                <a href="{{ url_for('profile', username=session['user']) }}" class="callout-btn"> Start Your
+                                    Jorney With Us</a>
+                                {% else %}
+                                <a href="{{ url_for('register') }}" class="callout-btn"> Start Your Jorney With Us</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel carousel-slider pressed">
+                <a class="carousel-item" href=""><img src="static/images/9.jpg"></a>
+                <a class="carousel-item" href=""><img src="static/images/2.jpg"></a>
+                <a class="carousel-item" href=""><img src="static/images/3.jpg"></a>
+                <a class="carousel-item" href=""><img src="static/images/4.jpg"></a>
+                <a class="carousel-item" href=""><img src="static/images/5.jpg"></a>
+                <a class="carousel-item" href=""><img src="static/images/6.jpg"></a>
+                <a class="carousel-item" href=""><img src="static/images/7.jpg"></a>
+                <a class="carousel-item" href=""><img src="static/images/8.jpg"></a>
+            </div>
+            
+        </div>
+    </aside>
 {% endblock %}
