@@ -8,8 +8,6 @@ body {
   width: 100%;
   height: 100%;
   background-color: cornsilk;
-  margin-top: 50px;
-
 }
 
 body > footer {
@@ -23,7 +21,46 @@ main {
   min-height: calc(100vh - 20vh);
 }
 
+aside#hero-image {
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5));
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: 2;
+}
+.carousel{
+  width: 100vw;
+  height: 90vh;
+}
+.hero-callout {
+  text-align: center;
+  color: #17353B;
+  background-color: rgba(250, 236, 217, 0.7);
+}
+aside.flash {
+  margin-top: 65px;
+  z-index: 1;
+}
+.card-panel{
+  margin-bottom: 50%;
+}
 
+.callout-btn {
+  border: 2px solid #17353B;
+  border-radius: 15px;
+  padding: 10px;
+  background-color: #17353B;
+  transition: .5s;
+  color: #FAECD9
+}
+
+.callout-btn:hover {
+  background-color: #FAECD9;
+  color: #17353B;
+}
 
 h1,
 h2,
@@ -57,7 +94,7 @@ button {
 /* --------------------------------------- NAVIGATION BAR*/
 
 .custom-nav {
-    background-color: #FAECD9;
+    background-color: #f0ede8;
     z-index: 4;
     position: fixed;
     top: 0;
