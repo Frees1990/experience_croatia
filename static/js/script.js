@@ -8,7 +8,6 @@ $(document).ready(function () {
     initialiseToolTipped();
     initialiseDropdown();
 });
-  
 /** Initialisation of Materialize dropdown elements*/
 function initialiseDropdown() {
     const elems = document.querySelectorAll('.dropdown-trigger');
@@ -92,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // initialize carousel
   const carousel = document.querySelectorAll('.carousel');
   M.Carousel.init(carousel, {
-    fullWidth: true,
+    fullWidth : true,
     indicators: true, // this option is require for autoplay functionnality
   });
   
