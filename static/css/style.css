@@ -53,8 +53,8 @@ aside#hero-image {
 
 .hero-review img {
   border-radius: 15px;
-  height: 300px;
-  width: 300px;
+  height: 500px;
+  width: 350px;
 
 }
 aside.flash {
@@ -106,6 +106,20 @@ button {
 .page-container {
   margin-top: 4rem;
 }
+/* --------------------------------------- Logo*/
+a.logo {
+  width: 150px;
+  height: 150px;
+  background-size: 100px 90px;
+  background-image: url(../images/logo.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  cursor: pointer;
+  text-indent: -9999px;
+  overflow: hidden;
+  z-index: 1;
+  margin-top: 2%;
+}
 
 /* --------------------------------------- NAVIGATION BAR*/
 
@@ -113,17 +127,19 @@ button {
     background-color: #f3e0cb;
     z-index: 4;
     position: fixed;
-    padding:80px
+    top: 0;
+    padding: 0 50px;
+    min-height: 12vh;
   }
   nav ul:not(.dropdown-content)>li>a {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bolder;
     color: #720444;
     display: block;
+    padding: 0 25px;
     cursor: pointer;
-    margin-bottom: 5%;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    margin-top: 15px;
   }
 
   nav ul:not(.dropdown-content)>li>a:hover:not(.active) {
@@ -239,10 +255,10 @@ button {
   margin-bottom: 5rem;
 }
 .footer-container {
-  background-color: #17353B;
+  background-color: #02696d;
   bottom: 0;
   padding: 1rem;
-  min-height: 30vh;
+  min-height: 40vh;
   color: #FAECD9;
 }
 
@@ -259,7 +275,13 @@ ul.social-media-icons {
 
 .social-media-icons i {
   color: #FAECD9;
-  font-size: 30px;
+  font-size: 70px;
+  margin-left: 150px;
+  margin-right: 150px;
+  margin-bottom: 30px;
+}
+.contactus{
+  margin-bottom: 60px;
 }
 
 .custom-card {
