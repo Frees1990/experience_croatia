@@ -26,9 +26,9 @@
     <header>
         <!-- Navigation bar for large screens -->
         <nav class="custom-nav">
-            <a href="" aria-label=></a>
+            <a href="" class="brand-logo teal-text text-darken-4 center logo" aria-label="logo and link to index">Pula Croatia</a>
 
-            <ul class="center hide-on-med-and-down">
+            <ul class="right hide-on-med-and-down">
                 {% if session.user %}
                 {% if session.user != "systemadmin" %}
                 <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
@@ -43,7 +43,6 @@
                 {% endif %}
 
                 {% else %}
-                <li><a href="{{url_for('index')}}">Home</a></li>
                 <li><a href="{{url_for('userdoesnotexist')}}"></a></li>
                 <li><a href="{{url_for('contact')}}">Contact us</a></li>
                 <li><a href="{{url_for('register')}}">Register</a></li>
@@ -127,62 +126,64 @@
         {% block content %}
         {% endblock %}
     </main>
-    <!-- Footer-->
+    <!-- Footer--><!-- Borrowed some of the code and styling idea from casa quest by mika(co-student code institute)-->
     <footer>
         <div class="row footer-container">
             <div class="col s12 p-1">
                 <div class="row center">
-                    <div class="col s12 m6 white-text my-2">
+                    <div class=" center col s12 white-text my-2">
                         <!-- Social media links -->
                         <ul class="social-media-icons">
                             <li>
                                 <a href="https://en-gb.facebook.com/" target="_blank" rel=noreferrer
                                     aria-label="facebook">
-                                    <i class="fa-brands fa-facebook"></i>
+                                    <i class="fab fa-facebook fa-lg" style="color: #63E6BE;"></i>
                                 </a>
                             </li>
                             <li>
                                 <a href="https://www.instagram.com/" target="_blank" rel=noreferrer
                                     aria-label="instagram">
-                                    <i class="fa-brands fa-instagram"></i>
+                                    <i class="fab fa-instagram-square fa-lg" style="color: #63E6BE;"></i>
                                 </a>
 
                             </li>
                             <li>
                                 <a href="https://github.com/mikavir/casa-quest" target="_blank" rel=noreferrer
                                     aria-label="github">
-                                    <i class="fa-brands fa-github"></i>
+                                    <i class="fab fa-github fa-lg" style="color: #63E6BE;"></i>
                                 </a>
 
                             </li>
                             <li>
                                 <a href="https://www.linkedin.com/in/mikaela-virtucio-b01962274/" target="_blank"
                                     rel=noreferrer aria-label="linkedin">
-                                    <i class="fa-brands fa-linkedin"></i>
+                                    <i class="fab fa-linkedin fa-lg" style="color: #63E6BE;"></i>
                                 </a>
 
                             </li>
                         </ul>
                     </div>
-                    <!-- contact -->
-                    <div class="col s12 m6 my-2">
-                        <div class="row my-3">
-                            <div class="col s12">
-                                <h6>Get in touch with us!</h6>
-                            </div>
-                        </div>
-                        <div class="row my-3">
-                            <div class="col s12">
-                                <a href="{{ url_for('contact') }}" class="reverse-btn" aria-label="contact page">
-                                    Contact us</a>
-                            </div>
+                </div>
+                <!-- contact -->
+                <div class="center col s12 m6 my-2">
+                    <div class="row my-3">
+                        <div class="col s12">
+                            <h5>Get in touch with us!</h5>
                         </div>
                     </div>
-
+                    <div class="row my-3">
+                        <div class="col s12">
+                            <a href="{{ url_for('contact') }}" class="reverse-btn" aria-label="contact page">
+                                Contact us</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="row center my-3">
+            </div>
+            <!-- copyright-->
+            <div class="col s12 p-1">
+                <div class="row center my-3 mt-6">
                     <div class="col s12">
-                        <p>&copy; Casa Quest All Rights Reserved Copyright 2024 </p>
+                        <p>This website is for soley for Educational Purpose Only and is not use for monitary transaction</p>
                     </div>
                 </div>
             </div>
