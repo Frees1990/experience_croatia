@@ -1,107 +1,115 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div class="container page-container">
-        <div class="row">
-            <div class="col s12">
-                <h5>Get in touch</h5>
-                <h6>We're here to help you plan your dream holiday in Croatia!</h6>
-            </div>
-        </div>
-        <!-- Thank you feedback to only appear if message have been sent -->
-        <div class="row" id="thank-you-feedback">
-            <div class="card-panel custom-card col s12 m8 offset-m2 p-5">
-                <div class="row">
-                    <div class="col s12">
-                        <h5>
-                            Thanks for reaching out Experience Croatia!
-                        </h5>
-                    </div>
 
-                </div>
-                <div class="row">
-                    <div class="col s12 teal-text text-darken-4">
-                        <p>Thank you for contacting Experience Croatia.
-                        </p>
-
-                        <p>Your message is important to us, and we're excited to assist you in finding your dream get away.
-                        </p>
-                        <p>Our team will get back to you as soon as possible.</p>
-
-                        <p>Thank you for choosing Experience Croatia. We look forward to connecting with you soon!</p>
-
-                        <p>Warm regards,</p>
-
-                        <p>Experience Croatia Team</p>
+    <aside id="contact-image">
+        <div class="container page-container">
+            <!-- Thank you feedback to only appear if message have been sent -->
+            <div class="row" id="thank-you-feedback">
+                <div class="card-panel custom-card col s12 m8 offset-m2 p-5">
+                    <div class="row">
+                        <div class="col s12">
+                            <h5>
+                                Thanks for reaching out Experience Croatia!
+                            </h5>
+                        </div>
 
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col s12 center">
-                        <a class="btn orange-text text-lighten-4 teal darken-4 rounded waves-effect waves-light"
-                            href="{{url_for('index')}}">Home</a>
+                    <div class="row">
+                        <div class="col s12 teal-text text-darken-4">
+                            <p>Thank you for contacting Experience Croatia.
+                            </p>
+
+                            <p>Your message is important to us, and we're excited to assist you in finding your dream get away.
+                            </p>
+                            <p>Our team will get back to you as soon as possible.</p>
+
+                            <p>Thank you for choosing Experience Croatia. We look forward to connecting with you soon!</p>
+
+                            <p>Warm regards,</p>
+
+                            <p>Experience Croatia Team</p>
+
+                        </div>
                     </div>
+                    <div class="row">
+                        <div class="col s12 center">
+                            <a class="btn orange-text text-lighten-4 teal darken-4 rounded waves-effect waves-light"
+                                href="{{url_for('index')}}">Home</a>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
-
-        </div>
-        <!-- Contact Form -->
-        <div class="row">
-            <form class="card-panel custom-card col s12 m8 offset-m2 p-5" name="contactForm" id="contactForm"
-                onsubmit="return sendMail(this);">
-                <!-- Name -->
-                <div class="row my-4">
-                    <div class="col s12 input-field">
-                        <i class="fas fa-user-plus prefix green-text text-darken-4"></i>
-                        <input id="name" name="name" type="text" class="validate" required>
-                        <label for="name">Name</label>
-                        <small>(It will be helpful if you provide us with your username)</small>
+            <!-- Contact Form -->
+            <div class="row">
+                <form class="card-panel custom-card col s12 m8 offset-m2 p-5" name="contactForm" id="contactForm"
+                    onsubmit="return sendMail(this);">
+                    <div class="row">
+                        <div class="col s12">
+                            <h5>Get in touch</h5>
+                            <h6>We're here to help you plan your dream holiday in Croatia!</h6>
+                        </div>
                     </div>
-                </div>
-                <!-- Email -->
-                <div class="row my-4">
-                    <div class="col s12 input-field">
-                        <i class="fas fa-user-plus prefix green-text text-darken-4"></i>
-                        <input id="email" name="email" type="text" class="validate" required>
-                        <label for="email">Email</label>
-                        <small>(Share Your Email, and We'll Reach Out to You ASAP!)</small>
+                    <!-- Name -->
+                    <div class="row my-4">
+                        <div class="col s12 input-field">
+                            <i class="fas fa-user-plus prefix green-text text-darken-4"></i>
+                            <input id="name" name="name" type="text" class="validate" required>
+                            <label for="name">Name</label>
+                            <small>(It will be helpful if you provide us with your username)</small>
+                        </div>
                     </div>
-                </div>
-                <!-- Phone -->
-                <div class="row my-4">
-                    <div class="col s12 input-field">
-                        <i class="fas fa-user-plus prefix green-text text-darken-4"></i>
-                        <input id="number" name="number" type="number" class="validate">
-                        <label for="number">Contact Number</label>
-                        <small>(Optional, please fill in the email if you preffer to be contacted via Email)</small>
+                    <!-- Email -->
+                    <div class="row my-4">
+                        <div class="col s12 input-field">
+                            <i class="fas fa-user-plus prefix green-text text-darken-4"></i>
+                            <input id="email" name="email" type="text" class="validate" required>
+                            <label for="email">Email</label>
+                            <small>(Share Your Email, and We'll Reach Out to You ASAP!)</small>
+                        </div>
                     </div>
-                </div>
-                <!-- Message -->
-                <div class="row my-4">
-                    <div class="input-field col s12">
-                        <textarea id="message" name="message" class="materialize-textarea"></textarea>
-                        <label for="message"><i class="fa-solid fa-message green-text text-darken-4"></i> Message</label>
-                        <small>(How Can We Assist You Today? Let Us Know!)</small>
+                    <!-- Phone -->
+                    <div class="row my-4">
+                        <div class="col s12 input-field">
+                            <i class="fas fa-user-plus prefix green-text text-darken-4"></i>
+                            <input id="number" name="number" type="number" class="validate">
+                            <label for="number">Contact Number</label>
+                            <small>(Optional, please fill in the email if you preffer to be contacted via Email)</small>
+                        </div>
                     </div>
-                </div>
-                <!-- Submit button -->
-                <div class="row my-5">
-                    <div class="col s12 center">
-                        <button class="btn green darken-3 white-text white-lighten-4 rounded waves-effect waves-light">Get
-                            in touch!</button>
+                    <!-- Message -->
+                    <div class="row my-4">
+                        <div class="input-field col s12">
+                            <textarea id="message" name="message" class="materialize-textarea"></textarea>
+                            <label for="message"><i class="fa-solid fa-message green-text text-darken-4"></i> Message</label>
+                            <small>(How Can We Assist You Today? Let Us Know!)</small>
+                        </div>
                     </div>
+                    <!-- Submit button -->
+                    <div class="row my-5">
+                        <div class="col s12 center">
+                            <button class="btn green darken-3 white-text white-lighten-4 rounded waves-effect waves-light">Get
+                                in touch!</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <p class="center-align">
+                        Already Registered?
+                        <a href="{{ url_for('login') }}" class="light-blue-text text-darken-4">Log In</a>
+                    </p>
                 </div>
-            </form>
-        </div>
-        <div class="row">
-            <div class="col s12">
-                <p class="center-align">
-                    Already Registered?
-                    <a href="{{ url_for('login') }}" class="light-blue-text text-darken-4">Log In</a>
-                </p>
             </div>
         </div>
-    </div>
+    </aside>
+{% endblock %}
+<!-- Script tags -->
+{% block javascript %}
+<script src="{{ url_for('static', filename='js/email.js') }}">
+</script>
 
 {% endblock %}

@@ -113,7 +113,6 @@ def register():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     """
-
     Renders template for 'login'.
 
     looks up user details in MongoDB collection users
@@ -149,14 +148,12 @@ def login():
 
         else:
             # username doesn't exist
-            flash("Username does not exist")
-            return redirect(url_for("userdoesnotexist"))
+            flash("Incorrect Username and/or Password")
+            return redirect(url_for("login"))
         
         if username == "systemadmin":
             users = mongo.db.users.find()
-        return render_template("manage_users.html", users=users)
-
-        
+        return render_template("manage_users.html", users=users)    
 
     return render_template("login.html")
 

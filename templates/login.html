@@ -1,48 +1,70 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3 class="center-align">Experience Croatia</h3>  
-    <h4 class="center-align">Log In</h4>
-
-    <div class="row">
-        <form class="card-panel custom-card lighten-5 col s12 m8 offset-m2 p-5" method="POST"
-            action="{{ url_for('login') }}">
-            <!-- username -->
-            <div class="row">
-                <div class="input-field col s12 m-3">
-                    <i class="fas fa-user-cog prefix green-text text-darken-4"></i>
-                    <input id="username" name="username" type="text" minlength="5" maxlength="15"
-                        pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required aria-required="true">
-                    <label for="username">Username</label>
-                    <small>(Username must be less than 15 characters)</small>
+    <div class="container page-container">
+        <aside class="container flash">
+            <!-- flash messages -->
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <div class="row flashes ">
+                <div class="col s12 card-panel red accent-4 rounded center">
+                    <h6 class="orange-text text-lighten-4">{{ message }}<h6>
                 </div>
             </div>
-            <!-- password -->
-            <div class="row">
-                <div class="input-field col s12 m-3">
-                    <i class="fas fa-user-lock prefix green-text text-darken-4"></i>
-                    <input id="password" name="password" type="password" minlength="8"
-                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="validate" required aria-required="true">
-                    <label for="password">Password</label>
-                    <small>(Must contain at least one number and one uppercase and lowercase letter, and at least 8 or
-                        more characters)</small>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+        </aside>
+         <!-- If user does not have an account->Link to register page -->
+        <div class="row">
+            <div class="col s12">
+                <p class="center-align">
+                    New Here?
+                    <a href="{{ url_for('register') }}" class="green-text text-darken-4 link">Register Account</a>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <form class="card-panel custom-card col s12 m6 offset-m3 p-5" method="POST"
+                action="{{ url_for('login') }}">
+                <div class="row">
+                    <div class="col s12">
+                        <h3 class="center-align">Experience Croatia</h3>  
+                        <br>
+                        <h5 class="center-align">Log In</h5>
+                        <br>
+                    </div>
                 </div>
-            </div>
-            <!-- login -->
-            <div class="row">
-                <button type="submit" class="col s12 btn-large green darken-3">
-                    <b>Log In</b> <i class="fas fa-sign-in-alt"></i>
-                </button>
-            </div>
-        </form>
-    </div>
-    <div class="row">
-        <div class="col s12">
-            <p class="center-align">
-                New Here?
-                <a href="{{ url_for('register') }}" class="green-text text-darken-4">Register Account</a>
-            </p>
+                <!-- username -->
+                <div class="row">
+                    <div class="input-field col s12 m-3">
+                        <i class="fas fa-user-cog prefix green-text text-darken-4"></i>
+                        <input id="username" name="username" type="text" minlength="5" maxlength="15"
+                            pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required aria-required="true">
+                        <label for="username">Username</label>
+                        <small>(Username must be less than 15 characters)</small>
+                    </div>
+                </div>
+                <!-- password -->
+                <div class="row">
+                    <div class="input-field col s12 m-3">
+                        <i class="fas fa-user-lock prefix green-text text-darken-4"></i>
+                        <input id="password" name="password" type="password" minlength="8"
+                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="validate" required aria-required="true">
+                        <label for="password">Password</label>
+                        <small>(Must contain at least one number and one uppercase and lowercase letter, and at least 8 or
+                            more characters)</small>
+                    </div>
+                </div>
+                <!-- login -->
+                <div class="row">
+                    <button type="submit" name="action" class="col s12 m2 offset-m5 p-5 btn-large center-align green darken-3">
+                        <b>Log In</b>
+                    </button>
+                </div>
+                <br>
+            </form>
         </div>
     </div>
-
 {% endblock %}
