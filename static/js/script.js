@@ -22,7 +22,6 @@ function initialiseDropdown() {
     });
 }
 
-
 function selectForm() {
     const elems = document.querySelectorAll('select');
     M.FormSelect.init(elems);
