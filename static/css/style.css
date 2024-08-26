@@ -75,7 +75,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Domine", serif;
+  font-family: 'Shadows Into Light', 'Arial Narrow', Arial, cursive;
   letter-spacing: 1.5px; 
   margin: 5px; 
 }
@@ -155,9 +155,71 @@ nav ul:not(.dropdown-content)>li>a:hover:not(.active) {
   left: 70%;
   display: block;
 }
+/* -------------------- Login Form */
+#loginImage{
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../images/contact.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: 2;
+}
+.loginHeader>h3{
+  margin-top: 15rem;
+  color:#eaeeed;
+}
+.newHere{
+  margin-top: 10rem;
+  margin-bottom: 0;
+}
+.newHere>p{
+  color:rgb(240, 6, 6);
+  font-weight: 700;
+}
+.newHere>p>a{
+  color:blanchedalmond;
+  font-weight: 700;
+  text-decoration: underline;
+}
+.newHere>p>a:hover{
+  color:rgb(247, 10, 10);
+  font-weight: 700;
+  text-decoration: underline;
+}
 /* -------------------- Register Form */
-.registerloginlink{
-  margin: 6% 0 6% 0;
+#registerImage{
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../images/contact.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: 2;
+}
+.regHeader{
+  margin: 15rem;
+  color:#eaeeed;
+  margin-bottom: 0;
+}
+.loginHere>p{
+  color:rgb(240, 6, 6);
+  font-weight: 700;
+}
+.loginHere>p>a{
+  color:blanchedalmond;
+  font-weight: 700;
+  text-decoration: underline;
+}
+.loginHere>p>a:hover{
+  color:rgb(247, 10, 10);
+  font-weight: 700;
+  text-decoration: underline;
+}
+.btnreg:hover{
+  color: black;
 }
 /*  --------------------------------------- CONTACT PAGE */
 #contact-image{
@@ -170,14 +232,15 @@ nav ul:not(.dropdown-content)>li>a:hover:not(.active) {
   position: relative;
   z-index: 2;
 }
+
 #thank-you-feedback {
   display: none;
 }
 #no-card-display {
   display: none;
 }
-#contactForm, #regForm{
-  margin-top: 15rem;
+#contactForm, #regForm, #loginForm{
+  margin-top: 0;
 }
 .custom-card {
   background-color: #dbc2eb00;
