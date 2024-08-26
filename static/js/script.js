@@ -8,20 +8,13 @@ $(document).ready(function () {
     initialiseToolTipped();
     initialiseDropdown();
 });
-    $('#message').on('input', function () {
-        this.style.height = 'auto';
-
-        this.style.height =
-            (this.scrollHeight) + 'px';
-    });
 /** Initialisation of Materialize dropdown elements*/
 function initialiseDropdown() {
     const elems = document.querySelectorAll('.dropdown-trigger');
     const instances = M.Dropdown.init(elems, {
         coverTrigger: false,
     });
-}
-
+  }
 function selectForm() {
     const elems = document.querySelectorAll('select');
     M.FormSelect.init(elems);
@@ -120,3 +113,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }, slideTime);
 });
 
+$('#message').on('input', function () {
+  this.style.height = 'auto';
+
+  this.style.height =
+      (this.scrollHeight) + 'px';
+});

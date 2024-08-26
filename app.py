@@ -123,10 +123,10 @@ def login():
         username = request.form.get("username")
         password = request.form.get("password")
         if username is None:
-            flash("Incorrect Username and/or Password")
+            flash("Incorrect Username and/or Password!!!!!")
             return redirect(url_for("login"))
         if password is None:
-            flash("Incorrect Username and/or Password")
+            flash("Incorrect Username and/or Password!!!!!")
             return redirect(url_for("login"))
 
         # check if username exists in db
@@ -143,12 +143,12 @@ def login():
                     "profile", username=session["user"]
                 ))
                 # invalid password match
-            flash("Incorrect Username and/or Password")
+            flash("Incorrect Username and/or Password!!!!!")
             return redirect(url_for("login"))
 
         else:
             # username doesn't exist
-            flash("Incorrect Username and/or Password")
+            flash("Incorrect Username and/or Password!!!!!")
             return redirect(url_for("login"))
         
         if username == "systemadmin":

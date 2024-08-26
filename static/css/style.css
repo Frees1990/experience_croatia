@@ -3,6 +3,7 @@
 
 
 /* --------------------------------------- HTML CSS */
+/* --------------------------------------- MAIN */
 html,
 body {
   width: 100%;
@@ -17,10 +18,7 @@ main {
   overflow-x: hidden;
   min-height: calc(100vh - 20vh);
 }
-aside.flash {
-  margin-top: 200px;
-  z-index: 1;
-}
+
 aside#hero-image {
   width: 100vw;
   height: 90vh;
@@ -130,6 +128,11 @@ nav ul:not(.dropdown-content)>li>a:hover:not(.active) {
   text-decoration: underline;
   text-decoration-color: #333;
 }
+.dropdown-trigger{
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
 .mobile-nav {
   height: 0px;
 }
@@ -218,8 +221,8 @@ nav ul:not(.dropdown-content)>li>a:hover:not(.active) {
   font-weight: 700;
   text-decoration: underline;
 }
-.btnreg:hover{
-  color: black;
+btn:hover{
+  color: rgba(0, 0, 0, 0);
 }
 /*  --------------------------------------- CONTACT PAGE */
 #contact-image{
@@ -239,12 +242,32 @@ nav ul:not(.dropdown-content)>li>a:hover:not(.active) {
 #no-card-display {
   display: none;
 }
-#contactForm, #regForm, #loginForm{
-  margin-top: 0;
-}
 .custom-card {
   background-color: #dbc2eb00;
 }
+#contactForm{
+  margin: 15rem;
+  color:#eaeeed;
+  margin-bottom: 0;
+}
+.contactHere>p{
+  color:rgb(240, 6, 6);
+  font-weight: 700;
+}
+.contactHere>p>a{
+  color:blanchedalmond;
+  font-weight: 700;
+  text-decoration: underline;
+}
+.contactHere>p>a:hover{
+  color:rgb(247, 10, 10);
+  font-weight: 700;
+  text-decoration: underline;
+}
+.btncont:hover{
+  color: black;
+}
+/*----*/
 .footer-container {
   background-color: #02696d;
   bottom: 0;
@@ -272,9 +295,7 @@ ul.social-media-icons {
 }
 /*  --------------------------------------- MEDIA QUERIES FOR RESPONSIVENESS */
 @media screen and (max-width: 700px) {
-  aside.flash {
-    margin-top: 55px;
-  }
+
   .rooms {
     font-size: smaller;
   }
@@ -308,9 +329,6 @@ ul.social-media-icons {
   .house-info-content {
     font-size: small;
   }
-  .submit-button {
-    font-size: smaller;
-    padding: 5px 10px;
-  }
+
 }
 
