@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
 
 
 
@@ -37,26 +37,7 @@ aside#hero-image {
   text-align: center;
   color: #17353B;
   background-color: rgba(250, 236, 217, 0.5);
-}
-
-.hero-review {
-  background-color: #FAECD9;
-  padding: 40px;
-  color: #333;
-  margin-top: 0;
-
-}
-
-.hero-review h6 {
-  font-weight: 700;
-  color: #17353B;
-}
-
-.hero-review img {
-  border-radius: 15px;
-  height: 500px;
-  width: 350px;
-
+  margin-bottom: 30%;
 }
 .callout-btn {
   border: 2px solid #17353B;
@@ -68,8 +49,24 @@ aside#hero-image {
 }
 
 .callout-btn:hover {
-  background-color: #FAECD9;
+  background-color: #f4fad900;
   color: #17353B;
+}
+.hero-review {
+  background-color: #FAECD9;
+  padding: 40px;
+  color: #333;
+  margin-top: 5%;
+}
+.hero-review h6 {
+  font-weight: 700;
+  color: #17353B;
+  margin-top: 10%;
+}
+.hero-review img {
+  border-radius: 15px;
+  height: 500px;
+  width: 350px;
 }
 
 h1,
@@ -92,10 +89,11 @@ button {
 }
 
 /* --------------------------------------- Logo*/
-a.logo {
+a.brand-logo {
   width: 150px;
   height: 150px;
-  background-size: 150px 140px;
+  border-radius: 50%;
+  background-size: 150px 150px;
   background-image: url(../images/logo.png);
   background-repeat: no-repeat;
   background-position: 0 0;
@@ -107,125 +105,61 @@ a.logo {
 }
 
 /* --------------------------------------- NAVIGATION BAR*/
-
 .custom-nav {
-    background-color: #f3e0cb;
-    z-index: 4;
-    position: fixed;
-    top: 0;
-    padding: 0 50px;
-    min-height: 12vh;
+  background-color: #f3e0cb;
+  z-index: 4;
+  position: fixed;
+  top: 0;
+  padding: 0 50px;
+  min-height: 12vh;
 }
 nav ul:not(.dropdown-content)>li>a {
-    font-size: 1.5rem;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: bolder;
-    color: #720444;
-    display: block;
-    padding: 0 25px;
-    cursor: pointer;
-    margin-top: 15px;
+  font-size: 1.5rem;
+  font-family: 'Shadows Into Light', 'Arial Narrow', Arial, cursive;
+  font-weight: bolder;
+  color: #720444;
+  display: block;
+  padding: 0 25px;
+  margin-top: 15px;
 }
-
+.mobile-menu nav ul:not(.dropdown-content)>li>a:hover{
+  color:#17353B;
+}
 nav ul:not(.dropdown-content)>li>a:hover:not(.active) {
-    background-color: rgba(88, 126, 123, 0.4)
+  background-color: rgba(88, 126, 123, 0);
+  text-decoration: underline;
+  text-decoration-color: #333;
 }
-.nav-link:hover{
-    background-color: #Fff3e0;
-    color:#b8cf50;
+.mobile-nav {
+  height: 0px;
 }
-.hovered {
-    background-color: rgba(250,236,217, 0.4);
-    color:#b8cf50;
+.mobile-list {
+  display: flex;
+  flex-direction: column;
 }
-  .mobile-menu nav ul:not(.dropdown-content)>li>a {
-    color:#0e6107;
-  }
-  
-  .mobile-menu nav ul:not(.dropdown-content)>li>a:hover{
-    color:#b8cf50;
-  }
-  
-  .mobile-nav {
-    height: 0px;
-  }
-  
-  .mobile-list {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .mobile-menu {
-    position: fixed;
-    top: 0;
-    left: 100%;
-    width: 50%;
-    height: 100vh;
-    z-index: 3;
-    background-color: #0e6107;
-    transition: left .3s;
-    display: none;
-    padding-top: 70px;
-    box-sizing: border-box;
-  }
-  .mobile-menu.open {
-    margin-top: 50px;
-    left: 70%;
-    display: block;
-  }
-  nav ul:not(.dropdown-content)>li>a:hover:not(.active) {
-    background-color: 0e6107(88, 126, 123, 0.4)
-  }
-  .nav-link:hover{
-    background-color: #Fff3e0;
-    color:#b8cf50;
-  }
-  .hovered {
-    background-color: rgba(250,236,217, 0.4);
-    color:#b8cf50;
-  }
-  
-  /* inspired from The Great Wall of Gratitude https://github.com/VCGithubCode/Gratidudes */
-  /* Mobile menu trigger button */
-  .hamburger {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    position: relative;
-    width: 36px;
-    height: 36px;
-    margin-right: 15px;
-    margin-top: 10px;
-  }
-  
-  /* Trigger bars */
-  .hamburger span {
-    display: block;
-    background: #708f96;
-    width: 100%;
-    height: 5px;
-    transform-origin: center;
-    transition: all 0.2s ease-in-out;
-  }
-  
-  input:checked~.hamburger span:nth-child(1) {
-    transform: translateY(11px) rotate(-45deg);
-  }
-  
-  input:checked~.hamburger span:nth-child(2) {
-    opacity: 0;
-  }
-  
-  input:checked~.hamburger span:nth-child(3) {
-    transform: translateY(-12px) rotate(45deg);
-  }
-
-  /* -------------------- Register Form */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 100%;
+  width: 50%;
+  height: 100vh;
+  z-index: 3;
+  background-color: #0e6107;
+  transition: left .3s;
+  display: none;
+  padding-top: 70px;
+  box-sizing: border-box;
+}
+.mobile-menu.open {
+  margin-top: 50px;
+  left: 70%;
+  display: block;
+}
+/* -------------------- Register Form */
 .registerloginlink{
   margin: 6% 0 6% 0;
 }
-  /*  --------------------------------------- CONTACT PAGE */
-
+/*  --------------------------------------- CONTACT PAGE */
 #contact-image{
   width: 100vw;
   height: 100vh;
@@ -236,11 +170,9 @@ nav ul:not(.dropdown-content)>li>a:hover:not(.active) {
   position: relative;
   z-index: 2;
 }
-
 #thank-you-feedback {
   display: none;
 }
-
 #no-card-display {
   display: none;
 }
@@ -248,9 +180,8 @@ nav ul:not(.dropdown-content)>li>a:hover:not(.active) {
   margin-top: 15rem;
 }
 .custom-card {
-  background-color: #eee6dc;
+  background-color: #dbc2eb00;
 }
-
 .footer-container {
   background-color: #02696d;
   bottom: 0;
@@ -258,35 +189,65 @@ nav ul:not(.dropdown-content)>li>a:hover:not(.active) {
   min-height: 30vh;
   color: #FAECD9;
 }
-
 ul.social-media-icons {
   padding-inline-start: 0px;
 }
-
-
 .social-media-icons li {
   list-style: none;
   display: inline-block;
   margin: 60px 0 10px 0;
 }
-
 .social-media-icons i {
-  color: #FAECD9;
+  color: #63E6BE;
   font-size: 70px;
   margin-left: 150px;
   margin-right: 150px;
   margin-bottom: 30px;
 }
+.social-media-icons i:hover {
+  color: #11100e00;
+}
+/*  --------------------------------------- MEDIA QUERIES FOR RESPONSIVENESS */
+@media screen and (max-width: 700px) {
+  aside.flash {
+    margin-top: 55px;
+  }
+  .rooms {
+    font-size: smaller;
+  }
+  .mobile-menu.open {
+    left: 0;
+    width: 100%;
 
-.link {
-  text-decoration: underline;
-  color: rgba(88, 126, 123, 0.6);
-  font-weight: bolder;
+  }
 }
 
-iframe {
-  width:100%;
-  height:100%;
-  border-radius: 15px;
-  border:#004d40 ;
+
+@media screen and (max-width: 450px) {
+  .social-media-icons i {
+    font-size: 15px;
+    margin: 5px;
+    
+  }
+  .add-modal, .add-modal-view {
+    width: 250px; 
+  }
+
+  .profile-button {
+    font-size: small;
+    padding: 5px 10px;
+  }
+  .add-modal,.add-modal-view{
+    width: 250px;
+    height: 125px;
+
+  }
+  .house-info-content {
+    font-size: small;
+  }
+  .submit-button {
+    font-size: smaller;
+    padding: 5px 10px;
+  }
 }
+
