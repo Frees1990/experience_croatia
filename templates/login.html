@@ -1,70 +1,58 @@
 {% extends "base.html" %}
 {% block content %}
-
-    <div class="container page-container">
-        <aside class="container flash">
-            <!-- flash messages -->
-            {% with messages = get_flashed_messages() %}
-            {% if messages %}
-            {% for message in messages %}
-            <div class="row flashes ">
-                <div class="col s12 card-panel red accent-4 rounded center">
-                    <h6 class="orange-text text-lighten-4">{{ message }}<h6>
-                </div>
-            </div>
-            {% endfor %}
-            {% endif %}
-            {% endwith %}
-        </aside>
-         <!-- If user does not have an account->Link to register page -->
+    <aside id="loginImage">
         <div class="row">
-            <div class="col s12">
-                <p class="center-align">
-                    New Here?
-                    <a href="{{ url_for('register') }}" class="green-text text-darken-4 link">Register Account</a>
+            <div class="col s12 loginHeader">
+                <h3 class="center-align">Experience Pula, Croatia</h3>  
+                <br>
+                <h5 class="center-align" style="color:#eaeeed">LOG IN</h5>
+                <br>
+            </div>
+        </div>
+        <div class="container page-container">           
+            <div class="row">
+                <form class="card-panel custom-card col s12" method="POST" name="loginForm" id="loginForm"
+                    action="{{ url_for('login') }}">
+                    <!-- username -->
+                    <div class="row">
+                        <div class="input-field col s12 m6 offset-m3 m3">
+                            <i class="fas fa-user-cog prefix green-text text-darken-4"></i>
+                            <input id="username" name="username" type="text" minlength="5" maxlength="15"
+                                pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required aria-required="true">
+                            <label for="username">Username</label>
+                            <small style="color: whitesmoke;">(Username must be less than 15 characters)</small>
+                        </div>
+                    </div>
+                    <br>
+                    <!-- password -->
+                    <div class="row">
+                        <div class="input-field col s12 m6 offset-m3 m3">
+                            <i class="fas fa-user-lock prefix green-text text-darken-4"></i>
+                            <input id="password" name="password" type="password" minlength="8"
+                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="validate" required aria-required="true">
+                            <label for="password">Password</label>
+                            <small style="color: whitesmoke;">(Must contain at least one number and one uppercase and lowercase letter, and at least 8 or
+                                more characters)</small>
+                        </div>
+                    </div>
+                    <br>
+                    <!-- login -->
+                    <div class="row">
+                        <button type="submit" name="action" class="col s12 m2 offset-m5 p-5 btn-small green darken-3">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>LOG IN</b>
+                        </button>
+                    </div>
+                    <br>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 center-align newHere">
+                <!-- If user does not have an account->Link to register page -->
+                <p><b>NEW HERE?....</b>&nbsp;&nbsp;
+                    <a href="{{ url_for('register') }}"><b>REGISTER ACCOUNT</b></a>
                 </p>
             </div>
         </div>
-        <div class="row">
-            <form class="card-panel custom-card col s12 m6 offset-m3 p-5" method="POST"
-                action="{{ url_for('login') }}">
-                <div class="row">
-                    <div class="col s12">
-                        <h3 class="center-align">Experience Croatia</h3>  
-                        <br>
-                        <h5 class="center-align">Log In</h5>
-                        <br>
-                    </div>
-                </div>
-                <!-- username -->
-                <div class="row">
-                    <div class="input-field col s12 m-3">
-                        <i class="fas fa-user-cog prefix green-text text-darken-4"></i>
-                        <input id="username" name="username" type="text" minlength="5" maxlength="15"
-                            pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required aria-required="true">
-                        <label for="username">Username</label>
-                        <small>(Username must be less than 15 characters)</small>
-                    </div>
-                </div>
-                <!-- password -->
-                <div class="row">
-                    <div class="input-field col s12 m-3">
-                        <i class="fas fa-user-lock prefix green-text text-darken-4"></i>
-                        <input id="password" name="password" type="password" minlength="8"
-                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="validate" required aria-required="true">
-                        <label for="password">Password</label>
-                        <small>(Must contain at least one number and one uppercase and lowercase letter, and at least 8 or
-                            more characters)</small>
-                    </div>
-                </div>
-                <!-- login -->
-                <div class="row">
-                    <button type="submit" name="action" class="col s12 m2 offset-m5 p-5 btn-large center-align green darken-3">
-                        <b>Log In</b>
-                    </button>
-                </div>
-                <br>
-            </form>
-        </div>
-    </div>
+    </aside>
 {% endblock %}
