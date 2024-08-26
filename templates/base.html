@@ -70,7 +70,7 @@
                         class="teal-text text-darken-4">Manage Users</a></li>
                 {% endif %}
                 <li><a href="{{ url_for('changepass') }}" class="teal-text text-darken-4">Change Password</a></li>
-                <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                <li><a href="{{ url_for('logout') }}" class="teal-text text-darken-4">Log Out</a></li>
             </ul>
             </div>
             <!-- hamburger toggle -->
@@ -124,6 +124,20 @@
     </header>
     <main>
         {% block content %}
+        <aside class="container flash">
+            <!-- flash messages -->
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <div class="row flashes ">
+                <div class="col s12 card-panel red accent-4 rounded center">
+                    <h6 class="orange-text text-lighten-4">{{ message }}<h6>
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+        </aside>
         <!-- Main content -->
         {% endblock %}
     </main>
