@@ -7,6 +7,20 @@
                 <br>
                 <h5 class="center-align" style="color:#eaeeed">LOG IN</h5>
                 <br>
+                <aside class="container flash">
+                    <!-- flash messages -->
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="row flashes ">
+                        <div class="col s12 center errorFlash">
+                            <b><h6 class="red-text text-accent-4" style="font-size: x-large; font-weight: 700; letter-spacing: 3px;">{{ message }}</h6></b>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+                </aside>
             </div>
         </div>
         <div class="container page-container">           
@@ -38,9 +52,11 @@
                     <br>
                     <!-- login -->
                     <div class="row">
-                        <button type="submit" name="action" class="col s12 m2 offset-m5 p-5 btn-small green darken-3">
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>LOG IN</b>
-                        </button>
+                        <div class="col s12 center p5">
+                            <button type="submit" name="action" class="btn green darken-3 white-text white-lighten-4 rounded waves-effect waves-light btncont">
+                                &nbsp;<b>LOG IN</b>
+                            </button>
+                        </div>
                     </div>
                     <br>
                 </form>
