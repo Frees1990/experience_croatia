@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="A travel web app that offers personal travel packages apart from accommodation and flights">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
     <!-- Materialize Icons-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Material Symbols - Outlined Set -->
@@ -36,7 +39,8 @@
     <header>
         <!-- Navigation bar for large screens -->
         <nav class="custom-nav">
-            <a href="" class="brand-logo teal-text text-darken-4 center logo" aria-label="logo and link to index">Pula Croatia</a>
+            <div class="nav-wrapper">
+            <a href="{{url_for('index')}}" class="brand-logo center shadows-into-light-regular" aria-label="logo and link to index">Pula Croatia</a>
 
             <ul class="right hide-on-med-and-down">
                 {% if session.user %}
@@ -68,6 +72,7 @@
                 <li><a href="{{ url_for('changepass') }}" class="teal-text text-darken-4">Change Password</a></li>
                 <li><a href="{{ url_for('logout') }}">Log Out</a></li>
             </ul>
+            </div>
             <!-- hamburger toggle -->
             <input id="mobile-menu-toggle" type="checkbox" aria-label="menu toggle">
             <label class="hamburger right hide-on-large-only" for="mobile-menu-toggle" aria-label="menu">
@@ -133,27 +138,27 @@
                             <li>
                                 <a href="https://en-gb.facebook.com/" target="_blank" rel=noreferrer
                                     aria-label="facebook">
-                                    <i class="fab fa-facebook fa-lg" style="color: #63E6BE;"></i>
+                                    <i class="fab fa-facebook fa-lg"></i>
                                 </a>
                             </li>
                             <li>
                                 <a href="https://www.instagram.com/" target="_blank" rel=noreferrer
                                     aria-label="instagram">
-                                    <i class="fab fa-instagram-square fa-lg" style="color: #63E6BE;"></i>
+                                    <i class="fab fa-instagram-square fa-lg"></i>
                                 </a>
 
                             </li>
                             <li>
                                 <a href="https://github.com/mikavir/casa-quest" target="_blank" rel=noreferrer
                                     aria-label="github">
-                                    <i class="fab fa-github fa-lg" style="color: #63E6BE;"></i>
+                                    <i class="fab fa-github fa-lg"></i>
                                 </a>
 
                             </li>
                             <li>
                                 <a href="https://www.linkedin.com/in/mikaela-virtucio-b01962274/" target="_blank"
                                     rel=noreferrer aria-label="linkedin">
-                                    <i class="fab fa-linkedin fa-lg" style="color: #63E6BE;"></i>
+                                    <i class="fab fa-linkedin fa-lg"></i>
                                 </a>
 
                             </li>
@@ -169,8 +174,8 @@
                     </div>
                     <div class="row my-3">
                         <div class="col s12">
-                            <a href="{{ url_for('contact') }}" class="reverse-btn" aria-label="contact page">
-                                Contact us</a>
+                            <a href="{{ url_for('contact') }}" class="reverse-btn orange-text text-darken-4" aria-label="contact page">
+                            Contact us</a>
                         </div>
                     </div>
                 </div>
