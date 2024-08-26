@@ -4,10 +4,23 @@
     <aside id="registerImage">
         <div class="row">
             <div class="col s12 regHeader">
-                <h4 class="center"><b>Experience Croatia</b></h4>
+                <h4 class="center"><b>Experience Pula, Croatia</b></h4>
                 <br><br>
-                <h6 class="center small"><b>Experience the wonderful culture, night life and the sunny life in Croatia <br> Register
-                        to receive exclusive offers </b></h6>
+                <h6 class="center small"><b>Experience the wonderful culture, night life and the sunny life in Croatia <br> Register to receive exclusive offers </b></h6>
+                <aside class="container flash">
+                    <!-- flash messages -->
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="row flashes ">
+                        <div class="col s12 center errorFlash">
+                            <b><h6 class="red-text text-accent-4" style="font-size: x-large; font-weight: 700; letter-spacing: 3px;">{{ message }}</h6></b>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+                </aside>
             </div>
         </div>
         <div class="container page-container">
@@ -66,9 +79,11 @@
                     <br>
                     <!-- register -->
                     <div class="row">
-                        <button type="submit" class="col s12 m2 offset-m5 p-5 btn-small green darken-3 center-align btnreg">
-                            &nbsp;&nbsp;&nbsp;<b>REGISTER</b>
-                        </button>
+                        <div class="col s12 m8 offset-m5 p5">
+                            <button type="submit" name="action" class="btn green darken-3 white-text white-lighten-4 rounded waves-effect waves-light btncont">
+                                &nbsp;<b>REGISTER</b>
+                            </button>
+                        </div>
                     </div>
                     <br>
                 </form>
@@ -76,7 +91,7 @@
         </div>
         <div class="row">
             <div class="col s12 center-align loginHere">
-                <!-- If user does not have an account->Link to register page -->
+                <!-- If user is already registerd they willl be roouted to the log in page -->
                 <p><b>ALREADY REGISTERED?....</b>&nbsp;&nbsp;
                     <a href="{{ url_for('register') }}"><b>LOG IN HERE</b></a>
                 </p>
