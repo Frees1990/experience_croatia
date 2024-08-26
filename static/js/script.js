@@ -8,6 +8,12 @@ $(document).ready(function () {
     initialiseToolTipped();
     initialiseDropdown();
 });
+    $('#message').on('input', function () {
+        this.style.height = 'auto';
+
+        this.style.height =
+            (this.scrollHeight) + 'px';
+    });
 /** Initialisation of Materialize dropdown elements*/
 function initialiseDropdown() {
     const elems = document.querySelectorAll('.dropdown-trigger');
@@ -114,3 +120,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, slideTime);
 });
+
