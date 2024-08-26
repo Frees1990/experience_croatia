@@ -39,11 +39,10 @@
                     </div>
 
                 </div>
-
             </div>
             <!-- Contact Form -->
             <div class="row">
-                <form class="card-panel custom-card col s12 m8 offset-m2 p-5" name="contactForm" id="contactForm"
+                <form class="card-panel custom-card col s12" name="contactForm" id="contactForm"
                     onsubmit="return sendMail(this);">
                     <div class="row">
                         <div class="col s12" style="color: white;">
@@ -88,16 +87,16 @@
                     </div>
                     <!-- Submit button -->
                     <div class="row my-5">
-                        <div class="col s12 center">
-                            <button class="btn green darken-3 white-text white-lighten-4 rounded waves-effect waves-light">Get
+                        <div class="col s12 m8 offset-m5 p5">
+                            <button type="submit" name="action" class="btn green darken-3 white-text white-lighten-4 rounded waves-effect waves-light btncont">Get
                                 in touch!</button>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col s12">
-                            <p class="center-align" style="color: orangered;">
-                                Already Registered?
-                                <a href="{{ url_for('login') }}" class="yellow-text text-lighten-4">Log In</a>
+                        <div class="col s12 center-align contactHere">
+                            <!-- If user does not have an account->Link to register page -->
+                            <p><b>ALREADY REGISTERED?....</b>&nbsp;&nbsp;
+                                <a href="{{ url_for('register') }}"><b>LOG IN HERE</b></a>
                             </p>
                         </div>
                     </div>
