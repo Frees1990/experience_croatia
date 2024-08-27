@@ -77,7 +77,21 @@ nav ul:not(.dropdown-content)>li>a {
   color: #720444;
   display: block;
   padding: 0 25px;
+  cursor: pointer;
   margin-top: 15px;
+}
+.dropdown-content{
+  font-size: 1.5rem;
+  font-family: 'Shadows Into Light', 'Arial Narrow', Arial, cursive;
+  font-weight: bolder;
+  color: #720444;
+  background-color: #f3e0cb;
+}
+.dropdown-content>li>a{
+  font-size: 1.5rem;
+  font-family: 'Shadows Into Light', 'Arial Narrow', Arial, cursive;
+  font-weight: bolder;
+  color: #720444;
 }
 .mobile-menu nav ul:not(.dropdown-content)>li>a:hover{
   color:#17353B;
@@ -86,11 +100,6 @@ nav ul:not(.dropdown-content)>li>a:hover:not(.active) {
   background-color: rgba(88, 126, 123, 0);
   text-decoration: underline;
   text-decoration-color: #333;
-}
-.dropdown-trigger{
-  display: inline-block;
-  position: relative;
-  cursor: pointer;
 }
 .mobile-nav {
   height: 0px;
@@ -300,35 +309,36 @@ btn:hover{
   position: relative;
   z-index: 2;
 }
-.profileHeader{
-  background-color: rgba(0, 0, 0, 0.452);
-}
 .profileHeader>h3{
   margin-top: 15rem;
   color: wheat;
   font-weight: 700;
 }
 .profileHeader>h5{
-  color:#f80bd1;
+  color: #720444;
   font-weight: 800;
 }
-.newHere{
-  margin-top: 10rem;
-  margin-bottom: 0;
+/*  --------------------------------------- Travel Req */
+#travelImage{
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../images/inside.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: 2;
 }
-.newHere>p{
-  color:rgb(240, 6, 6);
+.travelHeader>h3{
+  color:rgb(179, 4, 223);
   font-weight: 700;
 }
-.newHere>p>a{
-  color:blanchedalmond;
-  font-weight: 700;
-  text-decoration: underline;
+.travelHeader>h5{
+  color: #720444;
+  font-weight: 800;
 }
-.newHere>p>a:hover{
-  color:rgb(247, 10, 10);
-  font-weight: 700;
-  text-decoration: underline;
+.custom-card-travel{
+  background-color: wheat;
 }
 /*  --------------------------------------- MEDIA QUERIES FOR RESPONSIVENESS */
 @media screen and (max-width: 700px) {
