@@ -18,55 +18,6 @@ main {
   overflow-x: hidden;
   min-height: calc(100vh - 20vh);
 }
-
-aside#hero-image {
-  width: 100vw;
-  height: 90vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  z-index: 2;
-}
-.carousel .carousel-item>img {
-  height: 100vh;
-}
-.hero-callout {
-  text-align: center;
-  color: #17353B;
-  background-color: rgba(250, 236, 217, 0.5);
-  margin-bottom: 30%;
-}
-.callout-btn {
-  border: 2px solid #17353B;
-  border-radius: 15px;
-  padding: 10px;
-  background-color: #17353B;
-  transition: .5s;
-  color: #FAECD9
-}
-
-.callout-btn:hover {
-  background-color: #f4fad900;
-  color: #17353B;
-}
-.hero-review {
-  background-color: #FAECD9;
-  padding: 40px;
-  color: #333;
-  margin-top: 5%;
-}
-.hero-review h6 {
-  font-weight: 700;
-  color: #17353B;
-  margin-top: 10%;
-}
-.hero-review img {
-  border-radius: 15px;
-  height: 500px;
-  width: 350px;
-}
-
 h1,
 h2,
 h3,
@@ -77,7 +28,6 @@ h6 {
   letter-spacing: 1.5px; 
   margin: 5px; 
 }
-
 p,
 a,
 button {
@@ -85,23 +35,32 @@ button {
   font-weight: 200;
   font-style: normal;
 }
-
-/* --------------------------------------- Logo*/
-a.brand-logo {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  background-size: 150px 150px;
-  background-image: url(../images/logo.png);
-  background-repeat: no-repeat;
-  background-position: 0 0;
-  cursor: pointer;
-  text-indent: -9999px;
-  overflow: hidden;
-  z-index: 4;
-  margin-top: 2%;
+/*-----------------Footer--*/
+.footer-container {
+  background-color: #02696d;
+  bottom: 0;
+  padding: 1rem;
+  min-height: 30vh;
+  color: #FAECD9;
 }
-
+ul.social-media-icons {
+  padding-inline-start: 0px;
+}
+.social-media-icons li {
+  list-style: none;
+  display: inline-block;
+  margin: 60px 0 10px 0;
+}
+.social-media-icons i {
+  color: #63E6BE;
+  font-size: 70px;
+  margin-left: 150px;
+  margin-right: 150px;
+  margin-bottom: 30px;
+}
+.social-media-icons i:hover {
+  color: #11100e00;
+}
 /* --------------------------------------- NAVIGATION BAR*/
 .custom-nav {
   background-color: #f3e0cb;
@@ -158,71 +117,68 @@ nav ul:not(.dropdown-content)>li>a:hover:not(.active) {
   left: 70%;
   display: block;
 }
-/* -------------------- Login Form */
-#loginImage{
+/* --------------------------------------- Logo*/
+a.brand-logo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-size: 150px 150px;
+  background-image: url(../images/logo.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  cursor: pointer;
+  text-indent: -9999px;
+  overflow: hidden;
+  z-index: 4;
+  margin-top: 2%;
+}
+/*----------------------Index-------*/
+aside#hero-image {
   width: 100vw;
-  height: 100vh;
-  background-image: url(../images/contact.jpg);
+  height: 90vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
   z-index: 2;
 }
-.loginHeader>h3{
-  margin-top: 15rem;
-  color:#eaeeed;
-}
-.newHere{
-  margin-top: 10rem;
-  margin-bottom: 0;
-}
-.newHere>p{
-  color:rgb(240, 6, 6);
-  font-weight: 700;
-}
-.newHere>p>a{
-  color:blanchedalmond;
-  font-weight: 700;
-  text-decoration: underline;
-}
-.newHere>p>a:hover{
-  color:rgb(247, 10, 10);
-  font-weight: 700;
-  text-decoration: underline;
-}
-/* -------------------- Register Form */
-#registerImage{
-  width: 100vw;
+.carousel .carousel-item>img {
   height: 100vh;
-  background-image: url(../images/contact.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  z-index: 2;
 }
-.regHeader{
-  margin: 15rem;
-  color:#eaeeed;
-  margin-bottom: 0;
+.hero-callout {
+  text-align: center;
+  color: #17353B;
+  background-color: rgba(250, 236, 217, 0.5);
+  margin-bottom: 30%;
 }
-.loginHere>p{
-  color:rgb(240, 6, 6);
+.callout-btn {
+  border: 2px solid #17353B;
+  border-radius: 15px;
+  padding: 10px;
+  background-color: #17353B;
+  transition: .5s;
+  color: #FAECD9
+}
+
+.callout-btn:hover {
+  background-color: #f4fad900;
+  color: #17353B;
+}
+.hero-review {
+  background-color: #FAECD9;
+  padding: 40px;
+  color: #333;
+  margin-top: 5%;
+}
+.hero-review h6 {
   font-weight: 700;
+  color: #17353B;
+  margin-top: 10%;
 }
-.loginHere>p>a{
-  color:blanchedalmond;
-  font-weight: 700;
-  text-decoration: underline;
-}
-.loginHere>p>a:hover{
-  color:rgb(247, 10, 10);
-  font-weight: 700;
-  text-decoration: underline;
-}
-btn:hover{
-  color: rgba(0, 0, 0, 0);
+.hero-review img {
+  border-radius: 15px;
+  height: 500px;
+  width: 350px;
 }
 /*  --------------------------------------- CONTACT PAGE */
 #contact-image{
@@ -267,31 +223,112 @@ btn:hover{
 .btncont:hover{
   color: black;
 }
-/*----*/
-.footer-container {
-  background-color: #02696d;
-  bottom: 0;
-  padding: 1rem;
-  min-height: 30vh;
-  color: #FAECD9;
+/* -------------------- Register Form */
+#registerImage{
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../images/contact.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: 2;
 }
-ul.social-media-icons {
-  padding-inline-start: 0px;
+.regHeader{
+  margin: 15rem;
+  color:#eaeeed;
+  margin-bottom: 0;
 }
-.social-media-icons li {
-  list-style: none;
-  display: inline-block;
-  margin: 60px 0 10px 0;
+.loginHere>p{
+  color:rgb(240, 6, 6);
+  font-weight: 700;
 }
-.social-media-icons i {
-  color: #63E6BE;
-  font-size: 70px;
-  margin-left: 150px;
-  margin-right: 150px;
-  margin-bottom: 30px;
+.loginHere>p>a{
+  color:blanchedalmond;
+  font-weight: 700;
+  text-decoration: underline;
 }
-.social-media-icons i:hover {
-  color: #11100e00;
+.loginHere>p>a:hover{
+  color:rgb(247, 10, 10);
+  font-weight: 700;
+  text-decoration: underline;
+}
+btn:hover{
+  color: rgba(0, 0, 0, 0);
+}
+/* -------------------- Login Form */
+#loginImage{
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../images/contact.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: 2;
+}
+.loginHeader>h3{
+  margin-top: 15rem;
+  color:#eaeeed;
+}
+.newHere{
+  margin-top: 10rem;
+  margin-bottom: 0;
+}
+.newHere>p{
+  color:rgb(240, 6, 6);
+  font-weight: 700;
+}
+.newHere>p>a{
+  color:blanchedalmond;
+  font-weight: 700;
+  text-decoration: underline;
+}
+.newHere>p>a:hover{
+  color:rgb(247, 10, 10);
+  font-weight: 700;
+  text-decoration: underline;
+}
+/*  --------------------------------------- PROFILE */
+#profileImage{
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../images/d6.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: 2;
+}
+.profileHeader{
+  background-color: rgba(0, 0, 0, 0.452);
+}
+.profileHeader>h3{
+  margin-top: 15rem;
+  color: wheat;
+  font-weight: 700;
+}
+.profileHeader>h5{
+  color:#f80bd1;
+  font-weight: 800;
+}
+.newHere{
+  margin-top: 10rem;
+  margin-bottom: 0;
+}
+.newHere>p{
+  color:rgb(240, 6, 6);
+  font-weight: 700;
+}
+.newHere>p>a{
+  color:blanchedalmond;
+  font-weight: 700;
+  text-decoration: underline;
+}
+.newHere>p>a:hover{
+  color:rgb(247, 10, 10);
+  font-weight: 700;
+  text-decoration: underline;
 }
 /*  --------------------------------------- MEDIA QUERIES FOR RESPONSIVENESS */
 @media screen and (max-width: 700px) {
