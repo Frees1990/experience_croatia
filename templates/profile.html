@@ -1,174 +1,166 @@
-
 {% extends "base.html" %}
 {% block content %}
-    <div class="container page-container">
-        {% if session.user != "systemadmin" %}
+    <aside id="profileImage">
         <div class="row">
-            <!-- Username heading -->
-            <div class="col s12 m8 offset-m2">
-                <div class="card-panel green darken-3">
-                    <h3 class="center-align white-text text-darken-4">
-                        Welcome to Experience Croatia <br> {{name}}
-                    </h3>
-                </div>
-            </div>
-        </div>
-        {% endif %}
-
-        {% if session.user == "systemadmin" %}
-        <div class="row">
-            <!-- Username heading -->
-            <div class="col s12">
-                <div>
-                    <h3 class= "green-text">
-                        Hello Admin &nbsp;<i class="far fa-id-badge fa-lg" style="color: #399905;"></i>
-                    </h3>
-                </div>
-            </div>
-        </div>
-        {% endif %}
-        {% if session.user != "systemadmin" %}
-        <div class="row">
-            <div class="col s12 my-4 center">
-                <a class="btn icon-right rounded waves-effect waves-light teal darken-4 orange-text text-lighten-5"
-                    href="{{ url_for('travel_info') }}"><span>Quote Request</span>
-                </a>
-            </div>
-        </div>
-        {% endif %}
-        <div class="row">
-            {% for travel_info in travel_info %}
-            <div class="col s12 card-panel custom-card travel-card">
-                
-                {% if username == "systemadmin" %}
+            <div class="col s12 m8 offset-m2 profileHeader">
+                {% if session.user != "systemadmin" %}
+                <!-- Username heading -->
+                <h3 class="center-align">
+                    Hey " {{name}} "
+                </h3>
+                <br>
+                <h5 class="center-align">Excited to find out what we have in store for you? <br> send a request now! Click
+                    the button below</h5>
+                {% endif %}
+                {% if session.user == "systemadmin" %}
+                <!-- Username heading -->
+                <h3 class="center-align">
+                    Hello Admin &nbsp;<i class="far fa-id-badge fa-lg" style="color: #399905;"></i>
+                </h3>
+                {% endif %}
+                {% if session.user != "systemadmin" %}
                 <div class="row">
-                    <div class="col s12">
-                        <h6><span> Created by: </span>{{travel_info.username}}</h6>
+                    <div class="col s12 my-4 center">
+                        <a class="btn icon-right rounded waves-effect waves-light teal darken-4 orange-text text-lighten-5"
+                            href="{{ url_for('travel_info') }}">&nbsp;&nbsp;&nbsp;<span>Quote Request</span>
+                        </a>
                     </div>
                 </div>
                 {% endif %}
-                <div class="row">
-                    <div class="col s12 m6 m-3">
-                        <!-- Travel Dates -->
-                        <div class="row">
-                            <div class="col s12">
-                                <h6><span>Travel Dates: </span>{{ travel_info.travel_dates }}</h6>
-                            </div>
-                        </div>
-                        <!-- Travel flexibility -->
-                        <div class="row">
-                            <div class="col s12">
-                                <h6>
-                                    <span>Dates Flexible?:</span>{{travel_info.flexible_dates }}
-                                </h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col s12 m6 m-3">
-                        <!-- include flights -->
-                        <div class="row">
-                            <div class="col s12">
-                                <h6><span>Include Flight?:</span>{{ travel_info.include_flights }}</h6>
-                            </div>
-                        </div>
-                        <!-- departing port -->
-                        <div class="row">
-                            <div class="col s12">
-                                <h6><span>Preferred Departure Airport:</span>{{ travel_info.flying_from }}</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col s12 m6 m-3">
-                        <!-- Number of adult guests -->
-                        <div class="row">
-                            <div class="col s12">
-                                <h6><span>Number of Adult Guests:</span>{{ travel_info.number_adult_guests }}</h6>
-                            </div>
-                        </div>
-                        <!-- Number of child guests -->
-                        <div class="row">
-                            <div class="col s12">
-                                <h6><span>Number of Children Traveling:</span>{{ travel_info.number_kids_guests }}</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col s12 m6 m-3">
-                        <!-- concerts-->
-                        <div class="row">
-                            <div class="col s12">
-                                <h6><span>Include Concert Tickets? :</span>{{ travel_info.include_concerts }}</h6>
-                            </div>
-                        </div>
-                        <!-- excursions -->
-                        <div class="row">
-                            <div class="col s12">
-                                <h6><span>Include Excursions?:</span>{{ travel_info.include_excursions }}</h6>
-                            </div>
-                        </div>
-                        <!-- guide -->
-                        <div class="row">
-                            <div class="col s12">
-                                <h6><span>Include Personal Tour Guide?:</span>{{ travel_info.include_guide }}</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Buttons-->
-                    <!-- Edit button -->
-                    {% if session.user != "systemadmin" %}
-                    <div class="col s5">
-                        <a href=""
-                            class="btn teal darken-2 white-text icon-right rounded waves-effect waves-light profile-button">
+            </div>
+        </div>
+        <div class="container page-container">
+            <div class="row">
+                {% for travel_info in travel_info %}
+                <div class="col s12 card-panel custom-card travel-card">
 
-                            Update
-                        </a>
+                    {% if username == "systemadmin" %}
+                    <div class="row">
+                        <div class="col s12">
+                            <h6><span> Created by: </span>{{travel_info.username}}</h6>
+                        </div>
                     </div>
                     {% endif %}
-                    <!-- Delete button -->
-                    <div class="col s12 m1 right-align">
-                        <a class="waves-effect waves-light btn modal-trigger red darken-4 rounded"
-                            href="#deleteModal"><span class="material-symbols-outlined">
-                                Delete
-                            </span></a>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-         <!-- Delete Modal -->
-         <div id="deleteModal" class="modal card-panel rounded white-text center p-5">
-            <!-- Modal Content -->
-            <div class="modal-content rounded">
-                <div class="row">
-                    <div class="col s12 red-text text-darken-4">
-                        <i class="fa-solid fa-triangle-exclamation fa-lg"></i>
-                        <h4>Caution</h4>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s12 black-text">
-                        <p> Deleting this user will erase all associated data. Are you sure you want to proceed?
-                            Click
-                            below to confirm or cancel to preserve data.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <div class="row">
-                    <div class="col s12 center">
+                    <div class="row">
+                        <div class="col s12 m6 m-3">
+                            <!-- Travel Dates -->
+                            <div class="row">
+                                <div class="col s12">
+                                    <h6><span>Travel Dates: </span>{{ travel_info.travel_dates }}</h6>
+                                </div>
+                            </div>
+                            <!-- Travel flexibility -->
+                            <div class="row">
+                                <div class="col s12">
+                                    <h6>
+                                        <span>Dates Flexible?:</span>{{travel_info.flexible_dates }}
+                                    </h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s12 m6 m-3">
+                            <!-- include flights -->
+                            <div class="row">
+                                <div class="col s12">
+                                    <h6><span>Include Flight?:</span>{{ travel_info.include_flights }}</h6>
+                                </div>
+                            </div>
+                            <!-- departing port -->
+                            <div class="row">
+                                <div class="col s12">
+                                    <h6><span>Preferred Departure Airport:</span>{{ travel_info.flying_from }}</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s12 m6 m-3">
+                            <!-- Number of adult guests -->
+                            <div class="row">
+                                <div class="col s12">
+                                    <h6><span>Number of Adult Guests:</span>{{ travel_info.number_adult_guests }}</h6>
+                                </div>
+                            </div>
+                            <!-- Number of child guests -->
+                            <div class="row">
+                                <div class="col s12">
+                                    <h6><span>Number of Children Traveling:</span>{{ travel_info.number_kids_guests }}</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s12 m6 m-3">
+                            <!-- concerts-->
+                            <div class="row">
+                                <div class="col s12">
+                                    <h6><span>Include Concert Tickets? :</span>{{ travel_info.include_concerts }}</h6>
+                                </div>
+                            </div>
+                            <!-- excursions -->
+                            <div class="row">
+                                <div class="col s12">
+                                    <h6><span>Include Excursions?:</span>{{ travel_info.include_excursions }}</h6>
+                                </div>
+                            </div>
+                            <!-- guide -->
+                            <div class="row">
+                                <div class="col s12">
+                                    <h6><span>Include Personal Tour Guide?:</span>{{ travel_info.include_guide }}</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Buttons-->
+                        <!-- Edit button -->
+                        {% if session.user != "systemadmin" %}
+                        <div class="col s5">
+                            <a href=""
+                                class="btn teal darken-2 white-text icon-right rounded waves-effect waves-light profile-button">
+
+                                Update
+                            </a>
+                        </div>
+                        {% endif %}
                         <!-- Delete button -->
-                        <form action=""
-                            method="POST">
-                            <button class="modal-close btn waves-effect rounded red darken-4 m-2">Delete</button>
-                            <!-- Cancel button -->
-                            <a href="#" class="modal-close btn waves-effect rounded orange m-2">Cancel</a>
-                        </form>
+                        <div class="col s12 m1 right-align">
+                            <a class="waves-effect waves-light btn modal-trigger red darken-4 rounded"
+                                href="#deleteModal"><span class="material-symbols-outlined">
+                                    Delete
+                                </span></a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <!-- Delete Modal -->
+            <div id="deleteModal" class="modal card-panel rounded white-text center p-5">
+                <!-- Modal Content -->
+                <div class="modal-content rounded">
+                    <div class="row">
+                        <div class="col s12 red-text text-darken-4">
+                            <i class="fa-solid fa-triangle-exclamation fa-lg"></i>
+                            <h4>Caution</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 black-text">
+                            <p> Deleting this user will erase all associated data. Are you sure you want to proceed?
+                                Click
+                                below to confirm or cancel to preserve data.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col s12 center">
+                            <!-- Delete button -->
+                            <form action="" method="POST">
+                                <button class="modal-close btn waves-effect rounded red darken-4 m-2">Delete</button>
+                                <!-- Cancel button -->
+                                <a href="#" class="modal-close btn waves-effect rounded orange m-2">Cancel</a>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
-
+    </aside>
 {% endblock %}
 <!-- Script tags -->
 {% block javascript %}
