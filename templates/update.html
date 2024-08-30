@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% block content %}
+
+    {% if session.user != "systemadmin" %}
+    <aside id="profileImage">
+        {% endif %}
+        <div class="row">
+            <div class="col s12 regHeader">
+                <h4 class="center"><b>UPDATE PROFILE INFORMATION</b></h4>
+                <br><br>
+                <aside class="container flash">
+                    <!-- flash messages -->
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="row flashes ">
+                        <div class="col s12 center errorFlash">
+                            <b><h6 class="red-text text-accent-4" style="font-size: x-large; font-weight: 700; letter-spacing: 3px;">{{ message }}</h6></b>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+                </aside>
+            </div>
+        </div>
+        <div class="container page-container">
+            <div class="row">
+                <form action="{{ url_for('update', users_id=users._id) }}" id="regForm" method="POST" enctype="multipart/form-data"
+                     class="card-panel custom-card lighten-5 col s12 m8 offset-m2" style="background-color: rgba(255, 228, 196, 0.63);" name="update_users"  onsubmit="return validateForm()" aria-label="update form">
+                     <div class="row">
+                        <div class="col s12 m6">
+                            <h5  style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-weight: bold;">Name  :</h5>
+                        </div>
+                        <div class="col s12 m6">
+                            <h5 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">{{ users.name }}</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m6">
+                            <h5  style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-weight: bold;">Username   :</h5> 
+                        </div>
+                        <div class="col s12 m6">
+                            <h5 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">{{ users.username }}</h5>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                     <!-- Mobile / Email-->
+                    <div class="row">
+                        <div class="input-field col s12 m8 offset-m2 outlined">
+                            <i class="fas fa-mobile prefix green-text text-darken-4"></i>
+                            <input id="email" name="email" type="email" class="validate" value="{{ users.email }}" required
+                                aria-required="true">
+                            <label for="email">E-mail</label>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="input-field col s12 m8 offset-m2 outlined">
+                            <i class="fas fa-mobile prefix green-text text-darken-4"></i>
+                            <input id="number" name="number" type="number" minlength="5" maxlength="15" class="validate" value="{{ users.number }}" required
+                                aria-required="true">
+                            <label for="number">Mobile</label>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                     <!-- UPDATE -->
+                    <div class="row">
+                        <div class="col s12 m8 offset-m5 p5">
+                            <button type="submit" name="action" class="btn green darken-3 white-text white-lighten-4 rounded waves-effect waves-light btncont">
+                                &nbsp;<b>UPDATE</b>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <br>
+                </form>
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 center-align loginHere">
+                <!-- If user is already registerd they willl be roouted to the log in page -->
+                <p><b>CLICK HERE TO GO....</b>&nbsp;&nbsp;
+                    <a href=""><b>BACK TO PROFILE</b></a>
+                </p>
+            </div>
+        </div>
+    {% if session.user != "systemadmin" %}
+    </aside>
+    {% endif %}
+{% endblock %}
+{% block javascript %}
+<script>
+  // Validate form
+  function validateForm() {
+
+    const name = document.forms.update_users.name.value;
+    const email = document.forms.update.email.value;
+    const number = document.forms.update.number.value;
+    const username = document.forms.update.username.value;
+
+    if (name == "" || email == "" || number == "" || username == "") {
+      console.log("validation failed");
+      errorMessage.innerText = "Please fill out all the required fields";
+      return false;
+    }
+    return true;
+  }
+</script>
+{% endblock %}
