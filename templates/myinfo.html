@@ -11,14 +11,28 @@
                 <h3 class="center-align">
                     Hey " {{ users.name }} "
                 </h3>
-                {% endif %}
-                {% if session.user == "systemadmin" %}
+                {% else %}
                 <!-- Username heading -->
                 <h3 class="center-align">
                     Hello Admin &nbsp;<i class="far fa-id-badge fa-lg" style="color: #399905;"></i>
                 </h3>
                 {% endif %}
+                <aside class="container flash">
+                    <!-- flash messages -->
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="row flashes ">
+                        <div class="col s12 center errorFlash">
+                            <b><h6 class="red-text text-accent-4" style="font-size: x-large; font-weight: 700; letter-spacing: 3px;">{{ message }}</h6></b>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+                </aside>
             </div>
+            
         </div>
         <br>
         <br>
@@ -27,64 +41,71 @@
                 <div class="col s12 m8 offset-m2 card-panel custom-card travel-card" style="background-color:rgba(255, 228, 196, 0.651);">
                     {% if username == "systemadmin" %}
                     <div class="row">
-                        <div class="col s12">
-                            <h6><span> Created by: </span>{{ users.name }}</h6>
+                        <div class="col s12 ">
+                            <h5><span> Created by:</span></h5>
+                            <h5>{{ users.name }}</h5>
                         </div>
                     </div>
                     {% endif %}
                     <div class="row">
-                        <div class="col s12 m-3">
+                        <div class="col s12">
                             <div class="row">
-                                <div class="col s12">
-                                    <h6><span>Name: </span>{{ users.name }}</h6>
+                                <div class="col s12 m6">
+                                    <h5  style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-weight: bold;">Name  :</h5>
                                 </div>
-                            </div>
-                            <!-- Travel Dates -->
-                            <div class="row">
-                                <div class="col s12">
-                                    <h6><span>Username: </span>{{ users.username }}</h6>
-                                </div>
-                            </div>
-                            <!-- Travel flexibility -->
-                            <div class="row">
-                                <div class="col s12">
-                                    <h6>
-                                        <span>Phone Number:</span> {{users.number }}
-                                    </h6>
+                                <div class="col s12 m6">
+                                    <h5 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">{{ users.name }}</h5>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col s12">
-                                    <h6><span>E-mail:</span> {{users.email}} </h6>
+                                <div class="col s12 m6">
+                                    <h5  style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-weight: bold;">Username   :</h5> 
+                                </div>
+                                <div class="col s12 m6">
+                                    <h5 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">{{ users.username }}</h5>
                                 </div>
                             </div>
-                        </div>
-                        
+                            <div class="row">
+                                <div class="col s12 m6">
+                                    <h5  style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-weight: bold;">Phone Number  :</h5> 
+                                </div>
+                                <div class="col s12 m6">
+                                    <h5  style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">{{users.number }}</h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s12 m6">
+                                    <h5  style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-weight: bold;">E-mail  :</h5>
+                                </div>
+                                <div class="col s12 m6">
+                                    <h5  style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">{{users.email}}</h5>
+                                </div>
+                            </div>
+                        </div>  
                     </div>
                     <br>
                     <br>
                     <!--Buttons-->
                     <!-- Edit button -->
-                    {% if session.user != "systemadmin" %}
-                    <div class="row right-align">
-                        <div class="col s12 m3  offset-m3">
+                    
+                    <div class="row">
+                        <div class="col s12 m4">
                             <a href="{{ url_for('profile', username=session['user']) }}"
-                                class="btn icon-left waves-effect waves-light teal darken-4 orange-text text-lighten-4"><i
-                                    class="material-icons">arrow_back</i>Back to Dashboard</a>
+                                class="btn icon-left waves-effect waves-light teal darken-4 white-text text-lighten-4"><i
+                                    class="material-icons">arrow_back</i><small>Back to Dashboard</small></a>
+                            <a href="{{ url_for('update', users_id=users._id) }}"
+                                class="btn icon-left waves-effect waves-light blue lighten-2 white-text text-lighten-4">
+                                    <i class="material-icons">edit</i><small>Update</small></a>
                         </div>
-                        <div class="col s12 m3">
-                            <a href=""
-                                class="btn icon-left waves-effect waves-light teal darken-4 orange-text text-lighten-4">
-                                <i class="material-icons">edit</i>Update</a>
-                        </div>
-                        <div class="col s12 m3">
-                            {% endif %}
+                        {% if session.user != "systemadmin" %}
+                        <div class="col s12 m8 right-align">
                             <!-- Delete button -->
-                            <a class="waves-effect waves-light btn modal-trigger red darken-4 rounded" href="#deleteModal"><span class="material-symbols-outlined right-align">Delete</span></a>
+                            <a class="waves-effect waves-light btn modal-trigger red darken-4 rounded" href="#deleteModal"><span class="material-symbols-outlined right-align"><small>Delete</small></span></a>
                         </div>
+                        {% endif %}
                     </div>
                 </div>
-                {% endfor %}
+            {% endfor %}
             </div>
             <!-- Delete Modal -->
             <div id="deleteModal" class="modal card-panel rounded white-text center p-5">
