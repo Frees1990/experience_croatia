@@ -104,7 +104,7 @@ def register():
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!")
-        return redirect(url_for("profile", username=session["user"]))
+        return redirect(url_for("myinfo", username=session["user"]))
 
     return render_template("register.html")
 
@@ -218,6 +218,20 @@ def profile(username):
 
     return render_template("profile.html", name=username,
                            travel_info=travel_info)
+
+
+@app.route("/myinfo", methods=["GET", "POST"])
+def myinfo():
+    # grab the session user's username from db
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    
+    if username == "systemadmin":
+        users = mongo.db.users.find()
+    else:
+        users = mongo.db.users.find({"username": username})
+        
+    return render_template("myinfo.html", users=users)
 
 
 @app.route("/travel_info", methods=["GET", "POST"])
