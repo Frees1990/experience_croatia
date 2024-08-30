@@ -10,6 +10,7 @@
                         class="fas fa-hand-point-left white-text"></i>&nbsp;Back to Profile</a>
             </div>
         </div>
+        <br>
         <div class="container page-container">
         <!-- Call out heading -->
             <div class=" row">
@@ -22,30 +23,31 @@
                                 <h5>Travelers Information</5>
                             </div>
                     </div>
+                    <br>
+                    <br>
                         <!-- input field for Preferred travel dates -->
                          <!-- select field to answer if travel dates are flexible -->
                           <!-- input field for include flights? -->
                            <!-- input field for preferred departure airport -->
                         <div class="row">
                             <div class="input-field outlined col s12 m3 m-3">
-                                <label for="travel_dates">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PREFERRED TRAVEL DATES:</label>
                                 <i class="fas fa-calendar-alt fa-lg prefix" style="color: #0b5606;"></i>
-                                
-                                <input type="text" class="datepicker" id="travel_dates" name="travel_dates" required
+                                <input placeholder="PREFERRED TRAVEL DATES:" type="text" class="datepicker" id="travel_dates" name="travel_dates" required
                                     aria-required="true">       
                             </div>  
                             <div class="input-field outlined col s12 m3 m-3">
+                                <i class="fas fa-calendar-alt fa-lg prefix" style="color: #0b5606;"></i>
                                 <label for="flexible_dates">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FLEXIBLE TRAVEL DATES?</label>
                                 <select>       
-                                        <option value="1"></option>
+                                        <option value="1">FLEXIBLE TRAVEL DATES?</option>
                                         <option value="2">YES</option>
                                         <option value="3">NO</option>
                                         <option value="4">MAYBE</option>
                                 </select>   
-                                <i class="fas fa-calendar-alt fa-lg prefix" style="color: #0b5606;"></i>
+                                
                             </div>
                             <div class="input-field outlined col s12 m3 m-3">
-                                <label for="include_flights">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FLEXIBLE DATES?</label>
+                                <label for="include_flights">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INCLUDE FLIGHTS?</label>
                                 <select>
                                     <option value="1"></option>
                                     <option value="2">YES</option>
@@ -61,6 +63,7 @@
                                     aria-required="true">
                             </div>
                         </div>
+                        <br>
                         <!-- input field for number of adult guests -->
                          <!-- input field for number of children guests -->
                         <div class="row">
@@ -90,40 +93,56 @@
                         <!--Section Tag-->
                         <div class="row my-4">
                             <div class="col s12 m6 m-3 black-text">
-                                <h6 class="m-0">Extras</h6>
+                                <h4 class="m-0" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-weight: 800;">Extras</h4>
                             </div>
                         </div>
                         <!-- concerts excursions guide -->
                         <div class="row">
                             <div class="input-field col s12 m4 m-3">
-                                <p>
+                                <p> INCLUDE CURRENT CONCERTS?
                                     <label for="concerts">
                                       <input type="checkbox" id="concerts"/>
-                                      <span>INCLUDE CURRENT CONCERTS?</span>
+                                      <span>YES&nbsp;</span>
+                                    </label>
+                                    <label for="concerts">
+                                        <input type="checkbox" id="concerts"/>
+                                        <span>NO</span>
+                                    </label>
+                                </p>
+                                <p> INCLUDE TOUR GUIDE?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <label for="guide">
+                                        <input type="checkbox" id="guide" />
+                                        <span>YES&nbsp;</span>
                                     </label>
                                     <label for="guide">
-                                      <input type="checkbox" id="guide" />
-                                      <span>INCLUDE TOUR GUIDE?</span>
+                                        <input type="checkbox" id="guide" />
+                                        <span>NO</span>
+                                    </label>
+                                </p>
+                                <p> INCLUDE ACTIVITY OPTIONS?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <label for="activity">
+                                        <input type="checkbox" id="activity" />
+                                        <span>YES&nbsp;</span>
                                     </label>
                                     <label for="activity">
-                                      <input type="checkbox" id="activity" />
-                                      <span>INCLUDE ACTIVITY OPTIONS</span>
+                                        <input type="checkbox" id="activity" />
+                                        <span>NO</span>
                                     </label>
-                                  </p>
+                                </p>
                             </div>
                             <div class="input-field outlined col s12 m4 m-3">
-                                <label for="include_flights">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CONTACT PREFERENCE?</label>
+                                <label for="include_flights"><i class="fas fa-mobile-alt fa-lg prefix green-text text-darken-4"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CONTACT PREFERENCE?</label>
                                 <select>
                                     <option value="1"></option>
                                     <option value="2">PHONE</option>
                                     <option value="3">E-MAIL</option>
-                                </select>
-                                <i class="fas fa-mobile-alt fa-lg prefix" style="color:#0b5606" style="color:#0b5606"></i>
+                                </select>   
                             </div>
                             <div class="input-field outlined col s12 m4 m-3">
+                                <i class="fa-solid fa-message prefix green-text text-darken-4 icon-right"></i>
                                 <label for="message">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp Message</label>
-                                <i class="fa-solid fa-message prefix green-text text-darken-4"></i>
                                 <textarea id="message" name="message" class="materialize-textarea"></textarea>
+                                
                             </div>
                         </div>
 
