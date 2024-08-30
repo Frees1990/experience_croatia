@@ -338,7 +338,15 @@ btn:hover{
   font-weight: 800;
 }
 .custom-card-travel{
-  background-color: wheat;
+  background-color: rgba(245, 222, 179, 0.596);
+}
+/*  --------------------------------------- NEW TRVEL REQ */
+.travel-card{
+  background-color: #f3e0cbab;
+}
+.travel-card>h6>span{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: 800;
 }
 /*  --------------------------------------- MEDIA QUERIES FOR RESPONSIVENESS */
 @media screen and (max-width: 700px) {

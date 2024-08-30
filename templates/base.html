@@ -59,7 +59,6 @@
             <!-- Manage account dropdown content -->
             <ul id="manage_account" class="dropdown-content">
                 {% if session.user == "systemadmin" %}
-                <li><a href="{{ url_for('profile', username=session['user']) }}">Guests Request</a></li>
                 <li><a href="{{ url_for('manageusers', username=session['user']) }}"
                         class="teal-text text-darken-4">Manage Users</a></li>
                 {% endif %}
