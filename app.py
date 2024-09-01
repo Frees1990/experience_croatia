@@ -19,6 +19,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+# LOG IN REQUIRED 
 def login_required(f):
     """
     Function to ensure that user is logged in
@@ -35,6 +36,22 @@ def login_required(f):
     return decorated_function
 
 
+# LOGOUT
+@app.route("/logout")
+def logout():
+    """
+    Removes user session.
+
+    Redirects to login page
+
+    """
+    # remove user from session cookie
+    flash("You have been logged out")
+    session.pop("user")
+    return redirect(url_for("login"))
+
+
+# WEBSITE VISITOR LANDING PAGE
 @app.route("/", methods=["GET"])
 @app.route("/index.html")
 def index():
@@ -52,6 +69,7 @@ def userdoesnotexist():
     return render_template("userdoesnotexist.html")
 
 
+# NEW USER REGISTRATION
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """
@@ -109,6 +127,7 @@ def register():
     return render_template("register.html")
 
 
+# USER PLOGIN PAGE
 # LOGIN
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -158,6 +177,7 @@ def login():
     return render_template("login.html")
 
 
+# USER/ADMIN CHANGE PASSWORD REQUEST
 @app.route("/changepass", methods=["GET", "POST"])
 @login_required
 def changepass():
@@ -205,6 +225,7 @@ def changepass():
     return render_template("changepass.html")
 
 
+# USER PROFILE DASHBOARD
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # grab the session user's username from db
@@ -219,6 +240,7 @@ def profile(username):
     return render_template("profile.html", name=username,)
 
 
+# USER PROFILE/IDENTITY INFORMATION
 @app.route("/myinfo", methods=["GET", "POST"])
 def myinfo():
     # grab the session user's username from db
@@ -233,6 +255,7 @@ def myinfo():
     return render_template("myinfo.html", users=users)
 
 
+# USER PROFILE/NEW TRAVEL REQUEST
 @app.route("/newTravel", methods=["GET", "POST"])
 def newTravel():
     # grab the session user's username from db
@@ -248,6 +271,7 @@ def newTravel():
                            travel_info=travel_info)
 
 
+# USER UPDATE ACCOUNT OPTION 
 @app.route("/update/<users_id>", methods=["GET", "POST"])
 @login_required
 def update(users_id):
@@ -273,6 +297,7 @@ def update(users_id):
     return render_template("update.html", users=users)
 
 
+# CURRENT USER LOG IN REQUEST FORM
 @app.route("/travel_info", methods=["GET", "POST"])
 def travel_info():
 
@@ -311,21 +336,7 @@ def travel_info():
         return render_template("travel_info.html")
 
 
-# LOGOUT
-@app.route("/logout")
-def logout():
-    """
-    Removes user session.
-
-    Redirects to login page
-
-    """
-    # remove user from session cookie
-    flash("You have been logged out")
-    session.pop("user")
-    return redirect(url_for("login"))
-
-
+# CONTACT FORM 
 @app.route("/contact", methods=["GET"])
 def contact():
     """
@@ -360,7 +371,7 @@ def delete_user(username, user_name):
         username = mongo.db.users.find_one(
             {"username": session['user']})["username"]
         
-        if username and user_name != "systemadmin":
+        if username and user_name == "systemadmin":
             mongo.db.users.delete_one({"username": user_name})
 
             flash("The user has been Deleted")
