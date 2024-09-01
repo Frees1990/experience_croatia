@@ -328,6 +328,8 @@ btn:hover{
 .newTraveldeats>h6>span {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
   font-weight: bold;
+  color: #5f6160;
+  text-transform: capitalize;
 }
 .newTraveldeats>h6 {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
@@ -349,7 +351,7 @@ btn:hover{
   font-weight: 700;
 }
 .travelHeader>h5{
-  margin-top: 5%;
+  margin-top: 2%;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   color: #720444;
   font-weight: 800;
