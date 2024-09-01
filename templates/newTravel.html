@@ -33,77 +33,119 @@
                     </div>
                     {% endif %}
                     <div class="row">
-                        <div class="col s12 m6 m-3">
+                        <div class="col s12 m6">
                             <!-- Travel Dates -->
                             <div class="row">
-                                <div class="col s12 newTraveldeats">
-                                    <h6><span>TRAVEL DATES: </span>{{ travel_info.travel_dates }}</h6>
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6><span>TRAVEL DATES  :</span></h6>
                                 </div>
-                            </div>
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6>{{ travel_info.travel_dates }}</h6>
+                                </div>
+                            </div>       
+                        </div>
+                        <div class="col s12 m6">
                             <!-- Travel flexibility -->
                             <div class="row">
-                                <div class="col s12 newTraveldeats">
-                                    <h6>
-                                        <span>DATES FLEXIBLE?:</span>{{travel_info.flexible_dates }}
-                                    </h6>
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6><span>DATES FLEXIBLE?:</span></h6>        
+                                </div>
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6>{{travel_info.flexible_dates }}</h6>        
                                 </div>
                             </div>
                         </div>
-                        <div class="col s12 m6 m-3">
+                        <div class="col s12 m6">
                             <!-- include flights -->
                             <div class="row">
-                                <div class="col s12 newTraveldeats">
-                                    <h6><span>INCLUDE FLIGHT?:</span>{{ travel_info.include_flights }}</h6>
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6><span>INCLUDE FLIGHT?:</span></h6>
+                                </div>
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6>{{ travel_info.include_flights }}</h6>
                                 </div>
                             </div>
+                        </div>
+                        <div class="col s12 m6">
                             <!-- departing port -->
                             <div class="row">
-                                <div class="col s12 newTraveldeats">
-                                    <h6><span>PREFERRED DEPARTURE PORT:</span>{{ travel_info.flying_from }}</h6>
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6><span>PREFERRED DEPARTURE PORT:</span></h6>
+                                </div>
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6>{{ travel_info.flying_from }}</h6>
                                 </div>
                             </div>
                         </div>
-                        <div class="col s12 m6 m-3">
+                        <div class="col s12 m6">
                             <!-- Number of adult guests -->
                             <div class="row">
-                                <div class="col s12 newTraveldeats">
-                                    <h6><span>NUMBER OF ADULT GUESTS:</span>{{ travel_info.number_adult_guests }}</h6>
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6><span>NUMBER OF ADULT GUESTS:</span></h6>
                                 </div>
-                            </div>
-                            <!-- Number of child guests -->
-                            <div class="row">
-                                <div class="col s12 newTraveldeats">
-                                    <h6><span>NUMBER OF CHILDREN GUESTS:</span>{{ travel_info.number_kids_guests }}</h6>
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6>{{ travel_info.number_adult_guests }}</h6>
                                 </div>
                             </div>
                         </div>
-                        <div class="col s12 m6 m-3">
+                        <div class="col s12 m6">
+                            <!-- Number of child guests -->
+                            <div class="row">
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6><span>NUMBER OF CHILDREN GUESTS:</span></h6>
+                                </div>
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6>{{ travel_info.number_kids_guests }}</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s12 m6">
                             <!-- concerts-->
                             <div class="row">
-                                <div class="col s12 newTraveldeats">
-                                    <h6><span>PREFERRED ACCOMMODATION :</span>{{ travel_info.preferred_accom }}</h6>
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6><span>PREFERRED ACCOMMODATION :</span></h6>
+                                </div>
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6>{{ travel_info.preferred_accom }}</h6>
                                 </div>
                             </div>
+                        </div>
+                        <div class="col s12 m6">
                             <!-- excursions -->
                             <div class="row">
-                                <div class="col s12 newTraveldeats">
-                                    <h6><span>INCLUDE CONCERTS?:</span>{{ travel_info.concerts }}</h6>
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6><span>INCLUDE CONCERTS?:</span></h6>
+                                </div>
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6>{{ travel_info.concerts }}</h6>
                                 </div>
                             </div>
+                        </div>
+                        <div class="col s12 m6">
                             <!-- guide -->
                             <div class="row">
-                                <div class="col s12 newTraveldeats">
-                                    <h6><span>INCLUDE PERSONAL TRAVEL GUIDE?:</span>{{ travel_info.guide }}</h6>
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6><span>INCLUDE PERSONAL TRAVEL GUIDE?:</span></h6>
+                                </div>
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6>{{ travel_info.guide }}</h6>
                                 </div>
                             </div>
+                        </div>
+                        <div class="col s12 m6">
                             <!-- guide -->
                             <div class="row">
-                                <div class="col s12 newTraveldeats">
-                                    <h6><span>INCLUDE ACTIVITIES?:</span>{{ travel_info.activity }}</h6>
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6><span>INCLUDE ACTIVITIES?:</span></h6>
+                                </div>
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6>{{ travel_info.activity }}</h6>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <br>
+                    <br>
                     <!--Buttons-->
                     <!-- Edit button -->
                     <div class="row">
