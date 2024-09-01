@@ -318,6 +318,13 @@ btn:hover{
   color: #720444;
   font-weight: 800;
 }
+.userdeats>h5 {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+  font-weight: bold;
+}
+.buts>a {
+  font-weight: 700;
+}
 /*  --------------------------------------- Travel Req */
 #travelImage{
   width: 100vw;
@@ -330,10 +337,12 @@ btn:hover{
   z-index: 2;
 }
 .travelHeader>h3{
-  color:rgb(179, 4, 223);
+  color: green;
   font-weight: 700;
 }
 .travelHeader>h5{
+  margin-top: 5%;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   color: #720444;
   font-weight: 800;
 }
