@@ -325,6 +325,14 @@ btn:hover{
 .buts>a {
   font-weight: 700;
 }
+.newTraveldeats>h6>span {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+  font-weight: bold;
+}
+.newTraveldeats>h6 {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+  font-weight: bold;
+}
 /*  --------------------------------------- Travel Req */
 #travelImage{
   width: 100vw;
