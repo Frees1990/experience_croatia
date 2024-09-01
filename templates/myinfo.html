@@ -17,22 +17,21 @@
                     Hello Admin &nbsp;<i class="far fa-id-badge fa-lg" style="color: #399905;"></i>
                 </h3>
                 {% endif %}
-                <aside class="container flash">
-                    <!-- flash messages -->
-                    {% with messages = get_flashed_messages() %}
-                    {% if messages %}
-                    {% for message in messages %}
-                    <div class="row flashes ">
-                        <div class="col s12 center errorFlash">
-                            <b><h6 class="red-text text-accent-4" style="font-size: x-large; font-weight: 700; letter-spacing: 3px;">{{ message }}</h6></b>
-                        </div>
-                    </div>
-                    {% endfor %}
-                    {% endif %}
-                    {% endwith %}
-                </aside>
             </div>
-            
+            <aside class="container flash">
+                <!-- flash messages -->
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                {% for message in messages %}
+                <div class="row flashes ">
+                    <div class="col s12 center errorFlash">
+                        <b><h6 class="red-text text-accent-4" style="font-size: x-large; font-weight: 700; letter-spacing: 3px;">{{ message }}</h6></b>
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+            </aside>   
         </div>
         <br>
         <br>
@@ -50,35 +49,35 @@
                     <div class="row">
                         <div class="col s12">
                             <div class="row">
-                                <div class="col s12 m6">
-                                    <h5  style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-weight: bold;">Name  :</h5>
+                                <div class="col s12 m6 userdeats">
+                                    <h5>Name  :</h5>
                                 </div>
-                                <div class="col s12 m6">
-                                    <h5 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">{{ users.name }}</h5>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col s12 m6">
-                                    <h5  style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-weight: bold;">Username   :</h5> 
-                                </div>
-                                <div class="col s12 m6">
-                                    <h5 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">{{ users.username }}</h5>
+                                <div class="col s12 m6 userdeats">
+                                    <h5>{{ users.name }}</h5>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col s12 m6">
-                                    <h5  style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-weight: bold;">Phone Number  :</h5> 
+                                <div class="col s12 m6 userdeats">
+                                    <h5>Username   :</h5> 
                                 </div>
-                                <div class="col s12 m6">
-                                    <h5  style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">{{users.number }}</h5>
+                                <div class="col s12 m6 userdeats">
+                                    <h5>{{ users.username }}</h5>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col s12 m6">
-                                    <h5  style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-weight: bold;">E-mail  :</h5>
+                                <div class="col s12 m6 userdeats">
+                                    <h5>Phone Number  :</h5> 
                                 </div>
-                                <div class="col s12 m6">
-                                    <h5  style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">{{users.email}}</h5>
+                                <div class="col s12 m6 userdeats">
+                                    <h5>{{users.number }}</h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s12 m6 userdeats">
+                                    <h5>E-mail  :</h5>
+                                </div>
+                                <div class="col s12 m6 userdeats">
+                                    <h5>{{users.email}}</h5>
                                 </div>
                             </div>
                         </div>  
@@ -87,9 +86,8 @@
                     <br>
                     <!--Buttons-->
                     <!-- Edit button -->
-                    
                     <div class="row">
-                        <div class="col s12 m4">
+                        <div class="col s12 m4 buts">
                             <a href="{{ url_for('profile', username=session['user']) }}"
                                 class="btn icon-left waves-effect waves-light teal darken-4 white-text text-lighten-4"><i
                                     class="material-icons">arrow_back</i><small>Back to Dashboard</small></a>
@@ -97,46 +95,9 @@
                                 class="btn icon-left waves-effect waves-light blue lighten-2 white-text text-lighten-4">
                                     <i class="material-icons">edit</i><small>Update</small></a>
                         </div>
-                        {% if session.user != "systemadmin" %}
-                        <div class="col s12 m8 right-align">
-                            <!-- Delete button -->
-                            <a class="waves-effect waves-light btn modal-trigger red darken-4 rounded" href="#deleteModal"><span class="material-symbols-outlined right-align"><small>Delete</small></span></a>
-                        </div>
-                        {% endif %}
                     </div>
                 </div>
-            {% endfor %}
-            </div>
-            <!-- Delete Modal -->
-            <div id="deleteModal" class="modal card-panel rounded white-text center p-5">
-                <!-- Modal Content -->
-                <div class="modal-content rounded">
-                    <div class="row">
-                        <div class="col s12 red-text text-darken-4">
-                            <i class="fa-solid fa-triangle-exclamation fa-lg"></i>
-                            <h4>Caution</h4>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col s12 black-text">
-                            <p> Deleting this user will erase all associated data. Are you sure you want to proceed?
-                                Click
-                                below to confirm or cancel to preserve data.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <div class="row">
-                        <div class="col s12 center">
-                            <!-- Delete button -->
-                            <form action="" method="POST">
-                                <button class="modal-close btn waves-effect rounded red darken-4 m-2">Delete</button>
-                                <!-- Cancel button -->
-                                <a href="#" class="modal-close btn waves-effect rounded orange m-2">Cancel</a>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
         {% if session.user != "systemadmin" %}
