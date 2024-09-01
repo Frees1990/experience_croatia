@@ -10,7 +10,6 @@
                         class="fas fa-hand-point-left white-text"></i>&nbsp;Back to Profile</a>
             </div>
         </div>
-        <br>
         <div class="container page-container">
         <!-- Call out heading -->
             <div class=" row">
@@ -18,13 +17,11 @@
                 <form class="col s12 card-panel custom-card-travel" action="{{ url_for('travel_info') }}" method="POST" enctype="multipart/form-data"
                      name="travel_info" onsubmit="return validateForm()">
                     <div class="row">
-                            <div class="col s12 center-align travelHeader">
-                                <h3>Let's plan your dream get away</h5>
-                                <h5>Trip Request</5>
-                            </div>
+                        <div class="col s12 center-align travelHeader">
+                            <h4><b>Let's plan your dream get away</b></h4>
+                            <h5>Trip Request</5>
+                        </div>
                     </div>
-                    <br>
-                    <br>
                         <!-- input field for Preferred travel dates -->
                          <!-- select field to answer if travel dates are flexible -->
                           <!-- input field for include flights? -->
@@ -37,101 +34,98 @@
                             </div>  
                             <div class="input-field outlined col s12 m3 m-3">
                                 <i class="fas fa-calendar-alt fa-lg prefix" style="color: #0b5606;"></i>
-                                <label for="flexible_dates">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FLEXIBLE TRAVEL DATES?</label>
-                                <select>       
-                                        <option value="1">FLEXIBLE TRAVEL DATES?</option>
+                                <label for="flexible_dates" type="text" id="flexible_dates" name="flexible_dates" required aria-required="true">FLEXIBLE TRAVEL DATES?</label>
+                                <select  type="text" id="flexible_dates" name="flexible_dates" required aria-required="true">       
+                                        <option value="1"></option>
                                         <option value="2">YES</option>
                                         <option value="3">NO</option>
                                         <option value="4">MAYBE</option>
                                 </select>   
-                                
                             </div>
                             <div class="input-field outlined col s12 m3 m-3">
-                                <label for="include_flights">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INCLUDE FLIGHTS?</label>
-                                <select>
+                                <i class="fas fa-plane-departure fa-lg prefix" style="color:#0b5606"></i>
+                                <label for="include_flights" type="text" id="include_flights" name="include_flights" required aria-required="true">INCLUDE FLIGHTS?</label>
+                                <select type="text" id="include_flights" name="include_flights" required aria-required="true">
                                     <option value="1"></option>
                                     <option value="2">YES</option>
                                     <option value="3">NO</option>
                                     <option value="4">MAYBE</option>
-                                </select>
-                                <i class="fas fa-plane-departure fa-lg prefix" style="color:#0b5606"></i>        
+                                </select>                                  
                             </div>
                             <div class="input-field outlined col s12 m3 m-3">
-                                <label for="flying_from">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PREFERRED DEPARTURE PORT:</label>
                                 <i class="fas fa-plane-departure fa-lg prefix" style="color:#0b5606"></i>
-                                <input id="flying_from" name="flying_from" type="text" class="validate" required
+                                <input  placeholder="PREFERRED DEPARTURE PORT:" type="text" class="validate" id="preferred_accom" name="preferred_accom" required
                                     aria-required="true">
                             </div>
                         </div>
-                        <br>
                         <!-- input field for number of adult guests -->
                          <!-- input field for number of children guests -->
                         <div class="row">
                             <div class="input-field outlined col s12 m4 m-3">
-                                <label for="number_adult_guests">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ADULT GUESTS:</label>
                                 <i class="fas fa-male fa-lg prefix" style="color: #0b5606;"></i>
-                                <input id="number_adult_guests" name="number_adult_guests" type="number" min="1" max="15"
+                                <input placeholder="ADULT GUESTS:" id="number_adult_guests" name="number_adult_guests" type="number" min="1" max="15"
                                     class="validate" required aria-required="true">
                             </div>
                             <div class="input-field outlined col s12 m4 m-3">
-                                <label for="number_kids_guests">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CHILDREN GUESTS:</label>
                                 <i class="fas fa-child fa-lg prefix" style="color: #0b5606;"></i>
-                                <input id="number_kids_guests" name="number_kids_guests" type="number" min="1" max="7" step=".5"
+                                <input placeholder="CHILDREN GUESTS:" id="number_kids_guests" name="number_kids_guests" type="number" min="1" max="7" step=".5"
                                     class="validate" required aria-required="true">
                             </div>
                             <div class="input-field outlined col s12 m4 m-3">
-                                <label for="preferred_accom">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ACCOMMODATION</label>  
+                                <label for="preferred_accom">ACCOMMODATION PEFERENCE:</label>  
                                 <select>
                                     <option value="1"></option>
                                     <option value="2">HOTEL</option>
                                     <option value="3">APARTMENT</option>
                                     <option value="4">BED & BREAKFAST</option>
                                 </select>    
-                                <i class="fas fa-hotel fa-lg prefix" style="color: #0b5606;"></i>
                             </div>
                         </div>
-                        <!--Section Tag-->
-                        <div class="row my-4">
-                            <div class="col s12 m6 m-3 black-text">
-                                <h4 class="m-0" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-weight: 800;">Extras</h4>
-                            </div>
-                        </div>
-                        <!-- concerts excursions guide -->
                         <div class="row">
-                            <div class="input-field col s12 m4 m-3">
-                                <p> INCLUDE CURRENT CONCERTS?
-                                    <label for="concerts">
-                                      <input type="checkbox" id="concerts"/>
-                                      <span>YES&nbsp;</span>
-                                    </label>
-                                    <label for="concerts">
-                                        <input type="checkbox" id="concerts"/>
-                                        <span>NO</span>
-                                    </label>
-                                </p>
-                                <p> INCLUDE TOUR GUIDE?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <label for="guide">
-                                        <input type="checkbox" id="guide" />
-                                        <span>YES&nbsp;</span>
-                                    </label>
-                                    <label for="guide">
-                                        <input type="checkbox" id="guide" />
-                                        <span>NO</span>
-                                    </label>
-                                </p>
-                                <p> INCLUDE ACTIVITY OPTIONS?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <label for="activity">
-                                        <input type="checkbox" id="activity" />
-                                        <span>YES&nbsp;</span>
-                                    </label>
-                                    <label for="activity">
-                                        <input type="checkbox" id="activity" />
-                                        <span>NO</span>
-                                    </label>
-                                </p>
+                            <!--Section Tag-->
+                            <div class="col s12 m3 m-3 black-text">
+                                <h5 class="m-0" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-weight: 700;">Extras    :</h5>
                             </div>
+                            <!-- concerts activity guide -->
+                            <div class="input-field outlined col s12 m3 m-3">
+                                <i class="fas fa-calendar-alt fa-lg prefix" style="color: #0b5606;"></i>
+                                <label for="concerts" type="text" id="concerts" name="flexible_dates" required aria-required="true">INCLUDE CURRENT CONCERTS?</label>
+                                <select  type="text" id="concerts" name="concerts" required aria-required="true">       
+                                        <option value="1"></option>
+                                        <option value="2">YES</option>
+                                        <option value="3">NO</option>
+                                        <option value="4">MAYBE</option>
+                                </select>   
+                            </div>
+                            <div class="input-field outlined col s12 m3 m-3">
+                                <i class="fas fa-calendar-alt fa-lg prefix" style="color: #0b5606;"></i>
+                                <label for="activity" type="text" id="activity" name="activity" required aria-required="true">INCLUDE TOUR GUIDE?</label>
+                                <select  type="text" id="activity" name="activity" required aria-required="true">       
+                                        <option value="1"></option>
+                                        <option value="2">YES</option>
+                                        <option value="3">NO</option>
+                                        <option value="4">MAYBE</option>
+                                </select>   
+                            </div>
+                            <div class="input-field outlined col s12 m3 m-3">
+                                <i class="fas fa-calendar-alt fa-lg prefix" style="color: #0b5606;"></i>
+                                <label for="guide" type="text" id="guide" name="guide" required aria-required="true">INCLUDE ACTIVITY OPTIONS?</label>
+                                <select  type="text" id="guide" name="guide" required aria-required="true">       
+                                        <option value="1"></option>
+                                        <option value="2">YES</option>
+                                        <option value="3">NO</option>
+                                        <option value="4">MAYBE</option>
+                                </select>   
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12 m4 m-3 black-text">
+                                <h5 class="m-0" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-weight: 700;">Other Requirement   :</h5>
+                            </div>
+                            <!-- input field for other requests -->
+                            <!-- Preferred Contact -->
                             <div class="input-field outlined col s12 m4 m-3">
-                                <label for="include_flights"><i class="fas fa-mobile-alt fa-lg prefix green-text text-darken-4"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CONTACT PREFERENCE?</label>
+                                <label for="include_flights">CONTACT PREFERENCE?</label>
                                 <select>
                                     <option value="1"></option>
                                     <option value="2">PHONE</option>
@@ -140,15 +134,9 @@
                             </div>
                             <div class="input-field outlined col s12 m4 m-3">
                                 <i class="fa-solid fa-message prefix green-text text-darken-4 icon-right"></i>
-                                <label for="message">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp Message</label>
-                                <textarea id="message" name="message" class="materialize-textarea"></textarea>
-                                
+                                <textarea placeholder="MESSAGE" id="message" name="message" class="materialize-textarea"></textarea>  
                             </div>
                         </div>
-
-                        <!-- input field for other requests -->
-                         <!-- Preferred Contact -->
-                        
                         <!-- submit button -->
                         <div class="row center">
                             <div class="col s12 m-3">
@@ -160,7 +148,6 @@
                             </div>
                         </div>
                 </form>
-                </div>
             </div>
         </div>
     </aside>
