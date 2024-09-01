@@ -84,7 +84,7 @@
             <div class="col s12 center-align loginHere">
                 <!-- If user is already registerd they willl be roouted to the log in page -->
                 <p><b>CLICK HERE TO GO....</b>&nbsp;&nbsp;
-                    <a href=""><b>BACK TO PROFILE</b></a>
+                    <a href="{{ url_for('profile', username=session['user']) }}"><b>BACK TO PROFILE</b></a>
                 </p>
             </div>
         </div>
