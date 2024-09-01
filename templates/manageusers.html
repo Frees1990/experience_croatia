@@ -27,11 +27,9 @@
                 </div>
                 <!-- Button to trigger delete modal -->
                 <div class="col s9 m4 right-align">
-                    {% if user.username != "systemadmin" %}
                     <a class="waves-effect waves-light btn modal-trigger red darken-4 rounded"
                         href="#deleteModal{{user.username}}"><span class="material-symbols-outlined">
                         </span> Remove Account</a>
-                    {% endif %}
                 </div>
             </div>
         </div>
