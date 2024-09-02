@@ -308,11 +308,12 @@ def travel_info():
         flying_from = request.form.get("flying_from")
         number_adult_guests = request.form.get("number_adult_guests")
         number_kids_guests = request.form.get("number_kids_guests")
-        include_concerts = request.form.get("include_concerts")
-        include_excursions = request.form.get("include_excursions")
-        include_guide = request.form.get("include_guide")
-        preferred_contact = request.form.get("preferred_contact")
-        other_info = request.form.get("other_info")
+        preferred_accom = request.form.get("preferred_accom")
+        concerts = request.form.get("concerts")
+        activity = request.form.get("activity")
+        guide = request.form.get("guide")
+        contact = request.form.get("contact")
+        message = request.form.get("message")
 
         travel_entry = {
             "username": session["user"],
@@ -322,11 +323,12 @@ def travel_info():
             "flying_from": flying_from,
             "number_adult_guests": number_adult_guests,
             "number_kids_guests": number_kids_guests,
-            "include_concerts": include_concerts,
-            "include_excursions": include_excursions,
-            "include_guide": include_guide,
-            "preferred_contact": preferred_contact,
-            "other_info": other_info,
+            "preferred_accom": preferred_accom,
+            "concerts": concerts,
+            "activity": activity,
+            "guide": guide,
+            "contact": contact,
+            "message": message,
         }
 
         mongo.db.travel_info.insert_one(travel_entry)
@@ -334,6 +336,31 @@ def travel_info():
         return redirect(url_for("newTravel", username=session["user"]))
     else:
         return render_template("travel_info.html")
+
+
+@app.route("/update/<users_id>", methods=["GET", "POST"])
+@login_required
+def update(users_id):
+    
+    users = mongo.db.users.find_one({"_id": ObjectId(users_id)})
+    if request.method == "POST":
+        email = request.form.get("email")
+        number = request.form.get("number")
+
+        update_entry = {
+            "username": users["username"],
+            "email": email,
+            "number": number,
+        }
+
+        users = mongo.db.users.find_one({"_id": ObjectId(users_id)})
+
+        mongo.db.users.update_one({"_id": ObjectId(users_id)}, {"$set": update_entry}
+            )
+        flash("User Successfully Updated!")
+        return redirect(url_for("myinfo", username=session["user"]))
+
+    return render_template("update.html", users=users)
 
 
 # CONTACT FORM 
