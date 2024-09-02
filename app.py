@@ -172,7 +172,7 @@ def login():
         
         if username == "systemadmin":
             users = mongo.db.users.find()
-        return render_template("manage_users.html", users=users)    
+        return render_template("manageusers.html", users=users)    
 
     return render_template("login.html")
 
@@ -373,7 +373,7 @@ def delete_user(username, user_name):
         username = mongo.db.users.find_one(
             {"username": session['user']})["username"]
         
-        if username and user_name == "systemadmin":
+        if user and user_name != "systemadmin":
             mongo.db.users.delete_one({"username": user_name})
 
             flash("The user has been Deleted")
