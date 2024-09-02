@@ -303,19 +303,9 @@ btn:hover{
   text-decoration: underline;
 }
 /*  --------------------------------------- PROFILE */
-#profileImage{
-  width: 100vw;
-  height: 100vh;
-  background-image: url(../images/d6.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  z-index: 2;
-}
 .profileHeader>h3{
   margin-top: 15rem;
-  color: wheat;
+  color: rgb(12, 9, 2);
   font-weight: 700;
 }
 .profileHeader>h5{
@@ -325,6 +315,7 @@ btn:hover{
 .userdeats>h5 {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
   font-weight: bold;
+  color: gray;
 }
 .buts>a {
   font-weight: 700;
@@ -372,6 +363,8 @@ btn:hover{
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: 800;
 }
+/*  --------------------------------------- PASSWORD CHANGE */
+#changepass
 /*  --------------------------------------- MEDIA QUERIES FOR RESPONSIVENESS */
 @media screen and (max-width: 700px) {
 
