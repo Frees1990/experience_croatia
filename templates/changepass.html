@@ -10,7 +10,7 @@
         </div>
         <!-- Change Password form validated using app.py -->
         <div class="row">
-            <form id="changepass" name="changepass" class="card-panel custom-card col s12 m8 offset-m2 p-5"
+            <form id="changepass" name="changepass" class="card-panel col s12 m8 offset-m2 p-5"
                 method="POST" action="{{ url_for('changepass') }}" onsubmit="return validateForm()">
                 <p class="green-text text-darken-4"><i class="fa fa-info-circle" aria-hidden="true"></i> All passwords must
                     contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters
@@ -18,7 +18,7 @@
                 <p id="error-message" class="red-text text-darken-4"></p>
                 <!-- current password -->
                 <div class="row">
-                    <div class="input-field col s12 m-3">
+                    <div class="input-field col s12 m-3 outlined">
                         <i class="fas fa-user-lock prefix green-text text-darken-4"></i>
                         <i id="currentPasswordIcon" class="material-icons suffix"
                             onclick="togglePasswordVisibility('current_password','currentPasswordIcon')">visibility_off</i>
@@ -29,7 +29,7 @@
                 </div>
                 <!-- new password -->
                 <div class="row">
-                    <div class="input-field col s12 m-3">
+                    <div class="input-field col s12 m-3 outlined">
                         <i class="fas fa-user-lock prefix green-text text-darken-4"></i>
                         <i id="newIcon" class="material-icons suffix"
                             onclick="togglePasswordVisibility('new_password','newIcon')">visibility_off</i>
@@ -40,7 +40,7 @@
                 </div>
                 <!-- confirm new password -->
                 <div class="row">
-                    <div class="input-field col s12 m-3">
+                    <div class="input-field col s12 m-3 outlined">
                         <i class="fas fa-user-lock prefix green-text text-darken-4"></i>
                         <i id="confirmNewIcon" class="material-icons suffix"
                             onclick="togglePasswordVisibility('confirm_new_password','confirmNewIcon')">visibility_off</i>
