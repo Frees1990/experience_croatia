@@ -34,108 +34,93 @@
                             </div>  
                             <div class="input-field outlined col s12 m3 m-3">
                                 <i class="fas fa-calendar-alt fa-lg prefix" style="color: #0b5606;"></i>
-                                <label for="flexible_dates" type="text" id="flexible_dates" name="flexible_dates" required aria-required="true">FLEXIBLE TRAVEL DATES?</label>
-                                <select  type="text" id="flexible_dates" name="flexible_dates" required aria-required="true">       
-                                        <option value="1"></option>
-                                        <option value="2">YES</option>
-                                        <option value="3">NO</option>
-                                        <option value="4">MAYBE</option>
-                                </select>   
+                                <input placeholder="FLEXIBLE DATES?  YES/NO" type="text" id="flexible_dates" name="flexible_dates" required aria-required="true">
                             </div>
                             <div class="input-field outlined col s12 m3 m-3">
                                 <i class="fas fa-plane-departure fa-lg prefix" style="color:#0b5606"></i>
-                                <label for="include_flights" type="text" id="include_flights" name="include_flights" required aria-required="true">INCLUDE FLIGHTS?</label>
-                                <select type="text" id="include_flights" name="include_flights" required aria-required="true">
-                                    <option value="1"></option>
-                                    <option value="2">YES</option>
-                                    <option value="3">NO</option>
-                                    <option value="4">MAYBE</option>
-                                </select>                                  
+                                <input placeholder="INCLUDE FLIGHTS?  YES/NO" type="text" id="include_flights" name="include_flights" required aria-required="true">
                             </div>
                             <div class="input-field outlined col s12 m3 m-3">
                                 <i class="fas fa-plane-departure fa-lg prefix" style="color:#0b5606"></i>
-                                <input  placeholder="PREFERRED DEPARTURE PORT:" type="text" class="validate" id="preferred_accom" name="preferred_accom" required
+                                <input  placeholder="PREFERRED DEPARTURE PORT:" type="text" class="validate" id="flying_from" name="flying_from" required
                                     aria-required="true">
                             </div>
                         </div>
                         <!-- input field for number of adult guests -->
                          <!-- input field for number of children guests -->
+                          <!-- input field for accommodation -->
+                           <!-- input field for number of rooms-->
                         <div class="row">
-                            <div class="input-field outlined col s12 m4 m-3">
+                            <div class="input-field outlined col s12 m3 m-3">
                                 <i class="fas fa-male fa-lg prefix" style="color: #0b5606;"></i>
                                 <input placeholder="ADULT GUESTS:" id="number_adult_guests" name="number_adult_guests" type="number" min="1" max="15"
                                     class="validate" required aria-required="true">
                             </div>
-                            <div class="input-field outlined col s12 m4 m-3">
+                            <div class="input-field outlined col s12 m3 m-3">
                                 <i class="fas fa-child fa-lg prefix" style="color: #0b5606;"></i>
                                 <input placeholder="CHILDREN GUESTS:" id="number_kids_guests" name="number_kids_guests" type="number" min="1" max="7" step=".5"
                                     class="validate" required aria-required="true">
                             </div>
-                            <div class="input-field outlined col s12 m4 m-3">
-                                <label for="preferred_accom">ACCOMMODATION PEFERENCE:</label>  
-                                <select>
-                                    <option value="1"></option>
-                                    <option value="2">HOTEL</option>
-                                    <option value="3">APARTMENT</option>
-                                    <option value="4">BED & BREAKFAST</option>
-                                </select>    
+                            <div class="input-field outlined col s12 m3 m-3">
+                                <i class="fas fa-hotel fa-lg prefix" style="color: #0b5606;"></i>
+                                <input placeholder="PREFERRED ACCOMMODATION"  for="preferred_accom" id="preferred_accom" name="preferred_accom" required aria-required="true">
+                            </div>
+                            <div class="input-field outlined col s12 m3 m-3">
+                                <i class="fas fa-hotel fa-lg prefix" style="color: #0b5606;"></i>
+                                <input placeholder="NUMBER OF ROOMS:" id="rooms" name="rooms" type="number" min="1" max="7" step=".5"
+                                    class="validate" required aria-required="true">
                             </div>
                         </div>
                         <div class="row">
                             <!--Section Tag-->
-                            <div class="col s12 m3 m-3 black-text">
+                            <div class="col s12 m4 m-3 black-text">
                                 <h5 class="m-0" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-weight: 700;">Extras    :</h5>
                             </div>
-                            <!-- concerts activity guide -->
-                            <div class="input-field outlined col s12 m3 m-3">
-                                <i class="fas fa-calendar-alt fa-lg prefix" style="color: #0b5606;"></i>
-                                <label for="concerts" type="text" id="concerts" name="flexible_dates" required aria-required="true">INCLUDE CURRENT CONCERTS?</label>
-                                <select  type="text" id="concerts" name="concerts" required aria-required="true">       
-                                        <option value="1"></option>
-                                        <option value="2">YES</option>
-                                        <option value="3">NO</option>
-                                        <option value="4">MAYBE</option>
-                                </select>   
-                            </div>
-                            <div class="input-field outlined col s12 m3 m-3">
-                                <i class="fas fa-calendar-alt fa-lg prefix" style="color: #0b5606;"></i>
-                                <label for="activity" type="text" id="activity" name="activity" required aria-required="true">INCLUDE TOUR GUIDE?</label>
-                                <select  type="text" id="activity" name="activity" required aria-required="true">       
-                                        <option value="1"></option>
-                                        <option value="2">YES</option>
-                                        <option value="3">NO</option>
-                                        <option value="4">MAYBE</option>
-                                </select>   
-                            </div>
-                            <div class="input-field outlined col s12 m3 m-3">
-                                <i class="fas fa-calendar-alt fa-lg prefix" style="color: #0b5606;"></i>
-                                <label for="guide" type="text" id="guide" name="guide" required aria-required="true">INCLUDE ACTIVITY OPTIONS?</label>
-                                <select  type="text" id="guide" name="guide" required aria-required="true">       
-                                        <option value="1"></option>
-                                        <option value="2">YES</option>
-                                        <option value="3">NO</option>
-                                        <option value="4">MAYBE</option>
-                                </select>   
+                            <div class="col s12 m8 m-3 black-text">
+                                <h5 class="m-0" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-weight: 700;">Other Requirement   :</h5>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col s12 m4 m-3 black-text">
-                                <h5 class="m-0" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-weight: 700;">Other Requirement   :</h5>
+                            <!-- concerts activity guide -->
+                            <div class="input-field outlined col s12">
                             </div>
-                            <!-- input field for other requests -->
-                            <!-- Preferred Contact -->
+                            <div class="input-field outlined col s12 m3 offset-m1 m-3">
+                                <i class="fas fa-guitar fa-lg prefix" style="color: #0b5606;"></i>
+                                <input placeholder="CHECK CONCERT OFFERS?: " for="concerts" type="text" id="concerts" name="concerts" required aria-required="true"> 
+                            </div>
+                            <div class="input-field outlined col s12 m3">
+                            </div>
                             <div class="input-field outlined col s12 m4 m-3">
-                                <label for="include_flights">CONTACT PREFERENCE?</label>
-                                <select>
-                                    <option value="1"></option>
-                                    <option value="2">PHONE</option>
-                                    <option value="3">E-MAIL</option>
-                                </select>   
+                                <i class="fas fa-address-book fa-lg prefix" style="color: #0b5606;"></i>
+                                <input placeholder="CONTACT PREFERRECNCE" for="contact" type="text" id="contact" name="contact" required aria-required="true">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field outlined col s12">
+                            </div>
+                            <div class="input-field outlined col s12 m3 offset-m1 m-3">
+                                <i class="fas fa-hiking fa-lg prefix" style="color: #0b5606;"></i>
+                                <input placeholder="INCLUDE TOUR GUIDE?" for="guide" type="text" id="guide" name="guide" required aria-required="true">
+                            </div>
+                            <div class="input-field outlined col s12 m3">
                             </div>
                             <div class="input-field outlined col s12 m4 m-3">
                                 <i class="fa-solid fa-message prefix green-text text-darken-4 icon-right"></i>
                                 <textarea placeholder="MESSAGE" id="message" name="message" class="materialize-textarea"></textarea>  
                             </div>
+                            <div class="input-field outlined col s12 m3 offset-m1 m-3">
+                                <i class="fas fa-swimmer fa-lg prefix" style="color: #0b5606;"></i>
+                                <input placeholder="INCLUDE ACTIVITIES?" for="activity" type="text" id="activity" name="activity" required aria-required="true">
+                            </div>
+                        </div>
+                        <div class="row">
+                            
+                        
+                            
+                            <!-- input field for other requests -->
+                            <!-- Preferred Contact -->
+                            
+                            
                         </div>
                         <!-- submit button -->
                         <div class="row center">
