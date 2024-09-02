@@ -338,31 +338,6 @@ def travel_info():
         return render_template("travel_info.html")
 
 
-@app.route("/update/<users_id>", methods=["GET", "POST"])
-@login_required
-def update(users_id):
-    
-    users = mongo.db.users.find_one({"_id": ObjectId(users_id)})
-    if request.method == "POST":
-        email = request.form.get("email")
-        number = request.form.get("number")
-
-        update_entry = {
-            "username": users["username"],
-            "email": email,
-            "number": number,
-        }
-
-        users = mongo.db.users.find_one({"_id": ObjectId(users_id)})
-
-        mongo.db.users.update_one({"_id": ObjectId(users_id)}, {"$set": update_entry}
-            )
-        flash("User Successfully Updated!")
-        return redirect(url_for("myinfo", username=session["user"]))
-
-    return render_template("update.html", users=users)
-
-
 # CONTACT FORM 
 @app.route("/contact", methods=["GET"])
 def contact():
