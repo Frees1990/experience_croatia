@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
     {% if session.user != "systemadmin" %}
-    <aside id="profileImage">
+    <div class="conatainer page-container">
         {% endif %}
         <div class="row">
             <div class="col s12 m8 offset-m2 profileHeader">
@@ -100,7 +100,7 @@
                             </div>
                         </div>
                         <div class="col s12 m6">
-                            <!-- concerts-->
+                            <!-- accommodation-->
                             <div class="row">
                                 <div class="col s12 m6 newTraveldeats">
                                     <h6><span>PREFERRED ACCOMMODATION :</span></h6>
@@ -111,7 +111,18 @@
                             </div>
                         </div>
                         <div class="col s12 m6">
-                            <!-- excursions -->
+                            <!-- room-->
+                            <div class="row">
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6><span>NUMBER OF ROOMS:</span></h6>
+                                </div>
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6>{{ travel_info.number}}</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s12 m6">
+                            <!-- concerts -->
                             <div class="row">
                                 <div class="col s12 m6 newTraveldeats">
                                     <h6><span>INCLUDE CONCERTS?:</span></h6>
@@ -133,13 +144,35 @@
                             </div>
                         </div>
                         <div class="col s12 m6">
-                            <!-- guide -->
+                            <!-- activity -->
                             <div class="row">
                                 <div class="col s12 m6 newTraveldeats">
                                     <h6><span>INCLUDE ACTIVITIES?:</span></h6>
                                 </div>
                                 <div class="col s12 m6 newTraveldeats">
                                     <h6>{{ travel_info.activity }}</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s12 m6">
+                            <!-- CONTACT BY -->
+                            <div class="row">
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6><span>PREFERRED CONTACTED THROUGH:</span></h6>
+                                </div>
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6>{{ travel_info.contact }}</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s12 m6">
+                            <!-- ADDITIONAL INFO -->
+                            <div class="row">
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6><span>MESSAGE/ADDITIONAL INFORMATION:</span></h6>
+                                </div>
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6>{{ travel_info.message }}</h6>
                                 </div>
                             </div>
                         </div>
@@ -153,18 +186,12 @@
                             <a href="{{ url_for('profile', username=session['user']) }}"
                                 class="btn icon-left waves-effect waves-light teal darken-4 white-text text-lighten-4"><i
                                     class="material-icons">arrow_back</i><small>Back to Dashboard</small></a>
-                            <a href=""
-                                class="btn icon-left waves-effect waves-light blue lighten-2 white-text text-lighten-4">
-                                    <i class="material-icons">edit</i><small>Update</small></a>
                         </div>
                     </div>
                 </div>
                 {% endfor %}
             </div>
         </div>
-        {% if session.user != "systemadmin" %}
-    </aside>
-    {% endif %}
 {% endblock %}
 <!-- Script tags -->
 {% block javascript %}
