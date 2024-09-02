@@ -126,6 +126,10 @@ nav ul:not(.dropdown-content)>li>a:hover:not(.active) {
   left: 70%;
   display: block;
 }
+.errorFlash>.h6{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: 700;
+}
 /* --------------------------------------- Logo*/
 a.brand-logo {
   width: 150px;
@@ -362,6 +366,7 @@ btn:hover{
 /*  --------------------------------------- NEW TRVEL REQ */
 .travel-card{
   background-color: #f3e0cbab;
+  margin-top: 2%;
 }
 .travel-card>h6>span{
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
