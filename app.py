@@ -309,6 +309,7 @@ def travel_info():
         number_adult_guests = request.form.get("number_adult_guests")
         number_kids_guests = request.form.get("number_kids_guests")
         preferred_accom = request.form.get("preferred_accom")
+        rooms = request.form.get("rooms")
         concerts = request.form.get("concerts")
         activity = request.form.get("activity")
         guide = request.form.get("guide")
@@ -324,6 +325,7 @@ def travel_info():
             "number_adult_guests": number_adult_guests,
             "number_kids_guests": number_kids_guests,
             "preferred_accom": preferred_accom,
+            "rooms" : rooms,
             "concerts": concerts,
             "activity": activity,
             "guide": guide,

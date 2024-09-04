@@ -44,26 +44,30 @@
             <ul class="right hide-on-med-and-down">
                 {% if session.user %}
                 <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                <li><a href="{{url_for('contact')}}">Contact Us</a></li>
                 <li><a class="dropdown-trigger" href="#" data-target="manage_account">
                     <i class="fas fa-users-cog"></i>&nbsp;Manage Account
                     <i class="fas fa-caret-down"></i></a></li>
-
                 {% else %}
-                <li><a href="{{url_for('userdoesnotexist')}}"></a></li>
                 <li><a href="{{url_for('contact')}}">Contact us</a></li>
                 <li><a href="{{url_for('register')}}">Register</a></li>
                 <li><a href="{{ url_for('login') }}">Log In</a></li>
                 {% endif %}
             </ul>
             <!-- Manage account dropdown content -->
+            
             <ul id="manage_account" class="dropdown-content">
                 {% if session.user == "systemadmin" %}
-                <li><a href="{{ url_for('manageusers', username=session['user']) }}"
-                        class="teal-text text-darken-4">Manage Users</a></li>
-                {% endif %}
+                <li><a href="{{ url_for('manageusers', username=session['user']) }}">Manage Users</a></li>
+                        <li><a href="{{ url_for('changepass') }}">Change Password</a></li>
+                        <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+
+                {% else %}
+
+                <li><a href="{{url_for('contact')}}">Contact us</a></li>
                 <li><a href="{{ url_for('changepass') }}">Change Password</a></li>
                 <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+
+                {% endif %}
             </ul>
             <!-- hamburger toggle -->
             <input id="mobile-menu-toggle" type="checkbox" aria-label="menu toggle">
@@ -81,32 +85,25 @@
                         <ul class="mobile-list">
                             <!-- Navigation bar shown when user is signed in -->
                             {% if session.user %}
-                            <li class="nav-link"><a
-                                    href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                            <li class="nav-link"><a href="{{url_for('contact')}}">Contact us</a></li>
-                            <li class="nav-link"><a href="#" id="manage-account">Manage Account</a></li>
-                            <li>
-                                <ul class="mobile-list">
-                                    <!-- Navigation bar shown when system admin is signed in -->
-                                    {% if session.user == "systemadmin" %}
-                                    <li class="nav-link manage-account-link"><a
-                                            href="{{ url_for('manageusers', username=session['user']) }}">Manage
-                                            Users</a></li>
-                                    {% endif %}
-                                    <!-- Navigation bar shown if normal user is signed in  -->
-                                    <li class="nav-link manage-account-link"><a
-                                            href="{{ url_for('changepass') }}">Change Password</a></li>
-                                    <li class="nav-link manage-account-link"><a href="{{ url_for('logout') }}">Log
-                                            Out</a>
-                                    </li>
-                                </ul>
-                            </li>
+                            <li class="nav-link"><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                             {% else %}
-                            <!-- Navigation bar shown when user is not signed in -->
-                            <li><a href="{{url_for('index')}}">Home</a></li>
-                            <li class="nav-link"><a href="{{url_for('contact')}}">Contact us!</a></li>
-                            <li class="{{ url_for('register') }}"><a href="">Register</a></li>
-                            <li class="{{ url_for('login') }}"><a href="">Log In</a></li>
+                            <li class="nav-link"><a href="{{url_for('contact')}}">Contact us</a></li>
+                            <li class="nav-link"><a href="{{url_for('register')}}">Register</a></li>
+                            <li class="nav-link"><a href="{{ url_for('login') }}">Log In</a></li>
+                            {% endif %}
+                        </ul>
+                        <ul class="mobile-list">
+                            {% if session.user == "systemadmin" %}
+                            <li class="nav-link"><a href="{{ url_for('manageusers', username=session['user']) }}">Manage Users</a></li>
+                            <li class="nav-link"><a href="{{ url_for('changepass') }}">Change Password</a></li>
+                            <li class="nav-link"><a href="{{ url_for('logout') }}">Log Out</a></li>
+                
+                            {% else %}
+                            
+                            <li class="nav-link"><a href="{{url_for('contact')}}">Contact us</a></li>
+                            <li class="nav-link"><a href="{{ url_for('changepass') }}">Change Password</a></li>
+                            <li class="nav-link"><a href="{{ url_for('logout') }}">Log Out</a></li>
+                            
                             {% endif %}
                         </ul>
                     </nav>
