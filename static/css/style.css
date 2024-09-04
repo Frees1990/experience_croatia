@@ -10,14 +10,16 @@ body {
   height: 100%;
 }
 
-body > footer {
-    position: sticky;
-    top: 100vh;
+body>footer {
+  position: sticky;
+  top: 100vh;
 }
+
 main {
   overflow-x: hidden;
   min-height: calc(100vh - 20vh);
 }
+
 h1,
 h2,
 h3,
@@ -25,9 +27,10 @@ h4,
 h5,
 h6 {
   font-family: 'Shadows Into Light', 'Arial Narrow', Arial, cursive;
-  letter-spacing: 1.5px; 
-  margin: 5px; 
+  letter-spacing: 1.5px;
+  margin: 5px;
 }
+
 p,
 a,
 button {
@@ -35,6 +38,7 @@ button {
   font-weight: 200;
   font-style: normal;
 }
+
 /*-----------------Footer--*/
 .footer-container {
   background-color: #02696d;
@@ -43,14 +47,17 @@ button {
   min-height: 30vh;
   color: #FAECD9;
 }
+
 ul.social-media-icons {
   padding-inline-start: 0px;
 }
+
 .social-media-icons li {
   list-style: none;
   display: inline-block;
   margin: 60px 0 10px 0;
 }
+
 .social-media-icons i {
   color: #63E6BE;
   font-size: 70px;
@@ -58,9 +65,16 @@ ul.social-media-icons {
   margin-right: 150px;
   margin-bottom: 30px;
 }
+
 .social-media-icons i:hover {
   color: #11100e00;
 }
+
+.errorFlash>.h6 {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: 700;
+}
+
 /* --------------------------------------- NAVIGATION BAR*/
 .custom-nav {
   background-color: #f3e0cb;
@@ -70,6 +84,7 @@ ul.social-media-icons {
   padding: 0 50px;
   min-height: 12vh;
 }
+
 nav ul:not(.dropdown-content)>li>a {
   font-size: 1.5rem;
   font-family: 'Shadows Into Light', 'Arial Narrow', Arial, cursive;
@@ -80,34 +95,41 @@ nav ul:not(.dropdown-content)>li>a {
   cursor: pointer;
   margin-top: 15px;
 }
-.dropdown-content{
+
+.dropdown-content {
   font-size: 1.5rem;
   font-family: 'Shadows Into Light', 'Arial Narrow', Arial, cursive;
   font-weight: bolder;
   color: #720444;
-  background-color: #f3e0cb;
+  background-color: #f3e0cb8f;
 }
-.dropdown-content>li>a{
+
+.dropdown-content>li>a {
   font-size: 1.5rem;
   font-family: 'Shadows Into Light', 'Arial Narrow', Arial, cursive;
   font-weight: bolder;
   color: #720444;
 }
-.mobile-menu nav ul:not(.dropdown-content)>li>a:hover{
-  color:#17353B;
+
+.mobile-menu nav ul:not(.dropdown-content)>li>a:hover {
+  color: #17353B;
 }
+
 nav ul:not(.dropdown-content)>li>a:hover:not(.active) {
   background-color: rgba(88, 126, 123, 0);
   text-decoration: underline;
   text-decoration-color: #333;
 }
+
 .mobile-nav {
   height: 0px;
 }
+
 .mobile-list {
   display: flex;
   flex-direction: column;
 }
+
 .mobile-menu {
   position: fixed;
   top: 0;
@@ -115,21 +137,54 @@ nav ul:not(.dropdown-content)>li>a:hover:not(.active) {
   width: 50%;
   height: 100vh;
   z-index: 3;
-  background-color: #0e6107;
+  background-color: #f3e0cb91;
   transition: left .3s;
   display: none;
   padding-top: 70px;
   box-sizing: border-box;
 }
+
 .mobile-menu.open {
   margin-top: 50px;
   left: 70%;
   display: block;
 }
-.errorFlash>.h6{
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-weight: 700;
+
+/* Copied Idea from Mika(code institute, co-student */
+/* Mobile menu trigger button */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: relative;
+  width: 50px;
+  height: 36px;
+  margin-right: 10px;
+  margin-top: 35px;
 }
+
+/* Trigger bars */
+.hamburger span {
+  display: block;
+  background: #17353b;
+  width: 100%;
+  height: 5px;
+  transform-origin: center;
+  transition: all 0.2s ease-in-out;
+}
+
+input:checked~.hamburger span:nth-child(1) {
+  transform: translateY(11px) rotate(-45deg);
+}
+
+input:checked~.hamburger span:nth-child(2) {
+  opacity: 0;
+}
+
+input:checked~.hamburger span:nth-child(3) {
+  transform: translateY(-12px) rotate(45deg);
+}
+
 /* --------------------------------------- Logo*/
 a.brand-logo {
   width: 150px;
@@ -145,6 +200,7 @@ a.brand-logo {
   z-index: 4;
   margin-top: 2%;
 }
+
 /*----------------------Index-------*/
 aside#hero-image {
   width: 100vw;
@@ -155,15 +211,18 @@ aside#hero-image {
   position: relative;
   z-index: 2;
 }
+
 .carousel .carousel-item>img {
   height: 100vh;
 }
+
 .hero-callout {
   text-align: center;
   color: #17353B;
   background-color: rgba(250, 236, 217, 0.5);
   margin-bottom: 30%;
 }
+
 .callout-btn {
   border: 2px solid #17353B;
   border-radius: 15px;
@@ -177,24 +236,28 @@ aside#hero-image {
   background-color: #f4fad900;
   color: #17353B;
 }
+
 .hero-review {
   background-color: #FAECD9;
   padding: 40px;
   color: #333;
   margin-top: 5%;
 }
+
 .hero-review h6 {
   font-weight: 700;
   color: #17353B;
   margin-top: 10%;
 }
+
 .hero-review img {
   border-radius: 15px;
   height: 500px;
   width: 350px;
 }
+
 /*  --------------------------------------- CONTACT PAGE */
-#contact-image{
+#contact-image {
   width: 100vw;
   height: 100vh;
   background-image: url(../images/contact.jpg);
@@ -208,36 +271,44 @@ aside#hero-image {
 #thank-you-feedback {
   display: none;
 }
+
 #no-card-display {
   display: none;
 }
+
 .custom-card {
   background-color: #dbc2eb00;
 }
-#contactForm{
+
+#contactForm {
   margin: 15rem;
-  color:#eaeeed;
+  color: #eaeeed;
   margin-bottom: 0;
 }
-.contactHere>p{
-  color:rgb(240, 6, 6);
+
+.contactHere>p {
+  color: rgb(240, 6, 6);
   font-weight: 700;
 }
-.contactHere>p>a{
-  color:blanchedalmond;
-  font-weight: 700;
-  text-decoration: underline;
-}
-.contactHere>p>a:hover{
-  color:rgb(247, 10, 10);
+
+.contactHere>p>a {
+  color: blanchedalmond;
   font-weight: 700;
   text-decoration: underline;
 }
-.btncont:hover{
+
+.contactHere>p>a:hover {
+  color: rgb(247, 10, 10);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.btncont:hover {
   color: black;
 }
+
 /* -------------------- Register Form */
-#registerImage{
+#registerImage {
   width: 100vw;
   height: 100vh;
   background-image: url(../images/contact.jpg);
@@ -247,30 +318,36 @@ aside#hero-image {
   position: relative;
   z-index: 2;
 }
-.regHeader{
+
+.regHeader {
   margin: 15rem;
-  color:#eaeeed;
+  color: #eaeeed;
   margin-bottom: 0;
 }
-.loginHere>p{
-  color:rgb(240, 6, 6);
+
+.loginHere>p {
+  color: rgb(240, 6, 6);
   font-weight: 700;
 }
-.loginHere>p>a{
-  color:blanchedalmond;
-  font-weight: 700;
-  text-decoration: underline;
-}
-.loginHere>p>a:hover{
-  color:rgb(247, 10, 10);
+
+.loginHere>p>a {
+  color: blanchedalmond;
   font-weight: 700;
   text-decoration: underline;
 }
-btn:hover{
+
+.loginHere>p>a:hover {
+  color: rgb(247, 10, 10);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+btn:hover {
   color: rgba(0, 0, 0, 0);
 }
+
 /* -------------------- Login Form */
-#loginImage{
+#loginImage {
   width: 100vw;
   height: 100vh;
   background-image: url(../images/contact.jpg);
@@ -280,58 +357,70 @@ btn:hover{
   position: relative;
   z-index: 2;
 }
-.loginHeader>h3{
+
+.loginHeader>h3 {
   margin-top: 15rem;
-  color:#eaeeed;
+  color: #eaeeed;
 }
-.newHere{
+
+.newHere {
   margin-top: 10rem;
   margin-bottom: 0;
 }
-.newHere>p{
-  color:rgb(240, 6, 6);
+
+.newHere>p {
+  color: rgb(240, 6, 6);
   font-weight: 700;
 }
-.newHere>p>a{
-  color:blanchedalmond;
-  font-weight: 700;
-  text-decoration: underline;
-}
-.newHere>p>a:hover{
-  color:rgb(247, 10, 10);
+
+.newHere>p>a {
+  color: blanchedalmond;
   font-weight: 700;
   text-decoration: underline;
 }
+
+.newHere>p>a:hover {
+  color: rgb(247, 10, 10);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
 /*  --------------------------------------- PROFILE */
-.profileHeader>h3{
+.profileHeader>h3 {
   margin-top: 15rem;
   color: rgb(12, 9, 2);
   font-weight: 700;
 }
-.profileHeader>h5{
+
+.profileHeader>h5 {
   color: #720444;
   font-weight: 800;
 }
+
 .userdeats>h5 {
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: bold;
   color: gray;
 }
+
 .buts>a {
   font-weight: 700;
 }
+
 .newTraveldeats>h6>span {
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: bold;
   color: #5f6160;
   text-transform: capitalize;
 }
+
 .newTraveldeats>h6 {
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: bold;
 }
+
 /*  --------------------------------------- Travel Req */
-#travelImage{
+#travelImage {
   width: 100vw;
   height: 100vh;
   background-image: url(../images/inside.jpg);
@@ -341,38 +430,44 @@ btn:hover{
   position: relative;
   z-index: 2;
 }
-.travelHeader>h3{
+
+.travelHeader>h3 {
   color: green;
   font-weight: 700;
 }
-.travelHeader>h5{
+
+.travelHeader>h5 {
   margin-top: 2%;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   color: #720444;
   font-weight: 800;
 }
-.custom-card-travel{
+
+.custom-card-travel {
   background-color: rgba(245, 222, 179, 0.596);
 }
+
 /*  --------------------------------------- NEW TRVEL REQ */
-.travel-card{
+.travel-card {
   background-color: #f3e0cbab;
   margin-top: 2%;
 }
-.travel-card>h6>span{
+
+.travel-card>h6>span {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: 800;
 }
+
 /*  --------------------------------------- PASSWORD CHANGE */
-#changepass{
+#changepass {
   margin-top: 20%;
   background-color: #f3e0cb;
 }
-/*  --------------------------------------- MEDIA QUERIES FOR RESPONSIVENESS */
-@media screen and (max-width: 700px) {
 
-  .rooms {
-    font-size: smaller;
+/*  --------------------------------------- MEDIA QUERIES FOR RESPONSIVENESS */
+@media screen and (max-width: 700px){
+  aside.flash {
+    margin-top: 55px;
   }
   .mobile-menu.open {
     left: 0;
@@ -381,29 +476,283 @@ btn:hover{
   }
 }
 
-
 @media screen and (max-width: 450px) {
-  .social-media-icons i {
-    font-size: 15px;
-    margin: 5px;
-    
-  }
-  .add-modal, .add-modal-view {
-    width: 250px; 
-  }
-
-  .profile-button {
-    font-size: small;
-    padding: 5px 10px;
-  }
-  .add-modal,.add-modal-view{
-    width: 250px;
-    height: 125px;
-
-  }
-  .house-info-content {
-    font-size: small;
+  /* --------------------------------------- Logo*/
+  a.brand-logo {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background-size: 75px 75px;
+    background-image: url(../images/logo.png);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    cursor: pointer;
+    text-indent: -9999px;
+    overflow: hidden;
+    z-index: 4;
+    margin-top: 10%;
   }
 
+  /*----------------------Index-------*/
+  aside#hero-image {
+    width: 100vw;
+    height: 90vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    z-index: 2;
+  }
+
+  .carousel .carousel-item>img {
+    height: 100vh;
+  }
+
+  .hero-callout {
+    text-align: center;
+    color: #17353B;
+    background-color: rgba(250, 236, 217, 0.5);
+    margin-bottom: 30%;
+  }
+
+  .callout-btn {
+    border: 2px solid #17353B;
+    border-radius: 15px;
+    padding: 10px;
+    background-color: #17353B;
+    transition: .5s;
+    color: #FAECD9
+  }
+
+  .callout-btn:hover {
+    background-color: #f4fad900;
+    color: #17353B;
+  }
+
+  .hero-review {
+    background-color: #FAECD9;
+    padding: 40px;
+    color: #333;
+    margin-top: 5%;
+  }
+
+  .hero-review h6 {
+    font-weight: 700;
+    color: #17353B;
+    margin-top: 10%;
+  }
+
+  .hero-review img {
+    border-radius: 15px;
+    height: 500px;
+    width: 350px;
+  }
+
+  /*  --------------------------------------- CONTACT PAGE */
+  #contact-image {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../images/contact.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    z-index: 2;
+  }
+
+  #thank-you-feedback {
+    display: none;
+  }
+
+  #no-card-display {
+    display: none;
+  }
+
+  .custom-card {
+    background-color: #dbc2eb00;
+  }
+
+  #contactForm {
+    margin: 15rem;
+    color: #eaeeed;
+    margin-bottom: 0;
+  }
+
+  .contactHere>p {
+    color: rgb(240, 6, 6);
+    font-weight: 700;
+  }
+
+  .contactHere>p>a {
+    color: blanchedalmond;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  .contactHere>p>a:hover {
+    color: rgb(247, 10, 10);
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  .btncont:hover {
+    color: black;
+  }
+
+  /* -------------------- Register Form */
+  #registerImage {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../images/contact.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    z-index: 2;
+  }
+
+  .regHeader {
+    margin: 15rem;
+    color: #eaeeed;
+    margin-bottom: 0;
+  }
+
+  .loginHere>p {
+    color: rgb(240, 6, 6);
+    font-weight: 700;
+  }
+
+  .loginHere>p>a {
+    color: blanchedalmond;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  .loginHere>p>a:hover {
+    color: rgb(247, 10, 10);
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  btn:hover {
+    color: rgba(0, 0, 0, 0);
+  }
+
+  /* -------------------- Login Form */
+  #loginImage {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../images/contact.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    z-index: 2;
+  }
+
+  .loginHeader>h3 {
+    margin-top: 15rem;
+    color: #eaeeed;
+  }
+
+  .newHere {
+    margin-top: 10rem;
+    margin-bottom: 0;
+  }
+
+  .newHere>p {
+    color: rgb(240, 6, 6);
+    font-weight: 700;
+  }
+
+  .newHere>p>a {
+    color: blanchedalmond;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  .newHere>p>a:hover {
+    color: rgb(247, 10, 10);
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  /*  --------------------------------------- PROFILE */
+  .profileHeader>h3 {
+    margin-top: 15rem;
+    color: rgb(12, 9, 2);
+    font-weight: 700;
+  }
+
+  .profileHeader>h5 {
+    color: #720444;
+    font-weight: 800;
+  }
+
+  .userdeats>h5 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    color: gray;
+  }
+
+  .buts>a {
+    font-weight: 700;
+  }
+
+  .newTraveldeats>h6>span {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    color: #5f6160;
+    text-transform: capitalize;
+  }
+
+  .newTraveldeats>h6 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+  }
+
+  /*  --------------------------------------- Travel Req */
+  #travelImage {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../images/inside.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    z-index: 2;
+  }
+
+  .travelHeader>h3 {
+    color: green;
+    font-weight: 700;
+  }
+
+  .travelHeader>h5 {
+    margin-top: 2%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #720444;
+    font-weight: 800;
+  }
+
+  .custom-card-travel {
+    background-color: rgba(245, 222, 179, 0.596);
+  }
+
+  /*  --------------------------------------- NEW TRVEL REQ */
+  .travel-card {
+    background-color: #f3e0cbab;
+    margin-top: 2%;
+  }
+
+  .travel-card>h6>span {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 800;
+  }
+
+  /*  --------------------------------------- PASSWORD CHANGE */
+  #changepass {
+    margin-top: 20%;
+    background-color: #f3e0cb;
+  }
 }
-
