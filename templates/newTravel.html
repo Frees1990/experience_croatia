@@ -23,6 +23,14 @@
                     </div>
                 </div>
                 {% endif %}
+                <!-- back button -->
+                <div class="row">
+                    <div class="col s12 m4 buts">
+                        <a href="{{ url_for('profile', username=session['user']) }}"
+                            class="btn icon-left waves-effect waves-light teal darken-4 white-text text-lighten-4"><i
+                                class="material-icons">arrow_back</i><small>Back to Dashboard</small></a>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="container page-container">
@@ -194,15 +202,6 @@
                     </div>
                 </div>
                 {% endfor %}
-                
-                <!-- back button -->
-                <div class="row">
-                    <div class="col s12 m4 buts">
-                        <a href="{{ url_for('profile', username=session['user']) }}"
-                            class="btn icon-left waves-effect waves-light teal darken-4 white-text text-lighten-4"><i
-                                class="material-icons">arrow_back</i><small>Back to Dashboard</small></a>
-                    </div>
-                </div>
             </div>
         </div>
 {% endblock %}
