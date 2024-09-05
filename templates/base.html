@@ -46,8 +46,7 @@
                 <li><a href="{{ url_for('profile', username=session['user']) }}"> Profile</a></li>
                 <li><a class="dropdown-trigger" href="#" data-target="manage_account"><i class="fas fa-users-cog">
                     </i>&nbsp;Manage Account
-                    <i class="fas fa-caret-down"></i></a></li>
-                
+                    <i class="fas fa-caret-down"></i></a></li> 
                 {% else %}
                 <li><a href="{{url_for('contact')}}">Contact us</a></li>
                 <li><a href="{{url_for('register')}}">Register</a></li>
@@ -55,18 +54,14 @@
                 {% endif %}
             </ul>
             <!-- Manage account dropdown content -->
-            
             <ul id="manage_account" class="dropdown-content">
                 {% if session.user == "systemadmin" %}
                 <li><a href="{{ url_for('changepass') }}">Change Password</a></li>
                 <li><a href="{{ url_for('logout') }}">Log Out</a></li>
-
                 {% else %}
-
                 <li><a href="{{url_for('contact')}}">Contact us</a></li>
                 <li><a href="{{ url_for('changepass') }}">Change Password</a></li>
                 <li><a href="{{ url_for('logout') }}">Log Out</a></li>
-
                 {% endif %}
             </ul>
             <!-- hamburger toggle -->
@@ -193,6 +188,7 @@
             </div>
         </div>
     </footer>
+    
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>

@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-    {% if session.user != "systemadmin" %}
     <div class="conatainer page-container">
-        {% endif %}
         <div class="row">
             <div class="col s12 m8 offset-m2 profileHeader">
                 {% if session.user != "systemadmin" %}
@@ -15,9 +13,15 @@
                     the button below</h5>
                 {% else %}
                 <!-- Username heading -->
-                <h3 class="center-align">
-                    Hello Admin &nbsp;<i class="far fa-id-badge fa-lg" style="color: #399905;"></i>
-                </h3>
+                <div class="row">
+                    <div class="col s12 m8 offset-m2"  style="margin-top: 25%; margin-bottom: 10%;">
+                        <div class="card-panel teal darken-4">
+                            <h4 class="center-align white-text" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                                Hello Admin, Some new request for you today! Shall we start?.
+                             </h4>
+                        </div>
+                    </div>
+                </div>
                 {% endif %}
             </div>
         </div>
@@ -25,10 +29,10 @@
             <div class="row">
                 {% for travel_info in travel_info %}
                 <div class="col s12 card-panel custom-card travel-card">
-                    {% if username == "systemadmin" %}
+                    {% if username != "systemadmin" %}
                     <div class="row">
                         <div class="col s12">
-                            <h6><span> Created by: </span>{{travel_info.username}}</h6>
+                            <h5 style="font-weight: 800; color:indianred"><span> Created by: </span>{{travel_info.username}}</h5>
                         </div>
                     </div>
                     {% endif %}
@@ -176,20 +180,29 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <br>
-                    <br>
-                    <!--Buttons-->
-                    <!-- Edit button -->
-                    <div class="row">
-                        <div class="col s12 m4 buts">
-                            <a href="{{ url_for('profile', username=session['user']) }}"
-                                class="btn icon-left waves-effect waves-light teal darken-4 white-text text-lighten-4"><i
-                                    class="material-icons">arrow_back</i><small>Back to Dashboard</small></a>
+                        <div class="col s12 m6">
+                            <!-- Time Stamp -->
+                            <div class="row">
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6><span>DATE CREATED:</span></h6>
+                                </div>
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6>{{ travel_info.date }}</h6>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 {% endfor %}
+                
+                <!-- back button -->
+                <div class="row">
+                    <div class="col s12 m4 buts">
+                        <a href="{{ url_for('profile', username=session['user']) }}"
+                            class="btn icon-left waves-effect waves-light teal darken-4 white-text text-lighten-4"><i
+                                class="material-icons">arrow_back</i><small>Back to Dashboard</small></a>
+                    </div>
+                </div>
             </div>
         </div>
 {% endblock %}
@@ -212,5 +225,4 @@
         }
     }
 </script>
-
 {% endblock %}

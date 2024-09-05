@@ -463,6 +463,11 @@ btn:hover {
   margin-top: 20%;
   background-color: #f3e0cb;
 }
+/*  --------------------------------------- ADMIN */
+.card-panel>.manageusers{
+  float: left;
+  clear: left;
+}
 
 /*  --------------------------------------- MEDIA QUERIES FOR RESPONSIVENESS */
 @media screen and (max-width: 700px){

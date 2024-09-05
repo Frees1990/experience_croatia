@@ -6,6 +6,8 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import datetime
+from flask_moment import Moment
 if os.path.exists("env.py"):
     import env
 
@@ -17,6 +19,7 @@ app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
+moment = Moment(app)
 
 
 # LOG IN REQUIRED 
@@ -59,14 +62,6 @@ def index():
     Function to render to homepage if not logged in
     """
     return render_template("index.html")
-
-
-@app.route("/userdoesnotexist.html")
-def userdoesnotexist():
-    """
-    Function to render to homepage if not logged in
-    """
-    return render_template("userdoesnotexist.html")
 
 
 # NEW USER REGISTRATION
@@ -169,10 +164,6 @@ def login():
             # username doesn't exist
             flash("Incorrect Username and/or Password!!!!!")
             return redirect(url_for("login"))
-        
-        if username == "systemadmin":
-            users = mongo.db.users.find()
-        return render_template("manageusers.html", users=users)    
 
     return render_template("login.html")
 
@@ -332,12 +323,13 @@ def travel_info():
             "contact": contact,
             "message": message,
         }
-
+        
         mongo.db.travel_info.insert_one(travel_entry)
         flash("Travel Information Added!")
         return redirect(url_for("newTravel", username=session["user"]))
     else:
-        return render_template("travel_info.html")
+        airport = mongo.db.airport.find_one()
+        return render_template("travel_info.html", airport=airport)
 
 
 # CONTACT FORM 
@@ -361,6 +353,7 @@ def manageusers(username):
         {"username": session["user"]})["username"]
     if username == "systemadmin":
         users = mongo.db.users.find()
+
         return render_template("manageusers.html", users=users)
 
 
@@ -374,6 +367,11 @@ def delete_user(username, user_name):
     if request.method == "POST":
         username = mongo.db.users.find_one(
             {"username": session['user']})["username"]
+
+        if username == "systemadmin":
+            user = mongo.db.users.find_one(
+                {"username": user_name}
+            )
         
         if user and user_name != "systemadmin":
             mongo.db.users.delete_one({"username": user_name})

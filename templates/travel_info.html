@@ -22,29 +22,29 @@
                             <h5>Trip Request</5>
                         </div>
                     </div>
-                        <!-- input field for Preferred travel dates -->
-                         <!-- select field to answer if travel dates are flexible -->
-                          <!-- input field for include flights? -->
-                           <!-- input field for preferred departure airport -->
                         <div class="row">
+                        <!-- input field for Preferred travel dates -->
                             <div class="input-field outlined col s12 m3 m-3">
                                 <i class="fas fa-calendar-alt fa-lg prefix" style="color: #0b5606;"></i>
                                 <input placeholder="PREFERRED TRAVEL DATES:" type="text" class="datepicker" id="travel_dates" name="travel_dates" required
                                     aria-required="true">       
-                            </div>  
+                            </div> 
+                        <!-- select field to answer if travel dates are flexible --> 
                             <div class="input-field outlined col s12 m3 m-3">
                                 <i class="fas fa-calendar-alt fa-lg prefix" style="color: #0b5606;"></i>
                                 <input placeholder="FLEXIBLE DATES?  YES/NO" type="text" id="flexible_dates" name="flexible_dates" required aria-required="true">
                             </div>
+                        <!-- input field for include flights? -->
                             <div class="input-field outlined col s12 m3 m-3">
                                 <i class="fas fa-plane-departure fa-lg prefix" style="color:#0b5606"></i>
                                 <input placeholder="INCLUDE FLIGHTS?  YES/NO" type="text" id="include_flights" name="include_flights" required aria-required="true">
                             </div>
+                        <!-- input field for preferred departure airport -->
                             <div class="input-field outlined col s12 m3 m-3">
                                 <i class="fas fa-plane-departure fa-lg prefix" style="color:#0b5606"></i>
                                 <input  placeholder="PREFERRED DEPARTURE PORT:" type="text" class="validate" id="flying_from" name="flying_from" required
-                                    aria-required="true">
-                            </div>
+                                a   ria-required="true">
+                             </div>
                         </div>
                         <!-- input field for number of adult guests -->
                          <!-- input field for number of children guests -->
@@ -90,6 +90,7 @@
                             </div>
                             <div class="input-field outlined col s12 m3">
                             </div>
+                            <!-- Preferred Contact -->
                             <div class="input-field outlined col s12 m4 m-3">
                                 <i class="fas fa-address-book fa-lg prefix" style="color: #0b5606;"></i>
                                 <input placeholder="CONTACT PREFERRECNCE" for="contact" type="text" id="contact" name="contact" required aria-required="true">
@@ -104,6 +105,7 @@
                             </div>
                             <div class="input-field outlined col s12 m3">
                             </div>
+                            <!-- input field for other requests -->
                             <div class="input-field outlined col s12 m4 m-3">
                                 <i class="fa-solid fa-message prefix green-text text-darken-4 icon-right"></i>
                                 <textarea placeholder="MESSAGE" id="message" name="message" class="materialize-textarea"></textarea>  
@@ -112,15 +114,6 @@
                                 <i class="fas fa-swimmer fa-lg prefix" style="color: #0b5606;"></i>
                                 <input placeholder="INCLUDE ACTIVITIES?" for="activity" type="text" id="activity" name="activity" required aria-required="true">
                             </div>
-                        </div>
-                        <div class="row">
-                            
-                        
-                            
-                            <!-- input field for other requests -->
-                            <!-- Preferred Contact -->
-                            
-                            
                         </div>
                         <!-- submit button -->
                         <div class="row center">
@@ -132,9 +125,11 @@
                                 </button>
                             </div>
                         </div>
+                    </div> 
                 </form>
             </div>
         </div>
     </aside>
 
 {% endblock %}
+
