@@ -3,24 +3,24 @@
 <div class="container page-container">
     <!-- Heading -->
     <div class="row">
-        <div class="col s12 m8 offset-m2">
+        <div class="col s12 m8 offset-m2"  style="margin-top: 25%; margin-bottom: 10%;">
             <div class="card-panel teal darken-4">
-                <h4 class="center-align orange-text text-lighten-5">
-                    Manage Users
+                <h4 class="center-align white-text" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                   Hello Admin, Let's Manage Our Users.
                 </h4>
             </div>
-
         </div>
     </div>
     <!-- Users -->
     {% for user in users %}
     <div class="row">
-        <div class="col s12 card-panel custom-card ">
+        {% if user.username != "systemadmin" %}
+        <div class="col s12  card-panel">
             <div class="row">
                 <div class="col s3 m8">
                     <!-- Username -->
                     <div class="row">
-                        <div class="col s12 ">
+                        <div class="col s12">
                             {{ user.username }}
                         </div>
                     </div>
@@ -29,10 +29,11 @@
                 <div class="col s9 m4 right-align">
                     <a class="waves-effect waves-light btn modal-trigger red darken-4 rounded"
                         href="#deleteModal{{user.username}}"><span class="material-symbols-outlined">
-                        </span> Remove Account</a>
+                        </span> Remove User</a>
                 </div>
             </div>
         </div>
+        {% endif %}
         <!-- Delete Modal -->
         <div id="deleteModal{{user.username}}" class="modal card-panel rounded white-text center p-5">
             <!-- Modal Content -->
@@ -67,5 +68,12 @@
         </div>
     </div>
     {% endfor %}
+    <div class="row">
+        <div class="col s12 center-align">
+            <a href="{{ url_for('profile', username=session['user']) }}"
+                            class="btn icon-left waves-effect waves-light teal darken-4 white-text text-lighten-4"><i
+                                class="material-icons">arrow_back</i><small>Back to Dashboard</small></a>
+        </div>
+    </div>
 </div>
 {% endblock %}
