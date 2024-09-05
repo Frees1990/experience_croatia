@@ -22,24 +22,16 @@
                 </div>
                 {% else %}
                 <!-- Username heading -->
-                <h3 class="center-align">
-                    Hello Admin &nbsp;<i class="far fa-id-badge fa-lg" style="color: #399905;"></i>
-                </h3>
-                {% endif %}
-                <aside class="container flash">
-                    <!-- flash messages -->
-                    {% with messages = get_flashed_messages() %}
-                    {% if messages %}
-                    {% for message in messages %}
-                    <div class="row flashes ">
-                        <div class="col s12 card-panel rounded center" style="background-color: rgba(255, 0, 0, 0.692);">
-                            <h6 class="orange-text text-lighten-4">{{ message }}<h6>
+                <div class="row">
+                    <div class="col s12 m8 offset-m2"  style="margin-top: 25%; margin-bottom: 10%;">
+                        <div class="card-panel teal darken-4">
+                            <h4 class="center-align white-text" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                                Hello Admin, What Are We Doing Today?.
+                             </h4>
                         </div>
                     </div>
-                    {% endfor %}
-                    {% endif %}
-                    {% endwith %}
-                </aside>
+                </div>
+                {% endif %}
             </div>
         </div>
         {% if session.user != "systemadmin" %}
@@ -58,6 +50,29 @@
                             <h5 style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-weight:  800;">My Travel Requests
                                 <a class="btn icon-right rounded waves-effect waves-light teal darken-4 orange-text text-lighten-5 mb-5 right"
                                     href="{{ url_for('newTravel') }}">&nbsp;<span>Go to Requests</span>
+                                </a>
+                            </h5> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+        </div>
+        <div class="container page-container">
+            <div class="row">
+                <div class="col s12 m8 offset-m2 card-panel travel-card">
+                    <div class="row">
+                        <div class="col s12 m12">
+                            <h5 style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-weight:  800;">MANAGE MEMBER ACCESS
+                                <a class="btn icon-right rounded waves-effect waves-light teal darken-4 mb-5 right"
+                                    href="{{ url_for('manageusers', username=session['user']) }}" ><span>MEMBER DIRECTORY</span>
+                                </a>
+                            </h5> 
+                        </div>
+                        <div class="col s12 m12">
+                            <h5 style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-weight:  800;">MANAGE MEMBER TRAVEL REQUEST
+                                <a class="btn icon-right rounded waves-effect waves-light teal darken-4 mb-5 right"
+                                    href="{{ url_for('newTravel') }}">&nbsp;<span>MEMBER REQUESTS</span>
                                 </a>
                             </h5> 
                         </div>
