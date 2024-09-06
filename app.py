@@ -306,6 +306,8 @@ def travel_info():
         guide = request.form.get("guide")
         contact = request.form.get("contact")
         message = request.form.get("message")
+        now = datetime.now("now") # current date and time
+        date_time = now.strftime("%d/%m/%Y, %H:%M:%S")
 
         travel_entry = {
             "username": session["user"],
@@ -322,14 +324,16 @@ def travel_info():
             "guide": guide,
             "contact": contact,
             "message": message,
+            "now": now,
+            "%d/%m/%Y, %H:%M:%S": date_time,
         }
         
         mongo.db.travel_info.insert_one(travel_entry)
         flash("Travel Information Added!")
-        return redirect(url_for("newTravel", username=session["user"]))
+        return redirect(url_for("newTravel", username=session["user"], datetime=datetime))
     else:
         airport = mongo.db.airport.find_one()
-        return render_template("travel_info.html", datetime=datetime)
+        return render_template("travel_info.html")
 
 
 # CONTACT FORM 
@@ -383,10 +387,10 @@ def delete_user(username, user_name):
 
 # DELETE REQUEST
 @app.route(
-    "/newTravel/<username>#deleteModal<travel_info_id>", methods=["GET", "POST"]
+    "/newTravel/<travel_info_id>#deleteModal", methods=["GET", "POST"]
 )
 @login_required
-def delete_req(username, travel_info_id):
+def delete_req(travel_info_id):
             
     if request.method == "POST":
         username = mongo.db.users.find_one(
@@ -394,14 +398,14 @@ def delete_req(username, travel_info_id):
 
         if username == "systemadmin":
             user = mongo.db.users.find_one(
-                {"username": user_name}
+                {"username": username}
             )
-
-        if travel_info == travel_info:
+            
+        if travel_info is not None:
             mongo.db.travel_info.delete_one({"_id": ObjectId(travel_info_id)})
             flash("Request Deleted")
-            return redirect(url_for("newTravel", travel_info=travel_info, username=username))
-    return redirect(url_for("newTravel", travel_info=travel_info, username=username))
+        return redirect(url_for("newTravel", username=session["user"]))
+    return render_template("newTravel.html")
 
 
 if __name__ == "__main__":
