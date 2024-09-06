@@ -258,8 +258,8 @@ def newTravel():
     else:
         travel_info = mongo.db.travel_info.find({"username": username})
 
-    return render_template("newTravel.html", name=username,
-                           travel_info=travel_info)
+        return redirect(url_for("newTravel", username=session["user"]))
+    return render_template("newTravel.html", travel_info=travel_info)
 
 
 # USER UPDATE ACCOUNT OPTION 
@@ -329,7 +329,7 @@ def travel_info():
         return redirect(url_for("newTravel", username=session["user"]))
     else:
         airport = mongo.db.airport.find_one()
-        return render_template("travel_info.html", airport=airport)
+        return render_template("travel_info.html", datetime=datetime)
 
 
 # CONTACT FORM 
@@ -378,8 +378,30 @@ def delete_user(username, user_name):
 
             flash("The user has been Deleted")
             return redirect(url_for("manageusers", username=session["user"]))
-
     return render_template("manageusers.html")
+
+
+# DELETE REQUEST
+@app.route(
+    "/newTravel/<username>#deleteModal<travel_info_id>", methods=["GET", "POST"]
+)
+@login_required
+def delete_req(username, travel_info_id):
+            
+    if request.method == "POST":
+        username = mongo.db.users.find_one(
+            {"username": session['user']})["username"]
+
+        if username == "systemadmin":
+            user = mongo.db.users.find_one(
+                {"username": user_name}
+            )
+
+        if travel_info == travel_info:
+            mongo.db.travel_info.delete_one({"_id": ObjectId(travel_info_id)})
+            flash("Request Deleted")
+            return redirect(url_for("newTravel", travel_info=travel_info, username=username))
+    return redirect(url_for("newTravel", travel_info=travel_info, username=username))
 
 
 if __name__ == "__main__":
