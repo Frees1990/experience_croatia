@@ -7,7 +7,6 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
-from flask_moment import Moment
 if os.path.exists("env.py"):
     import env
 
@@ -19,7 +18,6 @@ app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
-moment = Moment(app)
 
 
 # LOG IN REQUIRED 
@@ -252,15 +250,15 @@ def newTravel():
     # grab the session user's username from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
+    name = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
 
     if username == "systemadmin":
         travel_info = mongo.db.travel_info.find()
     else:
         travel_info = mongo.db.travel_info.find({"username": username})
 
-        return redirect(url_for("newTravel", username=session["user"]))
-    return render_template("newTravel.html", travel_info=travel_info)
-
+    return render_template("newTravel.html", travel_info=travel_info, username=username)
 
 # USER UPDATE ACCOUNT OPTION 
 @app.route("/update/<users_id>", methods=["GET", "POST"])
@@ -306,8 +304,7 @@ def travel_info():
         guide = request.form.get("guide")
         contact = request.form.get("contact")
         message = request.form.get("message")
-        now = datetime.now("now") # current date and time
-        date_time = now.strftime("%d/%m/%Y, %H:%M:%S")
+        DateTime = datetime.now("%d/%m/%Y, %H:%M:%S")
 
         travel_entry = {
             "username": session["user"],
@@ -324,15 +321,13 @@ def travel_info():
             "guide": guide,
             "contact": contact,
             "message": message,
-            "now": now,
-            "%d/%m/%Y, %H:%M:%S": date_time,
+            "date": DateTime,
         }
         
         mongo.db.travel_info.insert_one(travel_entry)
         flash("Travel Information Added!")
-        return redirect(url_for("newTravel", username=session["user"], datetime=datetime))
+        return redirect(url_for("newTravel", username=session["user"]))
     else:
-        airport = mongo.db.airport.find_one()
         return render_template("travel_info.html")
 
 
@@ -359,6 +354,22 @@ def manageusers(username):
         users = mongo.db.users.find()
 
         return render_template("manageusers.html", users=users)
+
+# USER PROFILE/MANAGE REQUEST
+@app.route("/managereq", methods=["GET", "POST"])
+def managereq():
+    # grab the session user's username from db
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    name = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+    if username == "systemadmin":
+        travel_info = mongo.db.travel_info.find()
+    else:
+        travel_info = mongo.db.travel_info.find({"username": username})
+
+    return render_template("managereq.html", travel_info=travel_info, username=username)
 
 
 # DELETE USER (keeps showing 404, found solution from https://www.youtube.com/watch?v=Ya3zjAgQWQo)
@@ -387,7 +398,7 @@ def delete_user(username, user_name):
 
 # DELETE REQUEST
 @app.route(
-    "/newTravel/<travel_info_id>#deleteModal", methods=["GET", "POST"]
+    "/managereq/<travel_info_id>#deleteModal", methods=["GET", "POST"]
 )
 @login_required
 def delete_req(travel_info_id):
@@ -404,8 +415,8 @@ def delete_req(travel_info_id):
         if travel_info is not None:
             mongo.db.travel_info.delete_one({"_id": ObjectId(travel_info_id)})
             flash("Request Deleted")
-        return redirect(url_for("newTravel", username=session["user"]))
-    return render_template("newTravel.html")
+        return redirect(url_for("managereq", username=session["user"]))
+    return render_template("managereq.html")
 
 
 if __name__ == "__main__":
