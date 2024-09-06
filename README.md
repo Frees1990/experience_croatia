@@ -205,18 +205,39 @@ The site is a Travel Request site, that offers personalized travel experiece. I 
 ### **HTML Validatior Test**
 
     It showed quite a few errors that I have already fixed but I wasn't able to get a screenshot of. 
-  - Home Page - 
-https://validator.w3.org/nu/?doc=https%3A%2F%2Ffrees1990.github.io%2FVisa-Chronicles%2F
-  - My Story Page -
-https://validator.w3.org/nu/?doc=https%3A%2F%2Ffrees1990.github.io%2FVisa-Chronicles%2Fmystory.html
-  - Visa Process Page - 
-https://validator.w3.org/nu/?doc=https%3A%2F%2Ffrees1990.github.io%2FVisa-Chronicles%2Fvisaprocess.html
-  - Documents Page - 
-https://validator.w3.org/nu/?doc=https%3A%2F%2Ffrees1990.github.io%2FVisa-Chronicles%2Fdocuments.html
-  - Contact Page - 
-https://validator.w3.org/nu/?doc=https%3A%2F%2Ffrees1990.github.io%2FVisa-Chronicles%2Fcontact.html
-  - Confirm Page - 
-https://validator.w3.org/nu/?doc=https%3A%2F%2Ffrees1990.github.io%2FVisa-Chronicles%2Fconfirm.html%3Ffname%3Dsd%26email%3Dfairmejor%2540gmail.com%26pnum%3D07379118910%26text%3Dsadasd
+  - Landing Page - 
+https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2F
+
+  - contact Page -
+https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fcontact
+
+  - Registration Page - 
+https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fregister
+
+  - Login Page - 
+https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Flogin
+
+  - User Profile Page - 
+https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fprofile%2Fjoostrees
+
+  - User Info Page - 
+https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fmyinfo
+
+USER TRAVEL REQ
+https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2FnewTravel
+
+CHANGEPASS
+https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fchangepass
+
+ADMIN page 
+https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fprofile%2Fsystemadmin
+George2014 systemadmin
+
+USER manager
+https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fmanageusers%2Fsystemadmin
+
+TRAVEL MANAGER
+https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fmanagereq
   
 
 
