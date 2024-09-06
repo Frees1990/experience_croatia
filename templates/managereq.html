@@ -1,0 +1,236 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="conatainer page-container">
+        <div class="row">
+            <div class="col s12 m8 offset-m2 profileHeader managereqHeader">
+                <div class="row">
+                    <div class="col s12 m8 offset-m2"  style="margin-top: 25%; margin-bottom: 10%;">
+                        <h4 class="center-align teal-text text-darken-4" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                            Hello Admin, Some new request for you today! Shall we start?.
+                        </h4>
+                    </div>
+                </div>
+                <!-- back button -->
+                <div class="row">
+                    <div class="col s12 m4 buts">
+                        <a href="{{ url_for('profile', username=session['user']) }}"
+                            class="btn icon-left waves-effect waves-light teal darken-4 white-text text-lighten-4"><i
+                                class="material-icons">arrow_back</i><small>Back to Dashboard</small></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container page-container">
+            <div class="row">
+                {% for travel_info in travel_info %}
+                <div class="col s12 card-panel custom-card travel-card">
+                    <div class="row">
+                        <div class="col s12 teal-text text-darken-4">
+                            <h6 style="font-weight: 800; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"><span> Created by: </span>"{{travel_info.username}}"</h6>
+                            <p></p>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col s12 m6">
+                            <!-- Travel Dates -->
+                            <div class="row">
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6><span>TRAVEL DATES  :</span></h6>
+                                </div>
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6>{{ travel_info.travel_dates }}</h6>
+                                </div>
+                            </div>       
+                        </div>
+                        <div class="col s12 m6">
+                            <!-- Travel flexibility -->
+                            <div class="row">
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6><span>DATES FLEXIBLE?:</span></h6>        
+                                </div>
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6>{{travel_info.flexible_dates }}</h6>        
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s12 m6">
+                            <!-- include flights -->
+                            <div class="row">
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6><span>INCLUDE FLIGHT?:</span></h6>
+                                </div>
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6>{{ travel_info.include_flights }}</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s12 m6">
+                            <!-- departing port -->
+                            <div class="row">
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6><span>PREFERRED DEPARTURE PORT:</span></h6>
+                                </div>
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6>{{ travel_info.flying_from }}</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s12 m6">
+                            <!-- Number of adult guests -->
+                            <div class="row">
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6><span>NUMBER OF ADULT GUESTS:</span></h6>
+                                </div>
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6>{{ travel_info.number_adult_guests }}</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s12 m6">
+                            <!-- Number of child guests -->
+                            <div class="row">
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6><span>NUMBER OF CHILDREN GUESTS:</span></h6>
+                                </div>
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6>{{ travel_info.number_kids_guests }}</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s12 m6">
+                            <!-- accommodation-->
+                            <div class="row">
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6><span>PREFERRED ACCOMMODATION :</span></h6>
+                                </div>
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6>{{ travel_info.preferred_accom }}</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s12 m6">
+                            <!-- room-->
+                            <div class="row">
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6><span>NUMBER OF ROOMS:</span></h6>
+                                </div>
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6>{{ travel_info.rooms}}</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s12 m6">
+                            <!-- concerts -->
+                            <div class="row">
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6><span>INCLUDE CONCERTS?:</span></h6>
+                                </div>
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6>{{ travel_info.concerts }}</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s12 m6">
+                            <!-- guide -->
+                            <div class="row">
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6><span>INCLUDE PERSONAL TRAVEL GUIDE?:</span></h6>
+                                </div>
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6>{{ travel_info.guide }}</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s12 m6">
+                            <!-- activity -->
+                            <div class="row">
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6><span>INCLUDE ACTIVITIES?:</span></h6>
+                                </div>
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6>{{ travel_info.activity }}</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s12 m6">
+                            <!-- CONTACT BY -->
+                            <div class="row">
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6><span>PREFERRED CONTACTED THROUGH:</span></h6>
+                                </div>
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6>{{ travel_info.contact }}</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s12 m6">
+                            <!-- ADDITIONAL INFO -->
+                            <div class="row">
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6><span>MESSAGE/ADDITIONAL INFORMATION:</span></h6>
+                                </div>
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6>{{ travel_info.message }}</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s12 m6">
+                            <!-- Time Stamp -->
+                            <div class="row">
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6><span>DATE CREATED:</span></h6>
+                                </div>
+                                <div class="col s12 m6 newTraveldeats">
+                                    <h6>{{ travel_info.date }}</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Button to trigger delete modal -->
+                    {% if username == "systemadmin" %}
+                    <div class="col s12 m4 right-align">
+                        <a class="waves-effect waves-light btn modal-trigger green darken-4 rounded"
+                            href=""><span class="material-symbols-outlined">
+                            </span><small><b>COMPLETE REQUEST</b></small></a>
+                        <a class="waves-effect waves-light btn modal-trigger red darken-4 rounded"
+                            href="#deleteModal{{ travel_info._id }}"><span class="material-symbols-outlined">
+                            </span><i class="small material-icons">delete_forever</i></a>
+                    </div>
+                    {% endif %}
+                </div>
+                 <!-- Delete Modal -->
+                <div id="deleteModal{{ travel_info._id}}" class="modal card-panel rounded white-text center p-5" style="font-weight: 800;">
+                    <!-- Modal Content -->
+                    <div class="modal-content rounded">
+                        <div class="row">
+                            <div class="col s12 red-text text-darken-4">
+                                <i class="fa-solid fa-triangle-exclamation fa-lg"></i>
+                                <h4>Caution</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12 black-text">
+                                <p> Deleting this request, would result to loss of sale and member inquiry are you sure you want to Delete?.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="row">
+                            <div class="col s12 center">
+                                <!-- Delete button -->
+                                <form action="{{ url_for('delete_req', travel_info_id=travel_info._id)}}"
+                                    method="POST">
+                                    <button class="modal-close btn waves-effect rounded red darken-4 m-2">Delete</button>
+                                    <!-- Cancel button -->
+                                    <a href="#" class="modal-close btn waves-effect rounded orange m-2">Cancel</a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
