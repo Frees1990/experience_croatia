@@ -238,67 +238,41 @@ https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fexperience-croatia
 
 TRAVEL MANAGER
 https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fmanagereq
+
+TRAVEL FORM
+https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Ftravel_info
+
+UPDATE INFO
+https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fupdate%2F66d823d2071ea5dfbca0d23e
   
-
-
 
 ### **CSS Validator Test**
   - style.css - 
-https://validator.w3.org/nu/?doc=https%3A%2F%2Ffrees1990.github.io%2FVisa-Chronicles%2Fassets%2Fcss%2Fstyle.css
+https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fstatic%2Fcss%2Fstyle.css&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en
 
+### **JS Validator Test**
+  - script
+  ![JS.HINT](static/readme-images/jswitherror.png) 
 
-### **Lighthouse Desktop/Mobile**
+  There are still errors in here however these are needed in my code to work
 
-- I ran the lighthouse both in google chrome and incognito mode in mobile and as well desktop. 
-The First time I ran it it gave me : 
+### **Flask testing**
 
-  - 43% perfromance and 100% on accessibility, Best Practice and SEO for my home page.
-  - 75% perfromance 100% on accessibility, Best Practice and SEO.
-  - 56% perfomance 100% on accessibility, Best Practice and SEO.
-  - 99% performance 100% on accessibility, Best Practice and SEO.
-  - 100% performance 100% on accessibility, Best Practice and SEO.
-
-
-   I read through the list of things that I could improve on. One of them is compressing my images from Home page and Visa Process page which I did, after compressing my image, uploading it and pushed it on Github. 
-   
-   I tried ruinning lighthouse again, it gave me :
-   - 75% perfromance, 80%  accessibility, 100% Best Practice and 89% SEO.
-   Unfortunately, I wasn't able to screenshot the above and could not remember the rest. I do not understand why it affected the accessiblity and the SEO. I was reading through it and it's citing my CDN's but I cannot delete my CDN's beause they are necessary for my bootstrap code. 
-
-The mose confusing part after hours and hours finding a way for it to get a green, I finally gave up. Open my deployed site again the next day and is now giving me a different score. This part of testing took me 4 days 5 hrs each day and still could not understand, unfortunately its nearly time to submit my project and I will ready through about lighthouse in my own pace to understand how it works. At the moment, to be honest I have no clue what I am doing with lighthouse but it would be interesting to find out what I did wrong and what I can do to achieve full marks on this testing. 
-
-### LIGHTHOUSE LASTMINUTE FIX 30-01-2024
-  - Even though everything is listed on there on what I needed to improve on some of the things that was mentioned there stirred my brain and some of them confused me a lot. However, after few days of reading through the information. I somehow able to fix and improve my scores by:
-  
-        - Changing my jpg's to webp's 
-        - Adding aria-labels to my footer-icons
-        - Adding a meta description tag
-        - deleting extra spaces on css
-        - Duplicate fontawesome CDN
-  One of the things that are mentioned there was removing my JavaScript CDN which obviously I could not because my Bootstraps would not work if those CDN's are removed. 
-
-  I ran it again yesterday all of them are either getting 97-99% Perf 100% SEO. I ran it again today to get somescreenshot as per mentor advice all my pages gave me over 90% Perf except for Visaprocess which made me think again as it gave me over 90% yesterday. I did clear cache and ran it in Incognito but it was still on a amber score. I somehow do not have enough time to figure out anymnore what needs to be done. 
-
-  Bellow are my screenshots:
-
-  ![home Page](assets/readme-images/homepage.png)
-  ![My Story Page](assets/readme-images/mystorypage.png)
-  ![Visa Process Page](assets/readme-images/visaprocess.png)
-  ![Documents Page](assets/readme-images/documentspage.png)
-  ![Contact Page](assets/readme-images/contactpage.png)
-  ![Confirm Page](assets/readme-images/confirmpage.png)
-
+I have been trying to find somewhere I could test my app. I did come across with Pytest but it seems so complicated. I did not dare push through with it but would def find time to go into details. 
 
 ## **Libraries and Programs used**
-- Bootstrap 5.0
+- Materialize 1.0.0
 - Github: Store Repositor
-- Gitpod/Codeanywhwere: To create the html and css file
+- Gitpod: To create the html and css file
 - Google Fonts: Font family "Playfair", sans-serif;
-- ev Tools: For styling and lighthouse
 - Font Awesome: Dropdown menu icon
 - UI.DEV: Responsive screenshots of the final project for the README file
 - Squoosh app/editor
 - Online image converter
+- stackoverflow
+- w3 checkers
+- js hint
+
 
 ## **Deployment & Usage**
 ### **Deployment**
@@ -318,7 +292,7 @@ These are the steps:
  - Click View deployment to see the live site
 
 ### **Fork**
-  1.  On GitHub.com, navigate to the Visa-Chronicles repository.
+  1.  On GitHub.com, navigate to the experience-croatia repository.
   2.  In the top-right corner of the page, click Fork.
   3.  Under "Owner," select the dropdown menu and click an owner for the forked repository.
   4.  By default, forks are named the same as their upstream repositories. Optionally, to further distinguish your fork, in the "Repository name" field, type a name.
@@ -339,17 +313,14 @@ These are the steps:
   7.  Press Enter. Your local clone will be created.
 
 ## **Credits**
- - How to fill out online form video 
-    - happyvisas.com 
+ - versions of the app that needed to be changed in the requirements.txt
+    - ![STACKOVERFLOW](static/readme-images/unnamed.png)  
  - Problems with deployment when images were not loading up
     - initial information was from Stackoverflow but nothing was copied from them. 
     - Guidance was given by my mentor Danielle Hamilton.
 - compressing Images
   - https://squoosh.app/
-- hiding images when screen size minimize
-  - Taken from bootstrap mini project course. 
-- Visa Information
-  - Gov.UK 
+
 - Confirmation Page Idea (This is will be made interactive during Java script milestone)
 The Idea is to make the contact page look interactive and to show the benefits of it. 
   -  Daniel Hamilton
@@ -367,11 +338,9 @@ The Idea is to make the contact page look interactive and to show the benefits o
 - Lighthouse Information Guidelines Info 
 Lightouse
 
+borrowd some code from my co-student Mika Virtubo 
+
 ### **Media**
 
 Media are either personal Photos or paid subscription from shutterstock. 
   
-
-
-
-[def]: assets/readme-images/downlaodablepdf.png
