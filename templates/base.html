@@ -81,26 +81,16 @@
                             <!-- Navigation bar shown when user is signed in -->
                             {% if session.user %}
                             <li class="nav-link"><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                            {% else %}
-                            <li class="nav-link"><a href="{{url_for('contact')}}">Contact us</a></li>
-                            <li class="nav-link"><a href="{{url_for('register')}}">Register</a></li>
-                            <li class="nav-link"><a href="{{ url_for('login') }}">Log In</a></li>
-                            {% endif %}
-                        </ul>
-                        <ul class="mobile-list">
-                            {% if session.user == "systemadmin" %}
                             <li class="nav-link"><a href="{{ url_for('manageusers', username=session['user']) }}">Manage Users</a></li>
-                            <li class="nav-link"><a href="{{ url_for('changepass') }}">Change Password</a></li>
-                            <li class="nav-link"><a href="{{ url_for('logout') }}">Log Out</a></li>
-                
-                            {% else %}
-                            
                             <li class="nav-link"><a href="{{url_for('contact')}}">Contact us</a></li>
-                            <li class="nav-link"><a href="{{ url_for('changepass') }}">Change Password</a></li>
                             <li class="nav-link"><a href="{{ url_for('logout') }}">Log Out</a></li>
-                            
-                            {% endif %}
+                            {% else %}
+                            <li class="nav-link"><a href="{{ url_for('register') }}">Register</a></li>
+                            <li class="nav-link"><a href="{{url_for('contact')}}">Contact us</a></li>
+                            <li class="nav-link"><a href="{{ url_for('login') }}">Log In</a></li>
+                            {% endif %}         
                         </ul>
+                        
                     </nav>
                 </div>
             </div>
@@ -132,7 +122,7 @@
                 <!-- contact -->
                 <div class="center col s12 m6 my-2">
                     <div class="row my-3">
-                        <div class="col s12">
+                        <div class="col s12 getintouch">
                             <h5 style="font-weight: 800; ">Get in touch with us!</h5>
                         </div>
                     </div>
@@ -180,8 +170,8 @@
             </div>
             <!-- copyright-->
             <div class="col s12 p-1">
-                <div class="row center my-3 mt-6">
-                    <div class="col s12">
+                <div class="row center my-3 mt-6 ">
+                    <div class="col s12 copyright">
                         <p>This website is for soley for Educational Purpose Only and is not use for monitary transaction</p>
                     </div>
                 </div>

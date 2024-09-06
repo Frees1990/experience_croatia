@@ -3,7 +3,7 @@
     <div class="container page-container">
         <!-- Heading -->
         <div class="row">
-            <div class="col s12 m8 offset-m2"  style="margin-top: 25%; margin-bottom: 10%;">
+            <div class="col s12 m8 offset-m2 manageusersHeader"  style="margin-top: 25%; margin-bottom: 10%;">
                 <h4 class="center-align teal-text text-darken-4" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
                 Hello Admin, Let's Manage Our Users.
                 </h4>
@@ -25,11 +25,9 @@
                     </div>
                     <!-- Button to trigger delete modal -->
                     <div class="col s12 m4 right-align">
-                        {% if user.username != "systemadmin" %}
                         <a class="waves-effect waves-light btn modal-trigger red darken-4 rounded"
                             href="#deleteModal{{user.username}}"><span class="material-symbols-outlined">
                             </span><i class="small material-icons">delete_forever</i></a>
-                        {% endif %}
                     </div>
                 </div>
             </div>

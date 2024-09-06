@@ -7,38 +7,17 @@
         <div class="row">
             {% for users in users %}
             <div class="col s12 m8 offset-m2 profileHeader">
-                {% if session.user != "systemadmin" %}
                 <!-- Username heading -->
                 <h3 class="center-align">
                     Hey " {{ users.name }} "
                 </h3>
-                {% else %}
-                <!-- Username heading -->
-                <h3 class="center-align">
-                    Hello Admin &nbsp;<i class="far fa-id-badge fa-lg" style="color: #399905;"></i>
-                </h3>
-                {% endif %}
             </div>
-            <aside class="container flash">
-                <!-- flash messages -->
-                {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                {% for message in messages %}
-                <div class="row flashes ">
-                    <div class="col s12 center errorFlash">
-                        <b><h6 class="red-text text-accent-4" style="font-size: x-large; font-weight: 700; letter-spacing: 3px;">{{ message }}</h6></b>
-                    </div>
-                </div>
-                {% endfor %}
-                {% endif %}
-                {% endwith %}
-            </aside>   
         </div>
         <br>
         <br>
         <div class="container page-container">
             <div class="row">
-                <div class="col s12 m8 offset-m2 card-panel custom-card travel-card" style="background-color:rgba(255, 228, 196, 0.651);">
+                <div class="col s12 m8 offset-m2 card-panel custom-card travel-card" style="background-color:rgba(255, 228, 196, 0.589);">
                     {% if username == "systemadmin" %}
                     <div class="row">
                         <div class="col s12 ">

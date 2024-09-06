@@ -2,99 +2,88 @@
 {% block content %}
 
     <aside id="registerImage">
-        <div class="row">
-            <div class="col s12 regHeader">
-                <h4 class="center"><b>Experience Pula, Croatia</b></h4>
-                <br><br>
-                <h6 class="center small"><b>Experience the wonderful culture, night life and the sunny life in Croatia <br> Register to receive exclusive offers </b></h6>
-                <aside class="container flash">
-                    <!-- flash messages -->
-                    {% with messages = get_flashed_messages() %}
-                    {% if messages %}
-                    {% for message in messages %}
-                    <div class="row flashes ">
-                        <div class="col s12 center errorFlash">
-                            <b><h6 class="red-text text-accent-4" style="font-size: x-large; font-weight: 700; letter-spacing: 3px;">{{ message }}</h6></b>
-                        </div>
-                    </div>
-                    {% endfor %}
-                    {% endif %}
-                    {% endwith %}
-                </aside>
+        <div class="container page-container">
+            <div class="row">
+                <div class="col s12 regHeader">
+                    <h4>Experience Pula, Croatia</h4>
+                    <br><br>
+                    <h6>Experience the wonderful culture, night life and the sunny life in Croatia
+                        Register to receive exclusive offers</h6>
+                </div>
             </div>
         </div>
         <div class="container page-container">
             <div class="row">
-                <form class="card-panel custom-card lighten-5 col s12 m8 offset-m2 p5" id="regForm" method="POST"
-                    action="{{ url_for('register') }}" aria-label="registration form">
-                    <!-- signee name / username-->
-                    <div class="row">
-                        <div class="input-field col s12 m6 m-3">
-                            <i class="fas fa-user prefix green-text text-darken-4"></i>
-                            <input id="name" name="name" type="text" pattern="[A-Za-z ]{5,32}" class="validate" required
-                                aria-required="true">
-                            <label for="name" >Full Name</label>
+                    <form class="card-panel custom-card lighten-5 col s12 m8 offset-m2 p5" id="regForm" method="POST"
+                        action="{{ url_for('register') }}" aria-label="registration form">
+                        <!-- signee name / username-->
+                        <div class="row">
+                            <div class="input-field col s12 m6 m-3">
+                                <i class="fas fa-user prefix green-text text-darken-4"></i>
+                                <input id="name" name="name" type="text" pattern="[A-Za-z ]{5,32}" class="validate" required
+                                    aria-required="true">
+                                <label for="name" >Full Name</label>
+                            </div>
+                            <div class="input-field col s12 m6 m-3">
+                                <i class="fas fa-user-plus prefix green-text text-darken-4"></i>
+                                <input id="username" name="username" type="text" minlength="5" maxlength="15"
+                                    pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required aria-required="true">
+                                <label for="username">Username</label>
+                                <small style="color: whitesmoke;">(Username must be less than 15 characters)</small>
+                            </div>
                         </div>
-                        <div class="input-field col s12 m6 m-3">
-                            <i class="fas fa-user-plus prefix green-text text-darken-4"></i>
-                            <input id="username" name="username" type="text" minlength="5" maxlength="15"
-                                pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required aria-required="true">
-                            <label for="username">Username</label>
-                            <small style="color: whitesmoke;">(Username must be less than 15 characters)</small>
+                        <!-- Email / Mobile-->
+                        <div class="row">
+                            <div class="input-field col s12 m6 m-3">
+                                <i class="fas fa-envelope prefix green-text text-darken-4"></i>
+                                <input id="email" name="email" type="email" minlength="5" maxlength="100" class="validate" required
+                                    aria-required="true">
+                                <label for="email">E-mail</label>
+                            </div>
+                            <div class="input-field col s12 m6 m-3">
+                                <i class="fas fa-mobile prefix green-text text-darken-4"></i>
+                                <input id="number" name="number" type="number" minlength="5" maxlength="15" class="validate" required
+                                    aria-required="true">
+                                <label for="number">Mobile Number</label>
+                            </div>
                         </div>
-                    </div>
-                    <!-- Email / Mobile-->
-                    <div class="row">
-                        <div class="input-field col s12 m6 m-3">
-                            <i class="fas fa-envelope prefix green-text text-darken-4"></i>
-                            <input id="email" name="email" type="email" minlength="5" maxlength="100" class="validate" required
-                                aria-required="true">
-                            <label for="email">E-mail</label>
+                        <!-- password /Confirm password  -->
+                        <div class="row">
+                            <div class="input-field col s12 m6 m-3">
+                                <i class="fas fa-user-lock prefix green-text text-darken-4"></i>
+                                <input id="password" name="password" type="password" minlength="8"
+                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="validate" required aria-required="true">
+                                <label for="password">Password</label>
+                                <small style="color: whitesmoke;">(Must contain at least one number and one uppercase and lowercase letter, and at least 8 or
+                                    more characters)</small>
+                            </div>
+                            <div class="input-field col s12 m6 m-3">
+                                <i class="fas fa-user-lock prefix green-text text-darken-4"></i>
+                                <input id="confirm_password" name="confirm_password" type="password" minlength="8"
+                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="validate" required aria-required="true">
+                                <label for="confirm_password">Confirm Password</label>
+                                <small style="color: whitesmoke;">(Passwords must be the same)</small>
+                            </div>
                         </div>
-                        <div class="input-field col s12 m6 m-3">
-                            <i class="fas fa-mobile prefix green-text text-darken-4"></i>
-                            <input id="number" name="number" type="number" minlength="5" maxlength="15" class="validate" required
-                                aria-required="true">
-                            <label for="number">Mobile Number</label>
+                        <br>
+                        <!-- register -->
+                        <div class="row">
+                            <div class="col s12 m8 offset-m5 p5">
+                                <button type="submit" name="action" class="btn green darken-3 white-text white-lighten-4 rounded waves-effect waves-light btncont">
+                                    &nbsp;<b>REGISTER</b>
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                    <!-- password /Confirm password  -->
-                    <div class="row">
-                        <div class="input-field col s12 m6 m-3">
-                            <i class="fas fa-user-lock prefix green-text text-darken-4"></i>
-                            <input id="password" name="password" type="password" minlength="8"
-                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="validate" required aria-required="true">
-                            <label for="password">Password</label>
-                            <small style="color: whitesmoke;">(Must contain at least one number and one uppercase and lowercase letter, and at least 8 or
-                                more characters)</small>
-                        </div>
-                        <div class="input-field col s12 m6 m-3">
-                            <i class="fas fa-user-lock prefix green-text text-darken-4"></i>
-                            <input id="confirm_password" name="confirm_password" type="password" minlength="8"
-                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="validate" required aria-required="true">
-                            <label for="confirm_password">Confirm Password</label>
-                            <small style="color: whitesmoke;">(Passwords must be the same)</small>
-                        </div>
-                    </div>
-                    <br>
-                    <!-- register -->
-                    <div class="row">
-                        <div class="col s12 m8 offset-m5 p5">
-                            <button type="submit" name="action" class="btn green darken-3 white-text white-lighten-4 rounded waves-effect waves-light btncont">
-                                &nbsp;<b>REGISTER</b>
-                            </button>
-                        </div>
-                    </div>
-                    <br>
-                </form>
+                        <br>
+                    </form>
             </div>
-        </div>
-        <div class="row">
+            <div class="row">
             <div class="col s12 center-align loginHere">
                 <!-- If user is already registerd they willl be roouted to the log in page -->
                 <p><b>ALREADY REGISTERED?....</b>&nbsp;&nbsp;
                     <a href="{{ url_for('register') }}"><b>LOG IN HERE</b></a>
                 </p>
+            </div>
             </div>
         </div>
     </aside>

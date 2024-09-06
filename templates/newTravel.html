@@ -2,11 +2,11 @@
 {% block content %}
     <div class="conatainer page-container">
         <div class="row">
-            <div class="col s12 m8 offset-m2 profileHeader">
+            <div class="col s12 m8 offset-m2 newTravelHeader">
                 {% if session.user != "systemadmin" %}
                 <!-- Username heading -->
                 <h3 class="center-align">
-                    Hey " {{name}} "
+                    Hey " {{username}} "
                 </h3>
                 <br>
                 <h5 class="center-align">Excited to find out what we have in store for you? <br> send a request now! Click
@@ -14,8 +14,9 @@
                 {% else %}
                 <!-- Username heading -->
                 <div class="row">
-                    <div class="col s12 m8 offset-m2"  style="margin-top: 25%; margin-bottom: 10%;">
-                        <h4 class="center-align teal-text text-darken-4" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                    <div class="col s12 m8 offset-m2" style="margin-top: 25%; margin-bottom: 10%;">
+                        <h4 class="center-align teal-text text-darken-4"
+                            style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
                             Hello Admin, Some new request for you today! Shall we start?.
                         </h4>
                     </div>
@@ -35,35 +36,26 @@
             <div class="row">
                 {% for travel_info in travel_info %}
                 <div class="col s12 card-panel custom-card travel-card">
-                    {% if username != "systemadmin" %}
-                    <div class="row">
-                        <div class="col s12 teal-text text-darken-4">
-                            <h6 style="font-weight: 800; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"><span> Created by: </span>"{{travel_info.username}}"</h6>
-                            <p></p>
-                        </div>
-                    </div>
-                    {% endif %}
-                    <br>
                     <div class="row">
                         <div class="col s12 m6">
                             <!-- Travel Dates -->
                             <div class="row">
                                 <div class="col s12 m6 newTraveldeats">
-                                    <h6><span>TRAVEL DATES  :</span></h6>
+                                    <h6><span>TRAVEL DATES :</span></h6>
                                 </div>
                                 <div class="col s12 m6 newTraveldeats">
                                     <h6>{{ travel_info.travel_dates }}</h6>
                                 </div>
-                            </div>       
+                            </div>
                         </div>
                         <div class="col s12 m6">
                             <!-- Travel flexibility -->
                             <div class="row">
                                 <div class="col s12 m6 newTraveldeats">
-                                    <h6><span>DATES FLEXIBLE?:</span></h6>        
+                                    <h6><span>DATES FLEXIBLE?:</span></h6>
                                 </div>
                                 <div class="col s12 m6 newTraveldeats">
-                                    <h6>{{travel_info.flexible_dates }}</h6>        
+                                    <h6>{{travel_info.flexible_dates }}</h6>
                                 </div>
                             </div>
                         </div>
@@ -200,56 +192,8 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Button to trigger delete modal -->
-                    {% if username == "systemadmin" %}
-                    <div class="col s12 m4 right-align">
-                        <a class="waves-effect waves-light btn modal-trigger green darken-4 rounded"
-                            href=""><span class="material-symbols-outlined">
-                            </span><small><b>COMPLETE REQUEST</b></small></a>
-                        <a class="waves-effect waves-light btn modal-trigger red darken-4 rounded"
-                            href="#deleteModal{{ travel_info._id }}"><span class="material-symbols-outlined">
-                            </span><i class="small material-icons">delete_forever</i></a>
-                    </div>
-                    {% endif %}
                 </div>
                 {% endfor %}
-                 <!-- Delete Modal -->
-                 {% if username == "systemadmin" %}
-                 {% for travel_info in travel_info %}
-                <div id="deleteModal{{ travel_info._id}}" class="modal card-panel rounded white-text center p-5" style="font-weight: 800;">
-                    <!-- Modal Content -->
-                    <div class="modal-content rounded">
-                        <div class="row">
-                            <div class="col s12 red-text text-darken-4">
-                                <i class="fa-solid fa-triangle-exclamation fa-lg"></i>
-                                <h4>Caution</h4>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col s12 black-text">
-                                <p> Deleting this user will erase all associated data. Are you sure you want to proceed?
-                                    Click
-                                    below to confirm or cancel to preserve data.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <div class="row">
-                            <div class="col s12 center">
-                                <!-- Delete button -->
-                                <form action="{{ url_for('delete_req', travel_info_id=travel_info._id)}}"
-                                    method="POST">
-                                    <button class="modal-close btn waves-effect rounded red darken-4 m-2">Delete</button>
-                                    <!-- Cancel button -->
-                                    <a href="#" class="modal-close btn waves-effect rounded orange m-2">Cancel</a>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                 {% endfor %}
-                 {% endif %}
-                
             </div>
         </div>
     </div>
