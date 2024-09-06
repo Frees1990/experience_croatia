@@ -2,6 +2,8 @@
 
 ### Welcome to EXPERIENCE PULA CROATIA!
 
+![UI](static/readme-images/documentationfront.png)
+
 This website is created for the intention of offering full package travel experience to Pula Croatia, it offers personalize travel arrangement from flights, accommodation, experiences for adults, kids or both. This website is to showcase the beautiful city of Pula and the amazing adventures it could offer. 
 
 ## Table of Contents
@@ -128,57 +130,51 @@ The site is a Travel Request site, that offers personalized travel experiece. I 
 
 ## **Features**
 ### NAVIGATION BAR ON ALL PAGES WITH ACTIVE HIGHLIGHT
-  ![Nav Bar](assets/readme-images/Navbar.png)
+  ![Nav Bar](static/readme-images/desktopnav.png)
 
-   -  I think the most important thing about a website is the navigation bar, to me it should not be complicated to use it and it should be visible with easy to the eyes color. My navbar turns into a toggle button when the screen size go smaller. The Navigation bar also highlights what page the user is currently in. 
+  ![Nav Bar](static/readme-images/mobilenav.png)
 
-### SHORT DESCRIPTIVE TEXT ABOUT THE SITE AND PHOTO OF THE CONTENT CREATOR
+   -  My very first project with Code Institute was a Blog Site and I mentioned there that I think the most important thing about a website is the navigation bar, to me it should not be complicated to use it and it should be visible with easy to the eyes color. My navbar turns into a toggle button when the screen size go smaller. The Navigation bar also highlights what page the user is currently in. Up until today, this is still something I think should be necessary nothing beats simplicity  
 
-  ![description](assets/readme-images/description.png)
+### CAPTURING USERS ATTENTION WITH CAROUSEL 
+
+  ![carousel](static/readme-images/carousel.mp4)
 
    -  As a user one thing that attracts me to use a website is a short homepage with a short description of what it is all about. To me when the home page is too long and too wordy, it is already a turn off form me. This may differ to different people so this is only base on my personal preference. The photo I think adds a personal touch. 
 
 ### SOCIAL LINKS
 
-  ![Social Links](assets/readme-images/sociallinks.png)
+  ![Social Links](static/readme-images/footerandsocialmedia.png)
 
   - In this day and age, Social Media is everywhere and 99% of the population probably has one, so having social links on all pages of your website not only makes your website look aesthestically pleasing but as well as it could help users find your easier. Especially when you are offering services. 
 
-### CAROUSEL
-    
-  ![carousel](assets/readme-images/Carousel.png)
 
-  - I Carousel makes your website look interesting and fun to look at. 
+### review
+  ![Reviews](static/readme-images/review.png)
 
-### WORKING LINKS
-  ![Working Links](assets/readme-images/workinglinks.png)
+  - Putting a few reviews instantly visible gives a massive inpact to the users without having to be looking around.
 
-  - All my pages are linked to website of important information, having a fully working links is healpful especially to users who are looking for information. 
 
-### VIDEO
-  ![VIDEO](assets/readme-images/video.png)
-
-  - Videos on a website is quite helpful, especially for audiences who prefers directive audio and visual instructions rather than written. 
-
-### DOWNLOADABLE PDF LINK
-  ![PDF LINK ](assets/readme-images/downloadablepdf.png)
+### ADMIN FUNCTIONALITY
+  ![admin ](static/readme-images/AdminFunctionality.png)
 
   - Having a Link that you can download pdf files are very important when it comes to websites that provide information. 
 
   ### CONTACT PAGE 
-  ![Contact Page](assets/readme-images/contact.png)
+  ![Contact Page](static/readme-images/contact.png)
 
   - Contact Pages I think is one of the most usefukl pages in a website, it provides user comfort that they can reach out to someone if they do have additional information. 
 
+  ### REGISTER PAGE 
+  ![Register Page](static/readme-images/register.png)
 
-
+  - This site is for a member only Travel Assistance Site . 
 
 ### **Language Used**
   - English
-    - Although my main aim is to help my fellow Filipino with their inquiries about their visa. The website itself has its own page that has a standard application process which can be used by any nationality that is seeking information for the visa process 
 
 ### **Navigation Bar**
-- I have used Bootstrap for my Navigation bar which basic functionality for easy use. Using Bootstrap helps with the mobile first functionality of my website. Apart from this I have also added a highlight on the current page that the user is on. 
+- I have used Materialized for my Navigation bar which basic functionality for easy use. Using Bootstrap helps with the mobile first functionality of my website. Apart from this I have also added a highlight on the current page that the user is on. 
 
 ### **Landing Page**
 - My landing page speaks for itself, the cover photo shows what the site is for and about. It also has my personal introduction which explains about the site. 
@@ -187,45 +183,24 @@ The site is a Travel Request site, that offers personalized travel experiece. I 
 - Social Media links which uses fontawesome icons to make it look appealing.
 
 ### **Future Features**
-- Once I gone through the Javascript section of the course I would like to make the contact page interactive. 
-- I would like to do more pages that talks about the next visas that they will be processing after the spouse visa. I could not do that at the moment because I have not been through it yet as well, this site is base in my experience and would like to write the process through my experience. 
+- I was hoping to add a little bit more pages to offer other services but I havent got a lot of time to finish this project.
 
 ## **Testing**
 ### Bugs and Issues
-  - ##### IDE issues
-    -  During the initial stage of coding my project I encountered quite a lot of trouble using codeanywhere, where a lot of my changes are not reflecting this has wastes a lot of my study time as this made me destroy my workspace and create a new one again. It takes a while to load up the template good thing that everything is saved up on Github. And as soon as I have created a new workspace the changes I made are now reflected in the website. Halfway my project journey I have decided to use differnt IDE which is Gitpod as it seems to be a preferred IDE amongst my peers. I haven't had the same issue again.
 
+  - #### IDE Issues
+    - My IDE crashed because I cleared my cookies and it caused my HEROKO to logged me out and lock me out, it took me a while to figure it out but then It was showing in GITHUB that the HEROKU was failing. Relaize that I was also logged out from the CI student account. 
   - #### Code Issues
-    - Most of the issues of my code are self-inflicted meaning, I have a missing closing div or I have not nested my list properly, and or my closing li tags are not in the right line. 
-    - Inheriting styles/colors:
+    
+    - While creating my flask app, I could not seem to load up the site at first, reason because the version was not correct. I did a little bit of research and tried it out myself but could not fix it. With the help of student support they pointed me to the right direction.
 
-          The colors keep inheriting which is my fault becuase everything was not specified and it targeted all the p's and h's tag. This took me a while to edit. 
+    - On the earliest stage of building the site, I didn't have much issues with coding but then. When I was trying to code a Delete route that passes to a Materialize Modal, I could not seem to pass it through the modal only to find out that instead of using the user I added username. This is for the delte functionality in the Admin page.
+
+    - The same issue occured when I was trying to figure out to Delete the current Travel request passing through Materialize Modal. It keeps saying that I have too many reroutes to the newTravel page, removing the the redirection code in the newTravle,html but it causes my admin page to fail. I tried to find a way to fix it without creating another page but the only feesable solution was to create another page that renders the travel info data the same as the newTravel. 
+
     - Making my website responsive to screen size:
 
           Apart from bootstrap I also have used media queries which I followed from "LOVE RUNNING mini project"
-
-
-
-  - #### Path Issues 
-    - During the first stage of developing my site, one of the things I have added first is the background photo of my homepage, I have the right code and the right file path. So I wasn't sure what was going on. 
-    THINGS I DID TO RESOLVE THIS:
-      - I have re-structured my file path and this has worked for me. 
-      instead of this:   
-      assets/images/filename.jpg 
-      
-        I restructured this to look like this instead: 
-        
-        /images/filename.jpg
-
-    Then this led me to the next problem (See Below:)
-
-  - #### Deployment Issues  
-
-    - I deployed my work to see the result and to see what needs fixing. I was in shock as everything was in shambles. The images were no where to be found. 
-  sending my massive thank you to my Mentor Daniel Hamilton who made me realized my mistake because before I spoke to him about it, I was close to giving up because I could not understand what was going on. 
-
-  Reverted to my original file path and concluded that the reason why my images did not load up in my IDE in the first place is becuase I have been having issues with codeanywhere. 
-
 
 ### **HTML Validatior Test**
 
