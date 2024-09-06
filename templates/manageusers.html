@@ -1,79 +1,78 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container page-container">
-    <!-- Heading -->
-    <div class="row">
-        <div class="col s12 m8 offset-m2"  style="margin-top: 25%; margin-bottom: 10%;">
-            <div class="card-panel teal darken-4">
-                <h4 class="center-align white-text" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
-                   Hello Admin, Let's Manage Our Users.
+    <div class="container page-container">
+        <!-- Heading -->
+        <div class="row">
+            <div class="col s12 m8 offset-m2"  style="margin-top: 25%; margin-bottom: 10%;">
+                <h4 class="center-align teal-text text-darken-4" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                Hello Admin, Let's Manage Our Users.
                 </h4>
             </div>
         </div>
-    </div>
-    <!-- Users -->
-    {% for user in users %}
-    <div class="row">
-        {% if user.username != "systemadmin" %}
-        <div class="col s12  card-panel">
-            <div class="row">
-                <div class="col s3 m8">
-                    <!-- Username -->
+        <!-- Users -->
+        {% for user in users %}
+        <div class="row">
+            {% if user.username != "systemadmin" %}
+            <div class="col s12 m10 offset-m1 card-panel manageusersCard">
+                <div class="row">
+                    <div class="col s12 m8">
+                        <!-- Username -->
+                        <div class="row">
+                            <div class="col s12 m8">
+                                <h5 style="text-transform: capitalize; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-weight: 800;">{{ user.name }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Button to trigger delete modal -->
+                    <div class="col s12 m4 right-align">
+                        <a class="waves-effect waves-light btn modal-trigger red darken-4 rounded"
+                            href="#deleteModal{{user.username}}"><span class="material-symbols-outlined">
+                            </span><i class="small material-icons">delete_forever</i></a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            <!-- Delete Modal -->
+            <div id="deleteModal{{user.username}}" class="modal card-panel rounded white-text center p-5" style="font-weight: 800;">
+                <!-- Modal Content -->
+                <div class="modal-content rounded">
                     <div class="row">
-                        <div class="col s12">
-                            {{ user.username }}
+                        <div class="col s12 red-text text-darken-4">
+                            <i class="fa-solid fa-triangle-exclamation fa-lg"></i>
+                            <h4>Caution</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 black-text">
+                            <p> Deleting this user will erase all associated data. Are you sure you want to proceed?
+                                Click
+                                below to confirm or cancel to preserve data.</p>
                         </div>
                     </div>
                 </div>
-                <!-- Button to trigger delete modal -->
-                <div class="col s9 m4 right-align">
-                    <a class="waves-effect waves-light btn modal-trigger red darken-4 rounded"
-                        href="#deleteModal{{user.username}}"><span class="material-symbols-outlined">
-                        </span> Remove User</a>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col s12 center">
+                            <!-- Delete button -->
+                            <form action="{{ url_for('delete_user' ,username=session['user'], user_name=user.username)}}"
+                                method="POST">
+                                <button class="modal-close btn waves-effect rounded red darken-4 m-2">Delete</button>
+                                <!-- Cancel button -->
+                                <a href="#" class="modal-close btn waves-effect rounded orange m-2">Cancel</a>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        {% endif %}
-        <!-- Delete Modal -->
-        <div id="deleteModal{{user.username}}" class="modal card-panel rounded white-text center p-5">
-            <!-- Modal Content -->
-            <div class="modal-content rounded">
-                <div class="row">
-                    <div class="col s12 red-text text-darken-4">
-                        <i class="fa-solid fa-triangle-exclamation fa-lg"></i>
-                        <h4>Caution</h4>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s12 black-text">
-                        <p> Deleting this user will erase all associated data. Are you sure you want to proceed?
-                            Click
-                            below to confirm or cancel to preserve data.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <div class="row">
-                    <div class="col s12 center">
-                        <!-- Delete button -->
-                        <form action="{{ url_for('delete_user' ,username=session['user'], user_name=user.username)}}"
-                            method="POST">
-                            <button class="modal-close btn waves-effect rounded red darken-4 m-2">Delete</button>
-                            <!-- Cancel button -->
-                            <a href="#" class="modal-close btn waves-effect rounded orange m-2">Cancel</a>
-                        </form>
-                    </div>
-                </div>
+        {% endfor %}
+        <br>
+        <div class="row">
+            <div class="col s12 center-align">
+                <a href="{{ url_for('profile', username=session['user']) }}"
+                                class="btn icon-left waves-effect waves-light teal darken-4 white-text text-lighten-4"><i
+                                    class="material-icons">arrow_back</i><small>Back to Dashboard</small></a>
             </div>
         </div>
     </div>
-    {% endfor %}
-    <div class="row">
-        <div class="col s12 center-align">
-            <a href="{{ url_for('profile', username=session['user']) }}"
-                            class="btn icon-left waves-effect waves-light teal darken-4 white-text text-lighten-4"><i
-                                class="material-icons">arrow_back</i><small>Back to Dashboard</small></a>
-        </div>
-    </div>
-</div>
 {% endblock %}
