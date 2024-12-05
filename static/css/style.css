@@ -32,6 +32,9 @@ button {
   font-weight: 200;
   font-style: normal;
 }
+.test{
+  background-color: #00796b;
+}
 /*-----------------Footer--*/
 .footer-container {
   background-color: #026340;
