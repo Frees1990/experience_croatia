@@ -1,89 +1,72 @@
 {% extends "base.html" %}
+
 {% block content %}
-    <!-- Hero Image-->
-    <aside id="hero-image">
-        <div class="carousel carousel-slider pressed colorDissolve">
-            <div class="carousel-fixed-item">
-                <div class="row">
-                    <!-- Design Idea from Casa Quest by Mika-->
-                    <div class="col s12 m8 offset-m2 card-panel hero-callout">
-                        <div class="row">
-                            <div class="col s12 .shadows-into-light-regular">
-                                <h5> <b> Explore the historic city of Pula, Croatia</b></h5>
-                                <p><b>Experience the warmth and crystal blue seas of Pula, Croatia. Concerts in a Roman theater, see the wonders through ariel view and set sail to dive</b></p>
-                            </div>
-                        </div>
-                        <!-- Call out -->
+<aside id="hero-image">
+    <div class="carousel carousel-slider">
+        <div class="carousel-fixed-item">
+            <div class="row full-height">
+                <div class="col s12 m8 offset-m2">
+                    <div class="card-panel hero-callout">
+                        <h5><b>Explore Pula, Croatia – Your Next Adventure Awaits!</b></h5>
+                        <p><b>Discover the beauty, culture, and adventure of Pula, Croatia with our personalized travel packages. Let us make your trip unforgettable!</b></p>
                         <div class="row mt-4 mb-4">
                             <div class="col s12">
                                 {% if session.user %}
-                                <a href="{{ url_for('profile', username=session['user']) }}" class="callout-btn"> Start Your
-                                    Jorney With Us</a>
+                                <a href="{{ url_for('profile', username=session['user']) }}" class="btn green waves-effect waves-light">Start Your Journey</a>
                                 {% else %}
-                                <a href="{{ url_for('register') }}" class="callout-btn"> Start Your Jorney With Us</a>
+                                <a href="{{ url_for('register') }}" class="btn green waves-effect waves-light">START YOUR JOURNEY</a>
                                 {% endif %}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="carousel carousel-slider pressed">
-                <a class="carousel-item" href=""><img src="static/images/9.jpg" alt="theater"></a>
-                <a class="carousel-item" href=""><img src="static/images/2.jpg" alt="brijouni beach Island"></a>
-                <a class="carousel-item" href=""><img src="static/images/4.jpg" alt="baoting"></a>
-                <a class="carousel-item" href=""><img src="static/images/5.jpg" alt="canyonering"></a>
-                <a class="carousel-item" href=""><img src="static/images/6.jpg" alt="sunset"></a>
-                <a class="carousel-item" href=""><img src="static/images/7.jpg" alt="city of pula"></a>
-                <a class="carousel-item" href=""><img src="static/images/8.jpg" alt="fireworks"></a>
+        </div>
+
+        <div class="carousel carousel-slider">
+            <a class="carousel-item" href="#"><img src="static/images/9.jpg" alt="Roman theater in Pula"></a>
+            <a class="carousel-item" href="#"><img src="static/images/2.jpg" alt="Brijuni beach island"></a>
+            <a class="carousel-item" href="#"><img src="static/images/4.jpg" alt="Baoting landscape"></a>
+            <a class="carousel-item" href="#"><img src="static/images/5.jpg" alt="Canyoning adventure"></a>
+            <a class="carousel-item" href="#"><img src="static/images/6.jpg" alt="Sunset over Pula"></a>
+            <a class="carousel-item" href="#"><img src="static/images/7.jpg" alt="City view of Pula"></a>
+            <a class="carousel-item" href="#"><img src="static/images/8.jpg" alt="Fireworks over the sea"></a>
+        </div>
+    </div>
+</aside>
+<aside class="hero-review section">
+    <div class="container">
+        <h4 class="center-align">What Our Travelers Say</h4>
+        <div class="row">
+
+            <!-- Review 1 -->
+            <div class="col s12 m6" style="margin-bottom: 20px;">
+                <div class="review-container">
+                    <div class="review-image">
+                        <img src="static/images/fergus.jpg" alt="Fergus Mejor" class="responsive-img oval-image">
+                    </div>
+                    <div class="review-content">
+                        <p>"It was my first time to travel around Europe. I have heard a lot about Croatia, but planning it myself was tough. The team from Explore Pula Croatia planned an amazing trip within my budget. I experienced every bit of what Pula, Croatia, can offer! Can’t recommend them enough and will definitely use their services again."</p>
+                        <em>Fergus Mejor, travel enthusiast! Philippines.</em>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="col s12 m6" style="margin-bottom: 20px;">
+                <div class="review-container">
+                    <div class="review-image">
+                        <img src="static/images/pula.jpg" alt="Fair Rees" class="responsive-img oval-image">
+                    </div>
+                    <div class="review-content">
+                        <p>"Planning an adventure for my family is a challenge, especially with children! I have two kids, and Experience Pula Croatia made it easier. They planned the best family trip ever that all of us could enjoy."</p>
+                        <em>Fair Rees, South Wales UK.</em>
+                    </div>
+                </div>
             </div>
         </div>
-    </aside>
-    <aside class="hero-review">
-        <div class="row center">
-            <div class="col s12 m3">
-                <div class="row">
-                    <div class="col s12">
-                        <h6>
-                            "It was my first time to travel around Europe, I have heard a lot of wonderful things about croatia but it was a bit too tough to plan it myself. Although most of the websites can be translated, it does stress you a lot when you plan your trip to an unknown country that you never been before. The team from Explore Pula Croatia were very impressive and helpful they have planned such an amazing trip for me within my budget and got to experience every bit of what Pula, Croatia can offer! Can't recommend them enough, will definelty use their services again"
-                        </h6>
-                    </div>
-                </div>
-                <br>
-                <br>
-                <div class="row">
-                    <div class="col s12">
-                        <em>
-                            Fergus Mejor, travel enthusiast! Philippines.
-                        </em>
-                    </div>
-                </div>
-            </div>
-            <div class="col s12 m3 p-4">
-                <img src="static/images/fergus.jpg" class="responsive-img"
-                    alt="">
-            </div>
-            <div class="col s12 m3 p-4">
-                <div class="row">
-                    <div class="col s12">
-                        <h6>
-                           "Planning an adventure for my family is a quest in most part especially when there are children involved!! I have 2, Yes!!! I know what you are thinking, I must be insane taking them outside the country for that long! But Experience Pula Croatia made it a lot easier for me, I told them about us and the children and there they are planning the best family trip ever that all of us could enjoy"
-                        </h6>
-                    </div>
-                </div>
-                <br>
-                <br>
-                <div class="row">
-                    <div class="col s12">
-                        <em>
-                            Fair Rees, South Wales UK.
-                        </em>
-                    </div>
-                </div>
-            </div>
-            <div class="col s12 m3 p-4">
-                <img src="static/images/pula.jpg" class="responsive-img"
-                    alt="">
-            </div>
-        </div>
-    </aside>
+    </div>
+</aside>
+
+
 {% endblock %}

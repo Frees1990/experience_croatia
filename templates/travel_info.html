@@ -1,138 +1,122 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <aside id="travelImage">
-        <!--  Back to profile button -->
+<aside id="travelImage">
+    <div class="row">
+        <div class="col s12 offset-m2">
+            <a href="{{ url_for('profile', username=session['user']) }}"
+                class="btn btn-small icon-left waves-effect waves-light green darken-3 white-text text-lighten-4"><i
+                    class="fas fa-hand-point-left white-text"></i><small>Back</small></a>
+        </div>
+    </div>
+    <div class="container page-container">
         <div class="row">
-            <div class="col s12 offset-m2" style="margin-top: 10%;">
-                <a href="{{ url_for('profile', username=session['user']) }}"
-                    class="btn icon-left waves-effect waves-light green darken-3 white-text text-lighten-4"><i
-                        class="fas fa-hand-point-left white-text"></i>&nbsp;Back to Profile</a>
-            </div>
+            <form class="col s12 card-panel custom-card-travel" action="{{ url_for('travel_info') }}" method="POST"
+                enctype="multipart/form-data" name="travel_info" onsubmit="return validateForm()">
+                <div class="row">
+                    <div class="col s12 center-align travelHeader">
+                        <h5><b>Let's plan your dream getaway</b></h5>
+                        <h6>Trip Request</h6>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field outlined col s12 m4 m-3 custom-input">
+                        <i class="fas fa-calendar-alt fa-lg prefix" style="color: #0b5606;"></i>
+                        <input placeholder="Preferred Travel Dates" type="text" class="datepicker" id="travel_dates"
+                            name="travel_dates" required>
+                    </div>
+                    <div class="input-field outlined col s12 m4 m-3">
+                        <i class="fas fa-calendar-alt fa-lg prefix" style="color: #0b5606;"></i>
+                        <select id="flexible_dates" name="flexible_dates" required>
+                            <option value="" disabled selected>Flexible Dates?</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="input-field outlined col s12 m4 m-3 m-3">
+                        <i class="fas fa-plane-departure fa-lg prefix" style="color:#0b5606"></i>
+                        <label for="flying_from">Preferred Departure Airport:</label>
+                        <select id="flying_from" name="flying_from" required>
+                            <option value="" disabled selected>Choose your airport</option>
+                            {% for airport in airports %}
+                            <option value="{{ airport['IATA'] }}">{{ airport['Name'] }} ({{ airport['IATA'] }})</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field outlined col s12 m2 m-3">
+                        <i class="fas fa-male fa-lg prefix" style="color: #0b5606;"></i>
+                        <input placeholder="Adults" id="number_adult_guests" name="number_adult_guests"
+                            type="number" min="1" max="15" required>
+                    </div>
+                    <div class="input-field outlined col s12 m2 m-3">
+                        <i class="fas fa-child fa-lg prefix" style="color: #0b5606;"></i>
+                        <input placeholder="Children" id="number_kids_guests" name="number_kids_guests"
+                            type="number" min="0" max="7" step=".5" required>
+                    </div>
+                    <div class="input-field outlined col s12 m4 m-3">
+                        <i class="fas fa-hotel fa-lg prefix" style="color: #0b5606;"></i>
+                        <select id="preferred_accom" name="preferred_accom" required>
+                            <option value="" disabled selected>Accommodation</option>
+                            <option value="hotel">Hotel</option>
+                            <option value="hostel">Hostel</option>
+                            <option value="resort">Resort</option>
+                            <option value="apartment">Apartment</option>
+                        </select>
+                    </div>
+                    <div class="input-field outlined col s12 m4 m-3">
+                        <i class="fas fa-hotel fa-lg prefix" style="color: #0b5606;"></i>
+                        <input placeholder="Number of Rooms" id="rooms" name="rooms" type="number" min="1" max="7"
+                            step=".5" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field outlined col s12 m3 m-3">
+                        <i class="fas fa-guitar fa-lg prefix" style="color: #0b5606;"></i>
+                        <select id="concerts" name="concerts" required>
+                            <option value="" disabled selected>Concerts</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="input-field outlined col s12 m3 m-3">
+                        <i class="fas fa-guitar fa-lg prefix" style="color: #0b5606;"></i>
+                        <select id="water_sports" name="water_sports" required>
+                            <option value="" disabled selected>Water Sports</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="input-field outlined col s12 m3 m-3">
+                        <i class="fas fa-envelope fa-lg prefix" style="color: #0b5606;"></i>
+                        <input placeholder="Email" id="email" name="email" type="email" required>
+                    </div>
+                    <div class="input-field outlined col s12 m3 m-3">
+                        <i class="fas fa-phone fa-lg prefix" style="color: #0b5606;"></i>
+                        <input placeholder="Phone Number" id="phone" name="phone" type="tel" required>
+                    </div>
+                </div>
+                <div class="row center">
+                    <div class="col s12 m-3">
+                        <button
+                            class="btn btn-small rounded icon-left waves-effect waves-light green darken-3 orange-text text-lighten-4 m-2"
+                            type="submit">
+                            <i class="fas fa-plus-circle"></i><small>Send Request</small>
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
-        <div class="container page-container">
-            <!-- Call out heading -->
-            <div class=" row">
-                <!-- Form for adding a travel info entry -->
-                <form class="col s12 card-panel custom-card-travel" action="{{ url_for('travel_info') }}" method="POST"
-                    enctype="multipart/form-data" name="travel_info" onsubmit="return validateForm()">
-                    <div class="row">
-                        <div class="col s12 center-align travelHeader">
-                            <h4><b>Let's plan your dream get away</b></h4>
-                            <h5>Trip Request</h5>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <!-- input field for Preferred travel dates -->
-                        <div class="input-field outlined col s12 m3 m-3">
-                            <i class="fas fa-calendar-alt fa-lg prefix" style="color: #0b5606;"></i>
-                            <input placeholder="PREFERRED TRAVEL DATES:" type="text" class="datepicker" id="travel_dates"
-                                name="travel_dates" required>
-                        </div>
-                        <!-- select field to answer if travel dates are flexible -->
-                        <div class="input-field outlined col s12 m3 m-3">
-                            <i class="fas fa-calendar-alt fa-lg prefix" style="color: #0b5606;"></i>
-                            <input placeholder="FLEXIBLE DATES?  YES/NO" type="text" id="flexible_dates"
-                                name="flexible_dates">
-                        </div>
-                        <!-- input field for include flights? -->
-                        <div class="input-field outlined col s12 m3 m-3">
-                            <i class="fas fa-plane-departure fa-lg prefix" style="color:#0b5606"></i>
-                            <input placeholder="INCLUDE FLIGHTS?  YES/NO" type="text" id="include_flights"
-                                name="include_flights">
-                        </div>
-                        <!-- input field for preferred departure airport -->
-                        <div class="input-field outlined col s12 m3 m-3">
-                            <i class="fas fa-plane-departure fa-lg prefix" style="color:#0b5606"></i>
-                            <input placeholder="PREFERRED DEPARTURE PORT:" type="text" class="validate" id="flying_from"
-                                name="flying_from" required>
-                        </div>
-                    </div>
-                    <!-- input field for number of adult guests -->
-                    <!-- input field for number of children guests -->
-                    <!-- input field for accommodation -->
-                    <!-- input field for number of rooms-->
-                    <div class="row">
-                        <div class="input-field outlined col s12 m3 m-3">
-                            <i class="fas fa-male fa-lg prefix" style="color: #0b5606;"></i>
-                            <input placeholder="ADULT GUESTS:" id="number_adult_guests" name="number_adult_guests"
-                                type="number" min="1" max="15" class="validate"></div>
-                        <div class="input-field outlined col s12 m3 m-3">
-                            <i class="fas fa-child fa-lg prefix" style="color: #0b5606;"></i>
-                            <input placeholder="CHILDREN GUESTS:" id="number_kids_guests" name="number_kids_guests"
-                                type="number" min="1" max="7" step=".5" class="validate" required></div>
-                        <div class="input-field outlined col s12 m3 m-3">
-                            <i class="fas fa-hotel fa-lg prefix" style="color: #0b5606;"></i>
-                            <input placeholder="PREFERRED ACCOMMODATION" id="preferred_accom"
-                                name="preferred_accom" required></div>
-                        <div class="input-field outlined col s12 m3 m-3">
-                            <i class="fas fa-hotel fa-lg prefix" style="color: #0b5606;"></i>
-                            <input placeholder="NUMBER OF ROOMS:" id="rooms" name="rooms" type="number" min="1" max="7"
-                                step=".5" class="validate" required></div>
-                    </div>
-                    <div class="row">
-                        <!--Section Tag-->
-                        <div class="col s12 m4 m-3 black-text">
-                            <h5 class="m-0"
-                                style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-weight: 700;">
-                                Extras :</h5>
-                        </div>
-                        <div class="col s12 m8 m-3 black-text">
-                            <h5 class="m-0"
-                                style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-weight: 700;">
-                                Other Requirement :</h5>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <!-- concerts activity guide -->
-                        <div class="input-field outlined col s12">
-                        </div>
-                        <div class="input-field outlined col s12 m3 offset-m1 m-3">
-                            <i class="fas fa-guitar fa-lg prefix" style="color: #0b5606;"></i>
-                            <input placeholder="CHECK CONCERT OFFERS?: " type="text" id="concerts"
-                                name="concerts" required></div>
-                        <div class="input-field outlined col s12 m3">
-                        </div>
-                        <!-- Preferred Contact -->
-                        <div class="input-field outlined col s12 m4 m-3">
-                            <i class="fas fa-address-book fa-lg prefix" style="color: #0b5606;"></i>
-                            <input placeholder="CONTACT PREFERRECNCE" type="text" id="contact" name="contact">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field outlined col s12">
-                        </div>
-                        <div class="input-field outlined col s12 m3 offset-m1 m-3">
-                            <i class="fas fa-hiking fa-lg prefix" style="color: #0b5606;"></i>
-                            <input placeholder="INCLUDE TOUR GUIDE?" type="text" id="guide" name="guide">
-                        </div>
-                        <div class="input-field outlined col s12 m3">
-                        </div>
-                        <!-- input field for other requests -->
-                        <div class="input-field outlined col s12 m4 m-3">
-                            <i class="fa-solid fa-message prefix green-text text-darken-4 icon-right"></i>
-                            <textarea placeholder="MESSAGE" id="message" name="message"
-                                class="materialize-textarea"></textarea>
-                        </div>
-                        <div class="input-field outlined col s12 m3 offset-m1 m-3">
-                            <i class="fas fa-swimmer fa-lg prefix" style="color: #0b5606;"></i>
-                            <input placeholder="INCLUDE ACTIVITIES?" type="text" id="activity"
-                                name="activity">
-                        </div>
-                    </div>
-                    <!-- submit button -->
-                    <div class="row center">
-                        <div class="col s12 m-3">
-                            <button
-                                class="btn rounded icon-left waves-effect waves-light green darken-3 orange-text text-lighten-4 m-2"
-                                type="submit">
-                                <i class="fas fa-plus-circle"></i>&nbsp;Send Request
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </aside>
+    </div>
+</aside>
 
+{% endblock %}
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('select');
+        var instances = M.FormSelect.init(elems, {});
+    });
+</script>
 {% endblock %}

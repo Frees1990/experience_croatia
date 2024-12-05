@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container page-container">
+    <div class="row">
+        <div class="col s12 m8 offset-m2">
+            <!-- Card for Update Travel Request -->
+            <div class="card updatecard grey">
+                <div class="card-content">
+                    <h5 class="center-align">Update Travel Request</h5>
+                    <form action="" method="POST">
+                        <div class="row">
+                            <!-- Travel Dates and Flexible Dates -->
+                            <div class="input-field col s12 m4 m-3">
+                                <input type="text" id="travel_dates" name="travel_dates" value="{{ travel_info.travel_dates }}">
+                                <label for="travel_dates">Travel Dates</label>
+                            </div>
+                            <div class="input-field col s12 m4 m-3">
+                                <input type="text" id="flexible_dates" name="flexible_dates" value="{{ travel_info.flexible_dates }}">
+                                <label for="flexible_dates">Flexible Dates</label>
+                            </div>
+                            <div class="input-field col s12 m4 m-3">
+                                <input type="text" id="flying_from" name="flying_from" value="{{ travel_info.flying_from }}">
+                                <label for="flying_from">Departure Airport</label>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <!-- Accommodation type and Number of Guests -->
+                            <div class="input-field col s12 m4 m-3">
+                                <input type="number" id="number_adult_guests" name="number_adult_guests" value="{{ travel_info.number_adult_guests }}">
+                                <label for="number_adult_guests">Adult Guests</label>
+                            </div>
+                            <div class="input-field col s12 m4 m-3">
+                                <input type="number" id="number_kids_guests" name="number_kids_guests" value="{{ travel_info.number_kids_guests }}">
+                                <label for="number_kids_guests">Child Guests</label>
+                            </div>
+                            <div class="input-field col s12 m4 m-3">
+                                <input type="text" id="preferred_accom" name="preferred_accom" value="{{ travel_info.preferred_accom }}">
+                                <label for="preferred_accom">Accommodation</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!-- Rooms, Concerts and water sports-->
+                            <div class="input-field col s12 m4 m-3">
+                                <input type="text" id="rooms" name="rooms" value="{{ travel_info.rooms }}">
+                                <label for="rooms">Rooms</label>
+                            </div>
+                            <div class="input-field col s12 m4 m-3">
+                                <input type="text" id="concerts" name="concerts" value="{{ travel_info.concerts }}">
+                                <label for="concerts">Concerts</label>
+                            </div>
+                            <div class="input-field col s12 m4 m-3">
+                                <input type="text" id="water_sports" name="water_sports" value="{{ travel_info.water_sports }}">
+                                <label for="water_sports">Water Sports</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!-- Email and Phone -->
+                            <div class="input-field col s12 m6 m-3">
+                                <input type="email" id="email" name="email" value="{{ travel_info.email }}">
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="input-field col s12 m6 m-3">
+                                <input type="text" id="phone" name="phone" value="{{ travel_info.phone }}">
+                                <label for="phone">Phone</label>
+                            </div>
+                        </div>
+
+                        <div class="center-align">
+                            <button type="submit" class="btn btn-small teal darken-4 waves-effect waves-light"><small>Update</small></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

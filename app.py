@@ -1,10 +1,13 @@
 import os
+import smtplib
 from functools import wraps
 from flask import (
     Flask, flash, render_template,
-    redirect, request, session, url_for)
+    redirect, request, session, url_for, jsonify)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 if os.path.exists("env.py"):
@@ -247,18 +250,93 @@ def myinfo():
 # USER PROFILE/NEW TRAVEL REQUEST
 @app.route("/newTravel", methods=["GET", "POST"])
 def newTravel():
-    # grab the session user's username from db
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-    name = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
+    user = mongo.db.users.find_one({"username": session["user"]})
+    name = user.get("name", "Default Name")
+    username = user["username"]
 
     if username == "systemadmin":
         travel_info = mongo.db.travel_info.find()
     else:
         travel_info = mongo.db.travel_info.find({"username": username})
 
-    return render_template("newTravel.html", travel_info=travel_info, username=username)
+    # Handle deletion
+    if request.method == "POST":
+        travel_info_id = request.form.get("travel_info_id")
+        if 'delete' in request.form and travel_info_id:
+            mongo.db.travel_info.delete_one({"_id": ObjectId(travel_info_id)})
+            flash("Request Deleted")
+
+            if username == "systemadmin":
+                return redirect(url_for("managereq"))  # Redirect to admin's request management page
+            else:
+                return redirect(url_for("newTravel"))  # Redirect back to the user's travel page
+
+    return render_template("newTravel.html", travel_info=travel_info, username=username, name=name)
+
+
+    # Fetch the travel info by its ID
+    travel_info = mongo.db.travel_info.find_one({"_id": ObjectId(travel_info_id)})
+    
+    if request.method == "POST":
+        # Update the travel info with the form data
+        updated_data = {
+            "travel_dates": request.form.get("travel_dates"),
+            "flexible_dates": request.form.get("flexible_dates"),
+            "flying_from": request.form.get("flying_from"),
+            "number_adult_guests": request.form.get("number_adult_guests"),
+            "number_kids_guests": request.form.get("number_kids_guests"),
+            "preferred_accom": request.form.get("preferred_accom"),
+            "rooms": request.form.get("rooms"),
+            "concerts": request.form.get("concerts"),
+            "water_sports": request.form.get("water_sports"),
+            "email": request.form.get("email"),
+            "phone": request.form.get("phone"),
+        }
+        
+        # Update the document in the database
+        mongo.db.travel_info.update_one(
+            {"_id": ObjectId(travel_info_id)},
+            {"$set": updated_data}
+        )
+
+        flash("Travel request updated successfully!")
+        return redirect(url_for("newTravel"))  # Redirect to the user's travel page
+
+    return render_template("updateTravel.html", travel_info=travel_info)
+
+
+@app.route("/updateTravel/<id>", methods=["GET", "POST"])
+def updateTravel(id):
+    # Fetch the travel info from the database by its ID
+    travel_info = mongo.db.travel_info.find_one({"_id": ObjectId(id)})
+    
+    # If the method is POST, update the travel info
+    if request.method == "POST":
+        updated_data = {
+            "travel_dates": request.form["travel_dates"],
+            "flexible_dates": request.form["flexible_dates"],
+            "flying_from": request.form["flying_from"],
+            "number_adult_guests": request.form["number_adult_guests"],
+            "number_kids_guests": request.form["number_kids_guests"],
+            "preferred_accom": request.form["preferred_accom"],
+            "rooms": request.form["rooms"],
+            "concerts": request.form["concerts"],
+            "water_sports": request.form["water_sports"],
+            "email": request.form["email"],
+            "phone": request.form["phone"],
+        }
+        
+        # Update the travel_info in the database
+        mongo.db.travel_info.update_one({"_id": ObjectId(id)}, {"$set": updated_data})
+
+        flash("Travel Request Updated Successfully", "success")
+
+        # Redirect to the newTravel page where the updated card will be displayed
+        return redirect(url_for("newTravel"))
+
+    # If GET request, just render the form with current data
+    return render_template("updateTravel.html", travel_info=travel_info)
+
 
 # USER UPDATE ACCOUNT OPTION 
 @app.route("/update/<users_id>", methods=["GET", "POST"])
@@ -287,49 +365,56 @@ def update(users_id):
 
 
 # CURRENT USER LOG IN REQUEST FORM
-@app.route("/travel_info", methods=["GET", "POST"])
+@app.route("/travel_info", methods=["GET", "POST"]) 
 def travel_info():
-
     if request.method == "POST":
         travel_dates = request.form.get("travel_dates")
         flexible_dates = request.form.get("flexible_dates")
-        include_flights = request.form.get("include_flights")
         flying_from = request.form.get("flying_from")
         number_adult_guests = request.form.get("number_adult_guests")
         number_kids_guests = request.form.get("number_kids_guests")
         preferred_accom = request.form.get("preferred_accom")
         rooms = request.form.get("rooms")
         concerts = request.form.get("concerts")
-        activity = request.form.get("activity")
-        guide = request.form.get("guide")
-        contact = request.form.get("contact")
-        message = request.form.get("message")
-        DateTime = datetime.now("%d/%m/%Y, %H:%M:%S")
+        water_sports = request.form.get("water_sports")
+        email = request.form.get("email")
+        phone = request.form.get("phone")
+        DateTime = datetime.now().strftime("%d/%m/%Y, %H:%M:%S")  # Fixed formatting for datetime
 
         travel_entry = {
             "username": session["user"],
             "travel_dates": travel_dates,
             "flexible_dates": flexible_dates,
-            "include_flights": include_flights,
             "flying_from": flying_from,
             "number_adult_guests": number_adult_guests,
             "number_kids_guests": number_kids_guests,
             "preferred_accom": preferred_accom,
-            "rooms" : rooms,
+            "rooms": rooms,
             "concerts": concerts,
-            "activity": activity,
-            "guide": guide,
-            "contact": contact,
-            "message": message,
+            "water_sports": water_sports,
+            "email": email,
+            "phone": phone,
             "date": DateTime,
         }
-        
+
         mongo.db.travel_info.insert_one(travel_entry)
         flash("Travel Information Added!")
         return redirect(url_for("newTravel", username=session["user"]))
     else:
-        return render_template("travel_info.html")
-
+        # Hardcoded list of UK airports
+        uk_airports = [
+            {"Name": "Heathrow Airport", "IATA": "LHR"},
+            {"Name": "Gatwick Airport", "IATA": "LGW"},
+            {"Name": "Manchester Airport", "IATA": "MAN"},
+            {"Name": "Birmingham Airport", "IATA": "BHX"},
+            {"Name": "Edinburgh Airport", "IATA": "EDI"},
+            {"Name": "Glasgow Airport", "IATA": "GLA"},
+            {"Name": "Bristol Airport", "IATA": "BRS"},
+            {"Name": "London City Airport", "IATA": "LCY"},
+            {"Name": "Luton Airport", "IATA": "LTN"},
+            {"Name": "Stansted Airport", "IATA": "STN"},
+        ]
+        return render_template("travel_info.html", airports=uk_airports)
 
 # CONTACT FORM 
 @app.route("/contact", methods=["GET"])
@@ -354,6 +439,7 @@ def manageusers(username):
         users = mongo.db.users.find()
 
         return render_template("manageusers.html", users=users)
+
 
 # USER PROFILE/MANAGE REQUEST
 @app.route("/managereq", methods=["GET", "POST"])
@@ -397,29 +483,28 @@ def delete_user(username, user_name):
 
 
 # DELETE REQUEST
-@app.route(
-    "/managereq/<travel_info_id>#deleteModal", methods=["GET", "POST"]
-)
+@app.route("/managereq/<travel_info_id>#deleteModal", methods=["GET", "POST"])
 @login_required
 def delete_req(travel_info_id):
-            
     if request.method == "POST":
-        username = mongo.db.users.find_one(
-            {"username": session['user']})["username"]
+        username = mongo.db.users.find_one({"username": session['user']})["username"]
+        
+        # Find the travel request by ObjectId
+        travel_request = mongo.db.travel_info.find_one({"_id": ObjectId(travel_info_id)})
 
-        if username == "systemadmin":
-            user = mongo.db.users.find_one(
-                {"username": username}
-            )
-            
-        if travel_info is not None:
+        if travel_request:
             mongo.db.travel_info.delete_one({"_id": ObjectId(travel_info_id)})
             flash("Request Deleted")
-        return redirect(url_for("managereq", username=session["user"]))
+        
+        if username == "systemadmin":
+            return redirect(url_for("managereq"))
+        else:
+            return redirect(url_for("managereq", username=session["user"]))
+
     return render_template("managereq.html")
 
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=False)
+            debug=True)

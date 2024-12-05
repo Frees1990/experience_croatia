@@ -5,12 +5,11 @@
             <div class="col s12 m8 offset-m2 newTravelHeader">
                 {% if session.user != "systemadmin" %}
                 <!-- Username heading -->
-                <h3 class="center-align">
-                    Hey " {{username}} "
-                </h3>
+                <h5 class="username-heading">
+                    Welcome  {{name}}, 
+                </h5> 
                 <br>
-                <h5 class="center-align">Excited to find out what we have in store for you? <br> send a request now! Click
-                    the button below</h5>
+                <h5 class="center-align">Here are your requests
                 {% else %}
                 <!-- Username heading -->
                 <div class="row">
@@ -26,7 +25,7 @@
                 <div class="row">
                     <div class="col s12 m4 buts">
                         <a href="{{ url_for('profile', username=session['user']) }}"
-                            class="btn icon-left waves-effect waves-light teal darken-4 white-text text-lighten-4"><i
+                            class="btn btn-small icon-left waves-effect waves-light teal darken-4 white-text text-lighten-4"><i
                                 class="material-icons">arrow_back</i><small>Back to Dashboard</small></a>
                     </div>
                 </div>
@@ -60,21 +59,10 @@
                             </div>
                         </div>
                         <div class="col s12 m6">
-                            <!-- include flights -->
-                            <div class="row">
-                                <div class="col s12 m6 newTraveldeats">
-                                    <h6><span>INCLUDE FLIGHT?:</span></h6>
-                                </div>
-                                <div class="col s12 m6 newTraveldeats">
-                                    <h6>{{ travel_info.include_flights }}</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col s12 m6">
                             <!-- departing port -->
                             <div class="row">
                                 <div class="col s12 m6 newTraveldeats">
-                                    <h6><span>PREFERRED DEPARTURE PORT:</span></h6>
+                                    <h6><span>DEPARTURE AIRPORT:</span></h6>
                                 </div>
                                 <div class="col s12 m6 newTraveldeats">
                                     <h6>{{ travel_info.flying_from }}</h6>
@@ -85,7 +73,7 @@
                             <!-- Number of adult guests -->
                             <div class="row">
                                 <div class="col s12 m6 newTraveldeats">
-                                    <h6><span>NUMBER OF ADULT GUESTS:</span></h6>
+                                    <h6><span>ADULT GUESTS:</span></h6>
                                 </div>
                                 <div class="col s12 m6 newTraveldeats">
                                     <h6>{{ travel_info.number_adult_guests }}</h6>
@@ -96,7 +84,7 @@
                             <!-- Number of child guests -->
                             <div class="row">
                                 <div class="col s12 m6 newTraveldeats">
-                                    <h6><span>NUMBER OF CHILDREN GUESTS:</span></h6>
+                                    <h6><span>CHILD GUESTS:</span></h6>
                                 </div>
                                 <div class="col s12 m6 newTraveldeats">
                                     <h6>{{ travel_info.number_kids_guests }}</h6>
@@ -107,7 +95,7 @@
                             <!-- accommodation-->
                             <div class="row">
                                 <div class="col s12 m6 newTraveldeats">
-                                    <h6><span>PREFERRED ACCOMMODATION :</span></h6>
+                                    <h6><span>ACCOMMODATION :</span></h6>
                                 </div>
                                 <div class="col s12 m6 newTraveldeats">
                                     <h6>{{ travel_info.preferred_accom }}</h6>
@@ -118,7 +106,7 @@
                             <!-- room-->
                             <div class="row">
                                 <div class="col s12 m6 newTraveldeats">
-                                    <h6><span>NUMBER OF ROOMS:</span></h6>
+                                    <h6><span>ROOMS:</span></h6>
                                 </div>
                                 <div class="col s12 m6 newTraveldeats">
                                     <h6>{{ travel_info.rooms}}</h6>
@@ -129,7 +117,7 @@
                             <!-- concerts -->
                             <div class="row">
                                 <div class="col s12 m6 newTraveldeats">
-                                    <h6><span>INCLUDE CONCERTS?:</span></h6>
+                                    <h6><span>CONCERTS?:</span></h6>
                                 </div>
                                 <div class="col s12 m6 newTraveldeats">
                                     <h6>{{ travel_info.concerts }}</h6>
@@ -137,24 +125,13 @@
                             </div>
                         </div>
                         <div class="col s12 m6">
-                            <!-- guide -->
+                            <!-- water_sports -->
                             <div class="row">
                                 <div class="col s12 m6 newTraveldeats">
-                                    <h6><span>INCLUDE PERSONAL TRAVEL GUIDE?:</span></h6>
+                                    <h6><span>WATER SPORTS?:</span></h6>
                                 </div>
                                 <div class="col s12 m6 newTraveldeats">
-                                    <h6>{{ travel_info.guide }}</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col s12 m6">
-                            <!-- activity -->
-                            <div class="row">
-                                <div class="col s12 m6 newTraveldeats">
-                                    <h6><span>INCLUDE ACTIVITIES?:</span></h6>
-                                </div>
-                                <div class="col s12 m6 newTraveldeats">
-                                    <h6>{{ travel_info.activity }}</h6>
+                                    <h6>{{ travel_info.water_sports }}</h6>
                                 </div>
                             </div>
                         </div>
@@ -162,21 +139,20 @@
                             <!-- CONTACT BY -->
                             <div class="row">
                                 <div class="col s12 m6 newTraveldeats">
-                                    <h6><span>PREFERRED CONTACTED THROUGH:</span></h6>
+                                    <h6><span>EMAIL:</span></h6>
                                 </div>
                                 <div class="col s12 m6 newTraveldeats">
-                                    <h6>{{ travel_info.contact }}</h6>
+                                    <h6>{{ travel_info.email }}</h6>
                                 </div>
                             </div>
                         </div>
                         <div class="col s12 m6">
-                            <!-- ADDITIONAL INFO -->
                             <div class="row">
                                 <div class="col s12 m6 newTraveldeats">
-                                    <h6><span>MESSAGE/ADDITIONAL INFORMATION:</span></h6>
+                                    <h6><span>PHONE:</span></h6>
                                 </div>
                                 <div class="col s12 m6 newTraveldeats">
-                                    <h6>{{ travel_info.message }}</h6>
+                                    <h6>{{ travel_info.phone }}</h6>
                                 </div>
                             </div>
                         </div>
@@ -192,7 +168,21 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col s12 m6">
+                        <div class="row">
+                            <!-- Delete Button -->
+                            <form method="POST" action="{{ url_for('newTravel') }}">
+                                <input type="hidden" name="travel_info_id" value="{{ travel_info._id }}">
+                                <button type="submit" name="delete" class="btn btn-small red"><small>Delete</small></button>
+                            </form>
+                            <!-- Update Button -->
+                            <a href="{{ url_for('updateTravel', id=travel_info._id) }}" class="btn btn-small light-blue darken-4 waves-effect waves-light">
+                                <small>Update</small>
+                             </a>
+                        </div>
+                    </div>
                 </div>
+                
                 {% endfor %}
             </div>
         </div>

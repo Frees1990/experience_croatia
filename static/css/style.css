@@ -21,7 +21,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Shadows Into Light', 'Arial Narrow', Arial, cursive;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   letter-spacing: 1.5px;
   margin: 5px;
 }
@@ -34,29 +34,25 @@ button {
 }
 /*-----------------Footer--*/
 .footer-container {
-  background-color: #02696d;
+  background-color: #026340;
   bottom: 0;
   padding: 1rem;
   min-height: 30vh;
   color: #FAECD9;
 }
+.white-text{
+  margin-top: 10%;
+}
+.footer-copyright{
+  background-color: black;
+}
 ul.social-media-icons {
   padding-inline-start: 0px;
 }
-.social-media-icons li {
-  list-style: none;
-  display: inline-block;
-  margin: 60px 0 10px 0;
-}
-.social-media-icons i {
-  color: #63E6BE;
-  font-size: 70px;
-  margin-left: 150px;
-  margin-right: 150px;
-  margin-bottom: 30px;
-}
-.social-media-icons i:hover {
-  color: #11100e00;
+.social-media-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px; 
 }
 .errorFlash>.h6 {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -64,7 +60,7 @@ ul.social-media-icons {
 }
 /* --------------------------------------- NAVIGATION BAR*/
 .custom-nav {
-  background-color: #f3e0cb;
+  background-color: #675e54a5;
   z-index: 4;
   position: fixed;
   top: 0;
@@ -73,9 +69,9 @@ ul.social-media-icons {
 }
 nav ul:not(.dropdown-content)>li>a {
   font-size: 1.5rem;
-  font-family: 'Shadows Into Light', 'Arial Narrow', Arial, cursive;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: bolder;
-  color: #720444;
+  color: white;
   display: block;
   padding: 0 25px;
   cursor: pointer;
@@ -83,14 +79,14 @@ nav ul:not(.dropdown-content)>li>a {
 }
 .dropdown-content {
   font-size: 1.5rem;
-  font-family: 'Shadows Into Light', 'Arial Narrow', Arial, cursive;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: bolder;
-  color: #720444;
-  background-color: #f3e0cb8f;
+  color: black;
+  background-color: #f3e0cb;
 }
 .dropdown-content>li>a {
   font-size: 1.5rem;
-  font-family: 'Shadows Into Light', 'Arial Narrow', Arial, cursive;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: bolder;
   color: #720444;
 }
@@ -185,134 +181,160 @@ aside#hero-image {
 .carousel .carousel-item>img {
   height: 100vh;
 }
+.full-height {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
 .hero-callout {
   text-align: center;
-  color: #17353B;
-  background-color: rgba(250, 236, 217, 0.5);
-  margin-bottom: 30%;
+  background-color: rgba(60, 60, 60, 0.5);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
-.callout-btn {
-  border: 2px solid #17353B;
-  border-radius: 15px;
-  padding: 10px;
-  background-color: #17353B;
-  transition: .5s;
-  color: #FAECD9
+.hero-callout h5{
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-.callout-btn:hover {
-  background-color: #f4fad900;
-  color: #17353B;
+.hero-callout p {
+  font-size: 1.2rem;
+  line-height: 1.5; 
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
-.hero-review {
-  background-color: #FAECD9;
-  padding: 40px;
-  color: #333;
-  margin-top: 5%;
+/* Custom green button */
+.green-btn {
+  background-color: #133915;
+  color: white; 
+  padding: 10px 20px; 
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
-.hero-review h6 {
-  font-weight: 700;
-  color: #17353B;
+.green-btn:hover {
+  background-color: #043407;
+}
+.review-container {
+  display: flex;
+  align-items: center; 
+  gap: 15px; 
   margin-top: 10%;
 }
-.hero-review1 h6 {
-  font-weight: 700;
-  color: #17353B;
-  margin-top: 10%;
+.review-image {
+  flex-shrink: 0; 
+  max-width: 250px; 
 }
-.hero-review img {
-  border-radius: 15px;
-  height: 420px;
-  width: 350px;
+.oval-image {
+  border-radius: 50%; 
+  width: 200px;
+  height: 200px; 
+  object-fit: cover;
+}
+.review-content {
+  flex-grow: 1; 
+}
+.review-container p {
+  margin: 10px 30px 10px 30px; 
+}
+.review-container em {
+  font-style: italic;
+  color: gray;
+  margin-left: 30px;
+  font-weight: bolder;
 }
 /*  --------------------------------------- CONTACT PAGE */
 #contact-image {
-  width: 100vw;
-  height: 100vh;
-  background-image: url(../images/contact.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
+  background-image: url('../images/contact.jpg'); /* Replace with your image URL */
   background-size: cover;
-  position: relative;
-  z-index: 2;
+  background-position: center center;
+  background-attachment: fixed;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1; /* Ensure content is on top of the background */
 }
-#thank-you-feedback {
-  display: none;
+.contact-card {
+  background-color: #f3f4f649; /* Custom card color */
+  border-radius: 20px;
+  padding: 20px; /* Reduced padding */
+  max-width: 1200px; /* Limit the card width */
+  margin: 10% auto; /* Center the card horizontally and add top margin */
+  box-sizing: border-box;
+  overflow-y: auto;
+  max-height: 90vh;
 }
-#no-card-display {
-  display: none;
+
+.contact-card .card-content h5 {
+  color: white;
+  font-size: 1.6rem; /* Adjusted font size */
 }
-.custom-card {
-  background-color: #dbc2eb00;
+.input-field input, .input-field textarea {
+  border-radius: 5px;
+  padding: 10px; /* Reduced padding */
+  font-size: 1rem;
 }
-#contactForm {
-  margin: 15rem;
-  color: #eaeeed;
-  margin-bottom: 0;
+.input-field input:focus, .input-field textarea:focus {
+  border-color: #00796b; /* Focused border color */
+  box-shadow: 0 1px 3px rgba(0, 121, 107, 0.3); /* Adds subtle shadow on focus */
 }
-.contactHere>p {
-  color: rgb(240, 6, 6);
-  font-weight: 700;
+.btn {
+  background-color: #095a50; /* Submit button color */
+  font-size: 1.1rem;
+  padding: 12px 20px;
+  border-radius: 5px;
 }
-.contactHere>p>a {
-  color: blanchedalmond;
-  font-weight: 700;
-  text-decoration: underline;
-}
-.contactHere>p>a:hover {
-  color: rgb(247, 10, 10);
-  font-weight: 700;
-  text-decoration: underline;
-}
-.btncont:hover {
-  color: black;
+#thank-you {
+  color: #388e3c;
+  font-weight: bold;
 }
 /* -------------------- Register Form */
-#registerImage {
-  width: 100vw;
-  height: 100vh;
-  background-image: url(../images/contact.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+ /* Full Page Background */
+ #registerImage {
+  background-image: url('../images/contact.jpg'); /* Replace with your image URL */
+  background-size: cover; /* Ensure the image covers the entire viewport */
+  background-position: center center; /* Center the background image */
+  background-attachment: fixed; /* Ensure background stays fixed on scroll */
   position: relative;
-  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}   
+.reg-card {
+  background-color: #c7cacf3b; 
+  border-radius: 20px;
+  padding: 20px; 
+  max-width: 1200px; 
+  margin: 0% auto; 
+  box-sizing: border-box;
 }
-.regHeader h4{
-  margin-top: 15%;
-  color: #eaeeed;
-  margin-bottom: 0;
-  text-align: center;
-  font-weight: 700;
+#regForm label{
+  font-weight: 900;
 }
-.regHeader h6{
-  color: #08a57e;
-  background-color: #5f61608c;
-  margin-bottom: 0;
-  text-align: center;
-  font-weight: 800;
+.highlight-text {
+  color: #fff; 
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); 
 }
-
-.loginHere>p {
-  color: rgb(240, 6, 6);
-  font-weight: 700;
+.already-reg p, a{
+  font-weight: 900;
 }
-
-.loginHere>p>a {
-  color: blanchedalmond;
-  font-weight: 700;
-  text-decoration: underline;
+.loginlink{
+  color: red;
 }
-
-.loginHere>p>a:hover {
-  color: rgb(247, 10, 10);
-  font-weight: 700;
-  text-decoration: underline;
-}
-
-btn:hover {
-  color: rgba(0, 0, 0, 0);
-}
-
 /* -------------------- Login Form */
 #loginImage {
   width: 100vw;
@@ -351,7 +373,6 @@ btn:hover {
   font-weight: 700;
   text-decoration: underline;
 }
-
 /*  --------------------------------------- PROFILE */
 #profileImage {
   width: 100vw;
@@ -383,13 +404,6 @@ btn:hover {
 
 .buts>a {
   font-weight: 700;
-}
-.newTravelHeader h3{
-  margin-top: 18%;
-  color: black;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-weight: 800;
-  text-transform: capitalize;
 }
 .newTravelHeader h5{
   margin-top: 2%;
@@ -431,7 +445,7 @@ btn:hover {
 .travelHeader>h5 {
   margin-top: 2%;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  color: #720444;
+  color: black;
   font-weight: 800;
 }
 
@@ -440,16 +454,49 @@ btn:hover {
 }
 
 /*  --------------------------------------- NEW TRVEL REQ */
+.username-heading {
+  position: absolute;
+  top: 10%; /* Adjusted to center vertically */
+  right: 80%; /* Adjusted to ensure space from the right */
+  transform: translateY(-50%); /* Centers vertically by adjusting the element's own height */
+  z-index: 10; /* Ensure it's above the navbar */
+  color: black !important; /* You can add any styling you need */
+}
+.newTravelHeader{
+  margin-top: 15%;
+}
 .travel-card {
   background-color: #f3e0cbab;
   margin-top: 2%;
+  width: 100%;
 }
 
 .travel-card>h6>span {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: 800;
 }
+.card-panel {
+  padding: 20px;
+  position: relative;
+  overflow: hidden; /* Ensures content doesn't overflow outside the card */
+}
 
+.newTraveldeats h6 {
+  word-wrap: break-word; /* Breaks long words to prevent overflow */
+  overflow-wrap: break-word; /* Another way to break long words */
+  white-space: normal; /* Prevents text from being on a single line */
+}
+/* ---------------------------------------- USER FUNCTION/UPDATE REQ CARD */
+.updatecard{
+  margin-top: 25%;
+  margin-bottom: 10%;
+}
+.updatecard label{
+  font-weight: bolder;
+}
+button {
+  margin-top: 2%;
+}
 /*  --------------------------------------- PASSWORD CHANGE */
 #changepass {
   margin-top: 20%;
