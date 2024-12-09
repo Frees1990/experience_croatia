@@ -220,16 +220,21 @@ def changepass():
 # USER PROFILE DASHBOARD
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    # grab the session user's username from db
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
+    # Fetch the session user's details from the database
+    user = mongo.db.users.find_one({"username": session["user"]})
 
-    if username == "systemadmin":
+    # Redirect or handle missing user
+    if not user:
+        return redirect(url_for("login"))  # Redirect to login or appropriate page
+
+    # Get user's name and decide query based on admin status
+    name = user.get("name", "User")  # Fallback to "User" if name is missing
+    if session["user"] == "systemadmin":
         users = mongo.db.users.find()
     else:
-        users = mongo.db.users.find({"username": username})
+        users = mongo.db.users.find({"username": session["user"]})
 
-    return render_template("profile.html", name=username,)
+    return render_template("profile.html", name=name, users=users)
 
 
 # USER PROFILE/IDENTITY INFORMATION

@@ -1,13 +1,13 @@
 /* jshint esversion: 11, jquery: true */
 // Main Function 
 $(document).ready(function () {
-    sideNav();
-    selectForm();
-    datepicker();
-    initialiseModal();
-    initialiseToolTipped();
-    initialiseDropdown();
-    manageAccount();
+  sideNav();
+  selectForm();
+  datepicker();
+  initialiseModal();
+  initialiseToolTipped();
+  initialiseDropdown();
+  manageAccount();
 });
 
 
@@ -57,37 +57,53 @@ function sideNav() {
 
 /** Initialisation of Materialize dropdown elements*/
 function initialiseDropdown() {
-    const elems = document.querySelectorAll('.dropdown-trigger');
-    const instances = M.Dropdown.init(elems, {
-        coverTrigger: false,
-    });
-  }
+  const elems = document.querySelectorAll('.dropdown-trigger');
+  const instances = M.Dropdown.init(elems, {
+    coverTrigger: false,
+  });
+}
 
-  
+
 /** Initialisation of Materialize datepicker elements*/
 function datepicker() {
-    const elems = document.querySelectorAll('.datepicker');
-    const today = new Date();
-    // Calculate the date 3 months from `today`
-    // Credits to Tim Nelson for helping calculate the three months
-    const threeMonthsFromToday = new Date(today);
-    threeMonthsFromToday.setMonth(today.getMonth() + 3);
-    const instances = M.Datepicker.init(elems, {
-      format: "dd mmmm, yyyy",
-      minDate: today,
-      maxDate: threeMonthsFromToday,
-      yearRange: 1,
-      showClearBtn: true,
-      i18n: {
-        done: "Select"
-      }
-    });
-  }
-  
-  /** Initialisation of Materialize Modal elements*/
+  const elems = document.querySelectorAll('.datepicker');
+  const today = new Date();
+  // Calculate the date 3 months from `today`
+  // Credits to Tim Nelson for helping calculate the three months
+  const threeMonthsFromToday = new Date(today);
+  threeMonthsFromToday.setMonth(today.getMonth() + 3);
+  const instances = M.Datepicker.init(elems, {
+    format: "dd mmmm, yyyy",
+    minDate: today,
+    maxDate: threeMonthsFromToday,
+    yearRange: 1,
+    showClearBtn: true,
+    i18n: {
+      done: "Select"
+    }
+  });
+}
+
+$(document).ready(function () {
+  sideNav();
+  selectForm();
+  datepicker();
+  initialiseModal();
+  initialiseToolTipped();
+  initialiseDropdown();
+  manageAccount();
+});
+
 function initialiseModal() {
   const elems = document.querySelectorAll('.modal');
-  const instances = M.Modal.init(elems);
+  M.Modal.init(elems, {
+    opacity: 0.5,
+    inDuration: 250,
+    outDuration: 200,
+    dismissible: true,
+    startingTop: '4%',
+    endingTop: '10%'
+  });
 }
 
 
@@ -113,15 +129,15 @@ document.addEventListener('DOMContentLoaded', () => {
   // initialize carousel
   const carousel = document.querySelectorAll('.carousel');
   M.Carousel.init(carousel, {
-    fullWidth : true,
+    fullWidth: true,
     indicators: true, // this option is require for autoplay functionnality
   });
-  
+
   // custom function for autoplaying 
   let indicatorItems = document.querySelectorAll('.carousel .indicator-item'),
-      slideTime = 3000,
-      activeClass = "active";
-      onCycleTo = 5
+    slideTime = 3000,
+    activeClass = "active";
+  onCycleTo = 5
 
   setInterval(() => {
     indicatorItems.forEach(el => {
@@ -141,14 +157,14 @@ $('#message').on('input', function () {
   this.style.height = 'auto';
 
   this.style.height =
-      (this.scrollHeight) + 'px';
+    (this.scrollHeight) + 'px';
 });
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   var elems = document.querySelectorAll('.dropdown-trigger');
   var instances = M.Dropdown.init(elems, options);
 });
 
-$(document).ready(function(){
+$(document).ready(function () {
   $('.modal').modal();
 });

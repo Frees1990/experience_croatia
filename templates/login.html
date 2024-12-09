@@ -1,46 +1,46 @@
 {% extends "base.html" %}
 {% block content %}
     <aside id="loginImage">
-        <div class="row">
-            <div class="col s12 loginHeader">
-                <h3 class="center-align">Experience Pula, Croatia</h3>  
-                <br>
-                <h5 class="center-align" style="color:#eaeeed">LOG IN</h5>
-                <br>
-            </div>
-        </div>
         <div class="container page-container">           
             <div class="row">
-                <form class="card-panel custom-card col s12" method="POST" name="loginForm" id="loginForm"
+                <form class="card-panel custom-card logincard col s12 m8 offset-m2" method="POST" name="loginForm" id="loginForm"
                     action="{{ url_for('login') }}">
                     <!-- username -->
                     <div class="row">
-                        <div class="input-field col s12 m6 offset-m3 m3">
+                        <div class="col s12 loginHeader">
+                            <h4 class="center-align">Experience Pula, Croatia</h4>  
+                            <br>
+                            <h5 class="center-align" style="color:#eaeeed">LOG IN</h5>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m6 offset-m3 m3 loginlabel">
                             <i class="fas fa-user-cog prefix green-text text-darken-4"></i>
                             <input id="username" name="username" type="text" minlength="5" maxlength="15"
                                 pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required aria-required="true">
                             <label for="username">Username</label>
-                            <small style="color: whitesmoke;">(Username must be less than 15 characters)</small>
+                            <strong><small style="color: rgb(23, 21, 21);">(Username must be less than 15 characters)</small></strong>
                         </div>
                     </div>
                     <br>
                     <!-- password -->
                     <div class="row">
-                        <div class="input-field col s12 m6 offset-m3 m3">
+                        <div class="input-field col s12 m6 offset-m3 m3 loginlabel">
                             <i class="fas fa-user-lock prefix green-text text-darken-4"></i>
                             <input id="password" name="password" type="password" minlength="8"
                                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="validate" required aria-required="true">
                             <label for="password">Password</label>
-                            <small style="color: whitesmoke;">(Must contain at least one number and one uppercase and lowercase letter, and at least 8 or
-                                more characters)</small>
+                            <strong><small style="color: rgb(9, 9, 9);">(Must contain at least one number and one uppercase and lowercase letter, and at least 8 or
+                                more characters)</small></strong>
                         </div>
                     </div>
                     <br>
                     <!-- login -->
                     <div class="row">
                         <div class="col s12 center p5">
-                            <button type="submit" name="action" class="btn green darken-3 white-text white-lighten-4 rounded waves-effect waves-light btncont">
-                                &nbsp;<b>LOG IN</b>
+                            <button type="submit" name="action" class="btn btn-small green darken-3 white-text white-lighten-4 rounded waves-effect waves-light btncont">
+                            <small><b>LOG IN</b></small>
                             </button>
                         </div>
                     </div>

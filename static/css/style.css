@@ -254,9 +254,7 @@ aside#hero-image {
 #contact-image {
   background-image: url('../images/contact.jpg'); /* Replace with your image URL */
   background-size: cover;
-  background-position: center center;
-  background-attachment: fixed;
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
@@ -264,41 +262,36 @@ aside#hero-image {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: -1; /* Ensure content is on top of the background */
+  z-index: 0; /* Ensure content is on top of the background */
 }
 .contact-card {
-  background-color: #f3f4f649; /* Custom card color */
-  border-radius: 20px;
-  padding: 20px; /* Reduced padding */
-  max-width: 1200px; /* Limit the card width */
-  margin: 10% auto; /* Center the card horizontally and add top margin */
-  box-sizing: border-box;
-  overflow-y: auto;
-  max-height: 90vh;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 30px;
+  background-color: rgba(123, 117, 117, 0.478);
 }
-
-.contact-card .card-content h5 {
+.card h4 {
   color: white;
-  font-size: 1.6rem; /* Adjusted font size */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  margin-top: 5%;
+  font-size: 1.8em;
+  text-align: center;
+  margin-bottom: 10px;
 }
 .input-field input, .input-field textarea {
-  border-radius: 5px;
-  padding: 10px; /* Reduced padding */
-  font-size: 1rem;
+  border-radius: 4px;
 }
-.input-field input:focus, .input-field textarea:focus {
-  border-color: #00796b; /* Focused border color */
-  box-shadow: 0 1px 3px rgba(0, 121, 107, 0.3); /* Adds subtle shadow on focus */
+.input-field label {
+  font-size: 1.1em;
+  font-weight: 900;
 }
-.btn {
-  background-color: #095a50; /* Submit button color */
-  font-size: 1.1rem;
-  padding: 12px 20px;
-  border-radius: 5px;
-}
+
 #thank-you {
-  color: #388e3c;
-  font-weight: bold;
+  background-color: #4caf50;
+  padding: 15px;
+  color: white;
+  border-radius: 4px;
+  text-align: center;
 }
 /* -------------------- Register Form */
  /* Full Page Background */
@@ -338,6 +331,14 @@ aside#hero-image {
 .loginlink{
   color: red;
 }
+input + i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+  cursor: pointer;
+}
+
 /* -------------------- Login Form */
 #loginImage {
   width: 100vw;
@@ -350,9 +351,16 @@ aside#hero-image {
   z-index: 2;
 }
 
-.loginHeader>h3 {
-  margin-top: 15rem;
+.loginHeader>h4 {
   color: #eaeeed;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); 
+}
+.logincard {
+  margin-top: 22%;
+  background-color: rgba(155, 151, 151, 0.621);
+}
+.loginlabel {
+  font-weight: 900;
 }
 
 .newHere {
@@ -406,6 +414,8 @@ aside#hero-image {
 }
 
 .buts>a {
+  margin-top: 18%;
+  margin-left: 5%;
   font-weight: 700;
 }
 .newTravelHeader h5{
@@ -485,9 +495,14 @@ aside#hero-image {
 }
 
 .newTraveldeats h6 {
-  word-wrap: break-word; /* Breaks long words to prevent overflow */
-  overflow-wrap: break-word; /* Another way to break long words */
-  white-space: normal; /* Prevents text from being on a single line */
+  word-wrap: break-word;
+  overflow-wrap: break-word; 
+  white-space: normal; 
+}
+.userdeats h5{
+  word-wrap: break-word;
+  overflow-wrap: break-word; 
+  white-space: normal; 
 }
 /* ---------------------------------------- USER FUNCTION/UPDATE REQ CARD */
 .updatecard{
@@ -505,9 +520,13 @@ button {
   margin-top: 20%;
   background-color: #f3e0cb;
 }
-/*  --------------------------------------- PASSWORD CHANGE */
+/*  --------------------------------------- MANAGE USERS */
 .manageusersCard{
   background-color: #f3e0cb;
+}
+.backdashMU{
+  margin-top: 2%;
+  margin-left: 5%;
 }
 /*------Media Queries-----*/
 @media only screen and (min-width: 200px) and (max-width: 767px)  {

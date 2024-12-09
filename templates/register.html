@@ -40,14 +40,23 @@
                     <!-- Password / Confirm Password -->
                     <div class="input-field col s12 m4" style="margin-right: 20px;">
                         <i class="fas fa-user-lock prefix green-text text-darken-4"></i>
-                        <input id="password" name="password" type="password" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="validate" required>
-                        <label for="password">Password </label>
+                        <input id="password" name="password" type="password" minlength="8" 
+                               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="validate" required>
+                        <label for="password">Password</label>
+                        <i id="togglePassword" class="fas fa-eye green-text text-darken-4" 
+                           onclick="togglePasswordVisibility('password', 'togglePassword')" 
+                           style="cursor: pointer; position: absolute; right: 10px; top: 10px;"></i>
                     </div>
+                    
                     <div class="input-field col s12 m4">
                         <i class="fas fa-user-lock prefix green-text text-darken-4"></i>
-                        <input id="confirm_password" name="confirm_password" type="password" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="validate" required>
-                        <label for="confirm_password">Confirm Password </label>  
-                    </div>
+                        <input id="confirm_password" name="confirm_password" type="password" minlength="8" 
+                               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="validate" required>
+                        <label for="confirm_password">Confirm Password</label>
+                        <i id="toggleConfirmPassword" class="fas fa-eye green-text text-darken-4" 
+                           onclick="togglePasswordVisibility('confirm_password', 'toggleConfirmPassword')" 
+                           style="cursor: pointer; position: absolute; right: 10px; top: 10px;"></i>
+                    </div>                    
                 </div>   
                 <div class="col s12 center-align">
                     <button type="submit" class="btn green darken-3 white-text waves-effect waves-light">REGISTER</button>
@@ -68,62 +77,19 @@
 
 {% block javascript %}
 <script>
-    // allow users to toggle password visibility
-    function togglePasswordVisibility(inputId, toggleIcon) {
+    function togglePasswordVisibility(inputId, toggleIconId) {
         const inputField = document.getElementById(inputId);
-        const icon = document.getElementById(toggleIcon);
+        const toggleIcon = document.getElementById(toggleIconId);
 
         if (inputField.type === "password") {
             inputField.type = "text";
-            icon.classList.add("green-text", "text-darken-4");
+            toggleIcon.classList.remove("fa-eye");
+            toggleIcon.classList.add("fa-eye-slash");
         } else {
             inputField.type = "password";
-            icon.classList.remove("green-text", "text-darken-4");
+            toggleIcon.classList.remove("fa-eye-slash");
+            toggleIcon.classList.add("fa-eye");
         }
     }
 </script>
 {% endblock %}
-
-<!-- Add custom CSS for the full-page background and card centering -->
-<style>
-    /* Full Page Background */
-    #registerImage {
-        background-image: url('your-image-url.jpg'); /* Replace with your image URL */
-        background-size: cover; /* Ensure the image covers the entire viewport */
-        background-position: center center; /* Center the background image */
-        background-attachment: fixed; /* Ensure background stays fixed on scroll */
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh; /* Full height of the viewport */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    /* Make the card smaller and centered */
-    .contact-card {
-        width: 100%;
-        max-width: 600px;  /* Adjust width as per your preference */
-        padding: 20px;
-        background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
-        margin: 0 auto;  /* Center the card horizontally */
-        box-sizing: border-box;
-    }
-
-    .page-container {
-        padding-top: 20px;
-    }
-
-    .regHeader {
-        text-align: center;
-        color: white;
-    }
-
-    .col.s12.center-align {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-</style>
