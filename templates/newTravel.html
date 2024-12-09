@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="conatainer page-container">
+    <div class="page-container">
         <div class="row">
             <div class="col s12 m8 offset-m2 newTravelHeader">
                 {% if session.user != "systemadmin" %}
@@ -168,18 +168,18 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col s12 m6">
-                        <div class="row">
+                    <div class="row">
+                        <div>
                             <!-- Delete Button -->
                             <form method="POST" action="{{ url_for('newTravel') }}">
                                 <input type="hidden" name="travel_info_id" value="{{ travel_info._id }}">
                                 <button type="submit" name="delete" class="btn btn-small red"><small>Delete</small></button>
                             </form>
-                            <!-- Update Button -->
+                        </div>
+                        <div ><!-- Update Button -->
                             <a href="{{ url_for('updateTravel', id=travel_info._id) }}" class="btn btn-small light-blue darken-4 waves-effect waves-light">
                                 <small>Update</small>
-                             </a>
-                        </div>
+                             </a></div>
                     </div>
                 </div>
                 

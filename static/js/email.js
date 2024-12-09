@@ -1,53 +1,32 @@
-const form = document.getElementById("contactForm");
-const feedback = document.getElementById("thank-you-feedback");
+document.addEventListener('DOMContentLoaded', function () {
+    M.AutoInit(); // Automatically initialize Materialize components
+});
 
+// Initialize EmailJS with your Public API Key
+(function () {
+    emailjs.init("YOUR_PUBLIC_API_KEY"); // Replace with your Public API Key
+})();
 
-initTextArea();
+// Form submission handler
+document.getElementById('contact-form').addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent the form from submitting normally
 
-/** Initialise Materialize text area */
-function initTextArea() {
-    const message = document.querySelector('#message');
-    M.Forms.InitTextarea(message);
-    M.Forms.textareaAutoResize(message);
-}
+    var formData = new FormData(this);
+    var name = formData.get('name');
+    var email = formData.get('email');
+    var phone = formData.get('number') || 'Not Provided'; // Default to 'Not Provided' if empty
+    var message = formData.get('message');
 
-/** Function to send mail once validated using emailjs */
-function sendMail(contactForm) {
-    if (validateForm(this)) {
-        emailjs.send("service_93gheht", "template_pnxbum8", {
-            from_name: contactForm.name.value,
-            message: contactForm.message.value,
-            reply_to: contactForm.email.value
-        }).then(
-            (response) => {
-                form.style.display = "none";
-                feedback.style.display = "block";
-            },
-            (error) => {
-                console.log("FAILED", error);
-            }
-        );
-        return false;
-    } else {
-        this.addEventListener('submit', function (event) {
-            event.preventDefault();
+    // Send email using EmailJS
+    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+        .then(function (response) {
+            // Success callback
+            console.log('Email sent successfully!', response);
+            document.getElementById('thank-you').style.display = 'block';
+            document.getElementById('contact-form').reset(); // Reset form
+        }, function (error) {
+            // Error callback
+            console.error('Error sending email:', error);
+            alert('Failed to send message. Please try again later.');
         });
-        console.log("ERROR: Unable to send form as the required fields have not been completed");
-    }
-}
-
-/**Function to validate the form */
-function validateForm() {
-    let nameInput = document.forms.contactForm.name;
-    let emailInput = document.forms.contactForm.email;
-    let enquiryInput = document.forms.contactForm.message;
-    if (nameInput.value === "") {
-        return false;
-    } else if (emailInput.value === "") {
-        return false;
-    } else if (enquiryInput.value === "") {
-        return false;
-    } else {
-        return true;
-    }
-}
+});

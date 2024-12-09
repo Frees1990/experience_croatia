@@ -17,7 +17,7 @@
         <br>
         <div class="container page-container">
             <div class="row">
-                <div class="card col s12 m8 offset-m2 card-panel cardmyinfo" style="background-color:rgba(255, 228, 196, 0.589);">
+                <div class="card col s12 m8 offset-m2 card-panel userdetailscard">
                     {% if username == "systemadmin" %}
                     <div class="row">
                         <div class="col s12 ">
@@ -62,18 +62,18 @@
                             </div>
                         </div>  
                     </div>
-                    <br>
-                    <br>
                     <!--Buttons-->
                     <!-- Edit button -->
                     <div class="row">
-                        <div class="col s12 m4 buts">
+                        <div class="col s12 m2 buts">
                             <a href="{{ url_for('profile', username=session['user']) }}"
                                 class="btn btn-small icon-left waves-effect waves-light teal darken-4 white-text text-lighten-4"><i
                                     class="material-icons">arrow_back</i><small>Dashboard</small></a>
+                        </div>
+                        <div class="col s12 m2 buts">
                             <a href="{{ url_for('update', users_id=users._id) }}"
-                                class="btn btn-small icon-left waves-effect waves-light blue lighten-2 white-text text-lighten-4">
-                                    <i class="material-icons">edit</i><small>Update</small></a>
+                        class="btn btn-small icon-left waves-effect waves-light blue lighten-2 white-text text-lighten-4">
+                            <i class="material-icons">edit</i><small>Update</small></a>
                         </div>
                     </div>
                 </div>

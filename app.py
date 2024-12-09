@@ -422,11 +422,24 @@ def travel_info():
         return render_template("travel_info.html", airports=uk_airports)
 
 # CONTACT FORM 
-@app.route("/contact", methods=["GET"])
+@app.route("/contact", methods=["GET", "POST"])
 def contact():
     """
-    Render's contact page template
+    Render contact page and handle form submission.
     """
+    if request.method == "POST":
+        # Extract form data
+        name = request.form.get("name")
+        email = request.form.get("email")
+        number = request.form.get("number")
+        message = request.form.get("message")
+
+        # (Optional) Send email or save data to database here
+        
+        # Respond with success message
+        return jsonify({"status": "success", "message": "Thank you for your message. We'll get back to you soon!"})
+
+    # For GET requests, render the contact page
     email_api = os.environ.get("EMAIL_API")
     return render_template("contact.html", email_api=email_api)
 
