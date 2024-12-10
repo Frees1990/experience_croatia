@@ -424,27 +424,21 @@ def travel_info():
 # CONTACT FORM 
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
-    """
-    Render contact page and handle form submission.
-    """
     if request.method == "POST":
-        # Extract form data
         name = request.form.get("name")
         email = request.form.get("email")
         number = request.form.get("number")
         message = request.form.get("message")
 
-        # (Optional) Send email or save data to database here
-        
-        # Respond with success message
-        return jsonify({"status": "success", "message": "Thank you for your message. We'll get back to you soon!"})
+        # Process the data (Optional: Save to DB, or simply log it)
+        print(f"Received contact form submission: {name}, {email}, {number}, {message}")
 
-    # For GET requests, render the contact page
-    email_api = os.environ.get("EMAIL_API")
-    return render_template("contact.html", email_api=email_api)
+        # Flash success message to be displayed
+        flash("Thank you for your message. We'll get back to you soon!")
+        return render_template("contact.html")
 
-
-    #  ----------------ADMIN FUNCTIONALILITIES
+    return render_template("contact.html")
+#  ----------------ADMIN FUNCTIONALILITIES
 
 # MANAGE USERS TEMPLATE
 @app.route("/manageusers/<username>", methods=["GET"])

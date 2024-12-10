@@ -67,6 +67,7 @@
 
     <main>
         {% block content %}
+        <!-- Flash Message Section -->
         <aside class="container flash">
             {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -101,22 +102,8 @@
                 </div>
             </div>
         </div>
-        <aside class="container flash">
-            <!-- flash messages -->
-            {% with messages = get_flashed_messages() %}
-            {% if messages %}
-            {% for message in messages %}
-            <div class="row flashes ">
-                <div class="col s12 center errorFlash">
-                    <b><h6 class="red-text text-accent-4" style="font-size: x-large; font-weight: 700; letter-spacing: 3px;">{{ message }}</h6></b>
-                </div>
-            </div>
-            {% endfor %}
-            {% endif %}
-            {% endwith %}
-        </aside>
         <div class="footer-copyright">
-            <div class="container center-align white-text ">
+            <div class="container center-align white-text">
                 <p>This website is solely for educational purposes and not for monetary transactions.</p>
             </div>
         </div>
@@ -125,7 +112,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.4/dist/js/materialize.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
     {% block scripts %}{% endblock %}
 </body>

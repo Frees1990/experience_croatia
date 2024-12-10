@@ -1,6 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class="flash-messages">
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
 <!-- Container for the entire page -->
 <aside id="contact-image">
     <!-- Centered Card -->
@@ -21,25 +30,26 @@
                     </div>
                     <!-- Phone input -->
                     <div class="input-field col s12 m4 m-3">
-                        <input type="text" id="number" name="number">
+                        <input type="number" id="number" name="number">
                         <label for="number">Phone</label>
-                    </div>   
+                    </div>
                 </div>
                 <div class="row">
                     <!-- Message input -->
                     <div class="input-field col s12 m-3">
                         <textarea id="message" name="message" class="materialize-textarea" required></textarea>
                         <label for="message">Message</label>
-                    </div>    
+                    </div>
                 </div>
                 <!-- Submit button -->
                 <div class="row">
                     <div class="col s12">
-                        <button type="submit" class="btn btn-small green white-light waves-effect waves-dark" style="font-weight: 900;">Send Message</button>
+                        <button type="submit" class="btn btn-small green white-light waves-effect waves-dark"
+                            style="font-weight: 900;">Send Message</button>
                     </div>
                 </div>
             </form>
-            
+
             <!-- Thank You message -->
             <div id="thank-you" style="display:none;">
                 <p>Thank you for your message. We'll get back to you soon!</p>
@@ -48,29 +58,47 @@
     </div>
 </aside>
 {% endblock %}
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+    emailjs.init("KmCC0-yTM0LUuFvpe"); // Initialize EmailJS with your User ID from the EmailJS dashboard
+</script>
 <script>
     document.getElementById("contact-form").addEventListener("submit", function (event) {
-        event.preventDefault(); // Prevent the default form submission
+    event.preventDefault(); // Prevent the default form submission
 
-        const formData = new FormData(this);
+    const formData = new FormData(this);
 
-        fetch("/contact", {
-            method: "POST",
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.status === "success") {
-                // Hide the form and show the thank-you message
-                document.getElementById("contact-form").style.display = "none";
-                document.getElementById("thank-you").style.display = "block";
-            } else {
-                alert("An error occurred. Please try again.");
-            }
-        })
-        .catch(error => {
-            console.error("Error:", error);
-            alert("An error occurred. Please try again.");
+    // Send form data via EmailJS
+    emailjs.sendForm('experience_croatia', 'template_uctr2un', this)
+        .then(function (response) {
+            // Success - show success message via Flask
+            fetch("/contact", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "success") {
+                    M.toast({
+                        html: data.message,
+                        classes: 'green lighten-1'
+                    });
+                    document.getElementById("contact-form").style.display = "none";
+                    document.getElementById("thank-you").style.display = "block";
+                }
+            })
+            .catch(error => {
+                M.toast({
+                    html: 'Failed to send your message. Please try again.',
+                    classes: 'red lighten-1'
+                });
+            });
+        }, function (error) {
+            // Error - Show error message to user
+            M.toast({
+                html: 'Failed to send your message. Please try again.',
+                classes: 'red lighten-1'
+            });
         });
-    });
+});
 </script>

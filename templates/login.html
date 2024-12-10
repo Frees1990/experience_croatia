@@ -1,60 +1,77 @@
 {% extends "base.html" %}
 {% block content %}
-    <aside id="loginImage">
-        <div class="container page-container">           
-            <div class="row">
-                <form class="card-panel custom-card logincard col s12 m8 offset-m2" method="POST" name="loginForm" id="loginForm"
-                    action="{{ url_for('login') }}">
-                    <!-- username -->
-                    <div class="row">
-                        <div class="col s12 loginHeader">
-                            <h4 class="center-align">Experience Pula, Croatia</h4>  
-                            <br>
-                            <h5 class="center-align" style="color:#eaeeed">LOG IN</h5>
-                            <br>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12 m6 offset-m3 m3 loginlabel">
-                            <i class="fas fa-user-cog prefix green-text text-darken-4"></i>
-                            <input id="username" name="username" type="text" minlength="5" maxlength="15"
-                                pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required aria-required="true">
-                            <label for="username">Username</label>
-                            <strong><small style="color: rgb(23, 21, 21);">(Username must be less than 15 characters)</small></strong>
-                        </div>
-                    </div>
-                    <br>
-                    <!-- password -->
-                    <div class="row">
-                        <div class="input-field col s12 m6 offset-m3 m3 loginlabel">
-                            <i class="fas fa-user-lock prefix green-text text-darken-4"></i>
-                            <input id="password" name="password" type="password" minlength="8"
-                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="validate" required aria-required="true">
-                            <label for="password">Password</label>
-                            <strong><small style="color: rgb(9, 9, 9);">(Must contain at least one number and one uppercase and lowercase letter, and at least 8 or
-                                more characters)</small></strong>
-                        </div>
-                    </div>
-                    <br>
-                    <!-- login -->
-                    <div class="row">
-                        <div class="col s12 center p5">
-                            <button type="submit" name="action" class="btn btn-small green darken-3 white-text white-lighten-4 rounded waves-effect waves-light btncont">
-                            <small><b>LOG IN</b></small>
-                            </button>
-                        </div>
-                    </div>
-                    <br>
-                </form>
-            </div>
-        </div>
+<aside id="loginImage">
+    <div class="container page-container">
         <div class="row">
-            <div class="col s12 center-align newHere">
-                <!-- If user does not have an account->Link to register page -->
-                <p><b>NEW HERE?....</b>&nbsp;&nbsp;
-                    <a href="{{ url_for('register') }}"><b>REGISTER ACCOUNT</b></a>
-                </p>
-            </div>
+            <aside class="container flash">
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                {% for message in messages %}
+                <div class="row flashes">
+                    <div class="col s12 m4 offset-m3 card-panel red accent-4 rounded center">
+                        <h6 class="orange-text text-lighten-4">{{ message }}</h6>
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+            </aside>
+            <form class="card-panel custom-card logincard col s12 m8 offset-m2" method="POST" name="loginForm"
+                id="loginForm" action="{{ url_for('login') }}">
+                <!-- username -->
+                <div class="row">
+                    <div class="col s12 loginHeader">
+                        <h4 class="center-align">Experience Pula, Croatia</h4>
+                        <br>
+                        <h5 class="center-align" style="color:#eaeeed">LOG IN</h5>
+                        <br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m6 offset-m3 m3 loginlabel">
+                        <i class="fas fa-user-cog prefix green-text text-darken-4"></i>
+                        <input id="username" name="username" type="text" minlength="5" maxlength="15"
+                            pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required aria-required="true">
+                        <label for="username">Username</label>
+                        <strong><small style="color: rgb(23, 21, 21);">(Username must be less than 15
+                                characters)</small></strong>
+                    </div>
+                </div>
+                <br>
+                <!-- password -->
+                <div class="row">
+                    <div class="input-field col s12 m6 offset-m3 m3 loginlabel">
+                        <i class="fas fa-user-lock prefix green-text text-darken-4"></i>
+                        <input id="password" name="password" type="password" minlength="8"
+                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="validate" required
+                            aria-required="true">
+                        <label for="password">Password</label>
+                        <strong><small style="color: rgb(9, 9, 9);">(Must contain at least one number and one uppercase
+                                and lowercase letter, and at least 8 or
+                                more characters)</small></strong>
+                    </div>
+                </div>
+                <br>
+                <!-- login -->
+                <div class="row">
+                    <div class="col s12 center p5">
+                        <button type="submit" name="action"
+                            class="btn btn-small green darken-3 white-text white-lighten-4 rounded waves-effect waves-light btncont">
+                            <small><b>LOG IN</b></small>
+                        </button>
+                    </div>
+                </div>
+                <br>
+            </form>
         </div>
-    </aside>
+    </div>
+    <div class="row">
+        <div class="col s12 center-align newHere">
+            <!-- If user does not have an account->Link to register page -->
+            <p><b>NEW HERE?....</b>&nbsp;&nbsp;
+                <a href="{{ url_for('register') }}"><b>REGISTER ACCOUNT</b></a>
+            </p>
+        </div>
+    </div>
+</aside>
 {% endblock %}
