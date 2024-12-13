@@ -16,7 +16,7 @@
 </aside>
 <div class="page-container">
     <div class="row">
-        <div class="col s12 m8 offset-m2 newTravelHeader">
+        <div class="col s12 m8 offset-m2 newTravelHeader" >
             {% if username == "systemadmin" %}
             <!-- Admin Header -->
             <h4 class="center-align teal-text text-darken-4">
@@ -24,17 +24,17 @@
             </h4>
             {% else %}
             <!-- User Header -->
-            <h5 class="username-heading">
+            <h5 class="username-heading" id="usernameNT">
                 Welcome {{ name }},
             </h5>
-            <h5 class="center-align">Here are your requests:</h5>
+            <h5 class="center-align" id="usertravel">Here are your requests:</h5>
             {% endif %}
         </div>
     </div>
 
     <!-- Back Button -->
     <div class="row">
-        <div class="col s12 m4 offset-m2">
+        <div class="col s12 m4 offset-m2" id="NTbackbtn">
             <a href="{{ url_for('profile', username=username) }}"
                 class="btn btn-small icon-left waves-effect waves-light teal darken-4">
                 <i class="material-icons">arrow_back</i>
@@ -186,7 +186,7 @@
                 <div class="row">
                     {% if username != "systemadmin" %}
                     <!-- Update Button (Only for Users) -->
-                    <div class="col s12 m6">
+                    <div class="col s12 m6" id="update">
                         <a href="{{ url_for('updateTravel', id=travel_info._id) }}"
                             class="btn btn-small light-blue darken-4 waves-effect waves-light">
                             <small>Update</small>
@@ -195,7 +195,7 @@
                     {% endif %}
 
                     <!-- Delete Button with Modal -->
-                    <div class="col s12 m6 right-align">
+                    <div class="col s12 m6 right-align" id="delete">
                         <a class="waves-effect waves-light btn btn-small modal-trigger red darken-4"
                             href="#deleteModal{{ travel_info._id }}">
                             <i class="material-icons">delete_forever</i>

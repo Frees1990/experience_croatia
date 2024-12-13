@@ -3,7 +3,7 @@
     <div class="container page-container">
         <!-- Heading -->
         <div class="row">
-            <div class="col s12">
+            <div class="col s12" id="passwordCH">
                 <h5 class="center-align">Secure your password</h5>
 
             </div>
@@ -63,36 +63,20 @@
 
 {% endblock %}
 {% block javascript %}
-    <script>
-        // allow users to toggle password visibility
-        // https://www.w3schools.com/howto/howto_js_toggle_password.asp
-        function togglePasswordVisibility(inputId, toggleIcon) {
-            const inputField = document.getElementById(inputId);
-            const icon = document.getElementById(toggleIcon);
+<script>
+    function togglePasswordVisibility(inputId, toggleIconId) {
+        const inputField = document.getElementById(inputId);
+        const toggleIcon = document.getElementById(toggleIconId);
 
-            if (inputField.type === "password") {
-                inputField.type = "text";
-                icon.classList.add("green-text", "text-darken-4");
-            } else {
-                inputField.type = "password";
-                icon.classList.remove("green-text", "text-darken-4");
-            }
+        if (inputField.type === "password") {
+            inputField.type = "text";
+            toggleIcon.classList.remove("fa-eye");
+            toggleIcon.classList.add("fa-eye-slash");
+        } else {
+            inputField.type = "password";
+            toggleIcon.classList.remove("fa-eye-slash");
+            toggleIcon.classList.add("fa-eye");
         }
-
-        // Function to validate form
-        function validateForm() {
-            const currentPassword = document.forms.change_password.current_password.value;
-            const newPassword = document.forms.change_password.new_password.value;
-            const confirmPassword = document.forms.change_password.confirm_new_password.value;
-            const errorMessage = document.getElementById("error-message");
-
-
-            if (currentPassword == "" || newPassword == "" || confirmPassword == "") {
-                console.log("validation failed");
-                errorMessage.innerText = "Please fill out all the required fields";
-                return false;
-            }
-            return true;
-        }
-    </script>
+    }
+</script>
 {% endblock %}

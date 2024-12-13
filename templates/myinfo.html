@@ -65,11 +65,13 @@
                     <!--Buttons-->
                     <!-- Edit button -->
                     <div class="row">
-                        <div class="col s12 m2 buts">
+                        <div class="col s12 m2 " id="buts">
                             <a href="{{ url_for('profile', username=session['user']) }}"
                                 class="btn btn-small icon-left waves-effect waves-light teal darken-4 white-text text-lighten-4"><i
                                     class="material-icons">arrow_back</i><small>Dashboard</small></a>
                         </div>
+                    </div>
+                    <div class="row">
                         <div class="col s12 m2 buts">
                             <a href="{{ url_for('update', users_id=users._id) }}"
                         class="btn btn-small icon-left waves-effect waves-light blue lighten-2 white-text text-lighten-4">

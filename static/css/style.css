@@ -158,7 +158,7 @@ nav ul:not(.dropdown-content)>li>a:hover:not(.active) {
 /* Trigger bars */
 .hamburger span {
   display: block;
-  background: #17353b;
+  background: white;
   width: 100%;
   height: 5px;
   transform-origin: center;
@@ -407,18 +407,15 @@ a.brand-logo {
   font-weight: 700;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-
 .profileHeader>h5 {
   color: yellow;
   font-weight: 800;
 }
-
 .userdeats>h5 {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: bold;
-  color: rgb(17, 17, 17);
+  color: black;
 }
-
 .buts>a {
   margin-top: 18%;
   margin-left: 5%;
@@ -438,7 +435,6 @@ a.brand-logo {
   color: #5f6160;
   text-transform: capitalize;
 }
-
 .newTraveldeats>h6 {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: bold;
@@ -551,6 +547,6 @@ button {
   background-color: #f3e0cb;
 }
 .backdashMU{
-  margin-top: 2%;
+  margin-top: 0;
   margin-left: 5%;
 }
