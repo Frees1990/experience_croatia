@@ -234,7 +234,7 @@ def profile(username):
     else:
         users = mongo.db.users.find({"username": session["user"]})
 
-    return render_template("profile.html", name=name, users=users)
+    return render_template("profile.html", name=name, username=session["user"], users=users)
 
 
 # USER PROFILE/IDENTITY INFORMATION
