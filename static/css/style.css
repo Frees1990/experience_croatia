@@ -6,9 +6,6 @@ html,
 body {
   width: 100%;
   height: 100%;
-  background-image: url('your-image.jpg');
-  background-size: cover;
-  background-position: center;
 }
 body>footer {
   position: sticky;
@@ -35,9 +32,6 @@ button {
   font-weight: 200;
   font-style: normal;
 }
-.test{
-  background-color: #00796b;
-}
 /*----------------------------------------Footer--*/
 .footer-container {
   background-color: #026340;
@@ -61,6 +55,11 @@ ul.social-media-icons {
   gap: 15px; 
 }
 /* ------------------------------------ NAVIGATION BAR*/
+nav {
+  color: initial; /* Resets to the browser's default */
+  background-color: initial;
+}
+
 .custom-nav {
   background-color: #675e54a5;
   z-index: 4;
@@ -83,48 +82,67 @@ nav ul:not(.dropdown-content)>li>a {
   font-size: 1.5rem;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: bolder;
-  color: black;
-  background-color: #f3e0cb;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 .dropdown-content>li>a {
   font-size: 1.5rem;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: bolder;
-  color: #720444;
-}
-.mobile-menu nav ul:not(.dropdown-content)>li>a:hover {
-  color: #17353B;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 nav ul:not(.dropdown-content)>li>a:hover:not(.active) {
-  background-color: rgba(88, 126, 123, 0);
+  background-color: transparent;
   text-decoration: underline;
-  text-decoration-color: #333;
+  color: white; 
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
-.mobile-nav {
-  height: 0px;
-}
-.mobile-list {
-  display: flex;
-  flex-direction: column;
-}
+
 .mobile-menu {
   position: fixed;
   top: 0;
-  left: 100%;
-  width: 50%;
+  left: 100%; 
+  width: 50%; 
   height: 100vh;
   z-index: 3;
-  background-color: #f3e0cb91;
-  transition: left .3s;
-  display: none;
+  background-color: #675e54a5;
+  transition: left 0.3s ease; 
   padding-top: 70px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-start; 
+  padding-left: 20px; 
 }
 .mobile-menu.open {
-  margin-top: 50px;
-  left: 70%;
-  display: block;
+  left: 50%; /* Slide to cover half the screen */
 }
+.mobile-menu nav ul {
+  list-style: none;
+  padding: 0; 
+  margin: 0; 
+  width: 100%; 
+  display: flex;
+  flex-direction: column; 
+  font-size: 1.5rem;
+}
+.mobile-menu nav ul li {
+  width: 100%;
+  display: block; 
+}
+.mobile-menu nav ul li a {
+  font-size: 1.5rem;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: bolder;
+  color: white; 
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  text-decoration: none; 
+  display: block;
+  width: 100%; 
+  padding: 10px 0; 
+}
+
 /* Copied Idea from Mika(code institute, co-student */
 /* Mobile menu trigger button */
 .hamburger {
@@ -132,10 +150,10 @@ nav ul:not(.dropdown-content)>li>a:hover:not(.active) {
   flex-direction: column;
   justify-content: space-around;
   position: relative;
-  width: 50px;
+  width: 45px;
   height: 36px;
   margin-right: 10px;
-  margin-top: 35px;
+  margin-top: 25px;
 }
 /* Trigger bars */
 .hamburger span {
@@ -164,8 +182,6 @@ input:checked~.hamburger span:nth-child(3) {
   text-align: center;
   color: #000;  /* Dark text for visibility */
 }
-
-
 /* --------------------------------------- Logo*/
 a.brand-logo {
   width: 150px;
@@ -182,15 +198,6 @@ a.brand-logo {
   margin-top: 2%;
 }
 /*---------------------------Index-------*/
-aside#hero-image {
-  width: 100vw;
-  height: 90vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  z-index: 2;
-}
 .carousel .carousel-item>img {
   height: 100vh;
 }
@@ -238,6 +245,9 @@ aside#hero-image {
   gap: 15px; 
   margin-top: 10%;
 }
+.hero-review {
+  margin-top: 5%;
+}
 .review-image {
   flex-shrink: 0; 
   max-width: 250px; 
@@ -261,6 +271,15 @@ aside#hero-image {
   font-weight: bolder;
 }
 /*  --------------------------------------- CONTACT PAGE */
+#thank-you-feedback {
+  display: none;
+}
+#no-card-display {
+  display: none;
+}
+#no-house-display{
+  display: none;
+}
 #contact-image {
   background-image: url('../images/contact.jpg'); /* Replace with your image URL */
   background-size: cover;
@@ -275,10 +294,12 @@ aside#hero-image {
   z-index: 0; /* Ensure content is on top of the background */
 }
 .contact-card {
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   padding: 30px;
-  background-color: rgba(123, 117, 117, 0.478);
+  background-color: rgba(123, 117, 117, 0.615);
+}
+.contact-card label{
+  font-weight: 900;
 }
 .card h4 {
   color: white;
@@ -533,620 +554,3 @@ button {
   margin-top: 2%;
   margin-left: 5%;
 }
-/*------Media Queries-----*/
-@media only screen and (min-width: 200px) and (max-width: 767px)  {
-  html,
-  body {
-    width: 100%;
-    height: 100%;
-  }
-  body>footer {
-    position: sticky;
-    top: 100vh;
-  }
-  main {
-    overflow-x: hidden;
-    min-height: calc(100vh - 20vh);
-  }
-  /*---NAVBAR */
-  .custom-nav {
-    background-color: #f3e0cb;
-    z-index: 4;
-    position: fixed;
-    top: 0;
-    padding: 0 50px;
-    min-height: 5vh;
-  }
-  nav ul:not(.dropdown-content)>li>a {
-    font-size: 1.2rem;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-weight: bolder;
-    color: #720444;
-    display: block;
-    padding: 0 25px;
-    cursor: pointer;
-    margin-top: 15px;
-  }
-  .mobile-nav {
-    height: 0px;
-  }
-  .mobile-list {
-    display: flex;
-    flex-direction: column;
-  }
-  .mobile-menu {
-    position: fixed;
-    top: 0;
-    right: 100%;
-    width: 150%;
-    height: 100vh;
-    background-color: #f3e0cbd5;
-    display: none;
-    padding-top: 50px;
-    box-sizing: border-box;
-  }
-  .mobile-menu.open {
-    margin-top: 50px;
-    left: 30%;
-    display: block;
-  }
-  .hamburger {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    position: relative;
-    width: 30px;
-    height: 20px;
-    margin-right: 1px;
-    margin-top: 25px;
-  }
-  .hamburger span {
-    display: block;
-    background: #17353b;
-    width: 100%;
-    height: 5px;
-    transform-origin: center;
-    transition: all 0.2s ease-in-out;
-  }
-  input:checked~.hamburger span:nth-child(1) {
-    transform: translateY(11px) rotate(-45deg);
-  }
-  input:checked~.hamburger span:nth-child(2) {
-    opacity: 0;
-  }
-  input:checked~.hamburger span:nth-child(3) {
-    transform: translateY(-12px) rotate(45deg);
-  }
-  /* ---- Logo*/
-  a.brand-logo {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-size: 100px 100px;
-    background-image: url(../images/logo.png);
-    background-repeat: no-repeat;
-    background-position: 0 0;
-    cursor: pointer;
-    text-indent: -9999px;
-    overflow: hidden;
-    margin-top: 5%;
-  }
-  /*-------------------Index*/
-  .hero-callout h5{
-    text-align: center;
-    font-size: medium;
-  }
-  .hero-callout {
-    text-align: center;
-    color: #17353B;
-    background-color: rgba(250, 236, 217, 0.5);
-    margin-bottom: 30%;
-    font-size: small;
-  }
-  .callout-btn {
-    border: 2px solid #17353B;
-    border-radius: 15px;
-    padding: 5px;
-    background-color: #17353B;
-    transition: .5s;
-    color: #FAECD9;
-    font-size: x-small;
-  }
-  .callout-btn:hover {
-    background-color: #f4fad900;
-    color: #17353B;
-  }
-  .hero-review h6 {
-    width: 100%;
-    font-size: x-small;
-    margin-bottom: 5%;
-  }
-  .hero-review em {
-    width: 100%;
-    font-size: small;
-  }
-  .hero-review img {
-    display: none;
-  }
-  /*----------------------Footer--*/
-  .footer-container {
-    background-color: #025658;
-    bottom: 0;
-    padding: 1rem;
-    min-height: 20vh;
-    color: #FAECD9;
-  }
-  .copyright p{
-    font-size: smaller;
-  }
-  .getintouch h5{
-    font-size: medium;
-  }
-  .reverse-btn{
-    font-size: small;
-  }
-  /*  --------------------- CONTACT PAGE */
-  #contact-image {
-    width: 100vw;
-    height: 100vh;
-  }
-  .contact-card {
-    width: 90%; 
-  }
-  /* -------------------- Register Form */
-  #registerImage {
-    width: 100vw;
-    height: 125vh;
-    background-image: url(../images/contact.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    position: relative;
-  }
-  .regHeader h4{
-    margin-top: 5%;
-    color: #eaeeed;
-    font-size: large;
-  }
-  .regHeader h6{
-    color: #eaeeed;
-    font-size: small;
-    margin-top: 1%;
-  }
-  .loginHere>p {
-    color: rgb(240, 6, 6);
-    font-weight: 500;
-    font-size: small;
-  }
-  .loginHere>p>a {
-    color: blanchedalmond;
-    font-weight: 500;
-    text-decoration: underline;
-    font-size: small;
-  }
-  .loginHere>p>a:hover {
-    color: rgb(247, 10, 10);
-    font-weight: 600;
-    text-decoration: underline;
-  }
-  .btn{
-    font-size: xx-small;
-    text-align: center;
-  }
-  btn:hover {
-    color: rgba(0, 0, 0, 0);
-  } 
-  /* -------------------- Login Form */
-  #loginImage {
-    width: 100vw;
-    height: 100vh;
-  }
-  #loginForm{
-    margin-top: 40%;
-  }
-  .newHere {
-    margin-top: 2%;
-    margin-bottom: 0;
-    font-size: small;
-  }
-  .newHere>p {
-    color: rgb(240, 6, 6);
-    font-weight: 700;
-    font-size: small;
-  }
-  .newHere>p>a {
-    color: blanchedalmond;
-    font-weight: 700;
-    text-decoration: underline;
-  }
-  .newHere>p>a:hover {
-    color: rgb(247, 10, 10);
-    font-weight: 700;
-    text-decoration: underline;
-  }    
-  /* ----------------------USER PROFILE */
-  #profileImage {
-    width: 100vw;
-    height: 110vh;
-  }
-  .profileHeader>h3 {
-    margin-top: 40%;
-    color: white;
-    font-weight: 600;
-    font-size: x-large;
-  }
-  .travel-card h5{
-    font-size: small;
-    margin-top: 2%;
-  }
-  .adminHeader h4{
-    margin-top: 10%;
-    font-size: larger;
-  }
-  /*-----------TRAVEL REQUEST PAGE */
-  #travelImage {
-    width: 100vw;
-    height: 160vh;
-  }
-  #mediaqueriesbtn{
-    margin-top: 15%;
-    margin-left: 5%;
-  }
-  /*----------- REQUEST LIST PAGE */
-  .username-heading {
-    position: absolute;
-    top: 20%; 
-    right: 20%; 
-    transform: translateY(-50%); 
-    z-index: 10;
-    color: black !important; 
-  }
-  .newTravelHeader{
-    margin-top: 40%;
-  }
-  /*---------- USER FUNCTION/UPDATE DETAILS CARD */
-  .updatedetails{
-    margin-top: 35%;
-    color: white;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); 
-  }
-  #regFormUPDATE{
-    background-color: rgba(113, 112, 111, 0.63);
-  }
-  #regFormUPDATE h5{
-    font-weight: 900;
-  }
-  .back2profile p{
-    font-weight: 900;
-    color: white;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); 
-  }
-  .back2profile a{
-    color: red;
-  }
-  /*-----------------------ADMIN */
-  /*  --------------------------------------- MANAGE USERS */
-  .manageusersCard{
-    background-color: #f3e0cb;
-  }
-  .manageusersHeader h4{
-    font-size: 1.5em;
-    font-weight: 900;
-  }
-  .manageusersCard h5{
-    font-size: 1.2em;
-  }
-  .backdashMU{
-    margin-top: 20%;
-    margin-left: 3%;
-  }
-  .updatereqheader{
-    font-size: 1.5em;
-  }
-}
-@media only screen and (min-width: 767px) and (max-width: 1024px) {
-  html,
-  body {
-    width: 100%;
-    height: 100%;
-  }
-  
-  body>footer {
-    position: sticky;
-    top: 100vh;
-  }
-  main {
-    overflow-x: hidden;
-    min-height: calc(100vh - 20vh);
-  }
-  /*---NAVBAR */
-  .custom-nav {
-    background-color: #f3e0cb;
-    z-index: 4;
-    position: fixed;
-    top: 0;
-    padding: 0 50px;
-    min-height: 10vh;
-  }
-  nav ul:not(.dropdown-content)>li>a {
-    font-size: 1.5rem;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-weight: bolder;
-    color: #720444;
-    display: block;
-    padding: 0 25px;
-    cursor: pointer;
-    margin-top: 15px;
-  }
-  .mobile-nav {
-    margin-top: 10%;
-    height: 0px;
-  }
-  .mobile-list {
-    display: flex;
-    flex-direction: column;
-  }
-  .mobile-menu {
-    position: fixed;
-    top: 0;
-    right: 100%;
-    width: 150%;
-    height: 100vh;
-    background-color: #f3e0cbd5;
-    display: none;
-    padding-top: 50px;
-    box-sizing: border-box;
-  }
-  .mobile-menu.open {
-    margin-top: 50px;
-    left: 30%;
-    display: block;
-  }
-  .hamburger {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    position: relative;
-    width: 55px;
-    height: 36px;
-    margin-right: 1px;
-    margin-top: 35px;
-  }
-  .hamburger span {
-    display: block;
-    background: #17353b;
-    width: 100%;
-    height: 5px;
-    transform-origin: center;
-    transition: all 0.2s ease-in-out;
-  }
-  input:checked~.hamburger span:nth-child(1) {
-    transform: translateY(11px) rotate(-45deg);
-  }
-  input:checked~.hamburger span:nth-child(2) {
-    opacity: 0;
-  }
-  input:checked~.hamburger span:nth-child(3) {
-    transform: translateY(-12px) rotate(45deg);
-  }
-  /* ---- Logo*/
-  a.brand-logo {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background-size: 150px 150px;
-    background-image: url(../images/logo.png);
-    background-repeat: no-repeat;
-    background-position: 0 0;
-    cursor: pointer;
-    text-indent: -9999px;
-    overflow: hidden;
-    margin-top: 5%;
-  }
-  /*-----Index*/
-  .hero-callout h5{
-    text-align: center;
-  }
-  .hero-callout {
-    text-align: center;
-    color: #17353B;
-    background-color: rgba(250, 236, 217, 0.5);
-    margin-bottom: 30%;
-  }
-  .callout-btn {
-    border: 2px solid #17353B;
-    border-radius: 15px;
-    padding: 5px;
-    background-color: #17353B;
-    transition: .5s;
-    color: #FAECD9;
-  }
-  .callout-btn:hover {
-    background-color: #f4fad900;
-    color: #17353B;
-  }
-  .hero-review h6 {
-    margin-top: 50%;
-    margin-left: 10%;
-    width: 200%;
-    margin-bottom: 5%;
-  }
-  .hero-review em {
-    width: 100%;
-    margin-left: 50%;
-  }
-  .hero-review img {
-    display: none;
-  }
-  aside.flash {
-    margin-top: 35px;
-  }
-  /*-----------------Footer--*/
-  .footer-container {
-    background-color: #025658;
-    bottom: 0;
-    padding: 1rem;
-    min-height: 20vh;
-    color: #FAECD9;
-  }
-  ul.social-media-icons {
-    padding-inline-start: 0px;
-  }
-  .social-media-icons li {
-    list-style: none;
-    display: inline-block;
-    margin: 50px 0 20px 0;
-  }
-  .social-media-icons i {
-    color: #63E6BE;
-    font-size: 50px;
-    margin-left: 30px;
-    margin-right: 30px;
-    margin-bottom: 0px;
-  }
-  /* -------------------- Register Form */
-  #registerImage {
-    width: 100vw;
-    height: 100vh;
-    background-image: url(../images/contact.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    position: relative;
-  }
-  .regHeader h4{
-    margin-top: 30%;
-    color: #eaeeed;
-  }
-  .regHeader h6{
-    color: #eaeeed;
-    margin-top: 1%;
-  }
-  .loginHere>p {
-    color: rgb(240, 6, 6);
-    font-weight: 500;
-  }
-  .loginHere>p>a {
-    color: blanchedalmond;
-    font-weight: 500;
-    text-decoration: underline;
-  }
-  /*  --------------------------------------- CONTACT PAGE */
-  #contact-image {
-    width: 100vw;
-    height: 80vh;
-    background-image: url(../images/contact.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-  }
-  #thank-you-feedback {
-    display: none;
-  }
-  #no-card-display {
-    display: none;
-  }
-  #contactForm {
-    margin: 40%;
-    color: #eaeeed;
-    margin-bottom: 0;
-    width: 80vw;
-    margin-left: 5%;
-    margin-top: 30%;
-  }
-  /* -------------------- Login Form */
-  #loginImage {
-    width: 100vw;
-    height: 50vh;
-    background-image: url(../images/contact.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-  }
-  .loginHeader>h3 {
-    margin-top: 25%;
-    color: #eaeeed;
-  }
-  .loginHeader>h5 {
-    margin-top: 1%;
-    color: #eaeeed;
-  }
-  .newHere {
-    margin-top: 2%;
-  }
-  /*  --------------------------------------- PROFILE */
-  #profileImage {
-    width: 100vw;
-    height: 100vh;
-    background-image: url(../images/contact.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-  }
-  .profileHeader>h3 {
-    margin-top: 40%;
-    color: white;
-  }
-  .profileHeader>h5 {
-    margin-top: 2%;
-    color: yellow;
-  }
-  .userdeats>h5 {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: small;
-    color: rgb(14, 13, 13);
-  }
-  .buts>a {
-    margin-left: 5%;
-  }
-  .newTravelHeader h3{
-    margin-top: 40%;
-    color: black;
-    text-transform: capitalize;
-  }
-  .newTravelHeader h5{
-    margin-top: 2%;
-    color: rgb(2, 71, 71);
-    text-transform: capitalize;
-  }
-  .newTraveldeats>h6>span {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color: #5f6160;
-    text-transform: capitalize;
-    font-size: x-small;
-  }
-  .newTraveldeats>h6 {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: small;
-  }
-  .travel-card h5{
-    margin-top: 2%;
-  }
-  .travel-card .btn{
-    margin-top: 2%;
-  }
-  .adminHeader h4{
-    margin-top: 40%;
-  }
-  /*----ADMIN */
-  .manageusersHeader h4{
-    margin-top: 25%;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-weight: 600;
-  }
-  .manageusersCard h5{
-    margin-top: 5%;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-weight: 600;
-  }
-  .managereqHeader h4{
-    margin-top: 40%;
-    font-size: large;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-weight: 600;
-  }
-}
-

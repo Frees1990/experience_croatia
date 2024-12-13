@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.4/dist/css/materialize.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/media-queries.css') }}" type="text/css">
     <title>Experience Croatia</title>
 </head>
 
@@ -50,37 +51,30 @@
                 <ul>
                     {% if session.user %}
                     <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                    <li><a href="#" id="manage-account">Manage Account</a></li>
+                    <li>
+                        <a class="dropdown-trigger" href="#" data-target="mobile-manage-account">
+                            <i class="fas fa-users-cog"></i>&nbsp;Manage Account <i class="fas fa-caret-down"></i>
+                        </a>
+                    </li>
                     {% else %}
-                    <li><a href="{{ url_for('register') }}">Register</a></li>
                     <li><a href="{{ url_for('contact') }}">Contact us</a></li>
+                    <li><a href="{{ url_for('register') }}">Register</a></li>
                     <li><a href="{{ url_for('login') }}">Log In</a></li>
                     {% endif %}
                 </ul>
-                <ul>
+                {% if session.user %}
+                <ul id="mobile-manage-account" class="dropdown-content">
                     <li><a href="{{ url_for('changepass') }}">Change Password</a></li>
                     <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                 </ul>
+                {% endif %}
             </nav>
-        </div>
+        </div>        
     </header>
 
     <main>
         {% block content %}
-        <!-- Flash Message Section -->
-        <aside class="container flash">
-            {% with messages = get_flashed_messages() %}
-            {% if messages %}
-            {% for message in messages %}
-            <div class="row flashes">
-                <div class="col s12 card-panel red accent-4 rounded center">
-                    <h6 class="orange-text text-lighten-4">{{ message }}</h6>
-                </div>
-            </div>
-            {% endfor %}
-            {% endif %}
-            {% endwith %}
-        </aside>
+        
         {% endblock %}
     </main>
 
@@ -114,7 +108,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
-    {% block scripts %}{% endblock %}
+    {% block javascript %}
+
+    {% endblock %}
 </body>
 
 </html>

@@ -1,5 +1,6 @@
 /* jshint esversion: 11, jquery: true */
-// Main Function 
+
+// Main Function
 $(document).ready(function () {
   sideNav();
   selectForm();
@@ -8,71 +9,62 @@ $(document).ready(function () {
   initialiseToolTipped();
   initialiseDropdown();
   manageAccount();
+  initialiseCarousel();
 });
 
-
-function selectForm() {
-  const elems = document.querySelectorAll('select');
-  M.FormSelect.init(elems);
-
-  // Credits to Tim Nelson for helping fix Materialize select bug
-  // Wait for the Materialize initialization to complete
-  setTimeout(() => {
-    // Select each .select-wrapper.input-field and swap the label and ul if needed
-    $('.select-wrapper.input-field').each(function () {
-      const $parentDiv = $(this);
-
-      // get the label and ul within the parent div
-      const $label = $parentDiv.children('label');
-      const $ul = $parentDiv.children('ul.select-dropdown');
-      const $caret = $parentDiv.find('svg.caret');
-      const $input = $parentDiv.find('input.select-dropdown');
-
-      // move the label before the ul if it's not already
-      if ($label.length && $ul.length && $label.next()[0] !== $ul[0]) {
-        $label.insertBefore($ul);
-      }
-
-      // Ensure the caret triggers the dropdown
-      if ($caret.length && $input.length) {
-        $caret.on('click', function () {
-          $input.trigger('click');
-        });
-      }
-
-      // Close the dropdown when an option is clicked
-      $ul.children('li').on('click', function () {
-        $input.trigger('click');
-      });
-    });
-  }, 0);
-}
-/** Initialisation of sidenav*/
+// Side Navigation Function
 function sideNav() {
   $('.hamburger').on("click", function () {
     $(".mobile-menu").toggleClass("open");
   });
 }
 
+// Form Select Initialization with Materialize Fix
+function selectForm() {
+  const elems = document.querySelectorAll('select');
+  M.FormSelect.init(elems);
 
-/** Initialisation of Materialize dropdown elements*/
+  setTimeout(() => {
+    $('.select-wrapper.input-field').each(function () {
+      const $parentDiv = $(this);
+      const $label = $parentDiv.children('label');
+      const $ul = $parentDiv.children('ul.select-dropdown');
+      const $caret = $parentDiv.find('svg.caret');
+      const $input = $parentDiv.find('input.select-dropdown');
+
+      if ($label.length && $ul.length && $label.next()[0] !== $ul[0]) {
+        $label.insertBefore($ul);
+      }
+
+      if ($caret.length && $input.length) {
+        $caret.on('click', function () {
+          $input.trigger('click');
+        });
+      }
+
+      $ul.children('li').on('click', function () {
+        $input.trigger('click');
+      });
+    });
+  }, 0);
+}
+
+// Dropdown Initialization Function
 function initialiseDropdown() {
   const elems = document.querySelectorAll('.dropdown-trigger');
-  const instances = M.Dropdown.init(elems, {
+  M.Dropdown.init(elems, {
     coverTrigger: false,
   });
 }
 
-
-/** Initialisation of Materialize datepicker elements*/
+// Datepicker Initialization
 function datepicker() {
   const elems = document.querySelectorAll('.datepicker');
   const today = new Date();
-  // Calculate the date 3 months from `today`
-  // Credits to Tim Nelson for helping calculate the three months
   const threeMonthsFromToday = new Date(today);
   threeMonthsFromToday.setMonth(today.getMonth() + 3);
-  const instances = M.Datepicker.init(elems, {
+
+  M.Datepicker.init(elems, {
     format: "dd mmmm, yyyy",
     minDate: today,
     maxDate: threeMonthsFromToday,
@@ -84,16 +76,7 @@ function datepicker() {
   });
 }
 
-$(document).ready(function () {
-  sideNav();
-  selectForm();
-  datepicker();
-  initialiseModal();
-  initialiseToolTipped();
-  initialiseDropdown();
-  manageAccount();
-});
-
+// Modal Initialization Function
 function initialiseModal() {
   const elems = document.querySelectorAll('.modal');
   M.Modal.init(elems, {
@@ -106,14 +89,13 @@ function initialiseModal() {
   });
 }
 
-
-/** Initialisation of Materialize tooltipped elements*/
+// Tooltip Initialization Function
 function initialiseToolTipped() {
   const elems = document.querySelectorAll('.tooltipped');
-  const instances = M.Tooltip.init(elems);
+  M.Tooltip.init(elems);
 }
 
-/** Parent link(#manage-account) also changes while child links are hovered */
+// Manage Account Hover Effect
 function manageAccount() {
   $(".manage-account-link").hover(
     function () {
@@ -125,46 +107,34 @@ function manageAccount() {
   );
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  // initialize carousel
+// Carousel Initialization and Autoplay
+function initialiseCarousel() {
   const carousel = document.querySelectorAll('.carousel');
   M.Carousel.init(carousel, {
     fullWidth: true,
-    indicators: true, // this option is require for autoplay functionnality
+    indicators: true,
   });
 
-  // custom function for autoplaying 
   let indicatorItems = document.querySelectorAll('.carousel .indicator-item'),
-    slideTime = 3000,
-    activeClass = "active";
-  onCycleTo = 5
+      slideTime = 3000,
+      activeClass = "active";
 
   setInterval(() => {
     indicatorItems.forEach(el => {
       if (el.classList.contains(activeClass)) {
-        sib = el.nextElementSibling;
+        let sib = el.nextElementSibling;
         if (sib == null) {
-          indicatorItems[8].click();
+          indicatorItems[0].click();
         } else {
-          sib.click()
+          sib.click();
         }
       }
     });
   }, slideTime);
-});
+}
 
+// Auto-resizing Text Area for Messages
 $('#message').on('input', function () {
   this.style.height = 'auto';
-
-  this.style.height =
-    (this.scrollHeight) + 'px';
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-  var elems = document.querySelectorAll('.dropdown-trigger');
-  var instances = M.Dropdown.init(elems, options);
-});
-
-$(document).ready(function () {
-  $('.modal').modal();
+  this.style.height = (this.scrollHeight) + 'px';
 });

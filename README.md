@@ -4,7 +4,7 @@
 
 ![UI](static/readme-images/documentationfront.png)
 
-This website is created for the intention of offering full package travel experience to Pula Croatia, it offers personalize travel arrangement from flights, accommodation, experiences for adults, kids or both. This website is to showcase the beautiful city of Pula and the amazing adventures it could offer. 
+This website is designed to offer a personalized travel experience to Pula, Croatia. It provides customized travel arrangements, including flights, accommodation, and activities for adults, kids, or families. The site aims to showcase the beauty of Pula and the exciting adventures it offers.
 
 ## Table of Contents
 
@@ -40,53 +40,41 @@ This website is created for the intention of offering full package travel experi
 
 ### **Site Purpose**
 
-### Website Purpose:
-#### What For:
-This Website is members only Travel Request Site, which offers personalize Travel Experience to Pula, Croatia. In the Travel Request Page, members are asked if they would like to check out concert and activity availability and list. It also ask if they would like for someone to guide them on their tour to show them around places in Croatia, offering the best possible comfort and direction of the tour without the stress of finding your way to and from. This Travel Request Form is being sent to our very own experience Travel Guide who will create a personalize Travel Experience, including options that would cater base on the Travelers preferrence. 
+The website provides a members-only travel assistance platform focused on creating personalized travel experiences in Pula, Croatia. The process starts with a simple travel request form, where users can provide their preferences regarding dates, accommodations, and activities. These details are then forwarded to a personal travel guide who creates a tailored itinerary.
 
--	Index Page  – Has less information but is filled of a few captovating images of Pula Croatia, in a Slide show which is proven to captivate a lot of website users. It helps them view multiple images without lifing a finger. They said that if you see amazing images firts speaks a thousand words. No fancy promises just images that could engage their interest and With a visible and easily accessed registration button that encourage users to click and join.  
-
-  This pages also, shows 2 reviews from previous clients, expressing their satisfaction of the services rendered from this Travel Site and was greately captivated of how beatiful the place is. 
-
--	Registration Page – Offers a direct approach on the registration process, nothing too complicated with prompts to let the user know what they would need to be able to create a profile. Once they are satisfied with the input they have selected and created, pressing the Register Button stores their information to the Data Base and routes them to their profile page where they can see their information and as well as update their contact information such email and phone number. Pressing the "Go to Request" button routes them to the request they have created. Which the Admin will be able to see from their page. The Request button takes them to the "Travel Request form" where they can fill in base on their needs and preferrence. 
-
-- Travel Request Page - You'll be routed here from the user profile page when you click on the Travel Request button. This Page is set up to ask questions about their travel preferrence. The date they are looking to travel, if its flexible or if they want to include flight cost in the travel plans, number of guest both adults and kids, number of bedroom and if they need additional support or activities. Clicking the Send Request button stores their Travel Request in the Data Base and is routed back to their Request Page, this is also being shown in the Admin Travel Request Page. 
-
-- My Details Page - This page shows when user clicked on the "Go to My Details" button, in this page you have the opportunity to update your contact details if you need to. 
-- Update Page - Users will be routed on this page when they click on the update button from the My details page. 
-- Travel Request Page - This page shows the Travel Request that you have made, this request is also shown to the Account Manager. 
-- Log in Page - Users can log-n using their credentials when they already have an account registered. 
-- Change Password Page - Users are being routed in here when they want to change their passwords. 
-- Contact Page - This Page is available and visible both when login and or from the Index Page, giviing the users that have not registered yet opportunity to contact admins for questions that may have. This is also visible when logged in when members would also like to reach out with the Admin for help or other inquiries that they may have. 
-
-- Logout -  This functionality is available under the dropdown list insdie the Manage Account Selection of the Navbar
-- Manage User Page - This is a Admin Page where Admin can Delete Users. 
-- Manage Travel Request Page - This Page shows the Admin the Travel Request that the user has created. Admin can delete, changed the status of it so Admin can identify which one has been completed or and which one has not been. 
-
-    It can be a little overwhelming to do travel arrangements especially when you are travelling with kids, Travel companies that offer personlize travel experiences like these that cater what the traveler actually like to do makes a difference in their experience. Like a lot of parents say, it is not a holiday its babysitting just in a different location. We have to admit it can be so difficult and challenging at times but when you have a well organize travel arrangements made by a team of professional Travel Experts. It could make your travel experience less stress and more memorable. 
-
+Key Pages:
+  - Index Page: Showcases stunning images of Pula in a captivating slideshow, with minimal text and an easy-to-find registration button.
+  - Registration Page: Offers a straightforward registration process with prompts for necessary information. Once registered, users are   redirected to their profile page to manage contact details.
+  - Travel Request Page: Users submit their travel preferences, including dates, accommodation needs, and activity requests.
+  - My Details Page: Allows users to view and update their contact details.
+  - Admin Pages: Admins can manage users, travel requests, and track the status of travel arrangements.
 
 #### Who For: 
-The website is for everyone who is looking to experience the City of Pula, Croatia, this site can be a massive help for first time travelers who are overwhelmed with the things they need and need to do to plan their trip. Familys who have young kids who are not only tired, stress, overwhelmed thingking the best possibly places and activities for their kids. Couples who just wants to relax and not worried about anything else but enjoy every piece of what Pula can offer. Repeat customers who would like to experience other things that they have not experience on their first trip. Concert goers who are interested in other concerts offers that is being showcase in the historic Pula Arena.  
+The website caters to anyone looking to experience Pula, Croatia, including:
+
+  - First-time travelers
+  - Families with young children
+  - Couples seeking a relaxing vacation
+  - Concert goers interested in events at the Pula Arena
+  - Repeat visitors looking to explore more of Pula
 
 
 ### **Site Goal**
 
-Site Goal is to provide a one stop shop for Travelers of all kind that provides everything they need. A full proof plan that is designed based on their needs, wants and preference so that they can thoroughly enjoy the place and not to worry about anything else.  
+To provide a one-stop shop for travelers to plan their perfect trip to Pula, Croatia, ensuring every aspect of the journey—flights, accommodation, and activities—is customized to their preferences.
 
 ### **Current User Goal**
-- Working buttons that routes them to what they want to do.
-- Information about the City they are traveling to.
-- Contact Us
-- A Form where they can put in their preferrence about their travel plans and request. 
-- A page where they can see their details and the ability to edit their contact info. 
-- Captivating Slide show images that guages their interest traveling to the country. 
+  - Easy navigation with functional buttons
+  - Access to detailed city information
+  - Ability to submit a personalized travel request form
+  - A user-friendly profile management page with contact info updates
+  - A visually appealing landing page with captivating images of Pula
 
 ### **New User Goal**
-Would like to add another Destination in Croatia.
+  - Add a new destination to their itinerary for future travel plans.
 
 ### **Communication**
-The site is a Travel Request site, that offers personalized travel experiece. I did worry about the design because, I would like users to see what they will be seeing when they get into their destination. I have also focused on the content and how user friendly the site will be. I have chosen a basic structure that is easy to navigate and understand. 
+The site is designed to be intuitive, ensuring users can easily find what they need. The content focuses on showcasing Pula’s attractions and making the booking process as simple as possible.
 
 
 ## **Design**
@@ -108,13 +96,13 @@ The site is a Travel Request site, that offers personalized travel experiece. I 
   ![14](static/readme-images/14.png)
 
 ### **Typography**
-  font-family: 'Shadows Into Light', 'Arial Narrow', Arial, cursive;
+  - font-family: 'Shadows Into Light', 'Arial Narrow', Arial, cursive;
   ![f1](static/readme-images/f1.png)
 
-  font-family: "Questrial", sans-serif;
+  - font-family: "Questrial", sans-serif;
   ![f2](static/readme-images/f2.png)
 
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+  - font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
   ![f3](static/readme-images/f3.png)
 
 ### **Images**
@@ -134,19 +122,19 @@ The site is a Travel Request site, that offers personalized travel experiece. I 
 
   ![Nav Bar](static/readme-images/mobilenav.png)
 
-   -  My very first project with Code Institute was a Blog Site and I mentioned there that I think the most important thing about a website is the navigation bar, to me it should not be complicated to use it and it should be visible with easy to the eyes color. My navbar turns into a toggle button when the screen size go smaller. The Navigation bar also highlights what page the user is currently in. Up until today, this is still something I think should be necessary nothing beats simplicity  
+   -  The navigation bar is simple, clear, and features active highlights to show users which page they are on. It turns into a toggle button on smaller screens, making it mobile-friendly.
 
 ### CAPTURING USERS ATTENTION WITH CAROUSEL 
 
   ![carousel](static/readme-images/carousel.mp4)
 
-   -  As a user one thing that attracts me to use a website is a short homepage with a short description of what it is all about. To me when the home page is too long and too wordy, it is already a turn off form me. This may differ to different people so this is only base on my personal preference. The photo I think adds a personal touch. 
+   -  The home page features a captivating image carousel to quickly engage users with stunning visuals of Pula, sparking interest in the destination. 
 
 ### SOCIAL LINKS
 
   ![Social Links](static/readme-images/footerandsocialmedia.png)
 
-  - In this day and age, Social Media is everywhere and 99% of the population probably has one, so having social links on all pages of your website not only makes your website look aesthestically pleasing but as well as it could help users find your easier. Especially when you are offering services. 
+  - The footer contains links to social media platforms, making it easier for users to stay connected and discover more about Pula’s offerings.
 
 
 ### review
@@ -158,17 +146,17 @@ The site is a Travel Request site, that offers personalized travel experiece. I 
 ### ADMIN FUNCTIONALITY
   ![admin ](static/readme-images/AdminFunctionality.png)
 
-  - Having a Link that you can download pdf files are very important when it comes to websites that provide information. 
+  - Admin users have the ability to manage accounts, travel requests, and update statuses for completed or pending travel arrangements. 
 
   ### CONTACT PAGE 
   ![Contact Page](static/readme-images/contact.png)
 
-  - Contact Pages I think is one of the most usefukl pages in a website, it provides user comfort that they can reach out to someone if they do have additional information. 
+  - A contact page is available for both registered users and visitors who may have inquiries before registering. 
 
   ### REGISTER PAGE 
   ![Register Page](static/readme-images/register.png)
 
-  - This site is for a member only Travel Assistance Site . 
+  - The registration page is straightforward, with clear instructions for users to create their profiles and request personalized travel experiences.
 
 ### **Language Used**
   - English
