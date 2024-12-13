@@ -293,7 +293,7 @@ def newTravel():
                 {"$set": updated_data}
             )
             flash("Travel request updated successfully!")
-            return redirect(url_for("travel"))
+            return redirect(url_for("travel_info"))
 
     return render_template("newTravel.html", travel_info=travel_info, username=username, name=name)
 
