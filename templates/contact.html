@@ -45,7 +45,8 @@
             <div id="thank-you-feedback" style="display: none;">
                 <div class="card-panel custom-card col s12 m8 offset-m2 p-5">
                     <h5>Thanks for reaching out to Experience Pula, Croatia!</h5>
-                    <p>Your message is important to us, and we're excited to assist you in finding your dream holiday adventure.</p>
+                    <p>Your message is important to us, and we're excited to assist you in finding your dream holiday
+                        adventure.</p>
                     <a class="btn orange-text text-lighten-4 teal darken-4 rounded waves-effect waves-light"
                         href="{{ url_for('index') }}">Home</a>
                 </div>
@@ -66,9 +67,9 @@
 
         // Send the data using fetch
         fetch('/contact', {
-            method: 'POST',
-            body: formData,
-        })
+                method: 'POST',
+                body: formData,
+            })
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');

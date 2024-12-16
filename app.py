@@ -65,6 +65,11 @@ def index():
     return render_template("index.html")
 
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+    
+
 # NEW USER REGISTRATION
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -271,7 +276,7 @@ def newTravel():
         if "delete" in request.form and travel_info_id:
             mongo.db.travel_info.delete_one({"_id": ObjectId(travel_info_id)})
             flash("Request Deleted")
-            return redirect(url_for("travel"))
+            return redirect(url_for("newTravel"))
 
         # Update (only allowed for users, not admin)
         if "update" in request.form and travel_info_id and username != "systemadmin":

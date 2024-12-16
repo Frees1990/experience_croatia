@@ -1,10 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
-    
+
+<aside>
+    <aside class="container flash">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="row flashes">
+            <div class="col s12 m4 offset-m3 card-panel red accent-4 rounded center">
+                <h6 class="orange-text text-lighten-4">{{ message }}</h6>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </aside>
     <div class="container page-container">
         <!-- Heading -->
         <div class="row">
-            <div class="col s12 m8 offset-m2 manageusersHeader"  style="margin-top: 25%; margin-bottom: 5%;">
+            <div class="col s12 m8 offset-m2 manageusersHeader">
                 <h4 class="center-align teal-text text-darken-4">
                 Hello Admin, Let's Manage Our Users.
                 </h4>
@@ -75,4 +89,5 @@
         </div>
         {% endfor %}
     </div>
+</aside>
 {% endblock %}

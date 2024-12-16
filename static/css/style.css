@@ -82,6 +82,7 @@ nav ul:not(.dropdown-content)>li>a {
   font-size: 1.5rem;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: bolder;
+  background-color: black;
   color: white;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
@@ -175,8 +176,8 @@ input:checked~.hamburger span:nth-child(3) {
 }
 .flash {
   position: fixed;
-  top: 30%;
-  width: 100%;
+  margin-top: 5%;
+  margin-left: 42%;
   z-index: 1000;  /* Make sure it’s above all other content */
   padding: 15px 0;
   text-align: center;
@@ -225,6 +226,10 @@ a.brand-logo {
   font-size: 1.2rem;
   line-height: 1.5; 
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+.responsive-img{
+  margin-right: 15%;
+  margin-left: 20%;
 }
 /* Custom green button */
 .green-btn {
@@ -543,10 +548,15 @@ button {
   background-color: #f3e0cb;
 }
 /*  --------------------------------------- MANAGE USERS */
+.manageusersHeader{
+  margin-top: 25%;
+  margin-bottom: 0;
+}
 .manageusersCard{
+  margin-bottom: 2%;
   background-color: #f3e0cb;
 }
 .backdashMU{
-  margin-top: 0;
-  margin-left: 5%;
+  margin-bottom: 3%;
+
 }
