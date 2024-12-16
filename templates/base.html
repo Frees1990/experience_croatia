@@ -20,6 +20,8 @@
             <a href="{{ url_for('index') }}" class="brand-logo center shadows-into-light-regular" aria-label="Homepage">Pula Croatia</a>
             <ul class="right hide-on-med-and-down">
                 {% if session.user %}
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
                 <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                 <li>
                     <a class="dropdown-trigger" href="#" data-target="manage_account">
@@ -38,6 +40,7 @@
             <ul id="manage_account" class="dropdown-content">
                 <li><a href="{{ url_for('changepass') }}">Change Password</a></li>
                 <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact us</a></li>
             </ul>
 
             <input id="mobile-menu-toggle" type="checkbox" aria-label="Toggle mobile menu">
@@ -52,6 +55,8 @@
             <nav class="mobile-nav">
                 <ul>
                     {% if session.user %}
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
                     <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                     <li>
                         <a class="dropdown-trigger" href="#" data-target="mobile-manage-account">
@@ -70,6 +75,7 @@
                 <ul id="mobile-manage-account" class="dropdown-content">
                     <li><a href="{{ url_for('changepass') }}">Change Password</a></li>
                     <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact us</a></li>
                 </ul>
                 {% endif %}
             </nav>
@@ -107,7 +113,7 @@
         </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.4/dist/js/materialize.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>

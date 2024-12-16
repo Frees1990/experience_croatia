@@ -68,7 +68,7 @@ def index():
 @app.route('/about')
 def about():
     return render_template('about.html')
-    
+
 
 # NEW USER REGISTRATION
 @app.route("/register", methods=["GET", "POST"])
