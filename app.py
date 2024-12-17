@@ -20,6 +20,7 @@ app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
+
 mongo = PyMongo(app)
 
 
@@ -415,17 +416,14 @@ def travel_info():
         return render_template("travel_info.html", airports=uk_airports)
 
 
-@app.route("/contact", methods=["GET", "POST"])
+@app.route("/contact", methods=["GET"])
 def contact():
-    if request.method == "POST":
-        # Process form data
-        name = request.form.get("name")
-        email = request.form.get("email")
-        number = request.form.get("number", "")
-        message = request.form.get("message")
-
-    # Serve the contact page for GET requests
     return render_template("contact.html")
+
+
+@app.route("/thank_you", methods=["GET"])
+def thank_you():
+    return render_template("thank_you.html")
 #  ----------------ADMIN FUNCTIONALILITIES
 
 # MANAGE USERS TEMPLATE

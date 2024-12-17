@@ -276,15 +276,6 @@ a.brand-logo {
   font-weight: bolder;
 }
 /*  --------------------------------------- CONTACT PAGE */
-#thank-you-feedback {
-  display: none;
-}
-#no-card-display {
-  display: none;
-}
-#no-house-display{
-  display: none;
-}
 #contact-image {
   background-image: url('../images/contact.jpg'); /* Replace with your image URL */
   background-size: cover;
@@ -315,12 +306,13 @@ a.brand-logo {
   text-align: center;
   margin-bottom: 10px;
 }
-#thank-you {
-  background-color: #4caf50;
-  padding: 15px;
-  color: white;
-  border-radius: 4px;
-  text-align: center;
+.thank-you-card {
+  margin-top: 30%;
+  background-color: #fffde7; /* Light cream color */
+  width: 600px;
+}
+.card-content p {
+  margin-top: 10px;
 }
 /* ---------------------------- Register Form */
  /* Full Page Background */

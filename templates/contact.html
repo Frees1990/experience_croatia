@@ -35,61 +35,50 @@
                 <!-- Submit button -->
                 <div class="row">
                     <div class="col s12 center">
-                        <button type="submit" class="btn btn-small green white-light waves-effect waves-dark"
+                        <button type="submit" id="submit_button"
+                            class="btn btn-small green white-light waves-effect waves-dark"
                             style="font-weight: 900;">Send Message</button>
                     </div>
                 </div>
             </form>
-
-            <!-- Thank You Feedback -->
-            <div id="thank-you-feedback" style="display: none;">
-                <div class="card-panel custom-card col s12 m8 offset-m2 p-5">
-                    <h5>Thanks for reaching out to Experience Pula, Croatia!</h5>
-                    <p>Your message is important to us, and we're excited to assist you in finding your dream holiday
-                        adventure.</p>
-                    <a class="btn orange-text text-lighten-4 teal darken-4 rounded waves-effect waves-light"
-                        href="{{ url_for('index') }}">Home</a>
-                </div>
-            </div>
+            <p id="success-message" style="display: none; color: green; text-align: center;">
+                Your message has been sent successfully!
+            </p>
+            <p id="error-message" style="display: none; color: red; text-align: center;">
+                Something went wrong. Please try again.
+            </p>
         </div>
     </div>
 </aside>
 {% endblock %}
 {% block javascript %}
+<!-- Include EmailJS SDK -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
-    document.getElementById('submit_button').addEventListener('click', function (event) {
-        // Prevent the form's default submission behavior
-        event.preventDefault();
+    (function() {
+        emailjs.init("AiuvVMWIqUo7pR59Q"); // Replace with your EmailJS Public Key
+    })();
 
-        // Get the form element and its data
-        const form = document.getElementById('contact_form');
-        const formData = new FormData(form);
+    document.getElementById("contact_form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent the form from refreshing the page
 
-        // Send the data using fetch
-        fetch('/contact', {
-                method: 'POST',
-                body: formData,
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (data.status === 'success') {
-                    console.log('Form submitted successfully:', data);
+        // Template Parameters
+        const templateParams = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            phone: document.getElementById("number").value,
+            message: document.getElementById("message").value
+        };
 
-                    // Hide the form and show the thank-you message
-                    form.style.display = 'none';
-                    document.getElementById('thank-you-feedback').style.display = 'block';
-                } else {
-                    console.error('Submission error:', data);
-                }
-            })
-            .catch(error => {
-                console.error('Submission failed:', error);
-                alert('Something went wrong. Please try again.');
+        // Send EmailJS message
+        emailjs.send("contact_service", "contact_form", templateParams)
+            .then(function(response) {
+                console.log("SUCCESS!", response.status, response.text);
+                // Redirect to thank_you page after success
+                window.location.href = "{{ url_for('thank_you') }}";
+            }, function(error) {
+                console.log("FAILED...", error);
+                alert("Message failed to send. Please try again.");
             });
     });
 </script>
