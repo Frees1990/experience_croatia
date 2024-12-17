@@ -78,19 +78,12 @@ nav ul:not(.dropdown-content)>li>a {
   cursor: pointer;
   margin-top: 20px;
 }
-.dropdown-content {
-  font-size: 1.5rem;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-weight: bolder;
-  background-color: black;
-  color: white;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-}
+
 .dropdown-content>li>a {
   font-size: 1.5rem;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: bolder;
-  color: white;
+  color: black;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 nav ul:not(.dropdown-content)>li>a:hover:not(.active) {
@@ -450,21 +443,25 @@ a.brand-logo {
   position: relative;
   z-index: 2;
 }
-
 .travelHeader>h3 {
   color: green;
   font-weight: 700;
 }
-
-.travelHeader>h5 {
+.travelHeader>h3,h4 {
   margin-top: 2%;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  color: black;
+  color: white;
+  text-shadow: #000;
   font-weight: 800;
 }
-
 .custom-card-travel {
   background-color: rgba(93, 91, 88, 0.445);
+}
+.travel-info-form .dropdown-content {
+  font-size: 1rem; /* Default or adjusted styles */
+  font-weight: 900;
+  background-color: white;
+  text-shadow: none;
 }
 /*  ------------------------- NEW TRVEL REQ PAGE */
 .username-heading {
@@ -535,8 +532,11 @@ button {
   margin-top: 2%;
 }
 /*  --------------------------------------- PASSWORD CHANGE */
+#passwordCH {
+  margin-top: 15%;
+}
 #changepass {
-  margin-top: 20%;
+  margin-top: 5%;
   background-color: #f3e0cb;
 }
 /*  --------------------------------------- MANAGE USERS */

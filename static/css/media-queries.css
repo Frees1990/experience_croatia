@@ -34,6 +34,17 @@
     .carousel .carousel-item>img {
         height: 80vh;
     }
+    a.brand-logo {
+        display: none;
+    }
+    .custom-nav {
+        background-color: #675e54a5;
+        z-index: 4;
+        position: fixed;
+        top: 0;
+        padding: 0 50px;
+        min-height: 10vh;
+    }
     .profileHeader>h3 {
         margin-top: 30%;
         font-size: 3rem;
@@ -136,9 +147,18 @@
         cursor: pointer;
         text-indent: -9999px;
         overflow: hidden;
-        z-index: 4;
-        margin-top: 2%;
+        z-index: 7;
+        margin-top: 5%;
     }
+    .custom-nav {
+        background-color: #675e54a5;
+        z-index: 4;
+        position: fixed;
+        top: 0;
+        padding: 0 50px;
+        min-height: 4vh;
+    }
+
     .review-image {
         max-width: 150px;
     }
@@ -238,7 +258,7 @@
         color: white;
         padding: 20px;
         border-radius: 10px;
-        margin-top: 130%;
+        margin-top: 200%;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     }
     .hero-callout h5 {
@@ -258,10 +278,10 @@
         height: 100%;
     }
     a.brand-logo {
-        width: 80px;
-        height: 80px;
+        width: 70px;
+        height: 70px;
         border-radius: 50%;
-        background-size: 80px 80px;
+        background-size: 70px 70px;
         background-image: url(../images/logo.png);
         background-repeat: no-repeat;
         background-position: 0 0;
@@ -277,7 +297,7 @@
         position: fixed;
         top: 0;
         padding: 0 50px;
-        min-height: 7vh;
+        min-height: 4vh;
     }
     #mobile-manage-account {
         --surface-color: unset; /* Remove custom property */
@@ -287,9 +307,6 @@
     }
     #mobile-manage-account li a {
         color: white /* Ensure link text is visible */
-    }
-    .hero-callout {
-        padding: 10px;
     }
     .hero-review h4 {
         margin-top: 0;
@@ -385,10 +402,10 @@
         color: white /* Ensure link text is visible */
     }
     a.brand-logo {
-        width: 80px;
-        height: 80px;
+        width: 60px;
+        height: 60px;
         border-radius: 50%;
-        background-size: 80px 80px;
+        background-size: 60px 60px;
         background-image: url(../images/logo.png);
         background-repeat: no-repeat;
         background-position: 0 0;

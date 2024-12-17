@@ -27,15 +27,13 @@ mongo = PyMongo(app)
 # LOG IN REQUIRED 
 def login_required(f):
     """
-    Function to ensure that user is logged in
-
+    Decorator to ensure that the user is logged in.
+    Redirects to the login page with a flash message if not logged in.
     """
     @wraps(f)
     def decorated_function(*args, **kwargs):
-        """
-        https://flask.palletsprojects.com/en/2.3.x/patterns/viewdecorators/
-        """
         if session.get("user") is None:
+            flash("You need to log in to access this page.")
             return redirect(url_for("login"))
         return f(*args, **kwargs)
     return decorated_function
@@ -129,48 +127,39 @@ def register():
     return render_template("register.html")
 
 
-# USER PLOGIN PAGE
 # LOGIN
 @app.route("/login", methods=["GET", "POST"])
 def login():
     """
-    Renders template for 'login'.
-
-    looks up user details in MongoDB collection users
-
+    Renders login template and handles user authentication.
     """
     if request.method == "POST":
-        # Validate that username and password is not an empty string:
+        # Fetch form data
         username = request.form.get("username")
         password = request.form.get("password")
-        if username is None:
-            flash("Incorrect Username and/or Password!!!!!")
-            return redirect(url_for("login"))
-        if password is None:
-            flash("Incorrect Username and/or Password!!!!!")
+
+        # Validate inputs
+        if not username or not password:
+            flash("Username and/or Password cannot be empty!")
             return redirect(url_for("login"))
 
-        # check if username exists in db
-        existing_user = mongo.db.users.find_one(
-            {"username": username}
-        )
+        # Check if username exists in database
+        existing_user = mongo.db.users.find_one({"username": username})
 
         if existing_user:
-            # ensure hashed password matches user input
+            # Validate password
             if check_password_hash(existing_user["password"], password):
-                session["user"] = username
+                session["user"] = username  # Initialize session
                 flash("Welcome, {}".format(username))
-                return redirect(url_for(
-                    "profile", username=session["user"]
-                ))
-                # invalid password match
-            flash("Incorrect Username and/or Password!!!!!")
+                return redirect(url_for("profile", username=session["user"]))
+
+            # Invalid password
+            flash("Incorrect Username and/or Password!")
             return redirect(url_for("login"))
 
-        else:
-            # username doesn't exist
-            flash("Incorrect Username and/or Password!!!!!")
-            return redirect(url_for("login"))
+        # Username does not exist
+        flash("Incorrect Username and/or Password!")
+        return redirect(url_for("login"))
 
     return render_template("login.html")
 
@@ -226,15 +215,19 @@ def changepass():
 # USER PROFILE DASHBOARD
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
+    # Ensure user is logged in
+    if not session.get("user"):
+        return redirect(url_for("login"))
+
     # Fetch the session user's details from the database
     user = mongo.db.users.find_one({"username": session["user"]})
 
-    # Redirect or handle missing user
+    # Handle missing user
     if not user:
-        return redirect(url_for("login"))  # Redirect to login or appropriate page
+        return redirect(url_for("login"))
 
-    # Get user's name and decide query based on admin status
-    name = user.get("name", "User")  # Fallback to "User" if name is missing
+    # Get user's name and query users based on admin status
+    name = user.get("name", "User")  # Default to "User" if name is missing
     if session["user"] == "systemadmin":
         users = mongo.db.users.find()
     else:
@@ -245,6 +238,7 @@ def profile(username):
 
 # USER PROFILE/IDENTITY INFORMATION
 @app.route("/myinfo", methods=["GET", "POST"])
+@login_required
 def myinfo():
     # grab the session user's username from db
     username = mongo.db.users.find_one(
@@ -259,47 +253,43 @@ def myinfo():
 
 
 @app.route("/newTravel", methods=["GET", "POST"])
+@login_required  # Protect this route
 def newTravel():
     user = mongo.db.users.find_one({"username": session["user"]})
+
+    # Handle invalid user session (extra safety)
+    if not user:
+        flash("User not found. Please log in again.")
+        return redirect(url_for("login"))
+
     username = user["username"]
     name = user.get("name", "Default Name")
-    # Determine the travel info to display
+
+    # Fetch travel information
     if username == "systemadmin":
         travel_info = mongo.db.travel_info.find()
     else:
         travel_info = mongo.db.travel_info.find({"username": username})
 
-    # Handle POST requests for delete and update
+    # Handle POST actions (delete/update)
     if request.method == "POST":
         travel_info_id = request.form.get("travel_info_id")
-        
-        # Deletion
-        if "delete" in request.form and travel_info_id:
-            mongo.db.travel_info.delete_one({"_id": ObjectId(travel_info_id)})
-            flash("Request Deleted")
+        try:
+            if travel_info_id:
+                object_id = ObjectId(travel_info_id)
+                if "delete" in request.form:
+                    mongo.db.travel_info.delete_one({"_id": object_id})
+                    flash("Request Deleted.")
+                elif "update" in request.form and username != "systemadmin":
+                    updated_data = {
+                        "travel_dates": request.form.get("travel_dates", ""),
+                        "email": request.form.get("email", ""),
+                    }
+                    mongo.db.travel_info.update_one({"_id": object_id}, {"$set": updated_data})
+                    flash("Request Updated.")
             return redirect(url_for("newTravel"))
-
-        # Update (only allowed for users, not admin)
-        if "update" in request.form and travel_info_id and username != "systemadmin":
-            updated_data = {
-                "travel_dates": request.form.get("travel_dates"),
-                "flexible_dates": request.form.get("flexible_dates"),
-                "flying_from": request.form.get("flying_from"),
-                "number_adult_guests": request.form.get("number_adult_guests"),
-                "number_kids_guests": request.form.get("number_kids_guests"),
-                "preferred_accom": request.form.get("preferred_accom"),
-                "rooms": request.form.get("rooms"),
-                "concerts": request.form.get("concerts"),
-                "water_sports": request.form.get("water_sports"),
-                "email": request.form.get("email"),
-                "phone": request.form.get("phone"),
-            }
-            mongo.db.travel_info.update_one(
-                {"_id": ObjectId(travel_info_id)},
-                {"$set": updated_data}
-            )
-            flash("Travel request updated successfully!")
-            return redirect(url_for("travel_info"))
+        except Exception as e:
+            flash(f"An error occurred: {str(e)}")
 
     return render_template("newTravel.html", travel_info=travel_info, username=username, name=name)
 
