@@ -388,7 +388,6 @@ def travel_info():
         }
 
         mongo.db.travel_info.insert_one(travel_entry)
-        flash("Your request has been submitted to one of our Travel Guides and will get back to you with your perfect holiday plan to Pula Croatia.")
         return redirect(url_for("newTravel", username=session["user"]))
     else:
         # Hardcoded list of UK airports

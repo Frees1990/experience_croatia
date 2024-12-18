@@ -1,21 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
 <aside id="loginImage">
+    <aside class="container flash">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="row flashes">
+            <div class="col s12 center">
+                <h5>{{ message }}</h5>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </aside>
     <div class="container page-container">
         <div class="row">
-            <aside class="container flash">
-                {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                {% for message in messages %}
-                <div class="row flashes">
-                    <div class="col s12 m4 offset-m3 card-panel red accent-4 rounded center">
-                        <h6 class="orange-text text-lighten-4">{{ message }}</h6>
-                    </div>
-                </div>
-                {% endfor %}
-                {% endif %}
-                {% endwith %}
-            </aside>
             <form class="card-panel custom-card logincard col s12 m8 offset-m2" method="POST" name="loginForm"
                 id="loginForm" action="{{ url_for('login') }}">
                 <!-- username -->

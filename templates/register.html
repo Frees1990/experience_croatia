@@ -5,6 +5,19 @@
 
 <aside id="registerImage">
     <!-- Centered Card -->
+    <aside class="container flash">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="row flashes">
+            <div class="col s12 m4">
+                <h5>{{ message }}</h5>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </aside>
     <div class="card reg-card col s12 m8">
         <h4 class="highlight-text">Experience Pula, Croatia</h4>
         <h6 class="highlight-text">Experience the wonderful culture, nightlife, and the sunny life in Croatia. Register to receive exclusive offers.</h6>

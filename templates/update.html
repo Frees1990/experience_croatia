@@ -4,6 +4,19 @@
     {% if session.user != "systemadmin" %}
     <aside id="profileImage">
         {% endif %}
+        <aside class="container flash">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <div class="row flashes">
+                <div class="col s12 m4">
+                    <h5>{{ message }}</h5>
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+        </aside>
         <div class="row">
             <div class="col s12 updatedetails">
                 <h4 class="center"><b>UPDATE PROFILE INFORMATION</b></h4>

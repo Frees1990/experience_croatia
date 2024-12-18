@@ -170,12 +170,13 @@ input:checked~.hamburger span:nth-child(3) {
 .flash {
   position: fixed;
   max-width: 100%;
-  margin-top: 5%;
-  margin-left: 42%;
+  margin-top: 7%;
   z-index: 1000;  /* Make sure it’s above all other content */
   padding: 15px 0;
   text-align: center;
-  color: #000;  /* Dark text for visibility */
+  color: rgb(255, 251, 0);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: 900;
 }
 /* --------------------------------------- Logo*/
 a.brand-logo {
