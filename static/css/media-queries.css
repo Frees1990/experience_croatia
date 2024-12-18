@@ -537,4 +537,14 @@
     .places-to-go, .concerts-list, .watersports-pula{
         font-size: x-large;
     }
+    .thank-you-card {
+        padding: 15px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .thank-you-card .card-title {
+        font-size: 1.2rem;
+    }
+    .thank-you-card p {
+        font-size: 0.9rem;
+    }
 }

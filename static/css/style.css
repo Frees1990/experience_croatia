@@ -100,7 +100,7 @@ nav ul:not(.dropdown-content)>li>a:hover:not(.active) {
   width: 50%; 
   height: 100vh;
   z-index: 3;
-  background-color: #675e54a5;
+  background-color: black;
   transition: left 0.3s ease; 
   padding-top: 70px;
   box-sizing: border-box;
@@ -147,7 +147,7 @@ nav ul:not(.dropdown-content)>li>a:hover:not(.active) {
   width: 45px;
   height: 36px;
   margin-right: 10px;
-  margin-top: 22px;
+  margin-top: 20px;
 }
 /* Trigger bars */
 .hamburger span {
@@ -300,9 +300,11 @@ a.brand-logo {
   margin-bottom: 10px;
 }
 .thank-you-card {
-  margin-top: 30%;
-  background-color: #fffde7; /* Light cream color */
-  width: 600px;
+  max-width: 100%;
+  margin: 30% auto;
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 .card-content p {
   margin-top: 10px;
