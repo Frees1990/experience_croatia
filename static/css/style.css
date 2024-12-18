@@ -169,6 +169,7 @@ input:checked~.hamburger span:nth-child(3) {
 }
 .flash {
   position: fixed;
+  max-width: 100%;
   margin-top: 5%;
   margin-left: 42%;
   z-index: 1000;  /* Make sure it’s above all other content */
