@@ -193,45 +193,49 @@ The site is designed to be intuitive, ensuring users can easily find what they n
 ### **HTML Validatior Test**
 
     It showed quite a few errors that I have already fixed but I wasn't able to get a screenshot of. 
-  - Landing Page - 
-https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2F
+  - Base/Index - 
+https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Findex.html
 
-  - contact Page -
+  - About - 
+https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fabout
+
+  - Contact -
 https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fcontact
 
-  - Registration Page - 
+  - Registration - 
 https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fregister
 
   - Login Page - 
 https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Flogin
 
   - User Profile Page - 
-https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fprofile%2Fjoostrees
+https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fprofile%2Ftest2
 
   - User Info Page - 
-https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fmyinfo
+https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fmyinfo
 
 USER TRAVEL REQ
-https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2FnewTravel
+https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2FnewTravel
 
 CHANGEPASS
-https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fchangepass
+https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fchangepass
 
-ADMIN page 
-https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fprofile%2Fsystemadmin
-George2014 systemadmin
+ADMIN Profile page 
+https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fprofile%2Fsystemadmin
 
-USER manager
-https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fmanageusers%2Fsystemadmin
+ADMIN user manager
+https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fmanageusers%2Fsystemadmin
 
-TRAVEL MANAGER
-https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fmanagereq
+ADMIN travel request manager 
+https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2FnewTravel
 
-TRAVEL FORM
-https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Ftravel_info
+USER TRAVEL REQUEST FORM
+https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Ftravel_info
 
-UPDATE INFO
-https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fupdate%2F66d823d2071ea5dfbca0d23e
+UPDATE USER INFO
+https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fupdate%2F6761abae09aec3a80580361b
+
+
   
 
 ### **CSS Validator Test**

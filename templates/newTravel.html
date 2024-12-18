@@ -188,7 +188,7 @@
                     {% if username != "systemadmin" %}
                     <!-- Update Button (Only for Users) -->
                     <div class="col s12 m6" id="update">
-                        <a href="{{ url_for('updateTravel', id=travel_info._id) }}"
+                        <a href="{{ url_for('updateTravel', users_id=travel_info._id) }}"
                             class="btn btn-small light-blue darken-4 waves-effect waves-light">
                             <small>Update</small>
                         </a>

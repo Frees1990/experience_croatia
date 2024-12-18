@@ -294,10 +294,11 @@ def newTravel():
     return render_template("newTravel.html", travel_info=travel_info, username=username, name=name)
 
 
-@app.route("/updateTravel/<id>", methods=["GET", "POST"])
-def updateTravel(id):
+@app.route("/updateTravel/<users_id>", methods=["GET", "POST"])
+@login_required
+def updateTravel(users_id):
     # Fetch the travel info from the database by its ID
-    travel_info = mongo.db.travel_info.find_one({"_id": ObjectId(id)})
+    travel_info = mongo.db.travel_info.find_one({"_id": ObjectId(users_id)})
 
     # If the method is POST, update the travel info
     if request.method == "POST":
@@ -314,9 +315,9 @@ def updateTravel(id):
             "email": request.form["email"],
             "phone": request.form["phone"],
         }
-        
+
         # Update the travel_info in the database
-        mongo.db.travel_info.update_one({"_id": ObjectId(id)}, {"$set": updated_data})
+        mongo.db.travel_info.update_one({"_id": ObjectId(users_id)}, {"$set": updated_data})
 
         flash("Travel Request Updated Successfully", "success")
 
@@ -324,7 +325,7 @@ def updateTravel(id):
         return redirect(url_for("newTravel"))
 
     # If GET request, just render the form with current data
-    return render_template("updateTravel.html", travel_info=travel_info)
+    return render_template("updateTravel.html", travel_info=travel_info, users_id=users_id)
 
 
 # USER UPDATE ACCOUNT OPTION 

@@ -8,7 +8,7 @@
             <div class="card updatecard grey">
                 <div class="card-content">
                     <h5 class="center-align">Update Travel Request</h5>
-                    <form action="" method="POST">
+                    <form action="{{ url_for('updateTravel', users_id=users_id) }}" method="POST">
                         <div class="row">
                             <!-- Travel Dates and Flexible Dates -->
                             <div class="input-field col s12 m4 m-3">
