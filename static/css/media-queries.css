@@ -531,4 +531,10 @@
         font-size: x-large;
         margin-top: 10%;
     }
+    .experience-croatia-h1{
+        font-size: xx-large;
+    }
+    .places-to-go, .concerts-list, .watersports-pula{
+        font-size: x-large;
+    }
 }
