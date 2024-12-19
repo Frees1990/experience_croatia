@@ -5,8 +5,8 @@
         {% with messages = get_flashed_messages() %}
         {% if messages %}
         {% for message in messages %}
-        <div class="row flashes">
-            <div class="col s12 center">
+        <div class="row">
+            <div class="col s12 m4 flashes card flash-card">
                 <h5>{{ message }}</h5>
             </div>
         </div>
@@ -57,7 +57,7 @@
                     <div class="col s12 center p5">
                         <button type="submit" name="action"
                             class="btn btn-small green darken-3 white-text white-lighten-4 rounded waves-effect waves-light btncont">
-                            <small><b>LOG IN</b></small>
+                            <b>LOG IN</b>
                         </button>
                     </div>
                 </div>

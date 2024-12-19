@@ -24,7 +24,7 @@
 
         <!-- Registration Form -->
         <div class="card-content">
-            <form id="regForm" method="POST" action="{{ url_for('register') }}" aria-label="registration form">
+            <form id="regForm" method="POST" action="{{ url_for('register') }}" aria-label="registration form" onsubmit="return validateForm();">
                 <div class="row">
                     <!-- Full Name / Username -->
                     <div class="input-field col s12 m4" style="margin-right: 20px;">
@@ -88,20 +88,5 @@
 {% endblock %}
 
 {% block javascript %}
-<script>
-    function togglePasswordVisibility(inputId, toggleIconId) {
-        const inputField = document.getElementById(inputId);
-        const toggleIcon = document.getElementById(toggleIconId);
-
-        if (inputField.type === "password") {
-            inputField.type = "text";
-            toggleIcon.classList.remove("fa-eye");
-            toggleIcon.classList.add("fa-eye-slash");
-        } else {
-            inputField.type = "password";
-            toggleIcon.classList.remove("fa-eye-slash");
-            toggleIcon.classList.add("fa-eye");
-        }
-    }
-</script>
+<script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
 {% endblock %}

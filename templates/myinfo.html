@@ -2,14 +2,14 @@
 {% extends "base.html" %}
 {% block content %}
     {% if session.user != "systemadmin" %}
-    <aside id="profileImage">
+    <aside>
         {% endif %}
         <div class="row">
             {% for users in users %}
-            <div class="col s12 m8 offset-m2 profileHeader">
+            <div class="col s12 m8 offset-m2 myinfo-header">
                 <!-- Username heading -->
                 <h3 class="center-align">
-                    Hey " {{ users.name }} "
+                    Hi " {{ users.name }} "
                 </h3>
             </div>
         </div>
@@ -17,7 +17,7 @@
         <br>
         <div class="container page-container">
             <div class="row">
-                <div class="card col s12 m8 offset-m2 card-panel userdetailscard">
+                <div class="card col s12 card-panel" id= "userdetailscard">
                     {% if username == "systemadmin" %}
                     <div class="row">
                         <div class="col s12 ">
@@ -65,18 +65,19 @@
                     <!--Buttons-->
                     <!-- Edit button -->
                     <div class="row">
-                        <div class="col s12 m2 " id="buts">
+                        <div class="col">
                             <a href="{{ url_for('profile', username=session['user']) }}"
                                 class="btn btn-small icon-left waves-effect waves-light teal darken-4 white-text text-lighten-4"><i
-                                    class="material-icons">arrow_back</i><small>Dashboard</small></a>
+                                    class="material-icons">arrow_back</i><small>Back</small></a>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col s12 m2 buts">
+                        <div class="col">
                             <a href="{{ url_for('update', users_id=users._id) }}"
                         class="btn btn-small icon-left waves-effect waves-light blue lighten-2 white-text text-lighten-4">
                             <i class="material-icons">edit</i><small>Update</small></a>
                         </div>
+                    </div>
+                    <div class="row">
+                        
                     </div>
                 </div>
                 {% endfor %}
@@ -88,22 +89,5 @@
 {% endblock %}
 <!-- Script tags -->
 {% block javascript %}
-
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        displayCard();
-    });
-
-    function displayCard() {
-        const Properties = document.querySelectorAll(".travel-card");
-
-        if (Properties.length == 0) {
-            noCardDisplayCard.style.display = "block";
-        } else {
-            noCardDisplayCard.style.display = "none";
-
-        }
-    }
-</script>
-
+<script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
 {% endblock %}

@@ -164,52 +164,49 @@ def login():
     return render_template("login.html")
 
 
-# USER/ADMIN CHANGE PASSWORD REQUEST
 @app.route("/changepass", methods=["GET", "POST"])
 @login_required
 def changepass():
     """
-    Renders 'changepass.html' when request method is get.
+    Handles user password change requests.
     """
     if request.method == "POST":
-        # Find username
-        username = mongo.db.users.find_one(
-            {"username": session["user"]})
-
-        # Acquire form fields
+        username = mongo.db.users.find_one({"username": session["user"]})
+        
         current_password = request.form.get("current_password")
         new_password = request.form.get("new_password")
         confirm_password = request.form.get("confirm_new_password")
 
-        # Validate that input is not empty
-        if current_password and new_password and confirm_password is None:
+        if not current_password or not new_password or not confirm_password:
             flash("Please complete the required fields")
             return redirect(url_for('changepass'))
 
-        # Check to see if new_password and confirm_password is same
-        if new_password == confirm_password:
+        if new_password != confirm_password:
+            flash("New password and confirmation do not match")
+            return redirect(url_for('changepass'))
+        
+        if check_password_hash(username["password"], current_password):
+            new_hash_password = generate_password_hash(new_password)
+            mongo.db.users.update_one(
+                {"username": session["user"]},
+                {"$set": {"password": new_hash_password}}
+            )
+            flash("Password successfully changed!")
+            return redirect(url_for('success'))
 
-            # Use check_password_hash to ensure that
-            # the current password is the same as database
-            if check_password_hash(username["password"], current_password):
-
-                # Generate a new password hash:
-                new_hash_password = generate_password_hash(new_password)
-
-                # New entry to the database
-                new_password_entry = {"password": new_hash_password}
-
-                # Update database and return
-                mongo.db.users.update_one(
-                    {"username": session["user"]}, {"$set": new_password_entry}
-                    )
-                flash("Password succesfully changed!")
-                return redirect(url_for('changepass'))
-
-        flash("Changing password failed!")
-        return render_template("changepass.html")
+        flash("Current password is incorrect")
+        return redirect(url_for('changepass'))
 
     return render_template("changepass.html")
+
+
+@app.route("/success")
+@login_required
+def success():
+    """
+    Renders the success page after password change.
+    """
+    return render_template("success.html")
 
 
 # USER PROFILE DASHBOARD
@@ -359,6 +356,7 @@ def update(users_id):
 def travel_info():
     if request.method == "POST":
         travel_dates = request.form.get("travel_dates")
+        nights = request.form.get("nights")
         flexible_dates = request.form.get("flexible_dates")
         flying_from = request.form.get("flying_from")
         number_adult_guests = request.form.get("number_adult_guests")
@@ -374,6 +372,7 @@ def travel_info():
         travel_entry = {
             "username": session["user"],
             "travel_dates": travel_dates,
+            "nights": nights,
             "flexible_dates": flexible_dates,
             "flying_from": flying_from,
             "number_adult_guests": number_adult_guests,

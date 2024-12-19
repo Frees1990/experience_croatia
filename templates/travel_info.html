@@ -20,12 +20,27 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field outlined col s12 m4 m-3 custom-input">
+                    <div class="input-field outlined col s12 m3 m-3 custom-input">
                         <i class="fas fa-calendar-alt fa-lg prefix" style="color: #0b5606;"></i>
                         <input placeholder="Preferred Travel Dates" type="text" class="datepicker" id="travel_dates"
                             name="travel_dates" required>
                     </div>
-                    <div class="input-field outlined col s12 m4 m-3">
+                    <div class="input-field outlined col s12 m3 m-3">
+                        <i class="fas fa-calendar-alt fa-lg prefix" style="color: #0b5606;"></i>
+                        <select id="nights" name="nights" required style="background-color: white;">
+                            <option value="" disabled selected>Nights?</option>
+                            <option value="2/Nights">2/Nights</option>
+                            <option value="3/Nights">3/Nights</option>
+                            <option value="4/Nights">4/Nights</option>
+                            <option value="5/Nights">5/Nights</option>
+                            <option value="6/Nights">6/Nights</option>
+                            <option value="7/Nights">7/Nights</option>
+                            <option value="8/Nights">8/Nights</option>
+                            <option value="9/Nights">9/Nights</option>
+                            <option value="10/Nights">10/Nights</option>
+                        </select>
+                    </div>
+                    <div class="input-field outlined col s12 m3 m-3">
                         <i class="fas fa-calendar-alt fa-lg prefix" style="color: #0b5606;"></i>
                         <select id="flexible_dates" name="flexible_dates" required style="background-color: white;">
                             <option value="" disabled selected>Flexible Dates?</option>
@@ -33,7 +48,7 @@
                             <option value="no">No</option>
                         </select>
                     </div>
-                    <div class="input-field outlined col s12 m4 m-3 m-3">
+                    <div class="input-field outlined col s12 m3 m-3">
                         <i class="fas fa-plane-departure fa-lg prefix" style="color:#0b5606"></i>
                         <label for="flying_from">Preferred Departure Airport:</label>
                         <select id="flying_from" name="flying_from" required>
@@ -113,10 +128,5 @@
 
 {% endblock %}
 {% block scripts %}
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var elems = document.querySelectorAll('select');
-        var instances = M.FormSelect.init(elems, {});
-    });
-</script>
+<script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
 {% endblock %}
