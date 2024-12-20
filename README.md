@@ -2,7 +2,7 @@
 
 ### Welcome to EXPERIENCE PULA CROATIA!
 
-![UI](static/readme-images/documentationfront.png)
+![UI](static/readme-images/ui.png)
 
 This website is designed to offer a personalized travel experience to Pula, Croatia. It provides customized travel arrangements, including flights, accommodation, and activities for adults, kids, or families. The site aims to showcase the beauty of Pula and the exciting adventures it offers.
 
@@ -81,29 +81,19 @@ The site is designed to be intuitive, ensuring users can easily find what they n
 ### **Colour Palette**
 
   ![1](static/readme-images/1.png)  
-  ![2](static/readme-images/2.png)  
-  ![3](static/readme-images/3.png)   
-  ![4](static/readme-images/4.png)
-  ![5](static/readme-images/5.png)
+  ![2](static/readme-images/2.png)   
   ![6](static/readme-images/6.png)
   ![7](static/readme-images/7.png)
   ![8](static/readme-images/8.png)
   ![9](static/readme-images/9.png)
   ![10](static/readme-images/10.png)
-  ![11](static/readme-images/11.png)
   ![12](static/readme-images/12.png)
   ![13](static/readme-images/13.png)
-  ![14](static/readme-images/14.png)
 
 ### **Typography**
   - font-family: 'Shadows Into Light', 'Arial Narrow', Arial, cursive;
-  ![f1](static/readme-images/f1.png)
-
   - font-family: "Questrial", sans-serif;
-  ![f2](static/readme-images/f2.png)
-
   - font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
-  ![f3](static/readme-images/f3.png)
 
 ### **Images**
 #### Home Page / Carousel / 
@@ -122,11 +112,7 @@ The site is designed to be intuitive, ensuring users can easily find what they n
 
   ![Nav Bar](static/readme-images/mobilenav.png)
 
-   -  The navigation bar is simple, clear, and features active highlights to show users which page they are on. It turns into a toggle button on smaller screens, making it mobile-friendly.
-
 ### CAPTURING USERS ATTENTION WITH CAROUSEL 
-
-  ![carousel](static/readme-images/carousel.mp4)
 
    -  The home page features a captivating image carousel to quickly engage users with stunning visuals of Pula, sparking interest in the destination. 
 
@@ -138,23 +124,18 @@ The site is designed to be intuitive, ensuring users can easily find what they n
 
 
 ### review
-  ![Reviews](static/readme-images/review.png)
 
-  - Putting a few reviews instantly visible gives a massive inpact to the users without having to be looking around.
-
+  - Putting a few reviews instantly visible gives a massive inpact to the users without having to look around.
 
 ### ADMIN FUNCTIONALITY
-  ![admin ](static/readme-images/AdminFunctionality.png)
 
   - Admin users have the ability to manage accounts, travel requests, and update statuses for completed or pending travel arrangements. 
 
-  ### CONTACT PAGE 
-  ![Contact Page](static/readme-images/contact.png)
+### CONTACT PAGE 
 
   - A contact page is available for both registered users and visitors who may have inquiries before registering. 
 
-  ### REGISTER PAGE 
-  ![Register Page](static/readme-images/register.png)
+### REGISTER PAGE 
 
   - The registration page is straightforward, with clear instructions for users to create their profiles and request personalized travel experiences.
 
@@ -162,45 +143,50 @@ The site is designed to be intuitive, ensuring users can easily find what they n
   - English
 
 ### **Navigation Bar**
-- I have used Materialized for my Navigation bar which basic functionality for easy use. Using Bootstrap helps with the mobile first functionality of my website. Apart from this I have also added a highlight on the current page that the user is on. 
+- I have used Materialized for my Navigation bar which has a basic functionality for easy use.
 
 ### **Landing Page**
-- My landing page speaks for itself, the cover photo shows what the site is for and about. It also has my personal introduction which explains about the site. 
+- My landing page speaks for itself, the cover photo shows what the site is for and what it is about. Furthermore, users could also navigate to the About Pula Page where users can read about what Pula can offer. 
 
 ### **Footer**
 - Social Media links which uses fontawesome icons to make it look appealing.
 
 ### **Future Features**
-- I was hoping to add a little bit more pages to offer other services but I havent got a lot of time to finish this project.
+- Add another destination still targeting Croatia, but istead of just Pula the site could offer other places Zagreb, Split, Zadar etc.  
 
 ## **Testing**
 ### Bugs and Issues
 
-  - #### IDE Issues
-    - My IDE crashed because I cleared my cookies and it caused my HEROKO to logged me out and lock me out, it took me a while to figure it out but then It was showing in GITHUB that the HEROKU was failing. Relaize that I was also logged out from the CI student account. 
   - #### Code Issues
-    
-    - While creating my flask app, I could not seem to load up the site at first, reason because the version was not correct. I did a little bit of research and tried it out myself but could not fix it. With the help of student support they pointed me to the right direction.
 
-    - On the earliest stage of building the site, I didn't have much issues with coding but then. When I was trying to code a Delete route that passes to a Materialize Modal, I could not seem to pass it through the modal only to find out that instead of using the user I added username. This is for the delte functionality in the Admin page.
+    - In the early stages of building the site, coding went smoothly without many issues. However, when I attempted to create a Delete route for the Admin Page that worked with a Materialize Modal, I ran into a problem. The route wasn’t passing through the modal correctly. After investigating, I realized that the issue was due to using "username" instead of "user". 
 
-    - The same issue occured when I was trying to figure out to Delete the current Travel request passing through Materialize Modal. It keeps saying that I have too many reroutes to the newTravel page, removing the the redirection code in the newTravle,html but it causes my admin page to fail. I tried to find a way to fix it without creating another page but the only feesable solution was to create another page that renders the travel info data the same as the newTravel. 
+    - There were DATA's that were not reflecting in the backend(MONGODB) such as the travel date flexibility and the departure port. In the app.py file the names were incorrectly misspelled causing the backend not to store it and as well render to another page. 
 
-    - Making my website responsive to screen size:
+    - The Admin page and user page was not properly responding to each other, I figured out how to do one route to render the travel_info form. Instead of having newTravel and manageTravel I have combined both now only using just the newTravel to render travekl_info's in both user and admin pages. See below flow chart.
 
-          Apart from bootstrap I also have used media queries which I followed from "LOVE RUNNING mini project"
+    ![Chart](static/readme-images/chart.png)
+
+
+  
+  - #### UI Issues
+   - Many users will access the app from mobile devices, so the UI must adapt accordingly and making sure that designing the app for mobile responsiveness. Apart from using materialize, I find media queries useful especially when defining a specific part you want to respond when the screen goes smaller. For example the About Pula page, when the screen goes smaller the font's doesn't seem to respond, with the help of media queries I was able to make the fonts the size I find fitting for the size screen. 
+
 
 ### **HTML Validatior Test**
 
     It showed quite a few errors that I have already fixed but I wasn't able to get a screenshot of. 
   - Base/Index - 
-https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Findex.html
+https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2F
 
   - About - 
 https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fabout
 
   - Contact -
 https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fcontact
+
+  - Contact / thank-you
+https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fthank_you
 
   - Registration - 
 https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fregister
@@ -211,46 +197,76 @@ https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.h
   - User Profile Page - 
 https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fprofile%2Ftest2
 
-  - User Info Page - 
-https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fmyinfo
-
-USER TRAVEL REQ
-https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2FnewTravel
-
-CHANGEPASS
-https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fchangepass
-
-ADMIN Profile page 
-https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fprofile%2Fsystemadmin
-
-ADMIN user manager
-https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fmanageusers%2Fsystemadmin
-
-ADMIN travel request manager 
-https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2FnewTravel
-
-USER TRAVEL REQUEST FORM
+  - User Travel_info Request - 
 https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Ftravel_info
 
-UPDATE USER INFO
+  - User Personal Account Info Page / UPDATE INFO PAGE - 
+https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fmyinfo
+
 https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fupdate%2F6761abae09aec3a80580361b
 
+  - User Travel Request List Page / UPDATE TRAVEL INFO PAGE -
+https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2FnewTravel
 
-  
+https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2FupdateTravel%2F67640e47bcd1db962961bbeb
+
+  - Change Password Page -
+https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fchangepass
+
+  -Admin Profile -
+https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fprofile%2Fsystemadmin
+
+ - ADMIN user manager - 
+https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fmanageusers%2Fsystemadmin
+
+  - ADMIN travel request manager -
+https://validator.w3.org/nu/?doc=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2FnewTravel
+
 
 ### **CSS Validator Test**
   - style.css - 
 https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fstatic%2Fcss%2Fstyle.css&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en
 
+  - media-queries.css -
+https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fexperience-croatia-032eba8fb52c.herokuapp.com%2Fstatic%2Fcss%2Fmedia-queries.css&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en
+
 ### **JS Validator Test**
   - script
-  ![JS.HINT](static/readme-images/jswitherror.png) 
+  ![JS.HINT](static/readme-images/JSHINT.png) 
 
-  There are still errors in here however these are needed in my code to work
+  There were errors but the errors does not cause any problems on my javascript
 
-### **Flask testing**
+    1. These are the majority of errors (see below) I have which can be solved by adding this on top of the code /* jshint esversion: 6 */ 
 
-I have been trying to find somewhere I could test my app. I did come across with Pytest but it seems so complicated. I did not dare push through with it but would def find time to go into details. 
+      ![JS.HINT](static/readme-images/jshinterror.png) 
+
+    2. Undefined Variable 
+
+          "M" was showing undefined but the "M" is a global variable. For it not to show as error I have placed /* global M */ on line 2 in the jshint validator.
+
+    3. Unused variables error which are Two unused variable in line 154	togglePasswordVisibility and 168	validateForm 
+    
+        - These are used, if I removed the togglePasswordVisiility I would not be able to see if the password that I entered in resgistration form and changepassword form same as the validation form, this is used to validate the inputs in the form before submitting it not allowing the user to go forward if none of the requested information has been satisfies based on it's requirement. 
+        
+        So to ignore this in jshint I have added these /* exported validateForm */ , /* exported togglePasswordVisibility */
+
+### **Lighthouse**
+![lighthouse](static/readme-images/a.png) 
+![lighthouse](static/readme-images/b.png) 
+![lighthouse](static/readme-images/c.png) 
+![lighthouse](static/readme-images/d.png) 
+![lighthouse](static/readme-images/e.png) 
+![lighthouse](static/readme-images/f.png) 
+![lighthouse](static/readme-images/g.png) 
+![lighthouse](static/readme-images/m1.png) 
+![lighthouse](static/readme-images/m2.png) 
+![lighthouse](static/readme-images/m3.png) 
+![lighthouse](static/readme-images/m4.png) 
+![lighthouse](static/readme-images/m5.png) 
+![lighthouse](static/readme-images/m6.png) 
+![lighthouse](static/readme-images/m7.png) 
+![lighthouse](static/readme-images/m8.png) 
+![lighthouse](static/readme-images/m9.png) 
 
 ## **Libraries and Programs used**
 - Materialize 1.0.0
@@ -264,73 +280,99 @@ I have been trying to find somewhere I could test my app. I did come across with
 - stackoverflow
 - w3 checkers
 - js hint
+- E-mail JS
+- blinker==1.9.0
+- click==8.1.7
+- dnspython==2.7.0
+- Flask==3.1.0
+- Flask-Mail==0.10.0
+- Flask-PyMongo==2.3.0
+- Flask-SQLAlchemy==2.5.1
+- Flask-WTF==1.2.2
+- greenlet==3.1.1
+- itsdangerous==2.2.0
+- numpy==2.1.3
+- pandas==2.2.3
+- psycopg2==2.9.10
+- pymongo==4.10.1
+- python-dotenv==1.0.1
+- pytz==2024.2
+- SQLAlchemy==1.4.46
+- tzdata==2024.2
+- Werkzeug==3.1.3
+- WTForms==3.2.1
 
 
 ## **Deployment & Usage**
 ### **Deployment**
-To deploy my site on Git Hub I made the following steps. I found out how to deploy my project when I was playing around with github trying to fix my incorrect path which hinders my images to load up on live. 
 
-These are the steps:
+  1. Set Up Your Flask App for Deployment
+    - Ensure your Flask app follows the correct structure.
+    - Install necessary libraries
+  2. Create a Procfile
+  3. Initialize Git
+  4. Create a Heroku Account
+  5. Log In to Heroku
+  6. Create a New Heroku App
+  7. Configure Environment Variables
+      - Go to settings 
+      - Click Reveal Config Vars 
+      - Copy the ones in your env.py file
+      Sample env.py file:
+        import os
 
- - Go to the Settings tab of your GitHub repo.
- - On the left-hand sidebar, in the Code and automation section, select Pages.
- - Make sure: Source is set to 'Deploy from Branch'.
- - Main branch is selected.
- - Folder is set to / (root).
- - Under Branch, click Save.
- - Go back to the Code tab. Wait a few minutes for the build to 
- - finish and refresh your repo.
- - On the right-hand side, in the Environments section, click on 'github-pages'.
- - Click View deployment to see the live site
+        os.environ.setdefault("IP", "0.0.0.0")
+        os.environ.setdefault("PORT", "5000")
+        os.environ.setdefault("SECRET_KEY", "replace with your own value")
+        os.environ.setdefault("MONGO_URI", "replace with your own value")
+        os.environ.setdefault("MONGO_DBNAME", "replace with your own dbname")
+  8. Navigate to Deploy 
+      - Connect to Github
+      - Find your repository "example: experience_croatia" click connect
+      - Click Enable Automatic Deploys 
+      - Make sure to choose main then cick on deploy. 
+
 
 ### **Fork**
-  1.  On GitHub.com, navigate to the experience-croatia repository.
-  2.  In the top-right corner of the page, click Fork.
-  3.  Under "Owner," select the dropdown menu and click an owner for the forked repository.
-  4.  By default, forks are named the same as their upstream repositories. Optionally, to further distinguish your fork, in the "Repository name" field, type a name.
-  5.  Optionally, in the "Description" field, type a description of your fork.
-  6.  Optionally, select Copy the DEFAULT branch only.
-  7.  Click Create fork.
+  
+  By forking a GitHub repository, you create a copy of the original repository under your own GitHub account. This allows you to view or make changes independently without impacting the original repository. To fork this repository, follow these steps:
+
+  1. Log in to GitHub and locate this GitHub Repository experience_croatia.
+  2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
+  3. Once clicked, you should now have a copy of my original repository in your own GitHub account!
+
 
 ### **Cloning**
-  1.  On GitHub.com, navigate to your fork of the Spoon-Knife repository.
-  2.  Above the list of files, click  Code.
-  3.  Copy the URL for the repository.
-    - To clone the repository us
-    itory using an SSH key, including a certificate issued by your organization's SSH certificate authority, click SSH, then click .
-    - To clone a repository using GitHub CLI, click GitHub CLI, then click .
-  4.  Open Git Bash.
-  5.  Change the current working directory to the location where you want the cloned directory.
-  6.  Type git clone, and then paste the URL you copied earlier. It will look like this, with your GitHub username instead of YOUR-USERNAME:
-  7.  Press Enter. Your local clone will be created.
+  You can clone the repository by following these steps:
+
+  1. Go to the GitHub repository.
+  2. Locate the Code button above the list of files and click it.
+  3. Select if you prefer to clone using HTTPS, SSH, or GitHub CLI and click the copy button to copy the URL to your clipboard.
+  4. Open Git shell or Terminal.
+  5. Change the current working directory to the one where you want the cloned directory.
+  6. In your IDE Terminal, type the following command to clone my repository:
+          git clone https://github.com/Frees1990/experience_croatia.git
+Press Enter to create your local clone.
+
 
 ## **Credits**
- - versions of the app that needed to be changed in the requirements.txt
-    - ![STACKOVERFLOW](static/readme-images/unnamed.png)  
- - Problems with deployment when images were not loading up
+
+ - Problems with deployment when images were not loading up I got the information on how to solve it from the list bellow 
     - initial information was from Stackoverflow but nothing was copied from them. 
     - Guidance was given by my mentor Danielle Hamilton.
+
 - compressing Images
   - https://squoosh.app/
 
-- Confirmation Page Idea (This is will be made interactive during Java script milestone)
-The Idea is to make the contact page look interactive and to show the benefits of it. 
-  -  Daniel Hamilton
-
-- Embed video instructions from
+- Embed video instructions and information about flask app, how to start it and how it works. 
   - Code Institue 
   - W3schools
-
-- Some content from
-  - https://www.legislation.gov.uk/ukpga/1985/68/contents
 
 - Image converting from jpg to webp
   https://image.online-convert.com/convert-to-webp
 
-- Lighthouse Information Guidelines Info 
-Lightouse
-
-borrowd some code from my co-student Mika Virtubo 
+- Change password page and Hamburger 
+  Idea was taken from Mika Virtucio(Co-student code institute)
 
 ### **Media**
 
