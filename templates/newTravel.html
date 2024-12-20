@@ -3,6 +3,19 @@
 {% block content %}
 
 <div class="page-container">
+    <aside class="container flash">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="row">
+            <div class="col s12 m4 flashes card flash-card">
+                <h5>{{ message }}</h5>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </aside>
     <div class="row">
         <div class="col s12 m8 offset-m2 newTravelHeader">
             {% if username != "systemadmin" %}
